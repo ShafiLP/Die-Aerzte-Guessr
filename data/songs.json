@@ -1,0 +1,73 @@
+[
+    {"song": "Scheißtyp", "icon": "debil"},
+    {"song": "Paul", "icon": "debil"},
+    {"song": "Kamelralley", "icon": "debil"},
+    {"song": "Frank'n'stein", "icon": "debil"},
+    {"song": "El Cattivo", "icon": "debil"},
+    {"song": "Claudia hat 'nen Schäferhund", "icon": "debil"},
+    {"song": "Mädchen", "icon": "debil"},
+    {"song": "Mr. Sexpistols", "icon": "debil"},
+    {"song": "Micha", "icon": "debil"},
+    {"song": "Zu spät", "icon": "debil"},
+    {"song": "Roter Minirock", "icon": "debil"},
+    {"song": "Schlaflied", "icon": "debil"},
+    {"song": "Teenager Liebe", "icon": "debil"},
+    {"song": "Füße vom Tisch", "icon": "debil"},
+
+
+
+    {"song": "Du willst mich küssen", "icon": "schatten"},
+    {"song": "Dein Vampyr", "icon": "schatten"},
+    {"song": "...und es regnet", "icon": "schatten"},
+    {"song": "Alles", "icon": "schatten"},
+    {"song": "Rennen nicht Laufen!", "icon": "schatten"},
+    {"song": "Wie ein Kind", "icon": "schatten"},
+    {"song": "Wegen Dir", "icon": "schatten"},
+    {"song": "Die Antwort bist Du", "icon": "schatten"},
+    {"song": "Buddy Holly's Brille", "icon": "schatten"},
+    {"song": "Käfer", "icon": "schatten"},
+    {"song": "Ich weiss nicht, ob es Liebe ist", "icon": "schatten"},
+    {"song": "\"Was hat der Junge doch für Nerven\"", "icon": "schatten"},
+
+
+
+    {"song": "Wie am ersten Tag", "icon": "aerzte"},
+    {"song": "Mysteryland", "icon": "aerzte"},
+    {"song": "Sweet Sweet Gwendoline", "icon": "aerzte"},
+    {"song": "Ist das alles?", "icon": "aerzte"},
+    {"song": "Frühjahrsputz", "icon": "aerzte"},
+    {"song": "Alleine in der Nacht", "icon": "aerzte"},
+    {"song": "Jenseits von Eden", "icon": "aerzte"},
+    {"song": "Wir werden schön", "icon": "aerzte"},
+    {"song": "Für immer", "icon": "aerzte"},
+    {"song": "Ich bin reich", "icon": "aerzte"},
+    {"song": "Zum letzten Mal", "icon": "aerzte"},
+    
+
+
+
+    {"song": "KFM", "icon": "dunkel"},
+    {"song": "WISSEN", "icon": "dunkel"},
+    {"song": "DUNKEL", "icon": "dunkel"},
+    {"song": "ANTI", "icon": "dunkel"},
+    {"song": "DOOF", "icon": "dunkel"},
+    {"song": "SCHREI", "icon": "dunkel"},
+    {"song": "KRAFT", "icon": "dunkel"},
+    {"song": "SCHWEIGEN", "icon": "dunkel"},
+    {"song": "TRISTESSE", "icon": "dunkel"},
+    {"song": "KERNGESCHÄFT", "icon": "dunkel"},
+    {"song": "NOISE", "icon": "dunkel"},
+    {"song": "EINSCHLAG", "icon": "dunkel"},
+    {"song": "ANASTASIA", "icon": "dunkel"},
+    {"song": "BESSER", "icon": "dunkel"},
+    {"song": "NACHMITTAG", "icon": "dunkel"},
+    {"song": "MENSCHEN", "icon": "dunkel"},
+    {"song": "ERHABEN", "icon": "dunkel"},
+    {"song": "DANACH", "icon": "dunkel"},
+    {"song": "DEMOKRATIE", "icon": "dunkel"},
+
+    {"song": "AUSERZÄHLT", "icon": "noiseSingle"},
+    {"song": "DOBLY", "icon": "noiseSingle"},
+    {"song": "SCHRITTE", "icon": "kraftSingle"},
+    {"song": "SCHULDSELBER", "icon": "dunkelSingle"}
+]

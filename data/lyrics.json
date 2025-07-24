@@ -1,57 +1,244 @@
 [
-    {"lyric": "Ey, Sahnie, Bass-Solo!", "song": "Scheißtyp"},
-    {"lyric": "Trittst du Hunde in der U-Bahn? (Hey, Hey)", "song": "Scheißtyp"},
-    {"lyric": "Du warst scheiße schon als Kind", "song": "Scheißtyp"},
+    {"song": "Scheißtyp", "lyric": "Ey, Sahnie, Bass-Solo!"},
+    {"song": "Scheißtyp", "lyric": "Trittst du Hunde in der U-Bahn? (Hey, Hey)"},
+    {"song": "Scheißtyp", "lyric": "Du warst scheiße schon als Kind"},
     
-    {"lyric": "Und er bringt kleine Mädchen zur Strecke", "song": "Paul"},
-    {"lyric": "Er scheint zu fliegen, genauso wie Supermann", "song": "Paul"},
-    {"lyric": "Er hat ein gold'nes Kettchen, das ihm Glück bringt", "song": "Paul"},
+    {"song": "Paul", "lyric": "Und er bringt kleine Mädchen zur Strecke"},
+    {"song": "Paul", "lyric": "Er scheint zu fliegen, genauso wie Supermann"},
+    {"song": "Paul", "lyric": "Er hat ein gold'nes Kettchen, das ihm Glück bringt"},
     
-    {"lyric": "Uns're Liebe war so schön", "song": "Kamelralley"},
-    {"lyric": "Stundenlang habe ich dir auf der Geige vorgegeigt", "song": "Kamelralley"},
-    {"lyric": "Ich sitz' schon Stunden hier und denk an dich", "song": "Kamelralley"},
+    {"song": "Kamelralley", "lyric": "Uns're Liebe war so schön"},
+    {"song": "Kamelralley", "lyric": "Stundenlang habe ich dir auf der Geige vorgegeigt"},
+    {"song": "Kamelralley", "lyric": "Ich sitz' schon Stunden hier und denk an dich"},
     
-    {"lyric": "Ich baute eine Frau zum Zeitvertreib", "song": "Frank'n'stein"},
-    {"lyric": "Das Ding ging wieder in die Hose", "song": "Frank'n'stein"},
-    {"lyric": "Als Sahnie Nummer drei sofort zu Asche zerfiel", "song": "Frank'n'stein"},
+    {"song": "Frank'n'stein", "lyric": "Ich baute eine Frau zum Zeitvertreib"},
+    {"song": "Frank'n'stein", "lyric": "Das Ding ging wieder in die Hose"},
+    {"song": "Frank'n'stein", "lyric": "Als Sahnie Nummer drei sofort zu Asche zerfiel"},
     
-    {"lyric": "Und lächelt, denn er weiß, das Böse siegt immer", "song": "El Cattivo"},
-    {"lyric": "Ja, so muss ein Cowboy sein, dreckig feige und gemein", "song": "El Cattivo"},
-    {"lyric": "Seine kleine Beute verspielt er im Saloon", "song": "El Cattivo"},
+    {"song": "El Cattivo", "lyric": "Und lächelt, denn er weiß, das Böse siegt immer"},
+    {"song": "El Cattivo", "lyric": "Ja, so muss ein Cowboy sein, dreckig feige und gemein"},
+    {"song": "El Cattivo", "lyric": "Seine kleine Beute verspielt er im Saloon"},
 
-    {"lyric": "Und er riet ihr aufzuhör'n, denn sie war total verharzt" , "song": "Claudia hat 'nen Schäferhund"},
-    {"lyric": "Abends springt er in ihr Bett und dann geht es rund", "song": "Claudia hat 'nen Schäferhund"},
-    {"lyric": "Claudia sieht Spitze aus", "song": "Claudia hat 'nen Schäferhund"},
+    {"song": "Claudia hat 'nen Schäferhund", "lyric": "Und er riet ihr aufzuhör'n, denn sie war total verharzt"},
+    {"song": "Claudia hat 'nen Schäferhund", "lyric": "Abends springt er in ihr Bett und dann geht es rund"},
+    {"song": "Claudia hat 'nen Schäferhund", "lyric": "Claudia sieht Spitze aus"},
     
-    {"lyric": "Sie hieß Angelika und sie war plötzlich da", "song": "Mädchen"},
-    {"lyric": "Marilyn (Monroe), Nastassja (Kinski), Boy (George) und Nena (Kerner)", "song": "Mädchen"},
-    {"lyric": "Sie zog ins Nachbarhaus. Seitdem war alles aus", "song": "Mädchen"},
+    {"song": "Mädchen", "lyric": "Sie hieß Angelika und sie war plötzlich da"},
+    {"song": "Mädchen", "lyric": "Marilyn (Monroe), Nastassja (Kinski), Boy (George) und Nena (Kerner)"},
+    {"song": "Mädchen", "lyric": "Sie zog ins Nachbarhaus. Seitdem war alles aus"},
     
-    {"lyric": "Ich war Mister Sexpistols, du warst Lady Punk", "song": "Mr. Sexpistols"},
-    {"lyric": "Eine Träne rinnt mir über das Gesicht (Wo-ho), doch über die Aknepickel kommt sie nicht", "song": "Mr. Sexpistols"},
-    {"lyric": "In der Monatskarte ein Foto von dir", "song": "Mr. Sexpistols"},
+    {"song": "Mr. Sexpistols", "lyric": "Ich war Mister Sexpistols, du warst Lady Punk"},
+    {"song": "Mr. Sexpistols", "lyric": "Eine Träne rinnt mir über das Gesicht (Wo-ho), doch über die Aknepickel kommt sie nicht"},
+    {"song": "Mr. Sexpistols", "lyric": "In der Monatskarte ein Foto von dir"},
     
-    {"lyric": "Er ist unrasiert und staubig, denn sein Tag war ziemlich lang", "song": "Micha"},
-    {"lyric": "Tritt sein Pferd und reitet wütend in den Sonnenuntergang, yee-ha!", "song": "Micha"},
-    {"lyric": "Und er spielt dies eine Lied, weil er gar kein andres kennt", "song": "Micha"},
+    {"song": "Micha", "lyric": "Er ist unrasiert und staubig, denn sein Tag war ziemlich lang"},
+    {"song": "Micha", "lyric": "Tritt sein Pferd und reitet wütend in den Sonnenuntergang, yee-ha!"},
+    {"song": "Micha", "lyric": "Und er spielt dies eine Lied, weil er gar kein andres kennt"},
     
-    {"lyric": "Warum hast du mir das angetan? Ich hab's von einem Bekannten erfahr'n", "song": "Zu spät"},
-    {"lyric": "Du liebst ihn nur, weil er ein Auto hat", "song": "Zu spät"},
-    {"lyric": "Bei mir gab's nur Currywurst mit Pommes Frites", "song": "Zu spät"},
+    {"song": "Zu spät", "lyric": "Warum hast du mir das angetan? Ich hab's von einem Bekannten erfahr'n"},
+    {"song": "Zu spät", "lyric": "Du liebst ihn nur, weil er ein Auto hat"},
+    {"song": "Zu spät", "lyric": "Bei mir gab's nur Currywurst mit Pommes Frites"},
     
-    {"lyric": "Ein paar Omas musst'n dran glaub'n und ich fuhr einige Regale um", "song": "Roter Minirock"},
-    {"lyric": "Manchmal bescheißt sie mit dem Wechselgeld", "song": "Roter Minirock"},
-    {"lyric": "Sie ist das Mädchen von Kasse vier!", "song": "Roter Minirock"},
+    {"song": "Roter Minirock", "lyric": "Ein paar Omas musst'n dran glaub'n und ich fuhr einige Regale um"},
+    {"song": "Roter Minirock", "lyric": "Manchmal bescheißt sie mit dem Wechselgeld"},
+    {"song": "Roter Minirock", "lyric": "Sie ist das Mädchen von Kasse vier!"},
     
-    {"lyric": "Wehr dich nicht, es hat keinen Sinn", "song": "Schlaflied"},
-    {"lyric": "Es beißt dir in den Hals und trinkt dein Blut", "song": "Schlaflied"},
-    {"lyric": "Die Sonne geht auf und du bist tot", "song": "Schlaflied"},
+    {"song": "Schlaflied", "lyric": "Wehr dich nicht, es hat keinen Sinn"},
+    {"song": "Schlaflied", "lyric": "Es beißt dir in den Hals und trinkt dein Blut"},
+    {"song": "Schlaflied", "lyric": "Die Sonne geht auf und du bist tot"},
     
-    {"lyric": "Wie nennt man einen musikalischen Walfisch zum Mitrumtragen? Na, Wal-kman", "song": "Teenager Liebe"},
-    {"lyric": "Als ich sie das erste Mal auf dem Schulhof sah", "song": "Teenager Liebe"},
-    {"lyric": "Ich fragte eine Freundin nach der Nummer ihres Telefons", "song": "Teenager Liebe"},
+    {"song": "Teenager Liebe" ,"lyric": "Wie nennt man einen musikalischen Walfisch zum Mitrumtragen? Na, Wal-kman"},
+    {"song": "Teenager Liebe" ,"lyric": "Als ich sie das erste Mal auf dem Schulhof sah"},
+    {"song": "Teenager Liebe" ,"lyric": "Ich fragte eine Freundin nach der Nummer ihres Telefons"},
     
-    {"lyric": "Denn jetzt kommt, ja, jetzt kommt die Liebe physisch", "song": "Füße vom Tisch"},
-    {"lyric": "Baby, Baby, du und isch, das wird einfach fürchterlisch", "song": "Füße vom Tisch"},
-    {"lyric": "Der Rest, der kommt automatisch, drum nimm doch deine Quanten vom Tisch", "song": "Füße vom Tisch"}
+    {"song": "Füße vom Tisch", "lyric": "Denn jetzt kommt, ja, jetzt kommt die Liebe physisch"},
+    {"song": "Füße vom Tisch", "lyric": "Baby, Baby, du und isch, das wird einfach fürchterlisch"},
+    {"song": "Füße vom Tisch", "lyric": "Der Rest, der kommt automatisch, drum nimm doch deine Quanten vom Tisch"},
+
+
+
+
+
+    {"song": "Du willst mich küssen", "lyric": "Um dir mit meinem Wohlgeruch zu imponieren"},
+    {"song": "Du willst mich küssen", "lyric": "Du solltest wissen ich bin intellektuell"},
+    {"song": "Du willst mich küssen", "lyric": "Doch ob du mich lieb hast, das weiß ich nicht"},
+
+    {"song": "Dein Vampyr", "lyric": "Dein Hochzeitskleid verfärbt sich rot"},
+    {"song": "Dein Vampyr", "lyric": "Wie soll ich leben ohne Kuss von dir?"},
+    {"song": "Dein Vampyr", "lyric": "Die Fledermaus singt Liebeslieder"},
+
+    {"song": "...und es regnet", "lyric": "Ich glaub, ich hab Tuberkulose, doch ich will nicht ins Krankenhaus"},
+    {"song": "...und es regnet", "lyric": "Gestern bist du mir begegnet, das Wasser läuft mir in den Schuh"},
+    {"song": "...und es regnet", "lyric": "Doch wenn du kommst, wirst du dich freuen, ich hab dir Rosen mitgebracht"},
+
+    {"song": "Alles", "lyric": "Ich will alles, gib mir alles"},
+    {"song": "Alles", "lyric": "Doch dich anseh'n reicht mir nicht, heute will ich mehr von dir"},
+    {"song": "Alles", "lyric": "Du bist alles, was jetzt zählt, du hast alles, was mir fehlt"},
+
+    {"song": "Rennen nicht Laufen!", "lyric": "Du bist nicht verbittert, fährst nie Karussell"},
+    {"song": "Rennen nicht Laufen!", "lyric": "Du warst zu stolz zum Weinen, du lachtest nur vor Zorn"},
+    {"song": "Rennen nicht Laufen!", "lyric": "Ihre Schläge haben nur dein Feuer geschürt"},
+
+    {"song": "Wie ein Kind", "lyric": "Steh ich vor dem Spiegel, schau ich in Alltagssorgen rein"},
+    {"song": "Wie ein Kind", "lyric": "Heute heißt es, so was macht man nicht, dazu bist du viel zu alt"},
+    {"song": "Wie ein Kind", "lyric": "Den ganzen Tag rennst du der Kohle hinterher"},
+
+    {"song": "Wegen Dir", "lyric": "Wegen dir hab' ich mir die Beine glatt rasiert"},
+    {"song": "Wegen Dir", "lyric": "Ich werde noch verhungern wegen dir"},
+    {"song": "Wegen Dir", "lyric": "Uh, ich kann dich nicht vergessen, obwohl du so gemein bist zu mir"},
+
+    {"song": "Die Antwort bist Du", "lyric": "Wer findet Zwergewerfen königlich?"},
+    {"song": "Die Antwort bist Du", "lyric": "Wer ist mal 'ne Schlange und mal ein zahmes Lamm?"},
+    {"song": "Die Antwort bist Du", "lyric": "Wer stützt mich, wenn ich mal betrunken bin? "},
+
+    {"song": "Buddy Holly's Brille", "lyric": "Er hatte eine Brille und eine Gitarre"},
+    {"song": "Buddy Holly's Brille", "lyric": "Das Flugzeug stürzte ab, und die Welt war entsetzt"},
+    {"song": "Buddy Holly's Brille", "lyric": "Und das ist ein guter Grund, sich selber umzubringen"},
+
+    {"song": "Käfer", "lyric": "Ich saß auf einem Erbsenbaum"},
+    {"song": "Käfer", "lyric": "Es gibt auch Pferde, die machen muh"},
+    {"song": "Käfer", "lyric": "Hauptsache ist, ich werd' kein Käfer"},
+
+    {"song": "Ich weiss nicht, ob es Liebe ist", "lyric": "Wenn man beim Pinkeln ständig neben's Becken pisst"},
+    {"song": "Ich weiss nicht, ob es Liebe ist", "lyric": "Ist es wirklich Liebe oder finde ich Dich nur toll?"},
+    {"song": "Ich weiss nicht, ob es Liebe ist", "lyric": "Du lagst auf dem Bett und warst ziemlich breit"},
+
+    {"song": "\"Was hat der Junge doch für Nerven\"", "lyric": "Denn keiner hier spielt Bass so gut wie ich"},
+    {"song": "\"Was hat der Junge doch für Nerven\"", "lyric": "Er lässt mich niemals im Diktat abschreiben"},
+    {"song": "\"Was hat der Junge doch für Nerven\"", "lyric": "Er spricht fließend Latein und hat 'ne Eins in Physik"},
+
+
+
+
+
+    {"song": "Wie am ersten Tag", "lyric": "Gib ihr zum Abschied von mir einen letzten Kuss"},
+    {"song": "Wie am ersten Tag", "lyric": "Ich mag sie noch genauso wie am ersten Tag"},
+    {"song": "Wie am ersten Tag", "lyric": "Gestern hab' ich sie erkannt, sie ging mit dir Hand in Hand"},
+
+    {"song": "Mysteryland", "lyric": "Wer feige ist, hat Mut"},
+    {"song": "Mysteryland", "lyric": "Du hast zu lang gewartet, ich nehm' dich bei der Hand"},
+    {"song": "Mysteryland", "lyric": "Doch was hässlich scheint, wird plötzlich schön"},
+
+    {"song": "Sweet Sweet Gwendoline", "lyric": "Sie hatte ein Kabel, damit schnürte sie mich ein"},
+    {"song": "Sweet Sweet Gwendoline", "lyric": "Man könnte sie auch ideal in dieser Stellung WOW"},
+    {"song": "Sweet Sweet Gwendoline", "lyric": "Solange Du mich fesselst, bleibe ich bei Dir"},
+
+    {"song": "Ist das alles?", "lyric": "Da ließ sie meinen Drachen steigen, jetzt gab es kein zurück"},
+    {"song": "Ist das alles?", "lyric": "Doch zum Sterben geht's mir einfach noch nicht mies genug"},
+    {"song": "Ist das alles?", "lyric": "Besonders hasste mich ein Schläger, wie es ihn an jeder Ecke gibt"},
+
+    {"song": "Frühjahrsputz", "lyric": "Seit ein paar Wochen, sprichst du nur vom sauber machen"},
+    {"song": "Frühjahrsputz", "lyric": "Ich nehm' den Besen mit den Haaren"},
+    {"song": "Frühjahrsputz", "lyric": "Ich feg' das Dach, du schreist: „Hurra!!“"},
+
+    {"song": "Alleine in der Nacht", "lyric": "Ob ich Whiskey bestell'? Oder soll ich zu dir geh'n?"},
+    {"song": "Alleine in der Nacht", "lyric": "Da stoppt uns ein Polizist, eine Bank wurd ausgeraubt"},
+    {"song": "Alleine in der Nacht", "lyric": "Leider bin ich dafür sieben Jahre lang allein"},
+
+    {"song": "Jenseits von Eden", "lyric": "Wenn selbst ein Kind nicht mehr lacht wie ein Kind"},
+    {"song": "Jenseits von Eden", "lyric": "Dann haben wir umsonst gelebt"},
+    {"song": "Jenseits von Eden", "lyric": "Wenn man für Liebe bezahlen muss nur, um einmal glücklich zu sein"},
+
+    {"song": "Wir werden schön", "lyric": "Wir sind wie Wölfe im Unterholz"},
+    {"song": "Wir werden schön", "lyric": "Die Nacht soll unsere Bühne sein und nur für uns allein"},
+
+    {"song": "Für immer", "lyric": "Und weil du unerreichbar bist küss' ich dich in meinem Traum"},
+    {"song": "Für immer", "lyric": "Doch erst, wenn ich für immer schlafe werden wir zusammen sein"},
+    {"song": "Für immer", "lyric": "Ich träume jede Nacht von dir, dann bin ich nicht allein"},
+
+    {"song": "Ich bin reich", "lyric": "Mein Swimmingpool reicht von Casablanca bis nach Istanbul"},
+    {"song": "Ich bin reich", "lyric": "Denn meine Dienerschaft ernährt sich nur von Weißbrot mit Orangensaft"},
+    {"song": "Ich bin reich", "lyric": "Und ich habe eine kleine Gemeinsamkeit mit John Holmes"},
+    {"song": "Ich bin reich", "lyric": "Ich bin fast so klug wie ich schön bin"},
+
+    {"song": "Zum letzten Mal", "lyric": "Er gab ihr einen Kuss, sie lachte ihn aus"},
+    {"song": "Zum letzten Mal", "lyric": "Und er schwor sich sie hat heute zum letzten Mal über ihn gelacht"},
+    {"song": "Zum letzten Mal", "lyric": "Er küßte sie noch einmal - diesmal lachte sie nicht"},
+
+
+
+
+
+    {"song": "KFM", "lyric": "Unser Soundtrack für die Bundesrepublik: Karnickelfickmusik"},
+    {"song": "KFM", "lyric": "Wir sagen, „Spring!“, und du fragst, „Wie hoch?“"},
+
+    {"song": "WISSEN", "lyric": "Und alles, was ich für dich empfand, ist heut vom Winde verweht"},
+    {"song": "WISSEN", "lyric": "Und jetzt rufst du an und fragst mich, wie's um uns steht"},
+
+    {"song": "DUNKEL", "lyric": "Ich brauch' es schwarz, schwarz wie die Nacht"},
+    {"song": "DUNKEL", "lyric": "Mein Humor ist schwarz, schwarz wie Kaffee"},
+    {"song": "DUNKEL", "lyric": "Ich kam auf die Welt und fing an zu schrei'n"},
+
+    {"song": "ANTI", "lyric": "Wie lange wird es dauern bis zur Exekution?"},
+    {"song": "ANTI", "lyric": "Wenn das meine Wahl ist, bin ich gegen alles"},
+    {"song": "ANTI", "lyric": "Ich werf' die Münze nicht noch einmal"},
+
+    {"song": "DOOF", "lyric": "Nazis sind Nazis, weil sie Nazis sein woll'n"},
+    {"song": "DOOF", "lyric": "Da helf'n keine Pill'n, nicht beim allerbest'n Will'n"},
+    {"song": "DOOF", "lyric": "Menschen flücht'n nur, um uns die Arbeit wegzunehm'n"},
+
+    {"song": "SCHREI", "lyric": "Ich freu' mich drauf, euch weiter anzuschrei'n"},
+    {"song": "SCHREI", "lyric": "Mit Speed und Energy, Power-Heavy-Metal-Agonie"},
+
+    {"song": "KRAFT", "lyric": "Doch dann springt sie vor die U-Bahn und du fühlst dich ekelhaft"},
+    {"song": "KRAFT", "lyric": "Viel zu spät begreifst du: Lügen haben Konsequenzen"},
+    {"song": "KRAFT", "lyric": "Sie sind Waffen, sie sind Balsam, sie sind manchmal rätselhaft"},
+
+    {"song": "SCHWEIGEN", "lyric": "Ein Herz trocknet erst, dann zerbricht's"},
+    {"song": "SCHWEIGEN", "lyric": "Und sagte doch ganz genau nichts, nein, blieb stumm"},
+
+    {"song": "TRISTESSE", "lyric": "Man leidet einsam besser als vor Laienpublikum"},
+    {"song": "TRISTESSE", "lyric": "Einsamkeit und Schwermut sind nie weit von mir entfernt"},
+    {"song": "TRISTESSE", "lyric": "Ich gehe unter, doch es gibt kein SOS"},
+
+    {"song": "KERNGESCHÄFT", "lyric": "Musik ist älter als Kapitalismus"},
+    {"song": "KERNGESCHÄFT", "lyric": "Alles läuft im Loop, loop the loop, loop the loop"},
+
+    {"song": "NOISE", "lyric": "Ich weiß zwar nicht, was, doch ich vermisse es so sehr"},
+    {"song": "NOISE", "lyric": "Das Glück hat's gut mit mir gemeint und ich habe es gemolken"},
+    {"song": "NOISE", "lyric": "Die Sonne scheint und ich sehne mich nach Wolken"},
+
+    {"song": "EINSCHLAG", "lyric": "War es der Alkohol oder war ich nur gereizt?"},
+    {"song": "EINSCHLAG", "lyric": "Ein Schlag nur und schon lag sie da"},
+    {"song": "EINSCHLAG", "lyric": "Ich halte ihren letzten Blick für immer in mir fest"},
+
+    {"song": "ANASTASIA", "lyric": "Aber Kollegen nenn'n mich den Iltis"},
+    {"song": "ANASTASIA", "lyric": "Mein Profilbild ist Justin Biber, denn mir sind jüngere Mädchen lieber"},
+    {"song": "ANASTASIA", "lyric": "Musstest du mir in die Eier treten? Ich wollte nur kurz deine Brüste kneten"},
+
+    {"song": "BESSER", "lyric": "Und beim nächsten Mal, bin ich ein besserer Mann"},
+    {"song": "BESSER", "lyric": "Dass Perfektion nicht nur ein Wort ist, sondern mein Ziel für jeden Tag"},
+
+    {"song": "NACHMITTAG", "lyric": "Ich seufzte noch ein letztes Mal, dann war ich tot"},
+    {"song": "NACHMITTAG", "lyric": "Sie war so schön, wie sie dort stand mit ihrer Waffe in der Hand"},
+    {"song": "NACHMITTAG", "lyric": "Ich hätte sie zum Abschied so gern nochmal geküsst"},
+
+    {"song": "MENSCHEN", "lyric": "Ich glaub', die ganze Menschheit sollte mal zum Psychiater"},
+    {"song": "MENSCHEN", "lyric": "Menschen sind für Menschen nicht gemacht"},
+
+    {"song": "ERHABEN", "lyric": "Mit einer Sturheit, die wohl weltweit ihresgleichen sucht"},
+    {"song": "ERHABEN", "lyric": "Nichts ergibt Sinn, nichts funktioniert, zum Untergang prädestiniert"},
+    {"song": "ERHABEN", "lyric": "Weil erst im Scheitern wahre Schönheit liegt"},
+
+    {"song": "DANACH", "lyric": "Wirf sie nicht weg, es ist unsere Vergangenheit"},
+    {"song": "DANACH", "lyric": "Ich versuche nicht zu retten, was nicht mehr zu retten ist"},
+    {"song": "DANACH", "lyric": "Es ist nicht schön mit anzuseh'n, wie du das einstmals stolze Schiff gegen den Eisberg lenkst"},
+
+    {"song": "DEMOKRATIE", "lyric": "Freiheit ist keine App aus dem World Wide Web"},
+    {"song": "DEMOKRATIE", "lyric": "Dein Kreuz gegen Hakenkreuze, damit fängt es an"},
+    {"song": "DEMOKRATIE", "lyric": "Sie ist vielleicht die mächtigste Idee der Galaxie"},
+
+
+    {"song": "AUSERZÄHLT", "lyric": "So wunderbar, unsagbar krass, die Rede ist ganz klar vom Bass"},
+    {"song": "AUSERZÄHLT", "lyric": "Doch klingt ein Bass erst recht apart mit dem Sound vom Kaffeeautomat"},
+
+    {"song": "DOBLY", "lyric": "Ich hab' mir einen Synthie gekauft"},
+    {"song": "DOBLY", "lyric": "Dank der gesenkten Mehrwertsteuer war er auch gar nicht so teuer"},
+
+    {"song": "SCHRITTE", "lyric": "Ich schick' dich gerne zu den Sternen, ich weiß nur noch nicht, wie"},
+    {"song": "SCHRITTE", "lyric": "Ich feiere ein Freudenfest immer wenn du den Raum verlässt"},
+    {"song": "SCHRITTE", "lyric": "Und ich frage mich, wann ich den Exorzisten bestelle"},
+
+    {"song": "SCHULDSELBER", "lyric": "Hab'n se Flüssigkeiten dabei? Raus, alles raus"},
+    {"song": "SCHULDSELBER", "lyric": "Nach dem „Warum“ hab'n sie gefragt? Na, weil ich das sag'"}
 ]
