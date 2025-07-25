@@ -7,35 +7,53 @@ import org.json.JSONObject;
 
 /**
  * Class for the game "Guess The Origin"
+ * Implements TimerEvents to handle timer
  */
 class GTOGame implements TimerEvents {
-    private GTOGui gui = new GTOGui();
+    private Settings settings;
+    private GTOGui gui;
     private int score = 0;
+    private int lives = 3; 
+    private boolean blockWrongGuesses = false;
     private SongText currentSongText;
     private LinkedList<SongText> songTexts = new LinkedList<>();
-    private int countdown = 30;
+    private int timeLimit = 30;
 
     /**
      * Constructor for the GTOGame class
+     * @param pSettings Settings for the game
      */
-    public GTOGame() {
-        //Create a LinkedList with all the lyrics from the JSON file
-        try {
-            String content = new String(Files.readAllBytes(Paths.get("data\\lyrics.json")));
-            JSONArray arr = new JSONArray(content);
-            for(int i = 0; i < arr.length(); i++) {
-                JSONObject obj = arr.getJSONObject(i);
-                songTexts.add(new SongText(obj.getString("lyric"), obj.getString("song")));
-            } 
-        } catch (Exception e) {
-            e.printStackTrace();
+    public GTOGame(Settings pSettings) {
+        // Apply settings
+        settings = pSettings;
+        lives = settings.getLiveCount();
+        timeLimit = settings.getTimeLimit();
+
+        // Create a LinkedList containing all available song lyrics
+        songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
+
+        // Add Farin songs if pFarin = true
+        // TODO
+
+        // Add Bela songs if pBela = true
+        // TODO
+
+        // Add Sahnie songs if pSahnie = true
+        if(settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\sahnieLyrics.json", songTexts);
+ 
+        // Get a random song text part
+        currentSongText = getRandomSongText();
+
+        // Create GUI
+        gui = new GTOGui(this, currentSongText.getText(), settings);
+
+        // Start timer
+        if(!settings.isUnlimitedTimeEnabled()) {
+            TimerEventManager timer = new TimerEventManager(this);
+            timer.start();
+        } else {
+            gui.setTimerLabel("Kein Timer");
         }
-
-        currentSongText = getRandomSongText(); //Get a random lyric
-
-        gui.guessTheOriginWindow(this, currentSongText.getText());
-        TimerEventManager timer = new TimerEventManager(this);
-        timer.run();
     }
 
     /**
@@ -43,10 +61,11 @@ class GTOGame implements TimerEvents {
      * This method is called when the user guesses the song correctly
      */
     public void songGuessed() {
+        blockWrongGuesses = false;
         currentSongText = getRandomSongText();
         gui.guessTheOriginUpdate(currentSongText.getText());
-        countdown = 30; // Reset the timer
-        gui.setTimerLabel(countdown + "s");
+        timeLimit = settings.getTimeLimit(); // Reset the timer
+        gui.setTimerLabel(timeLimit + "s");
         score++;
         gui.updateScore(score);
     }
@@ -56,26 +75,34 @@ class GTOGame implements TimerEvents {
      * Displays a dialog with the score and options to start a new game or exit
      */
     public void wrongGuess() {
-        String[] options = {"Neues Spiel", "Beenden"};
-        int n = JOptionPane.showOptionDialog(
-            gui,
-            "Du hast falsch geraten!\nDu hast " + score + " Punkte erreicht.",
-            "ÄrzteGuessr",
-            JOptionPane.INFORMATION_MESSAGE,
-            JOptionPane.OK_CANCEL_OPTION,
-            null, // Icon
-            options,
-            options[1]
-        );
-        switch(n) {
-            case 0:
-                gui.dispose(); // Close the current GUI
-                new GTOGame(); // Restart the game
-                return;
-            case 1:
-                gui.dispose(); // Close the GUI & exit the game
-                System.exit(0);
-                return;
+        if(!settings.isUnlimitedLivesEnabled()) {
+            lives--;
+            gui.removeHealth();
+            blockWrongGuesses = true;
+        }
+
+        if(lives <= 0) {
+            String[] options = {"Neues Spiel", "Beenden"};
+            int n = JOptionPane.showOptionDialog(
+                gui,
+                "Du hast falsch geraten!\nDu hast " + score + " Punkte erreicht.",
+                "ÄrzteGuessr",
+                JOptionPane.INFORMATION_MESSAGE,
+                JOptionPane.OK_CANCEL_OPTION,
+                null, // Icon
+                options,
+                options[0]
+            );
+            switch(n) {
+                case 0:
+                    gui.dispose(); // Close the current GUI
+                    new GTOGame(settings); // Restart the game
+                    return;
+                case 1:
+                    gui.dispose(); // Close the GUI & exit the game
+                    System.exit(0);
+                    return;
+            }
         }
     }
     
@@ -97,34 +124,36 @@ class GTOGame implements TimerEvents {
         return songTexts.get(randomLyricIndex);
     }
 
+    public LinkedList<SongText> readSongsFromJson(String filepath, LinkedList<SongText> songList) {
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(filepath)));
+            JSONArray arr = new JSONArray(content);
+            for(int i = 0; i < arr.length(); i++) {
+                JSONObject obj = arr.getJSONObject(i);
+                songList.add(new SongText(obj.getString("lyric"), obj.getString("song")));
+            } 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return songList;
+    }
+
     /**
      * Handles the timer event
      */
     public void timerEvent() {
-        if(countdown < 0) {
-            String[] options = {"Neues Spiel", "Beenden"};
-            int n = JOptionPane.showOptionDialog(
-                gui,
-                "Die Zeit ist abgelaufen!\nDu hast " + score + " Punkte erreicht.",
-                "ÄrzteGuessr",
-                JOptionPane.INFORMATION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION,
-                null, // Icon
-                options,
-                options[1]
-            );
-            switch(n) {
-                case 0:
-                    gui.dispose(); // Close the current GUI
-                    new GTOGame(); // Restart the game
-                    return;
-                case 1:
-                    gui.dispose(); // Close the GUI & exit the game
-                    System.exit(0);
-                    return;
-            }
+        timeLimit--;
+        gui.setTimerLabel(timeLimit + "s");
+
+        if(timeLimit == 0 & blockWrongGuesses == false) {
+            gui.infoBarWrong();
+            wrongGuess(); // Count as a wrong guess if the timer runs out
         }
-        countdown--;
-        gui.setTimerLabel(countdown + "s");
     }
 }
+
+//TODO:
+// - Add a highscore system
+// - QoL improvements for the dropdown menu
+// - Fix lyric display (currently can be too long for the window)
+// - Avoid reputition

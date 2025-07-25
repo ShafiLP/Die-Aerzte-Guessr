@@ -11,37 +11,75 @@ import java.awt.*;
  * Class for the GUI of the game "Guess The Origin"
  */
 public class GTOGui extends JFrame{
-    GTOGame game;
+    private GTOGame game;
+    private Settings settings;
     private JPanel center;
+    private JPanel infoBar;
     private JComboBox<DropdownItem> songDropdown;
     private JLabel lyricLabel = new JLabel();
     private JLabel timerLabel = new JLabel("Timer: 30s", SwingConstants.RIGHT);
+    private JLabel currentSongLabel = new JLabel();;
     private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.LEFT);
+    private JLabel[] healthBar;
 
     /**
      * Constructor for the GTGGui class
+     * Creates a GUI for the game "Guess The Origin"
      */
-    public GTOGui() {
+    public GTOGui(GTOGame pGame, String pLyric, Settings pSettings) {
+        // Read settings
+        game = pGame;
+        settings = pSettings;
+        healthBar = new JLabel[settings.getLiveCount()];
+
+        // JFrame settings
         this.setTitle("ÄrzteGuessr");
         this.setLayout(new BorderLayout());
         this.pack();
         this.setSize(600, 200);
         this.setLocationRelativeTo(null); // Center the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    }
 
-    /**
-     * Creates a GUI for the game "Guess The Origin"
-     */
-    public void guessTheOriginWindow(GTOGame pGame, String pLyric) {
-        game = pGame;
+        // Health bar
+        if(settings.isShowIconsEnabled()) {
+            ImageIcon healthIcon = new ImageIcon("images\\health.png");
+            Image healtImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+            for(int i = 0; i < healthBar.length; i++) {
+                healthBar[i] = new JLabel(new ImageIcon(healtImg));
+                healthBar[i].setBounds(i * 25 + 2, 25, 25, 25);
+            }
+        } else {
+            for(int i = 0; i < healthBar.length; i++) {
+                healthBar[i] = new JLabel("❤️");
+                healthBar[i].setBounds(i * 15 + 2, 25, 25, 25);
+            }
+        }
+
+        // Create GUI center, where the lyric will be displayed
         center = new JPanel();
         center.setLayout(new GridBagLayout());
 
-        //Dropdown menu with all the songs from the file
+        // Dropdown menu with all the songs from the file
         songDropdown = new JComboBox<>(readSongsFromJson("data\\songs.json"));
+
+        // Add Farin songs if pFarin = true
+        // TODO
+
+        // Add Bela songs if pBela = true
+        // TODO
+
+        // Add Sahnie songs if pSahnie = true
+        if(settings.isSahnieEnabled()) {
+            JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(readSongsFromJson("data\\sahnieSongs.json"));
+        for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
+            songDropdown.addItem(sahnieDropdown.getItemAt(i));
+        }
+        sahnieDropdown = null;
+        }
+
+        // Override the renderer to display items next to the dropdown items
+        if(settings.isShowIconsEnabled()) // Only override if icons should be displayed
         songDropdown.setRenderer(new DefaultListCellRenderer() {
-            // Override the method to customize the rendering of the dropdown items to display icons
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
                 JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
@@ -55,7 +93,7 @@ public class GTOGui extends JFrame{
         });
         songDropdown.addKeyListener(new GuessTheOriginKeyListener(this));
 
-        //Submit button
+        // Submit button
         JButton submitButton = new JButton("Submit");
         submitButton.addActionListener(_ -> {
             submitButtonPressed();
@@ -82,10 +120,15 @@ public class GTOGui extends JFrame{
         lyricLabel.setFont(new Font("Folio Extra BT", Font.BOLD, 15));
         center.add(lyricLabel);
 
-        // Info bar with score and timer (currentSong just for debugging)
-        JPanel infoBar = new JPanel(new GridLayout(1, 3));
+        // Health bar at the top left corner
+        for(int i = 0; i < healthBar.length; i++) {
+            this.add(healthBar[i]);
+        }
+
+        // Info bar with score and timer
+        infoBar = new JPanel(new GridLayout(1, 3));
         infoBar.add(scoreLabel);
-        infoBar.add(new JLabel()); // Placeholder
+        infoBar.add(currentSongLabel); // Placeholder
         infoBar.add(timerLabel);
         infoBar.setBorder(new EmptyBorder(5, 5, 5, 5));
         infoBar.setBackground(Color.LIGHT_GRAY);
@@ -105,6 +148,15 @@ public class GTOGui extends JFrame{
         lyricLabel.setText("„" + pLyric + "“");
     }
 
+    public void removeHealth() {
+        for(int i = healthBar.length - 1; i >= 0; i--) {
+            if(healthBar[i].isVisible()) {
+                healthBar[i].setVisible(false);
+                return;
+            } //TODO: Not satisfied with this solution, but it works for now. Arrange health bar in a better way
+        }
+    }
+
     public void setTimerLabel(String text) {
         timerLabel.setText("Timer: " + text);
     }
@@ -114,15 +166,42 @@ public class GTOGui extends JFrame{
     }
 
     /**
+     * Sets the info bar to red and displays the current song name
+     * This is called when the user makes an incorrect guess
+     */
+    public void infoBarWrong() {
+        infoBar.setBackground(Color.RED);
+        currentSongLabel.setText("Aktuelles Lied: " + game.getCurrentSong());
+    }
+
+    /**
+     * Sets the info bar to green and clears the current song label
+     * This is called when the user guesses the song correctly
+     */
+    public void infoBarRight() {
+        currentSongLabel.setText("");
+        infoBar.setBackground(Color.GREEN);
+        infoBar.paintImmediately(infoBar.getVisibleRect()); // Update GUI immediately
+        try {
+            Thread.sleep(1000); // Pause for 1 second to show the green info bar
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        infoBar.setBackground(Color.LIGHT_GRAY); // Reset to default color
+    }
+
+    /**
      * Handles the submit button press event and the enter key press event
      */
     public void submitButtonPressed() {
         DropdownItem selected = (DropdownItem) songDropdown.getSelectedItem();
         if(selected.getDropdownText().trim().equals(game.getCurrentSong().trim())) {
-                game.songGuessed();
-            } else {
-                game.wrongGuess();
-            }
+            infoBarRight();
+            game.songGuessed();
+        } else {
+            infoBarWrong();
+            game.wrongGuess();
+        }
     }
 
     /**
@@ -145,6 +224,11 @@ public class GTOGui extends JFrame{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // Add Farin songs if pFarin = true
+
+        // Add Bela songs if pBela = true
+
+        // Add Sahnie songs if pSahnie = true
         return songs.toArray(new DropdownItem[0]);
     }
 }

@@ -2,15 +2,16 @@
  * Main class
  * 
  * @author ShafiqueJ
- * @version 0.0.2
+ * @version 0.0.3
  */
 public class Main {
     public static void main(String[] args) {
-        new GTOGame();
+        new GTOPreGui();
         // Replace with JFrame to choose the game mode
     }
 }
 
+//TODO: Le Frisur lyrics
 /*
 DIE ÄRZTE LYRICS GUESSR GAME
 
@@ -28,10 +29,15 @@ Lücke mit Textfeld
 Zeitlimit
 Highscore
 
+Errate das Lied:
+Verschiedene Kategorien
+Spieler kann raten, Kategorien färben sich dementsprechend
+Z. B. Erscheinungsjahr, Strophenanzahl, Versanzahl, Sänger
+
 Einstellungen:
 Zeitlimit an/aus
 Icons an/aus
 
 Startmenü:
-Zwei Spiele mit Icons
+Drei Spiele mit Icons
  */
