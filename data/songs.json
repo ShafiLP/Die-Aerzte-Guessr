@@ -57,7 +57,7 @@
     {"song": "Blumen", "icon": "wahrheit"},
     {"song": "Ausserirdische", "icon": "wahrheit"},
     {"song": "Siegerin", "icon": "wahrheit"},
-    {"song": "Bitte, Bitte!", "icon": "wahrheit"},
+    {"song": "Bitte, Bitte", "icon": "wahrheit"},
     {"song": "Popstar", "icon": "wahrheit"},
     {"song": "Gute Zeit", "icon": "wahrheit"},
     {"song": "Schwanz ab", "icon": "wahrheit"},
@@ -147,6 +147,72 @@
     {"song": "Nie gesagt", "icon": "dreizehn"},
     {"song": "Der Infant", "icon": "dreizehn"},
     {"song": "Grotesksong", "icon": "dreizehn"},
+
+    {"song": "Du bist nicht mein Freund", "icon": "schweinSingle"},
+    {"song": "Saufen", "icon": "schweinSingle"},
+    {"song": "Ein Lächeln (Für jeden Tag deines Lebens", "icon": "schweinSingle"},
+
+    {"song": "Wunderbare Welt des Farin U.", "icon": "handwerkSingle"},
+    {"song": "Rod Army", "icon": "handwerkSingle"},
+
+    {"song": "Ein Lied über Zensur", "icon": "lovesongSingle"},
+    {"song": "Schlimm", "icon": "lovesongSingle"},
+    {"song": "Danke für jeden guten Morgen", "icon": "lovesongSingle"},
+
+
+
+
+
+    {"song": "Wie es geht", "icon": "spendierhosen"},
+    {"song": "Geld", "icon": "spendierhosen"},
+    {"song": "Gib mir Zeit", "icon": "spendierhosen"},
+    {"song": "Dir", "icon": "spendierhosen"},
+    {"song": "Mondo Bondage", "icon": "spendierhosen"},
+    {"song": "Onprangering", "icon": "spendierhosen"},
+    {"song": "Leichenhalle", "icon": "spendierhosen"},
+    {"song": "Der Optimist", "icon": "spendierhosen"},
+    {"song": "Alles so einfach", "icon": "spendierhosen"},
+    {"song": "N 48.3", "icon": "spendierhosen"},
+    {"song": "Manchmal haben Frauen...", "icon": "spendierhosen"},
+    {"song": "Las Vegas", "icon": "spendierhosen"},
+    {"song": "Yoko Ono", "icon": "spendierhosen"},
+    {"song": "Rock Rendezvous", "icon": "spendierhosen"},
+    {"song": "Baby", "icon": "spendierhosen"},
+    {"song": "Kann es sein?", "icon": "spendierhosen"},
+    {"song": "Ein Sommer nur für mich", "icon": "spendierhosen"},
+    {"song": "Rock'n'Roll Übermensch", "icon": "spendierhosen"},
+    {"song": "Herrliche Jahre", "icon": "spendierhosen"},
+
+
+
+
+
+    {"song": "Als ich den Punk erfand...", "icon": "geraeusch"},
+    {"song": "System", "icon": "geraeusch"},
+    {"song": "T-Error", "icon": "geraeusch"},
+    {"song": "Nicht allein", "icon": "geraeusch"},
+    {"song": "Dinge von denen", "icon": "geraeusch"},
+    {"song": "Der Grund", "icon": "geraeusch"},
+    {"song": "Geisterhaus", "icon": "geraeusch"},
+    {"song": "Ein Mann", "icon": "geraeusch"},
+    {"song": "Anders als beim letzten Mal", "icon": "geraeusch"},
+    {"song": "Ruhig angehn", "icon": "geraeusch"},
+    {"song": "Jag Älskar Svergie!", "icon": "geraeusch"},
+    {"song": "Richtig schön evil", "icon": "geraeusch"},
+    {"song": "Schneller leben", "icon": "geraeusch"},
+    {"song": "Unrockbar", "icon": "geraeusch"},
+    {"song": "Deine Schuld", "icon": "geraeusch"},
+    {"song": "Lovepower", "icon": "geraeusch"},
+    {"song": "Der Tag", "icon": "geraeusch"},
+    {"song": "Die Nacht", "icon": "geraeusch"},
+    {"song": "Nichts in der Welt", "icon": "geraeusch"},
+    {"song": "Die klügsten Männer der Welt", "icon": "geraeusch"},
+    {"song": "Piercing", "icon": "geraeusch"},
+    {"song": "Besserwisserboy", "icon": "geraeusch"},
+    {"song": "Anti-Zombie", "icon": "geraeusch"},
+    {"song": "Pro-Zombie", "icon": "geraeusch"},
+    {"song": "Wammw", "icon": "geraeusch"},
+    {"song": "Nichtwissen", "icon": "geraeusch"},
 
 
 

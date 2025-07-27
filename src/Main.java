@@ -2,22 +2,22 @@
  * Main class
  * 
  * @author ShafiqueJ
- * @version 0.0.4
+ * @version 0.0.5
  */
 public class Main {
     public static void main(String[] args) {
-        new GTOPreGui();
+        new GuessTheOrigin();
         // Replace with JFrame to choose the game mode
     }
 }
 
-//TODO: Le Frisur lyrics
 /*
 DIE ÄRZTE LYRICS GUESSR GAME
 
 Spielmodi:
 - Woher kommen die Lyrics?
 - Vervollständige die Lyrics
+- Ärztle
 
 Lyrics Herkunft:
 Dropdown Menü mit ALLEN die Ärzte songs
@@ -29,14 +29,10 @@ Lücke mit Textfeld
 Zeitlimit
 Highscore
 
-Errate das Lied:
+Ärztle:
 Verschiedene Kategorien
 Spieler kann raten, Kategorien färben sich dementsprechend
 Z. B. Erscheinungsjahr, Strophenanzahl, Versanzahl, Sänger
-
-Einstellungen:
-Zeitlimit an/aus
-Icons an/aus
 
 Startmenü:
 Drei Spiele mit Icons
