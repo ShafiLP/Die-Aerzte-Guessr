@@ -249,6 +249,39 @@
 
 
 
+    {"song": "Ist das noch Punkrock?", "icon": "auch"},
+    {"song": "Bettmagnet", "icon": "auch"},
+    {"song": "Sohn der Leere", "icon": "auch"},
+    {"song": "TCR", "icon": "auch"},
+    {"song": "Das darfst du", "icon": "auch"},
+    {"song": "Tamagotchi", "icon": "auch"},
+    {"song": "M&F", "icon": "auch"},
+    {"song": "Freundschaft ist Kunst", "icon": "auch"},
+    {"song": "Angekumpelt", "icon": "auch"},
+    {"song": "Waldspaziergang mit Folgen", "icon": "auch"},
+    {"song": "Fiasko", "icon": "auch"},
+    {"song": "Miststück", "icon": "auch"},
+    {"song": "Das finde ich gut", "icon": "auch"},
+    {"song": "Cpt. Metal", "icon": "auch"},
+    {"song": "Die Hard", "icon": "auch"},
+    {"song": "zeiDverschwÄndung", "icon": "auch"},
+
+    {"song": "Mutig", "icon": "zeidSingle"},
+    {"song": "Quadrophenia", "icon": "zeidSingle"},
+    {"song": "Will dich zurück", "icon": "zeidSingle"},
+
+    {"song": "Endstück des Eros", "icon": "mfSingle"},
+    {"song": "Generation Ä", "icon": "mfSingle"},
+
+    {"song": "Voice of Joe", "icon": "punkrockSingle"},
+    {"song": "Laternen-Joe", "icon": "punkrockSingle"},
+    {"song": "Laternencharge", "icon": "punkrockSingle"},
+    {"song": "Hymne wider Willen", "icon": "punkrockSingle"},
+
+
+
+
+
     {"song": "KFM", "icon": "dunkel"},
     {"song": "WISSEN", "icon": "dunkel"},
     {"song": "DUNKEL", "icon": "dunkel"},

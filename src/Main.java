@@ -2,12 +2,11 @@
  * Main class
  * 
  * @author ShafiqueJ
- * @version 0.0.6
+ * @version 0.0.7
  */
 public class Main {
     public static void main(String[] args) {
-        new GuessTheOrigin();
-        // Replace with JFrame to choose the game mode
+        new MainMenu();
     }
 }
 

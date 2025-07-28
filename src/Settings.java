@@ -1,4 +1,5 @@
 public class Settings {
+    private String typeOfInput = "Dropdown Menü";
     private boolean showIcons = true;
     private boolean unlimitedTime = false;
     private boolean unlimitedLives = false;
@@ -24,6 +25,14 @@ public class Settings {
         includeSahnieLibrary = pSahnie;
         timeLimit = pTimeLimit;
         liveCount = pLiveCount;
+    }
+
+    public void setTypeOfInput(String pTypeOfInput) {
+        typeOfInput = pTypeOfInput;
+    }
+
+    public String getTypeOfInput() {
+        return typeOfInput;
     }
 
     public void setShowIcons(boolean pShowIcons) {

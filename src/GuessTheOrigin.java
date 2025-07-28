@@ -63,7 +63,10 @@ public class GuessTheOrigin extends JFrame {
             openSettings();
         });
         JButton bBack = new JButton("Hauptmenü");
-        //TODO: addActionListener
+        bBack.addActionListener(_ -> {
+            this.dispose();
+            new MainMenu();
+        });
 
         Dimension buttonSize = new Dimension(200, 40);
         bPlay.setMaximumSize(buttonSize);
@@ -100,7 +103,7 @@ public class GuessTheOrigin extends JFrame {
         settingsFrame.setSize(500, 500);
         settingsFrame.setResizable(false);
         settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(5, 2));
+        settingsFrame.setLayout(new GridLayout(6, 2));
 
         // Timer settings
         JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
@@ -119,10 +122,27 @@ public class GuessTheOrigin extends JFrame {
         // Icon settings
         JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isShowIconsEnabled());
 
+        // Highscore reset button
+        JButton bResetHighscore = new JButton("Highscore zurücksetzen");
+        bResetHighscore.addActionListener(_ -> {
+            settings.setHighscore(0);
+        });
+
         // Bonus library settings
         JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isFarinEnabled());
         JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isBelaEnabled());
         JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isSahnieEnabled());
+
+        // Type of input dropdown
+        JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
+        JComboBox<String> ddTypeOfInput = new JComboBox<>();
+        ddTypeOfInput.addItem("Dropdown Menü");
+        ddTypeOfInput.addItem("Suchleiste");
+        ddTypeOfInput.addItem("Manuelle Eingabe");
+        ddTypeOfInput.setSelectedItem(settings.getTypeOfInput());
+        JLabel lTypeOfInput = new JLabel("Eingabemethode:");
+        typeOfInputPanel.add(lTypeOfInput);
+        typeOfInputPanel.add(ddTypeOfInput);
 
         // Sahnie's Collective Wisdom
         JButton bSahniesWisdom = new JButton("Öffne \"Sahnie's Collective Wisdom\"");
@@ -192,6 +212,7 @@ public class GuessTheOrigin extends JFrame {
             settings.setFarinLibrary(cbFarin.isSelected());
             settings.setBelaLibrary(cbBela.isSelected());
             settings.setSahnieLibrary(cbSahnie.isSelected());
+            settings.setTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
 
             saveSettings(settings);
             settingsFrame.dispose();
@@ -205,8 +226,10 @@ public class GuessTheOrigin extends JFrame {
         settingsFrame.add(panLives);
         settingsFrame.add(cbSahnie);
         settingsFrame.add(cbUnlimitedLives);
-        settingsFrame.add(bSahniesWisdom);
+        settingsFrame.add(typeOfInputPanel);
         settingsFrame.add(cbShowIcons);
+        settingsFrame.add(bSahniesWisdom);
+        settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);
 
         // Set frame visible
@@ -454,6 +477,8 @@ class GTOGui extends JFrame{
     private JPanel center;
     private JPanel infoBar;
     private JComboBox<DropdownItem> songDropdown;
+    private AutoCompleteTextField songSearchBar;
+    private JTextField manualInput;
     private JLabel lyricLabel = new JLabel();
     private JLabel timerLabel = new JLabel("Timer: 30s", SwingConstants.RIGHT);
     private JLabel currentSongLabel = new JLabel();
@@ -497,51 +522,16 @@ class GTOGui extends JFrame{
         center = new JPanel();
         center.setLayout(new GridBagLayout());
 
-        // Dropdown menu with all the songs from the file
-        songDropdown = new JComboBox<>(readSongsFromJson("data\\songs.json"));
-
-        // Add Farin songs if pFarin = true
-        if(settings.isFarinEnabled()) {
-            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(readSongsFromJson("data\\farinSongs.json"));
-        for(int i = 0; i < farinDropdown.getItemCount(); i++) {
-            songDropdown.addItem(farinDropdown.getItemAt(i));
+        // Search bar with auto completion
+        // TODO: Custom Renderer for icons to show + add other discographies
+        /*if(settings.getTypeOfInput() == "Suchleiste") {
+            songSearchBar = new AutoCompleteTextField(songsFromJsonToList("data\\songs.json"));
         }
-        farinDropdown = null;
-        }
-
-        // Add Bela songs if pBela = true
-        if(settings.isBelaEnabled()) {
-            JComboBox<DropdownItem> belaDropdown = new JComboBox<>(readSongsFromJson("data\\belaSongs.json"));
-        for(int i = 0; i < belaDropdown.getItemCount(); i++) {
-            songDropdown.addItem(belaDropdown.getItemAt(i));
-        }
-        belaDropdown = null;
-        }
-
-        // Add Sahnie songs if pSahnie = true
-        if(settings.isSahnieEnabled()) {
-            JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(readSongsFromJson("data\\sahnieSongs.json"));
-        for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
-            songDropdown.addItem(sahnieDropdown.getItemAt(i));
-        }
-        sahnieDropdown = null;
-        }
-
-        // Override the renderer to display items next to the dropdown items
-        if(settings.isShowIconsEnabled()) // Only override if icons should be displayed
-        songDropdown.setRenderer(new DefaultListCellRenderer() {
-            @Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                if (value instanceof DropdownItem) {
-                    DropdownItem item = (DropdownItem) value;
-                    label.setText(item.getDropdownText());
-                    label.setIcon(item.getDropdownIcon());
-                }
-                return label;
-            }
-        });
-        songDropdown.addKeyListener(new GTOKeyListener(this));
+        
+        // Manual input
+        if(settings.getTypeOfInput() == "Manuelle Eingabe") {
+            manualInput = new JTextField();
+        }*/
 
         // Submit button
         JButton submitButton = new JButton("Submit");
@@ -557,7 +547,22 @@ class GTOGui extends JFrame{
         gbc.weightx = 0.7;
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        guessBar.add(songDropdown, gbc);
+        switch(settings.getTypeOfInput()) {
+            case "Dropdown Menü":
+                songDropdown = initializeJComboBox();
+                guessBar.add(songDropdown, gbc);
+                break;
+            case "Suchleiste":
+                songSearchBar = new AutoCompleteTextField(songsFromJsonToList("data\\songs.json"));
+                songSearchBar.addKeyListener(new GTOKeyListener(this));
+                guessBar.add(songSearchBar, gbc);
+                break;
+            case "Manuelle Eingabe":
+                manualInput = new JTextField();
+                manualInput.addKeyListener(new GTOKeyListener(this));
+                guessBar.add(manualInput, gbc);
+                break;
+        }
 
         gbc.gridx = 1;
         gbc.weightx = 0.3;
@@ -644,14 +649,126 @@ class GTOGui extends JFrame{
      * Handles the submit button press event and the enter key press event
      */
     public void submitButtonPressed() {
-        DropdownItem selected = (DropdownItem) songDropdown.getSelectedItem();
-        if(selected.getDropdownText().trim().equals(game.getCurrentSong().trim())) {
-            infoBarRight();
-            game.songGuessed();
-        } else {
-            infoBarWrong();
-            game.wrongGuess();
+        switch(settings.getTypeOfInput()) {
+            case "Dropdown Menü":
+                DropdownItem dmSelected = (DropdownItem) songDropdown.getSelectedItem();
+                if(dmSelected.getDropdownText().trim().equals(game.getCurrentSong().trim())) {
+                    infoBarRight();
+                    game.songGuessed();
+                } else {
+                    infoBarWrong();
+                    game.wrongGuess();
+                }
+                break;
+            case "Suchleiste":
+                String sbSelected = songSearchBar.getText().trim();
+                if(sbSelected.equals(game.getCurrentSong().trim())) {
+                    infoBarRight();
+                    game.songGuessed();
+                } else {
+                    infoBarWrong();
+                    game.wrongGuess();
+                }
+                break;
+            case "Manuelle Eingabe":
+                String miSelected = manualInput.getText().toLowerCase().trim();
+                if(miSelected.equals(game.getCurrentSong().toLowerCase().trim())) {
+                    infoBarRight();
+                    game.songGuessed();
+                } else {
+                    infoBarWrong();
+                    game.wrongGuess();
+                }
+                break;
         }
+    }
+
+    /**
+     * Creates a JComboBox object with all all items from song files as DropdownItem objects
+     * @return JComboBox with all songs from files
+     */
+    private JComboBox<DropdownItem> initializeJComboBox() {
+        JComboBox<DropdownItem> comboBox = new JComboBox<>(readSongsFromJson("data\\songs.json"));
+
+        // Add Farin songs if pFarin = true
+        if(settings.isFarinEnabled()) {
+            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(readSongsFromJson("data\\farinSongs.json"));
+            for(int i = 0; i < farinDropdown.getItemCount(); i++) {
+                comboBox.addItem(farinDropdown.getItemAt(i));
+            }
+            farinDropdown = null;
+        }
+
+        // Add Bela songs if pBela = true
+        if(settings.isBelaEnabled()) {
+                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(readSongsFromJson("data\\belaSongs.json"));
+            for(int i = 0; i < belaDropdown.getItemCount(); i++) {
+                comboBox.addItem(belaDropdown.getItemAt(i));
+            }
+            belaDropdown = null;
+        }
+
+        // Add Sahnie songs if pSahnie = true
+        if(settings.isSahnieEnabled()) {
+                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(readSongsFromJson("data\\sahnieSongs.json"));
+            for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
+                comboBox.addItem(sahnieDropdown.getItemAt(i));
+            }
+            sahnieDropdown = null;
+        }
+
+        // Override the renderer to display items next to the dropdown items
+        if(settings.isShowIconsEnabled()) // Only override if icons should be displayed
+        comboBox.setRenderer(new DefaultListCellRenderer() {
+            @Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                if (value instanceof DropdownItem) {
+                    DropdownItem item = (DropdownItem) value;
+                    label.setText(item.getDropdownText());
+                    label.setIcon(item.getDropdownIcon());
+                }
+                return label;
+            }
+        });
+
+        // TODO: Not satisfied with this solution
+        // Override KeyEvents for the dropdown menu that "#" can be used as " "
+        comboBox.addKeyListener(new KeyAdapter() {
+            private static String keyBuffer = "";
+            private static long lastKeyTime = 0;
+
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char ch = e.getKeyChar();
+
+                // Replace "#" with " "
+                if (ch == '#') {
+                    ch = ' ';
+                }
+
+                long now = System.currentTimeMillis();
+                if (now - lastKeyTime > 1000) {
+                    keyBuffer = "";
+                }
+                lastKeyTime = now;
+
+                if (Character.isLetterOrDigit(ch) || Character.isSpaceChar(ch)) {
+                    keyBuffer += ch;
+
+                    // Suche Eintrag, der mit dem Buffer beginnt
+                    for (int i = 0; i < comboBox.getItemCount(); i++) {
+                        String item = comboBox.getItemAt(i).getDropdownText().toLowerCase();
+                        if (item.startsWith(keyBuffer.toLowerCase())) {
+                            comboBox.setSelectedIndex(i);
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+        comboBox.addKeyListener(new GTOKeyListener(this));
+        return comboBox;
     }
 
     /**
@@ -675,6 +792,22 @@ class GTOGui extends JFrame{
             e.printStackTrace();
         }
         return songs.toArray(new DropdownItem[0]);
+    }
+
+    private LinkedList<String> songsFromJsonToList(String filename) {
+        LinkedList<String> songsFromJson = new LinkedList<>();
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(filename)));
+            JSONArray arr = new JSONArray(content);
+            for(int i = 0; i < arr.length(); i++) {
+                JSONObject obj = arr.getJSONObject(i);
+                String songName = obj.getString("song");
+                songsFromJson.addLast(songName);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return songsFromJson;
     }
 }
 
@@ -718,7 +851,5 @@ class GTOKeyListener extends Thread implements KeyListener {
 }
 
 //TODO:
-// - Add a highscore system
 // - QoL improvements for the dropdown menu
 // - Fix lyric display (currently can be too long for the window)
-// - Score reset button, Dropdown or search bar toggle
