@@ -11,6 +11,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+//Gson must be in /lib folder
 import com.google.gson.Gson;
 
 /**
@@ -27,53 +28,69 @@ public class GuessTheOrigin extends JFrame {
     public GuessTheOrigin() {
         settings = readJson("data\\settings.json");
 
-        setTitle("ÄrzteGuessr");
-        pack();
-        setSize(300, 300);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); // Center the window
+        this.setTitle("Errate den Ursprung");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(300, 300);
+        this.setResizable(false);
+        this.setLocationRelativeTo(null); // Center the window
 
-        setLayout(new BorderLayout());
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
 
-        // JLabel for the title
-        JLabel titleLabel = new JLabel("ERRATE DIE HERKUNFT", SwingConstants.CENTER);
-        titleLabel.setFont(new Font("Folio Extra BT", Font.BOLD, 20));
-        titleLabel.setForeground(Color.RED);
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        gbc.weightx = 1.0;
-        gbc.weighty = 0.1;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(5, 5, 5, 5);
-        gbc.anchor = GridBagConstraints.CENTER;
-        panel.add(titleLabel, gbc);
+        // Main panel with BorderLayout
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 40, 30, 40)); // Padding
 
-        // JButton for single player
-        JButton playButton = new JButton("Spielen");
-        playButton.addActionListener(_ -> {
-            dispose(); // Close the current gui
+        // Heading
+        JPanel headingPanel = new JPanel();
+        ImageIcon icon = new ImageIcon("images\\GTO.png");
+        Image img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
+        JLabel lHeading = new JLabel(new ImageIcon(img));
+        headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
+        headingPanel.add(lHeading);
+        this.add(headingPanel, BorderLayout.NORTH);
+
+        // Button panel for start, settings, etc.
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+
+        // Buttons
+        JButton bPlay = new JButton("Spielen");
+        bPlay.addActionListener(_ -> {
+            this.dispose();             // Close the current gui
             new GTOGame(settings); // Start the game
         });
-        gbc.gridy = 1;
-        gbc.weightx = 0.9;
-        gbc.weighty = 0.2;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        panel.add(playButton, gbc);
-
-        // JButton for settings
-        JButton settingsButton = new JButton("Einstellungen");
-        settingsButton.addActionListener(_ -> {
+        JButton bSettings = new JButton("Einstellungen");
+        bSettings.addActionListener(_ -> {
             openSettings();
         });
-        gbc.gridy = 3;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        panel.add(settingsButton, gbc);
+        JButton bBack = new JButton("Hauptmenü");
+        //TODO: addActionListener
 
-        add(panel, BorderLayout.CENTER);
-        setVisible(true);
+        Dimension buttonSize = new Dimension(200, 40);
+        bPlay.setMaximumSize(buttonSize);
+        bSettings.setMaximumSize(buttonSize);
+        bBack.setMaximumSize(buttonSize);
+
+        bPlay.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bBack.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Highscore
+        JPanel highscorePanel = new JPanel();
+        JLabel lHighscore = new JLabel("Highscore: " + settings.getHighscore());
+        highscorePanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
+        highscorePanel.add(lHighscore);
+        this.add(highscorePanel, BorderLayout.SOUTH);
+
+        // Add with vertical padding
+        buttonPanel.add(bPlay);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        buttonPanel.add(bSettings);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        buttonPanel.add(bBack);
+
+        mainPanel.add(buttonPanel, BorderLayout.CENTER);
+        this.add(mainPanel);
+        this.setVisible(true);
     }
 
     private void openSettings() {
@@ -202,7 +219,7 @@ public class GuessTheOrigin extends JFrame {
         try (FileReader reader = new FileReader(filepath)) {
             settingsFromJson = gson.fromJson(reader, Settings.class);
         } catch (IOException e) {
-            e.printStackTrace();;
+            e.printStackTrace();
         }
         return settingsFromJson;
     }
@@ -218,6 +235,16 @@ public class GuessTheOrigin extends JFrame {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
 /**
  * Class for the game "Guess The Origin"
  * Implements TimerEvents to handle timer
@@ -230,7 +257,7 @@ class GTOGame implements TimerEvents {
     private boolean blockWrongGuesses = false;
     private SongText currentSongText;
     private LinkedList<SongText> songTexts = new LinkedList<>();
-    private int timeLimit = 30;
+    private int timeLimit;
 
     /**
      * Constructor for the GTOGame class
@@ -246,10 +273,10 @@ class GTOGame implements TimerEvents {
         songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
 
         // Add Farin songs if pFarin = true
-        // TODO
+        if(settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\farinLyrics.json", songTexts);
 
         // Add Bela songs if pBela = true
-        // TODO
+        if(settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\belaLyrics.json", songTexts);
 
         // Add Sahnie songs if pSahnie = true
         if(settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\sahnieLyrics.json", songTexts);
@@ -274,12 +301,13 @@ class GTOGame implements TimerEvents {
      * This method is called when the user guesses the song correctly
      */
     public void songGuessed() {
+        score++;
         blockWrongGuesses = false;
         currentSongText = getRandomSongText();
+        if(currentSongText == null) return;
         gui.guessTheOriginUpdate(currentSongText.getText());
         timeLimit = settings.getTimeLimit(); // Reset the timer
         gui.setTimerLabel(timeLimit + "s");
-        score++;
         gui.updateScore(score);
     }
 
@@ -295,6 +323,10 @@ class GTOGame implements TimerEvents {
         }
 
         if(lives <= 0) {
+            if(settings.getHighscore() < score) {
+                settings.setHighscore(score);
+                saveSettings(settings);
+            }
             String[] options = {"Neues Spiel", "Beenden"};
             int n = JOptionPane.showOptionDialog(
                 gui,
@@ -318,7 +350,6 @@ class GTOGame implements TimerEvents {
             }
         }
     }
-    
 
     /**
      * Gets the current song name from the current lyric
@@ -329,12 +360,44 @@ class GTOGame implements TimerEvents {
     }
 
     /**
-     * Gets a random lyric from the lyrics.json file
-     * @return random Lyric object
+     * Gets a SongText object from the lyrics.json file
+     * Removes the SongText from the List to avoid reputition
+     * Checks if the List is empty
+     * @return Random SongText object
      */
     private SongText getRandomSongText() {
+        // Checks if all songs were guessed
+        if(songTexts.isEmpty()) {
+            if(settings.getHighscore() < score) {
+                settings.setHighscore(score);
+                saveSettings(settings);
+            }
+            Object[] options = {"Neues Spiel", "Beenden"};
+            int n = JOptionPane.showOptionDialog(
+                gui,
+                "Du hast ALLE verfügbaren Songausschnitte erraten!\nDeine Punktzahl beträgt: " + score,
+                "Errate den Ursprung",
+                JOptionPane.INFORMATION_MESSAGE,
+                JOptionPane.OK_CANCEL_OPTION,
+                null, // Icon
+                options,
+                options[0]
+            );
+            switch(n) {
+                case 0:
+                    gui.dispose(); // Close the current GUI
+                    new GTOGame(settings); // Restart the game
+                    return null;
+                case 1:
+                    gui.dispose(); // Close the GUI & exit the game
+                    System.exit(0);
+                    return null;
+            }
+        }
         int randomLyricIndex = (int) (Math.random() * songTexts.size());
-        return songTexts.get(randomLyricIndex);
+        SongText randomSongText =  songTexts.get(randomLyricIndex);
+        songTexts.remove(randomLyricIndex); // Removes the object from the List to avoid reputition
+        return randomSongText;
     }
 
     public LinkedList<SongText> readSongsFromJson(String filepath, LinkedList<SongText> songList) {
@@ -349,6 +412,16 @@ class GTOGame implements TimerEvents {
             e.printStackTrace();
         }
         return songList;
+    }
+
+    private void saveSettings(Settings pSettings) {
+        Gson gson = new Gson();
+        try (FileWriter writer = new FileWriter("data\\settings.json")) {
+            gson.toJson(pSettings, writer);
+            System.out.println("Saved settings to \"data/settings.json\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -383,7 +456,7 @@ class GTOGui extends JFrame{
     private JComboBox<DropdownItem> songDropdown;
     private JLabel lyricLabel = new JLabel();
     private JLabel timerLabel = new JLabel("Timer: 30s", SwingConstants.RIGHT);
-    private JLabel currentSongLabel = new JLabel();;
+    private JLabel currentSongLabel = new JLabel();
     private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.LEFT);
     private JLabel[] healthBar;
 
@@ -428,10 +501,22 @@ class GTOGui extends JFrame{
         songDropdown = new JComboBox<>(readSongsFromJson("data\\songs.json"));
 
         // Add Farin songs if pFarin = true
-        // TODO
+        if(settings.isFarinEnabled()) {
+            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(readSongsFromJson("data\\farinSongs.json"));
+        for(int i = 0; i < farinDropdown.getItemCount(); i++) {
+            songDropdown.addItem(farinDropdown.getItemAt(i));
+        }
+        farinDropdown = null;
+        }
 
         // Add Bela songs if pBela = true
-        // TODO
+        if(settings.isBelaEnabled()) {
+            JComboBox<DropdownItem> belaDropdown = new JComboBox<>(readSongsFromJson("data\\belaSongs.json"));
+        for(int i = 0; i < belaDropdown.getItemCount(); i++) {
+            songDropdown.addItem(belaDropdown.getItemAt(i));
+        }
+        belaDropdown = null;
+        }
 
         // Add Sahnie songs if pSahnie = true
         if(settings.isSahnieEnabled()) {
@@ -593,6 +678,19 @@ class GTOGui extends JFrame{
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+/**
+ * Key Listener to confirm dropdown selection with enter key.
+ */
 class GTOKeyListener extends Thread implements KeyListener {
     private GTOGui gui;
 
@@ -623,4 +721,4 @@ class GTOKeyListener extends Thread implements KeyListener {
 // - Add a highscore system
 // - QoL improvements for the dropdown menu
 // - Fix lyric display (currently can be too long for the window)
-// - Avoid reputition
+// - Score reset button, Dropdown or search bar toggle

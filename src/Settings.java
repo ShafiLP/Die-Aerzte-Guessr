@@ -8,6 +8,8 @@ public class Settings {
     private int timeLimit = 30;
     private int liveCount = 3;
 
+    private int highscore = 0;
+
     public Settings() {
         // Keep default settings
     }
@@ -86,5 +88,13 @@ public class Settings {
 
     public int getLiveCount() {
         return liveCount;
+    }
+
+    public void setHighscore(int pHighscore) {
+        highscore = pHighscore;
+    }
+
+    public int getHighscore() {
+        return highscore;
     }
 }

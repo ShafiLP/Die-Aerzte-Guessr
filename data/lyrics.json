@@ -28,7 +28,7 @@
     {"song": "Mädchen", "lyric": "Sie zog ins Nachbarhaus. Seitdem war alles aus"},
     
     {"song": "Mr. Sexpistols", "lyric": "Ich war Mister Sexpistols, du warst Lady Punk"},
-    {"song": "Mr. Sexpistols", "lyric": "Eine Träne rinnt mir über das Gesicht (Wo-ho), doch über die Aknepickel kommt sie nicht"},
+    {"song": "Mr. Sexpistols", "lyric": "Doch über die Aknepickel kommt sie nicht"},
     {"song": "Mr. Sexpistols", "lyric": "In der Monatskarte ein Foto von dir"},
     
     {"song": "Micha", "lyric": "Er ist unrasiert und staubig, denn sein Tag war ziemlich lang"},
@@ -162,7 +162,7 @@
     {"song": "Ohne dich", "lyric": "Bitte spring doch aus dem Fenster (Los, spring schon)"},
     {"song": "Ohne dich", "lyric": "Was hab'n deine Eltern der Menschheit angetan?"},
     {"song": "Ohne dich", "lyric": "Die Welt könnte so schön sein ohne dich!"},
-    {"song": "Ohne dich", "lyric": "Ich schenk' dir ein paar Schuhe aus Beton. Die ziehst du an, haha, und dann geh'n wir baden"},
+    {"song": "Ohne dich", "lyric": "Ich schenk' dir ein paar Schuhe aus Beton"},
 
     {"song": "Baby ich tu's", "lyric": "Wer legt wenn's sein muss dir ein Ei?"},
     {"song": "Baby ich tu's", "lyric": "Wer wird für dich zum Tier? Wer findet das \"G\" in dir?"},
@@ -371,7 +371,7 @@
     {"song": "Straight Outta Bückeburg", "lyric": "Dein Harlem heißt Hannover"},
 
     {"song": "Medusa-Man (Serienmörder Ralf)", "lyric": "Mit Haaren tödlich und gemein"},
-    {"song": "Medusa-Man (Serienmörder Ralf)", "lyric": "Und die Polizei sucht nach dem Tatwerkzeug, doch das trägt Ralfi auf dem Kopf"},
+    {"song": "Medusa-Man (Serienmörder Ralf)", "lyric": "[...] sucht nach dem Tatwerkzeug, doch das trägt Ralfi auf dem Kopf"},
     
     {"song": "Haar", "lyric": "Bau im Haargeäst, dem Star ein Nest!"},
     {"song": "Haar", "lyric": "Ging vor rund 2000 Jahren Jesus nicht mit langen Haaren?"},
@@ -704,6 +704,135 @@
     {"song": "Nichtwissen", "lyric": "Denn weil Wissen nur belastet, woll'n wir nicht Mitwisser sein"},
     {"song": "Nichtwissen", "lyric": "Sind ihre Brüste wirklich echt? Das woll'n wir wissen"},
     {"song": "Nichtwissen", "lyric": "Warum ist Ernie fies zu Bert?"},
+
+
+
+
+
+    {"song": "Himmelblau", "lyric": "Du hast kein klares Ziel, aber Millionen Möglichkeiten"},
+    {"song": "Himmelblau", "lyric": "Die Welt gehört dir: Was wirst du mit ihr machen?"},
+    {"song": "Himmelblau", "lyric": "[...] und der Rest deines Lebens liegt vor dir"},
+
+    {"song": "Lied vom Scheitern", "lyric": "Trotzdem setzte ich mich zwischen alle Stühle"},
+    {"song": "Lied vom Scheitern", "lyric": "Du bist immer dann am besten, wenn's dir eigentlich egal ist"},
+    {"song": "Lied vom Scheitern", "lyric": "Dein Spiegelbild ist anderen egal"},
+    {"song": "Lied vom Scheitern", "lyric": "Wer Wahrheit simuliert, wird nur kurz akzeptiert"},
+    {"song": "Lied vom Scheitern", "lyric": "Und schwelgte doch nur in unerreichbaren Plänen"},
+    {"song": "Lied vom Scheitern", "lyric": "Tat, was andre verlangten, war zu mir selbst nicht mehr ehrlich"},
+
+    {"song": "Breit", "lyric": "Doch dann kam Bernd mit dem Zeugs vorbei"},
+    {"song": "Breit", "lyric": "[...] uns hängt die Zunge zum Halse raus"},
+    {"song": "Breit", "lyric": "Bin auch noch immer der Coolste hier in diesem Zimmer"},
+    {"song": "Breit", "lyric": "Die Tapete ist dermaßen schön, ich will gar nichts andres mehr seh'n"},
+    {"song": "Breit", "lyric": "Ich bin sieben Tage die Woche dicht"},
+
+    {"song": "Lasse redn", "lyric": "Hast du hohe Schuhe oder gar einen Hut?"},
+    {"song": "Lasse redn", "lyric": "Denn du bist die Geliebte von Osama bin Laden"},
+    {"song": "Lasse redn", "lyric": "Also wunder dich nicht, wenn bald die Kripo bei dir läutet"},
+    {"song": "Lasse redn", "lyric": "Und der Tag wird interessanter, wenn man Märchen erzählt"},
+    {"song": "Lasse redn", "lyric": "Die meisten Leute haben ihre Bildung aus der BILD"},
+
+    {"song": "Die ewige Maitresse", "lyric": "Schöner Leib - Zeitvertreib"},
+    {"song": "Die ewige Maitresse", "lyric": "Du sagst ihm nicht, was du fühlst (Weil du ihn nicht verlieren willst)"},
+    {"song": "Die ewige Maitresse", "lyric": "Du kennst ihn, wie ihn keiner kennt und doch bleibt er dir immer fremd"},
+    {"song": "Die ewige Maitresse", "lyric": "Er kann zärtlich zu dir sein, doch lässt er dich danach allein"},
+
+    {"song": "Junge", "lyric": "Warum gehst du nicht zu Onkel Werner in die Werkstatt?"},
+    {"song": "Junge", "lyric": "Und wie du wieder aussiehst, Löcher in der Hose, und ständig dieser Lärm"},
+    {"song": "Junge", "lyric": "Nie kommst du nach Hause, wir wissen nicht mehr weiter"},
+    {"song": "Junge", "lyric": "Du hast dich doch früher so für Tiere interessiert, wäre das nichts für dich?"},
+    {"song": "Junge", "lyric": "Denk an deine Zukunft, denk an deine Eltern"},
+    {"song": "Junge", "lyric": "Es ist noch nicht zu spät, dich an der Uni einzuschreiben"},
+
+    {"song": "Nur einen Kuss", "lyric": "Wenn du mich nicht küsst, bleibst du vielleicht allein"},
+    {"song": "Nur einen Kuss", "lyric": "Ob sie wohl an ihn dachte, als sie schließlich starb?"},
+    {"song": "Nur einen Kuss", "lyric": "Der Vollmond ging auf, mein Messer war kalt wie er"},
+    {"song": "Nur einen Kuss", "lyric": "Dann kehrte ich heim; doch geküsst habe ich nie mehr"},
+    {"song": "Nur einen Kuss", "lyric": "Ich schnitt den Fremden auf - bloß ein kleines Stück"},
+
+    {"song": "Perfekt", "lyric": "Warum denk ich an Sex, wenn du grad romantisch bist"},
+    {"song": "Perfekt", "lyric": "Und im Radio spielen sie ein Lied von Klaus & Klaus"},
+    {"song": "Perfekt", "lyric": "Die Liebe macht uns für alles um uns blind"},
+
+    {"song": "Heulerei", "lyric": "Was würdest du tun, wenn ich nicht mehr da bin?"},
+    {"song": "Heulerei", "lyric": "Das könnte zwar sein, aber es ist nicht so!"},
+    {"song": "Heulerei", "lyric": "Alles in Taschentücher investieren"},
+    {"song": "Heulerei", "lyric": "Du würdest vollständig dehydrieren"},
+
+    {"song": "Licht am Ende des Sarges", "lyric": "Ich hätt gern Freunde - ich hätt gern ne Gang"},
+    {"song": "Licht am Ende des Sarges", "lyric": "Statt seiner gibts den lustigen Vampir"},
+    {"song": "Licht am Ende des Sarges", "lyric": "Es heißt Hämoglobin, Weib und Gesang"},
+    {"song": "Licht am Ende des Sarges", "lyric": "Mein Image ist mir viel zu glatt"},
+
+    {"song": "Niedliches Liebeslied", "lyric": "Sing shalala und shalalu"},
+    {"song": "Niedliches Liebeslied", "lyric": "Selbst Rechnungen und Postreklame werden zu Liebesbriefpapier"},
+    {"song": "Niedliches Liebeslied", "lyric": "Ein Hund schwärmt von dir, meine Süße"},
+    {"song": "Niedliches Liebeslied", "lyric": "In meinem Ohr sitzt eine Biene und summt die ganze Zeit von dir"},
+
+    {"song": "Deine Freundin (wäre mir zu anstrengend)", "lyric": "Schenkst du ihr Blumen, ist sie dagegen allergisch"},
+    {"song": "Deine Freundin (wäre mir zu anstrengend)", "lyric": "Deine Freundin ist in der Tat alles andere als Pflegeleicht"},
+    {"song": "Deine Freundin (wäre mir zu anstrengend)", "lyric": "Kochst du ihr Nudeln, möchte sie Fisch"},
+    {"song": "Deine Freundin (wäre mir zu anstrengend)", "lyric": "Du möchtest ausgehn - doch sie muss immer dabei sein"},
+
+    {"song": "Allein", "lyric": "Weil es nicht so leicht ist, nur der zu sein, der du als Kind schon werden solltest"},
+    {"song": "Allein", "lyric": "Hast dein Gefühl einfach getötet, irgendwann, damit dich nichts verletzen kann"},
+    {"song": "Allein", "lyric": "Haben hinter deinem Rücken über dich gelacht, Karriere hast du doch gemacht"},
+    {"song": "Allein", "lyric": "Du warst zuverlässig, hast dich angepasst, doch alle haben dich gehasst"},
+
+    {"song": "Tu das nicht", "lyric": "Du raubkopierst - und saugst dir die Musik"},
+    {"song": "Tu das nicht", "lyric": "Die Polizei jagt dich und die steckt dich in den Bau"},
+    {"song": "Tu das nicht", "lyric": "Das kommt davon, wenn man illegal Musik runterlädt"},
+    {"song": "Tu das nicht", "lyric": "Und es läuft keine Musik auf deiner Beerdigung - so!!"},
+    {"song": "Tu das nicht", "lyric": "Wir leben vom Inhalt deiner Brieftasche"},
+    {"song": "Tu das nicht", "lyric": "Wir sind ein lustiges, aber verschwenderisches Völkchen"},
+
+    {"song": "Living Hell", "lyric": "Die Sonne scheint, als hätte sie van Gogh gemalt"},
+    {"song": "Living Hell", "lyric": "Die Blumen blüh'n, als würden sie dafür bezahlt"},
+    {"song": "Living Hell", "lyric": "Das ist der Fluch der Menschen, die zu gut ausseh'n"},
+    {"song": "Living Hell", "lyric": "Nur noch einmal vögeln, dann ist wirklich Schluss"},
+    {"song": "Living Hell", "lyric": "Zu viel Sex, zu wenig Schlaf, wofür werd' ich denn nur bestraft?"},
+
+    {"song": "Vorbei ist vorbei", "lyric": "Du hattest eine schöne Zeit - eine herrliche Zeit"},
+    {"song": "Vorbei ist vorbei", "lyric": "Und du liest jeden Tag dein Horoskop, auch wenn gar nichts darin steht"},
+    {"song": "Vorbei ist vorbei", "lyric": "Hab keine Angst - es könnte sehr viel schlimmer sein"},
+
+    {"song": "Wir sind die Besten", "lyric": "Wo ist der Messias, der uns erlöst?"},
+    {"song": "Wir sind die Besten", "lyric": "Aber es gibt ja noch uns - oder Phillip Boa"},
+    {"song": "Wir sind die Besten", "lyric": "Vom Pol bis zum Äquator und auch in Ulan Bator"},
+    {"song": "Wir sind die Besten", "lyric": "Man muss sie federn und teeren und den Darm auf ihnen entleeren"},
+    {"song": "Wir sind die Besten", "lyric": "Wir sitzen hier im Olymp, wir sitzen ziemlich bequem"},
+
+    {"song": "Wir waren die Besten", "lyric": "In meinem Schaukelstuhl im Altenheim, den ganzen Tag"},
+    {"song": "Wir waren die Besten", "lyric": "Der damals unbestritten besten Band der Welt"},
+    {"song": "Wir waren die Besten", "lyric": "Geträumt in nassen Übungskellern in London und Paris"},
+    {"song": "Wir waren die Besten", "lyric": "Phil Collins haben sie letzte Woche beerdigt"},
+    {"song": "Wir waren die Besten", "lyric": "[...] nur Reggae fanden wir fies"},
+
+    {"song": "Wir sind die Lustigsten", "lyric": "Aufgepasst, mein Freund: Humor nehmen wir todernst"},
+    {"song": "Wir sind die Lustigsten", "lyric": "\"Gags \"R\" Us\" ist unter anderem unser Prädikat"},
+    {"song": "Wir sind die Lustigsten", "lyric": "Und wir lachen uns krumm und wir lachen uns schief"},
+
+
+    {"song": "Das schönste Lied der Welt", "lyric": "Den Song, für den Campino seine Band auflösen würde"},
+    {"song": "Das schönste Lied der Welt", "lyric": "Darum behalt' ich dieses Lied auch ganz für mich"},
+    {"song": "Das schönste Lied der Welt", "lyric": "MTV und der Grand Prix wär'n unter seine Würde"},
+
+    {"song": "Tut mir leid", "lyric": "Er bekam Angst und seine Augen wurden groß. Eh, üäh, üähh?!"},
+    {"song": "Tut mir leid", "lyric": "Zum Lüg'n bin ich grade viel zu faul"},
+    {"song": "Tut mir leid", "lyric": "Kölle Alaaf, Helau und Mainz bleibt Mainz"},
+    {"song": "Tut mir leid", "lyric": "Und grad ist jedes Wort auch wirklich so gemeint"},
+
+
+    {"song": "Nichts gesehen", "lyric": "Und das sind zwar unsere Nachbarn, aber seltsam"},
+    {"song": "Nichts gesehen", "lyric": "Wir sind die Mehrheit und wir mischen uns nicht ein"},
+    {"song": "Nichts gesehen", "lyric": "Und dann kommen ein paar Leute, schlagen ihn ein bisschen tot"},
+    {"song": "Nichts gesehen", "lyric": "Eine Frau wird vergewaltigt, in der Stadt morgens um zehn"},
+
+
+    {"song": "Komm zu Papa", "lyric": "Sojawurst im Kühlregal, der Schaden ist kollateral"},
+    {"song": "Komm zu Papa", "lyric": "\"Gib mir mal 'ne Pechbrot-Stulle\""},
+    {"song": "Komm zu Papa", "lyric": "Friede, Freude, Sackgesicht"},
+    {"song": "Komm zu Papa", "lyric": "In Spandau wurde ick jeborn"},
 
 
 

@@ -218,6 +218,37 @@
 
 
 
+    {"song": "Himmelblau", "icon": "jazz"},
+    {"song": "Lied vom Scheitern", "icon": "jazz"},
+    {"song": "Breit", "icon": "jazz"},
+    {"song": "Lasse redn", "icon": "jazz"},
+    {"song": "Die ewige Maitresse", "icon": "jazz"},
+    {"song": "Junge", "icon": "jazz"},
+    {"song": "Nur einen Kuss", "icon": "jazz"},
+    {"song": "Perfekt", "icon": "jazz"},
+    {"song": "Heulerei", "icon": "jazz"},
+    {"song": "Licht am Ende des Sarges", "icon": "jazz"},
+    {"song": "Niedliches Liebeslied", "icon": "jazz"},
+    {"song": "Deine Freundin (wäre mir zu anstrengend)", "icon": "jazz"},
+    {"song": "Allein", "icon": "jazz"},
+    {"song": "Tu das nicht", "icon": "jazz"},
+    {"song": "Living Hell", "icon": "jazz"},
+    {"song": "Vorbei ist vorbei", "icon": "jazz"},
+    {"song": "Wir sind die Besten", "icon": "jazz"},
+    {"song": "Wir waren die Besten", "icon": "jazz"},
+    {"song": "Wir sind die Lustigsten", "icon": "jazz"},
+
+    {"song": "Das schönste Lied der Welt", "icon": "jungeSingle"},
+    {"song": "Tut mir leid", "icon": "jungeSingle"},
+
+    {"song": "Nichts gesehen", "icon": "scheiternSingle"},
+
+    {"song": "Komm zu Papa", "icon": "lasseSingle"},
+
+
+
+
+
     {"song": "KFM", "icon": "dunkel"},
     {"song": "WISSEN", "icon": "dunkel"},
     {"song": "DUNKEL", "icon": "dunkel"},
