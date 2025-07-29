@@ -34,3 +34,7 @@ public class TimerEventManager extends Thread{
         }
     }
 }
+
+interface TimerEvents {
+    public void timerEvent();
+}

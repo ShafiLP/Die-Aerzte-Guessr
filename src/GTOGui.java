@@ -24,7 +24,7 @@ class GTOGui extends JFrame{
     private JLabel lyricLabel = new JLabel();
     private JLabel timerLabel = new JLabel("Timer: 30s", SwingConstants.RIGHT);
     private JLabel currentSongLabel = new JLabel();
-    private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.LEFT);
+    private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.RIGHT);
     private JLabel[] healthBar;
 
     /**
@@ -32,16 +32,18 @@ class GTOGui extends JFrame{
      * Creates a GUI for the game "Guess The Origin"
      */
     public GTOGui(GTOGame pGame, String pLyric, Settings pSettings) {
-        // Read settings
         game = pGame;
+
+        // Read settings
         settings = pSettings;
+        timerLabel.setText(settings.getTimeLimit() + "");
         healthBar = new JLabel[settings.getLiveCount()];
 
         // JFrame settings
         this.setTitle("ÄrzteGuessr");
         this.setLayout(new BorderLayout());
         this.pack();
-        this.setSize(600, 200);
+        this.setSize(600, 300);
         this.setLocationRelativeTo(null); // Center the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -64,24 +66,13 @@ class GTOGui extends JFrame{
         center = new JPanel();
         center.setLayout(new GridBagLayout());
 
-        // Search bar with auto completion
-        // TODO: Custom Renderer for icons to show + add other discographies
-        /*if(settings.getTypeOfInput() == "Suchleiste") {
-            songSearchBar = new AutoCompleteTextField(songsFromJsonToList("data\\songs.json"));
-        }
-        
-        // Manual input
-        if(settings.getTypeOfInput() == "Manuelle Eingabe") {
-            manualInput = new JTextField();
-        }*/
-
         // Submit button
         JButton submitButton = new JButton("Submit");
         submitButton.addActionListener(_ -> {
             submitButtonPressed();
         });
 
-        // Guessing bar for dropdown menu and submit button
+        // Guessing bar for guess input and submit button
         JPanel guessBar = new JPanel(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
@@ -89,13 +80,14 @@ class GTOGui extends JFrame{
         gbc.weightx = 0.7;
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
+
         switch(settings.getTypeOfInput()) {
             case "Dropdown Menü":
                 songDropdown = initializeJComboBox();
                 guessBar.add(songDropdown, gbc);
                 break;
             case "Suchleiste":
-                songSearchBar = new AutoCompleteTextField(songsFromJsonToList("data\\songs.json"));
+                songSearchBar = initializAutoCompleteTextField();
                 songSearchBar.addKeyListener(new GTOKeyListener(this));
                 guessBar.add(songSearchBar, gbc);
                 break;
@@ -106,8 +98,9 @@ class GTOGui extends JFrame{
                 break;
         }
 
+        submitButton.setPreferredSize(new Dimension(120, 30));
         gbc.gridx = 1;
-        gbc.weightx = 0.3;
+        gbc.weightx = 0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         guessBar.add(submitButton, gbc);
 
@@ -118,15 +111,72 @@ class GTOGui extends JFrame{
         center.add(lyricLabel);
 
         // Health bar at the top left corner
+        JPanel healthPanel = new JPanel(new GridLayout(1, healthBar.length));
         for(int i = 0; i < healthBar.length; i++) {
-            this.add(healthBar[i]);
+            healthPanel.add(healthBar[i]);
         }
+        healthPanel.setOpaque(false);
 
-        // Info bar with score and timer
-        infoBar = new JPanel(new GridLayout(1, 3));
-        infoBar.add(scoreLabel);
-        infoBar.add(currentSongLabel); // Placeholder
-        infoBar.add(timerLabel);
+        // Upper left corner of infoBar
+        JPanel upperLeft = new JPanel(new GridBagLayout());
+        upperLeft.setOpaque(false);
+
+        upperLeft.add(healthPanel, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 0;
+            weightx = 1.0;
+            anchor = GridBagConstraints.LINE_START;
+            fill = GridBagConstraints.NONE;
+        }});
+
+        // Upper right corner of infoBar
+        JPanel upperRight = new JPanel(new GridBagLayout());
+        upperRight.setOpaque(false);
+
+        upperRight.add(scoreLabel, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 0;
+            weightx = 1.0;
+            gbc.anchor = GridBagConstraints.LINE_END;
+            gbc.fill = GridBagConstraints.NONE;
+        }});
+
+        upperRight.add(timerLabel, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 1;
+            weightx = 1.0;
+            gbc.anchor = GridBagConstraints.LINE_END;
+            gbc.fill = GridBagConstraints.NONE;
+        }});
+
+        // Initialize infoBar Panel
+        infoBar = new JPanel(new GridBagLayout());
+
+        infoBar.add(upperLeft, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 0;
+            weightx = 1.0;
+            anchor = GridBagConstraints.LINE_START;
+            fill = GridBagConstraints.NONE;
+        }});
+
+        //TODO: Make a hint button
+        infoBar.add(currentSongLabel, new GridBagConstraints() {{
+            gridx = 1;
+            gridy = 0;
+            weightx = 1.0;
+            anchor = GridBagConstraints.CENTER;
+            fill = GridBagConstraints.NONE;
+        }});
+
+        infoBar.add(upperRight, new GridBagConstraints() {{
+            gridx = 2;
+            gridy = 0;
+            weightx = 1.0;
+            anchor = GridBagConstraints.LINE_END;
+            fill = GridBagConstraints.NONE;
+        }});
+
         infoBar.setBorder(new EmptyBorder(5, 5, 5, 5));
         infoBar.setBackground(Color.LIGHT_GRAY);
         
@@ -150,7 +200,7 @@ class GTOGui extends JFrame{
             if(healthBar[i].isVisible()) {
                 healthBar[i].setVisible(false);
                 return;
-            } //TODO: Not satisfied with this solution, but it works for now. Arrange health bar in a better way
+            }
         }
     }
 
@@ -189,6 +239,7 @@ class GTOGui extends JFrame{
 
     /**
      * Handles the submit button press event and the enter key press event
+     * ? Possible to automatically write in bars without clicking on it again?
      */
     public void submitButtonPressed() {
         switch(settings.getTypeOfInput()) {
@@ -211,6 +262,8 @@ class GTOGui extends JFrame{
                     infoBarWrong();
                     game.wrongGuess();
                 }
+                songSearchBar.setText("");
+                songSearchBar.requestFocusInWindow();
                 break;
             case "Manuelle Eingabe":
                 String miSelected = manualInput.getText().toLowerCase().trim();
@@ -221,20 +274,22 @@ class GTOGui extends JFrame{
                     infoBarWrong();
                     game.wrongGuess();
                 }
+                manualInput.setText("");
+                manualInput.requestFocusInWindow();
                 break;
         }
     }
 
     /**
      * Creates a JComboBox object with all all items from song files as DropdownItem objects
-     * @return JComboBox with all songs from files
+     * @return JComboBox with all songs from .json files
      */
     private JComboBox<DropdownItem> initializeJComboBox() {
-        JComboBox<DropdownItem> comboBox = new JComboBox<>(readSongsFromJson("data\\songs.json"));
+        JComboBox<DropdownItem> comboBox = new JComboBox<>(dropdownArrayFromJson("data\\songs.json"));
 
         // Add Farin songs if pFarin = true
         if(settings.isFarinEnabled()) {
-            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(readSongsFromJson("data\\farinSongs.json"));
+            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\farinSongs.json"));
             for(int i = 0; i < farinDropdown.getItemCount(); i++) {
                 comboBox.addItem(farinDropdown.getItemAt(i));
             }
@@ -243,7 +298,7 @@ class GTOGui extends JFrame{
 
         // Add Bela songs if pBela = true
         if(settings.isBelaEnabled()) {
-                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(readSongsFromJson("data\\belaSongs.json"));
+                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\belaSongs.json"));
             for(int i = 0; i < belaDropdown.getItemCount(); i++) {
                 comboBox.addItem(belaDropdown.getItemAt(i));
             }
@@ -252,7 +307,7 @@ class GTOGui extends JFrame{
 
         // Add Sahnie songs if pSahnie = true
         if(settings.isSahnieEnabled()) {
-                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(readSongsFromJson("data\\sahnieSongs.json"));
+                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\sahnieSongs.json"));
             for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
                 comboBox.addItem(sahnieDropdown.getItemAt(i));
             }
@@ -274,8 +329,7 @@ class GTOGui extends JFrame{
             }
         });
 
-        // TODO: Not satisfied with this solution
-        // Override KeyEvents for the dropdown menu that "#" can be used as " "
+        // Override KeyEvents for the dropdown menu that the space bar works
         comboBox.addKeyListener(new KeyAdapter() {
             private static String keyBuffer = "";
             private static long lastKeyTime = 0;
@@ -284,8 +338,8 @@ class GTOGui extends JFrame{
             public void keyTyped(KeyEvent e) {
                 char ch = e.getKeyChar();
 
-                // Replace "#" with " "
-                if (ch == '#') {
+                // Space will be a valid char
+                if (ch == ' ') {
                     ch = ' ';
                 }
 
@@ -308,17 +362,42 @@ class GTOGui extends JFrame{
                     }
                 }
             }
-        });
+        }); 
+        comboBox.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)
+        .put(KeyStroke.getKeyStroke("SPACE"), "none"); // Prevents closing the dropdown menu by pressing space bar
+
         comboBox.addKeyListener(new GTOKeyListener(this));
         return comboBox;
     }
 
     /**
-     * Reads songs from a JSON file and returns them as an array of DropdownItem
-     * @param filename
-     * @return an array of DropdownItem containing song names and icons
+     * Intitializes an AutoCompleteTextField object with all song names based on the settings parameters
+     * @return initialized AutoCompleteTextField with all song objects
      */
-    private DropdownItem[] readSongsFromJson(String filename) {
+    private AutoCompleteTextField initializAutoCompleteTextField() {
+        LinkedList<DropdownItem> suggestions = dropdownListFromJson("data\\songs.json");
+        if(settings.isFarinEnabled()) {
+            LinkedList<DropdownItem> farinSuggestions = dropdownListFromJson("data\\farinSongs.json");
+            suggestions.addAll(farinSuggestions);
+        }
+        if(settings.isBelaEnabled()) {
+            LinkedList<DropdownItem> belaSuggestions = dropdownListFromJson("data\\belaSongs.json");
+            suggestions.addAll(belaSuggestions);
+        }
+        if(settings.isSahnieEnabled()) {
+            LinkedList<DropdownItem> sahnieSuggestions = dropdownListFromJson("data\\sahnieSongs.json");
+            suggestions.addAll(sahnieSuggestions);
+        }
+
+        return new AutoCompleteTextField(suggestions, settings.isShowIconsEnabled());
+    }
+
+    /**
+     * Creates an array of DropdownItems containing song name and icon from the given .json file
+     * @param filename path where the song names with icons are located (must contain "song" and "icon" key)
+     * @return an array of DropdownItems containing song names and icons
+     */
+    private DropdownItem[] dropdownArrayFromJson(String filename) {
         LinkedList<DropdownItem> songs = new LinkedList<>();
         try {
             String content = new String(Files.readAllBytes(Paths.get(filename)));
@@ -336,19 +415,21 @@ class GTOGui extends JFrame{
         return songs.toArray(new DropdownItem[0]);
     }
 
-    private LinkedList<String> songsFromJsonToList(String filename) {
-        LinkedList<String> songsFromJson = new LinkedList<>();
+    private LinkedList<DropdownItem> dropdownListFromJson(String filename) {
+        LinkedList<DropdownItem> songs = new LinkedList<>();
         try {
             String content = new String(Files.readAllBytes(Paths.get(filename)));
             JSONArray arr = new JSONArray(content);
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
                 String songName = obj.getString("song");
-                songsFromJson.addLast(songName);
+                String iconPath = obj.getString("icon");
+                Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                songs.add(new DropdownItem(songName, icon));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return songsFromJson;
+        return songs;
     }
 }

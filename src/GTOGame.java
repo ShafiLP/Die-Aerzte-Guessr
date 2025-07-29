@@ -18,7 +18,7 @@ public class GTOGame implements TimerEvents {
     private Settings settings;
     private GTOGui gui;
     private int score = 0;
-    private int lives = 3; 
+    private int lives;
     private boolean blockWrongGuesses = false;
     private SongText currentSongText;
     private LinkedList<SongText> songTexts = new LinkedList<>();
@@ -95,7 +95,7 @@ public class GTOGame implements TimerEvents {
             String[] options = {"Neues Spiel", "Beenden"};
             int n = JOptionPane.showOptionDialog(
                 gui,
-                "Du hast falsch geraten!\nDu hast " + score + " Punkte erreicht.",
+                "Du hast keine Versuche mehr übrig!\nDu hast " + score + " Punkte erreicht.",
                 "ÄrzteGuessr",
                 JOptionPane.INFORMATION_MESSAGE,
                 JOptionPane.OK_CANCEL_OPTION,
@@ -159,13 +159,23 @@ public class GTOGame implements TimerEvents {
                     return null;
             }
         }
+
         int randomLyricIndex = (int) (Math.random() * songTexts.size());
         SongText randomSongText =  songTexts.get(randomLyricIndex);
         songTexts.remove(randomLyricIndex); // Removes the object from the List to avoid reputition
         return randomSongText;
     }
 
-    public LinkedList<SongText> readSongsFromJson(String filepath, LinkedList<SongText> songList) {
+    /**
+     * TODO: 50/50 if getting the album or starting letter
+     * Gives a hint for the current song text
+     * @return first letter of the current song
+     */
+    public String getHint() {
+        return String.valueOf(currentSongText.getSongName().charAt(0));
+    }
+
+    private LinkedList<SongText> readSongsFromJson(String filepath, LinkedList<SongText> songList) {
         try {
             String content = new String(Files.readAllBytes(Paths.get(filepath)));
             JSONArray arr = new JSONArray(content);
@@ -203,6 +213,9 @@ public class GTOGame implements TimerEvents {
     }
 }
 
-//TODO:
-// - QoL improvements for the dropdown menu
-// - Fix lyric display (currently can be too long for the window)
+/**
+ * TODO:
+ * - Fix lyric display (currently can be too long for the window)
+ * - Implement Tips
+ * - Support Sahnie instead of sahnies collective wisdom
+ */

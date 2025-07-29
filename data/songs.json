@@ -150,7 +150,7 @@
 
     {"song": "Du bist nicht mein Freund", "icon": "schweinSingle"},
     {"song": "Saufen", "icon": "schweinSingle"},
-    {"song": "Ein Lächeln (Für jeden Tag deines Lebens", "icon": "schweinSingle"},
+    {"song": "Ein Lächeln (Für jeden Tag deines Lebens)", "icon": "schweinSingle"},
 
     {"song": "Wunderbare Welt des Farin U.", "icon": "handwerkSingle"},
     {"song": "Rod Army", "icon": "handwerkSingle"},
@@ -273,10 +273,39 @@
     {"song": "Endstück des Eros", "icon": "mfSingle"},
     {"song": "Generation Ä", "icon": "mfSingle"},
 
-    {"song": "Voice of Joe", "icon": "punkrockSingle"},
-    {"song": "Laternen-Joe", "icon": "punkrockSingle"},
-    {"song": "Laternencharge", "icon": "punkrockSingle"},
-    {"song": "Hymne wider Willen", "icon": "punkrockSingle"},
+
+
+
+
+    {"song": "Abschied", "icon": "dreimann"},
+    {"song": "Rückkehr", "icon": "dreimann"},
+
+    {"song": "Ein Lied für jetzt", "icon": "liedfuerjetzt"},
+
+
+
+
+
+    {"song": "E.V.J.M.F.", "icon": "hell"},
+    {"song": "PLAN B", "icon": "hell"},
+    {"song": "ACHTUNG: BIELEFELD", "icon": "hell"},
+    {"song": "WARUM SPRICHT NIEMAND ÜBER GITARRISTEN?", "icon": "hell"},
+    {"song": "MORGENS PAUKEN", "icon": "hell"},
+    {"song": "DAS LETZTE LIED DES SOMMERS", "icon": "hell"},
+    {"song": "CLOWN AUS DEM HOSPIZ", "icon": "hell"},
+    {"song": "ICH, AM STRAND", "icon": "hell"},
+    {"song": "TRUE ROMANCE", "icon": "hell"},
+    {"song": "EINMAL EIN BIER", "icon": "hell"},
+    {"song": "WER VERLIERT, HAT SCHON VERLOREN", "icon": "hell"},
+    {"song": "POLYESTER", "icon": "hell"},
+    {"song": "FEXXO CIGOL", "icon": "hell"},
+    {"song": "LIEBE GEGEN RECHTS", "icon": "hell"},
+    {"song": "ALLE AUF BRILLE", "icon": "hell"},
+    {"song": "THOR", "icon": "hell"},
+    {"song": "LEBEN VOR DEM TOD", "icon": "hell"},
+    {"song": "WOODBURGER", "icon": "hell"},
+
+    {"song": "KLAUS, PETER, WILLI UND PETRA", "icon": "bielefeldSingle"},
 
 
 

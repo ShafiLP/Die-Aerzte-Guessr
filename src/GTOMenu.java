@@ -25,6 +25,7 @@ public class GTOMenu extends JFrame {
         this.setSize(300, 300);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
+        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage()); //TODO: each window gets its own funny icon
 
 
         // Main panel with BorderLayout
