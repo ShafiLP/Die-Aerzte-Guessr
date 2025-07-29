@@ -31,7 +31,7 @@ public class MainMenu extends JFrame {
         JButton bGTO = new JButton(new ImageIcon(img));
         bGTO.addActionListener(_ -> {
             this.dispose();       // Close the current gui
-            new GuessTheOrigin(); // Start the game
+            new GTOMenu(); // Start the game
         });
 
         JButton bCTL = new JButton("Lyrics vervollständigen");
