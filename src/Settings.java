@@ -6,6 +6,7 @@ public class Settings {
     private boolean includeFarinLibrary = false;
     private boolean includeBelaLibrary = false;
     private boolean includeSahnieLibrary = false;
+    private boolean activateSupportiveSahnie = false;
     private int timeLimit = 30;
     private int liveCount = 3;
 
@@ -81,6 +82,14 @@ public class Settings {
 
     public boolean isSahnieEnabled() {
         return includeSahnieLibrary;
+    }
+
+    public void setSupportiveSahnie(boolean pSupportiveSahnie) {
+        activateSupportiveSahnie = pSupportiveSahnie;
+    }
+
+    public boolean isSupportiveSahnieEnabled() {
+        return activateSupportiveSahnie;
     }
 
     public void setTimeLimit(int pTimeLimit) {

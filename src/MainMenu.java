@@ -1,13 +1,23 @@
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Class for the game main menu
+ * Contains paths to all games
+ */
 public class MainMenu extends JFrame {
+
+    /**
+     * Constructor of main menu
+     * Contains paths to all games
+     */
     public MainMenu() {
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(400, 300);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
+        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -30,18 +40,24 @@ public class MainMenu extends JFrame {
         Image img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
         JButton bGTO = new JButton(new ImageIcon(img));
         bGTO.addActionListener(_ -> {
-            this.dispose();       // Close the current gui
-            new GTOMenu(); // Start the game
+            this.dispose(); // Close the current gui
+            new GTOMenu();  // Start the game
         });
 
-        JButton bCTL = new JButton("Lyrics vervollständigen");
+        icon = new ImageIcon("images\\CTL.png");
+        img = icon.getImage().getScaledInstance(250, 35, Image.SCALE_SMOOTH);
+        JButton bCTL = new JButton(new ImageIcon(img));
         bCTL.addActionListener(_ -> {
-            // TODO
+            this.dispose(); 
+            new CTLMenu();
         });
 
-        JButton bAerztle = new JButton("Ärztle");
+        icon = new ImageIcon("images\\aerztle.png");
+        img = icon.getImage().getScaledInstance(150, 35, Image.SCALE_SMOOTH);
+        JButton bAerztle = new JButton(new ImageIcon(img));
         bAerztle.addActionListener(_ -> {
-            // TODO
+            this.dispose();
+            new AerztleMenu();
         });
 
         Dimension buttonSize = new Dimension(300, 40);

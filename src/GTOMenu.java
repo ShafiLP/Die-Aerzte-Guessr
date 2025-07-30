@@ -18,7 +18,7 @@ public class GTOMenu extends JFrame {
      * Crates a GUI for starting the game and configuring settings
      */
     public GTOMenu() {
-        settings = readJson("data\\settings.json");
+        settings = readSettings("data\\settings.json");
 
         this.setTitle("Errate den Ursprung");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,7 +48,7 @@ public class GTOMenu extends JFrame {
         // Buttons
         JButton bPlay = new JButton("Spielen");
         bPlay.addActionListener(_ -> {
-            this.dispose();             // Close the current gui
+            this.dispose();        // Close the current gui
             new GTOGame(settings); // Start the game
         });
         JButton bSettings = new JButton("Einstellungen");
@@ -89,6 +89,10 @@ public class GTOMenu extends JFrame {
         this.setVisible(true);
     }
 
+    /**
+     * Opens the settings menu
+     * Called when user clicks on settings button
+     */
     private void openSettings() {
         JFrame settingsFrame = new JFrame();
         settingsFrame.pack();
@@ -104,6 +108,13 @@ public class GTOMenu extends JFrame {
         JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
         panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
         JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isUnlimitedTimeEnabled());
+        cbUnlimitedTime.addActionListener(_ -> {
+            if(cbUnlimitedTime.isSelected()) {
+                tfTimeLimit.setEnabled(false);
+            } else {
+                tfTimeLimit.setEnabled(true);
+            }
+        });
 
         // Health bar settings
         JLabel lLives = new JLabel("Anzahl Leben:");
@@ -111,6 +122,13 @@ public class GTOMenu extends JFrame {
         JPanel panLives = new JPanel(new GridLayout(2, 1));
         panLives.add(lLives); panLives.add(tfLives);
         JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isUnlimitedLivesEnabled());
+        cbUnlimitedLives.addActionListener(_ -> {
+            if(cbUnlimitedLives.isSelected()) {
+                tfLives.setEnabled(false);
+            } else {
+                tfLives.setEnabled(true);
+            }
+        });
 
         // Icon settings
         JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isShowIconsEnabled());
@@ -137,22 +155,8 @@ public class GTOMenu extends JFrame {
         typeOfInputPanel.add(lTypeOfInput);
         typeOfInputPanel.add(ddTypeOfInput);
 
-        // Sahnie's Collective Wisdom
-        JButton bSahniesWisdom = new JButton("Öffne \"Sahnie's Collective Wisdom\"");
-        bSahniesWisdom.addActionListener(_ -> {
-            JFrame sahniesWisdom = new JFrame();
-            sahniesWisdom.pack();
-            sahniesWisdom.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            sahniesWisdom.setSize(500, 500);
-            sahniesWisdom.setResizable(false);
-            sahniesWisdom.setLocationRelativeTo(null);
-            sahniesWisdom.setLayout(new GridLayout(1, 1));
-
-            JLabel lSahnie = new JLabel(new ImageIcon("images\\sahne.png"));
-            sahniesWisdom.add(lSahnie);
-
-            sahniesWisdom.setVisible(true);
-        });
+        // Supportive Sahnie
+        JCheckBox cbSupportSahnie = new JCheckBox("Aktiviere Unterstüzungs-Sahnie", settings.isSupportiveSahnieEnabled());
 
         // Save button
         JButton bSave = new JButton("Speichern");
@@ -205,6 +209,7 @@ public class GTOMenu extends JFrame {
             settings.setFarinLibrary(cbFarin.isSelected());
             settings.setBelaLibrary(cbBela.isSelected());
             settings.setSahnieLibrary(cbSahnie.isSelected());
+            settings.setSupportiveSahnie(cbSupportSahnie.isSelected());
             settings.setTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
 
             saveSettings(settings);
@@ -213,15 +218,15 @@ public class GTOMenu extends JFrame {
 
         // Add all to frame
         settingsFrame.add(panTimeLimit);
-        settingsFrame.add(cbFarin);
-        settingsFrame.add(cbUnlimitedTime);
-        settingsFrame.add(cbBela);
-        settingsFrame.add(panLives);
-        settingsFrame.add(cbSahnie);
-        settingsFrame.add(cbUnlimitedLives);
         settingsFrame.add(typeOfInputPanel);
+        settingsFrame.add(cbUnlimitedTime);
+        settingsFrame.add(cbFarin);
+        settingsFrame.add(panLives);
+        settingsFrame.add(cbBela);
+        settingsFrame.add(cbUnlimitedLives);
+        settingsFrame.add(cbSahnie);
         settingsFrame.add(cbShowIcons);
-        settingsFrame.add(bSahniesWisdom);
+        settingsFrame.add(cbSupportSahnie);
         settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);
 
@@ -229,7 +234,12 @@ public class GTOMenu extends JFrame {
         settingsFrame.setVisible(true);
     }
 
-    private Settings readJson(String filepath) {
+    /**
+     * Reads settings from JSON file
+     * @param filepath path to settings JSON file
+     * @return Settings object with data from JSON file
+     */
+    private Settings readSettings(String filepath) {
         Settings settingsFromJson = new Settings();
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(filepath)) {
@@ -240,6 +250,10 @@ public class GTOMenu extends JFrame {
         return settingsFromJson;
     }
 
+    /**
+     * Overrides settings in settings.json file
+     * @param pSettings settings object with parameters to override settings
+     */
     private void saveSettings(Settings pSettings) {
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter("data\\settings.json")) {

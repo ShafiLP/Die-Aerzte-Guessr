@@ -167,14 +167,20 @@ public class GTOGame implements TimerEvents {
     }
 
     /**
-     * TODO: 50/50 if getting the album or starting letter
      * Gives a hint for the current song text
      * @return first letter of the current song
      */
-    public String getHint() {
+    public String requestHint() {
         return String.valueOf(currentSongText.getSongName().charAt(0));
     }
 
+    /**
+     * Creates a LinkedListy<SongText> object which contains SongText objects with all elements from the given filepath
+     * Adds all elements to an existing given LinkedList
+     * @param filepath path to the JSON file with song data
+     * @param songList List to add the SongText objects to
+     * @return
+     */
     private LinkedList<SongText> readSongsFromJson(String filepath, LinkedList<SongText> songList) {
         try {
             String content = new String(Files.readAllBytes(Paths.get(filepath)));
@@ -189,6 +195,10 @@ public class GTOGame implements TimerEvents {
         return songList;
     }
 
+    /**
+     * Overrides the current settings in the settings.json file
+     * @param pSettings settings object to override the current settings
+     */
     private void saveSettings(Settings pSettings) {
         Gson gson = new Gson();
         try (FileWriter writer = new FileWriter("data\\settings.json")) {
@@ -216,7 +226,5 @@ public class GTOGame implements TimerEvents {
 /**
  * TODO:
  * - Fix lyric display (currently can be too long for the window)
- * - Implement hints
- * - Support Sahnie instead of sahnies collective wisdom
  * - ? Without creating a LinkedList with 1000 objects? (for performance)
  */

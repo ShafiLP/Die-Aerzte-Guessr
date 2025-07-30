@@ -22,7 +22,7 @@ class GTOGui extends JFrame{
     private AutoCompleteTextField songSearchBar;
     private JTextField manualInput;
     private JLabel lyricLabel = new JLabel();
-    private JLabel timerLabel = new JLabel("Timer: 30s", SwingConstants.RIGHT);
+    private JLabel timerLabel;
     private JLabel currentSongLabel = new JLabel();
     private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.RIGHT);
     private JLabel[] healthBar;
@@ -36,7 +36,7 @@ class GTOGui extends JFrame{
 
         // Read settings
         settings = pSettings;
-        timerLabel.setText(settings.getTimeLimit() + "");
+        timerLabel = new JLabel("Timer: " + settings.getTimeLimit());
         healthBar = new JLabel[settings.getLiveCount()];
 
         // JFrame settings
@@ -46,6 +46,7 @@ class GTOGui extends JFrame{
         this.setSize(600, 300);
         this.setLocationRelativeTo(null); // Center the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Health bar
         if(settings.isShowIconsEnabled()) {
@@ -62,15 +63,22 @@ class GTOGui extends JFrame{
             }
         }
 
-        // Create GUI center, where the lyric will be displayed
+        // Create GUI center, where the song text will be displayed
         center = new JPanel();
-        center.setLayout(new GridBagLayout());
+        center.setLayout(new BorderLayout());
 
-        // Submit button
-        JButton submitButton = new JButton("Submit");
-        submitButton.addActionListener(_ -> {
-            submitButtonPressed();
-        });
+        if(settings.isSupportiveSahnieEnabled()) {
+            JPanel sahniePanel = new JPanel(new BorderLayout());
+            sahniePanel.setOpaque(false);
+
+            // Get a scaled ImageIcon
+            ImageIcon icon = new ImageIcon("images\\sahnie.png");
+            Image img = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            JLabel lSahnie = new JLabel(new ImageIcon(img));
+            // Add to panel
+            sahniePanel.add(lSahnie, BorderLayout.WEST);
+            center.add(sahniePanel, BorderLayout.SOUTH);
+        }
 
         // Guessing bar for guess input and submit button
         JPanel guessBar = new JPanel(new GridBagLayout());
@@ -98,17 +106,48 @@ class GTOGui extends JFrame{
                 break;
         }
 
+        // Hint button
+        JButton bHint = new JButton("Hinweis");
+        bHint.addActionListener(_ -> {
+            currentSongLabel.setText(game.requestHint());
+        });
+        bHint.setPreferredSize(new Dimension(120, 30));
+        guessBar.add(bHint, new GridBagConstraints() {{
+            gridx = 1;
+            gridy = 0;
+            weightx = 0;
+            fill = GridBagConstraints.HORIZONTAL;
+        }});
+
+        // Submit button
+        JButton submitButton = new JButton("Submit");
+        submitButton.addActionListener(_ -> {
+            submitButtonPressed();
+        });
         submitButton.setPreferredSize(new Dimension(120, 30));
-        gbc.gridx = 1;
-        gbc.weightx = 0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        guessBar.add(submitButton, gbc);
+        guessBar.add(submitButton, new GridBagConstraints() {{
+            gridx = 2;
+            gridy = 0;
+            fill = GridBagConstraints.HORIZONTAL;
+        }});
 
         // Lyrics to guess in the center
-        lyricLabel.setText("„" + pLyric + "“");
+        JPanel lyricPanel = new JPanel(new GridBagLayout());
+        lyricLabel = new JLabel("„" + pLyric + "“");
         lyricLabel.setHorizontalAlignment(SwingConstants.CENTER);
         lyricLabel.setFont(new Font("Folio Extra BT", Font.BOLD, 15));
-        center.add(lyricLabel);
+            if(settings.isSupportiveSahnieEnabled()) {
+                lyricPanel.add(lyricLabel, new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 0;
+                insets = new Insets(50, 0, 0, 0);
+                anchor = GridBagConstraints.CENTER;
+            }});
+        } else {
+            lyricPanel.add(lyricLabel);
+        }
+        
+        center.add(lyricPanel);
 
         // Health bar at the top left corner
         JPanel healthPanel = new JPanel(new GridLayout(1, healthBar.length));
@@ -160,7 +199,6 @@ class GTOGui extends JFrame{
             fill = GridBagConstraints.NONE;
         }});
 
-        //TODO: Make a hint button
         infoBar.add(currentSongLabel, new GridBagConstraints() {{
             gridx = 1;
             gridy = 0;
@@ -195,6 +233,9 @@ class GTOGui extends JFrame{
         lyricLabel.setText("„" + pLyric + "“");
     }
 
+    /**
+     * Removes one health point from the health bar
+     */
     public void removeHealth() {
         for(int i = healthBar.length - 1; i >= 0; i--) {
             if(healthBar[i].isVisible()) {
@@ -204,10 +245,18 @@ class GTOGui extends JFrame{
         }
     }
 
+    /**
+     * Sets the text on the timer label
+     * @param text new text on the timer label
+     */
     public void setTimerLabel(String text) {
         timerLabel.setText("Timer: " + text);
     }
 
+    /**
+     * Sets the text on the score label
+     * @param pScore new text on the score label
+     */
     public void updateScore(int pScore) {
         scoreLabel.setText("Punktzahl : " + pScore);
     }
@@ -239,7 +288,6 @@ class GTOGui extends JFrame{
 
     /**
      * Handles the submit button press event and the enter key press event
-     * ? Possible to automatically write in bars without clicking on it again?
      */
     public void submitButtonPressed() {
         switch(settings.getTypeOfInput()) {
@@ -415,6 +463,11 @@ class GTOGui extends JFrame{
         return songs.toArray(new DropdownItem[0]);
     }
 
+    /**
+     * Creates a LinkedList of DropdownItems with all songs in the given JSON file
+     * @param filename path to the JSON file with the song data
+     * @return LinkedList with song elements, containing song name and album cover as icon
+     */
     private LinkedList<DropdownItem> dropdownListFromJson(String filename) {
         LinkedList<DropdownItem> songs = new LinkedList<>();
         try {

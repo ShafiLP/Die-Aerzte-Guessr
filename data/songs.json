@@ -166,6 +166,13 @@
     {"song": "Red mit mir", "icon": "planet"},
     {"song": "Trick 17 M. S.", "icon": "planet"},
     {"song": "Opfer", "icon": "planet"},
+
+    {"song": "Is ja irre", "icon": "schunderSingle"},
+    {"song": "Regierung", "icon": "schunderSingle"},
+    {"song": "Unholy", "icon": "schunderSingle"},
+
+    {"song": "Sex Me, Baby", "icon": "hurraSingle"},
+    {"song": "Warrumska", "icon": "hurraSingle"},
     
     
     
@@ -186,6 +193,8 @@
     {"song": "Hair Today, Gone Tomorrow", "icon": "frisur"},
     {"song": "Am Ende meines Körpers", "icon": "frisur"},
     {"song": "Kaperfahrt", "icon": "frisur"},
+
+    {"song": "Chanson d'Albert", "icon": "bartSingle"},
 
 
 
@@ -220,6 +229,9 @@
     {"song": "Schlimm", "icon": "lovesongSingle"},
     {"song": "Danke für jeden guten Morgen", "icon": "lovesongSingle"},
 
+    {"song": "Backpfeifengesicht", "icon": "rebellSingle"},
+    {"song": "Alles für dich", "icon": "rebellSingle"},
+
 
 
 
@@ -243,6 +255,15 @@
     {"song": "Ein Sommer nur für mich", "icon": "spendierhosen"},
     {"song": "Rock'n'Roll Übermensch", "icon": "spendierhosen"},
     {"song": "Herrliche Jahre", "icon": "spendierhosen"},
+
+    {"song": "Poser, du bist ein...", "icon": "wieesgehtSingle"},
+    {"song": "Kpt. Blaubär", "icon": "wieesgehtSingle"},
+
+    {"song": "Rettet die Wale", "icon": "frauenSingle"},
+    {"song": "Methan", "icon": "frauenSingle"},
+
+    {"song": "Die Welt ist schlecht", "icon": "onoSingle"},
+
 
 
 
@@ -274,6 +295,12 @@
     {"song": "Pro-Zombie", "icon": "geraeusch"},
     {"song": "Wammw", "icon": "geraeusch"},
     {"song": "Nichtwissen", "icon": "geraeusch"},
+
+    {"song": "Kontovollmacht...", "icon": "unrockbarSingle"},
+    {"song": "Aus dem Tagebuch eines Amokläufers", "icon": "unrockbarSingle"},
+
+    {"song": "Powerlove", "icon": "dingeSingle"},
+    {"song": "Worum es geht", "icon": "dingeSingle"},
 
 
 
@@ -394,6 +421,8 @@
 
     {"song": "AUSERZÄHLT", "icon": "noiseSingle"},
     {"song": "DOBLY", "icon": "noiseSingle"},
+
     {"song": "SCHRITTE", "icon": "kraftSingle"},
+    
     {"song": "SCHULDSELBER", "icon": "dunkelSingle"}
 ]

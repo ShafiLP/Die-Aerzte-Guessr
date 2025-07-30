@@ -520,6 +520,26 @@
     {"song": "Opfer", "lyric": "Und wenn er am krepieren ist, verkauf' ich ihm den Sarg"},
 
 
+    {"song": "Is ja irre", "lyric": "Minderjährige Mädchen, von außerirdischen Zombies Drogenabhängig gemacht [...]"},
+    {"song": "Is ja irre", "lyric": "Japanische Terroristen, mit runtergelassenen Hosen [...]"},
+
+    {"song": "Regierung", "lyric": "Wenn er kommt, dann gibt es gleich Piercing im Intimbereich"},
+    {"song": "Regierung", "lyric": "Stefanie steht im Wald, gerade sieben Jahre alt"},
+    {"song": "Regierung", "lyric": "Holt den Bohrer aus dem Schrank... Halt! Das wird mir jetzt zu krank"},
+
+    {"song": "Unholy", "lyric": "Selbst Mord und Inflation, das Omen jeder Nation"},
+    {"song": "Unholy", "lyric": "Ich bin der Incubus, ich leg das Ei in dich"},
+    {"song": "Unholy", "lyric": "Und darum fühlst du dich Unheilig"},
+
+
+    {"song": "Sex Me, Baby", "lyric": "And you are horny, you are horny (F.I.C.K.E.N)"},
+    {"song": "Sex Me, Baby", "lyric": "Die Kirche und das Zölibat hassen wir auch extrem"},
+    {"song": "Sex Me, Baby", "lyric": "Wir hassen Bullen und Grundgesetz and we don't need maybe"},
+
+    {"song": "Warrumska", "lyric": "Ich hab dich seltener geschlagen, als es üblich ist"},
+    {"song": "Warrumska", "lyric": "Grad wollt ich dir neue Strapse schenken"},
+
+
 
     
 
@@ -573,6 +593,11 @@
     
     {"song": "Kaperfahrt", "lyric": "Jan und Hein und Klaas und Pit, die haben Bärte, die fahren mit"},
     {"song": "Kaperfahrt", "lyric": "Alle, die Wale und Robben fangen müssen Männer mit Bärten sein"},
+    
+
+    {"song": "Chanson d'Albert", "lyric": "Her beauty made me dream, while her karate kick made me bleed"},
+    {"song": "Chanson d'Albert", "lyric": "Made acquaintance with her high-heeled shoes"},
+    {"song": "Chanson d'Albert", "lyric": "Long legs and angel lips and her ego's oversized"},
     
 
 
@@ -675,6 +700,15 @@
     {"song": "Danke für jeden guten Morgen", "lyric": "Danke, für alles Frohe, Helle und für die Musik"},
 
 
+    {"song": "Backpfeifengesicht", "lyric": "Ist jetzt etwa Blödglotz-Zeit?"},
+    {"song": "Backpfeifengesicht", "lyric": "Wenn Du Sterbehilfe brauchst - sag Bescheid!"},
+    {"song": "Backpfeifengesicht", "lyric": "Vollidiot, mach mich nicht an! Ich mach Dich tot!"},
+
+    {"song": "Alles für dich", "lyric": "Ich würd' dich auf Händen trag'n, doch du bist zu schwer für mich"},
+    {"song": "Alles für dich", "lyric": "Ich würde alles für dich tun, zum Beispiel fällt mir grad nichts ein"},
+    {"song": "Alles für dich", "lyric": "Ich schenke dir mein Herz, oder lieber meine Leber"},
+
+
 
 
 
@@ -759,6 +793,30 @@
     {"song": "Herrliche Jahre", "lyric": "Das Leben ist 'ne Party, woh-ho"},
     {"song": "Herrliche Jahre", "lyric": "Und Du kennst glückliche Menschen nur aus den Filmen, die Du siehst"},
     {"song": "Herrliche Jahre", "lyric": "Und stellst Dich immer an der längsten Schlange an"},
+
+
+    {"song": "Poser, du bist ein...", "lyric": "Ey, Tussi, gib mal 'n Bier, aber was zackig"},
+    {"song": "Poser, du bist ein...", "lyric": "Und geh uns nicht auf den Sack - zack!"},
+    {"song": "Poser, du bist ein...", "lyric": "L-O-S-E-R, ein echter Loser"},
+
+    {"song": "Kpt. Blaubär", "lyric": "Unser Käpt'n ist so blau wie die See"},
+    {"song": "Kpt. Blaubär", "lyric": "Wer will sich schon mit 'nem blauen Bär anlegen? Ne!"},
+    {"song": "Kpt. Blaubär", "lyric": "Now, I wanna be your bear"},
+
+
+    {"song": "Rettet die Wale", "lyric": "Ihr habt bestimmt grade was Besseres zu tun als mir zuzuhör'n"},
+    {"song": "Rettet die Wale", "lyric": "Passt schön auf, fahrt vorsichtig"},
+    {"song": "Rettet die Wale", "lyric": "Jetzt denkt ihr sicher: \"Was ist bloß mit Die Ärzte los?\""},
+
+    {"song": "Methan", "lyric": "Also mach mich nicht zum Komplizen deiner Hässlichkeit"},
+    {"song": "Methan", "lyric": "Du gehörst zurückgefickt und abgetrieben"},
+    {"song": "Methan", "lyric": "Du mäkelst an mir rum und hast doch längst den Zug verpasst"},
+    {"song": "Methan", "lyric": "Auf der Suche nach 'nem Opfer, an dem du dich rächen kannst"},
+    {"song": "Methan", "lyric": "Oh, glaube mir, suchst du Streit, dann tut es dir leid"},
+
+
+    {"song": "Die Welt ist schlecht", "lyric": "Am Morg'n mit 'nem zweiten Kopf aufgewacht"},
+    {"song": "Die Welt ist schlecht", "lyric": "Bevor ich verduft'n kann hat Johnny Frühstück gemacht"},
 
 
 
@@ -880,6 +938,23 @@
     {"song": "Nichtwissen", "lyric": "Denn weil Wissen nur belastet, woll'n wir nicht Mitwisser sein"},
     {"song": "Nichtwissen", "lyric": "Sind ihre Brüste wirklich echt? Das woll'n wir wissen"},
     {"song": "Nichtwissen", "lyric": "Warum ist Ernie fies zu Bert?"},
+
+
+    {"song": "Kontovollmacht...", "lyric": "Du würdest spenden, wenn du könntest, doch dir fehlt das Geld"},
+    {"song": "Kontovollmacht...", "lyric": "Verspekuliert an der Börse, dein BMW ist kaputt"},
+    {"song": "Kontovollmacht...", "lyric": "Brauchst du noch mehr, such es dir aus"},
+
+    {"song": "Aus dem Tagebuch eines Amokläufers", "lyric": "Die neue Rechtschreibung ist da und sie hat den Euro mitgebracht"},
+    {"song": "Aus dem Tagebuch eines Amokläufers", "lyric": "Das meist gelesene Buch in Deutschland ist von Dieter Bohlen"},
+    {"song": "Aus dem Tagebuch eines Amokläufers", "lyric": "Und weil Weihnachten schon so schön ist, fängt's jetzt schon im Sommer an"},
+
+
+    {"song": "Powerlove", "lyric": "Um sicher zu gehen hast Du noch 20 Aspirin genommen"},
+    {"song": "Powerlove", "lyric": "In seinem Leder-Afro-Look könnte er glatt Dein Zuhälter sein"},
+    {"song": "Powerlove", "lyric": "Du liegst allein im Bett und fingerst einsam an Deinem Genitalbereich"},
+
+    {"song": "Worum es geht", "lyric": "Und während ich der Dinge harre, spiele ich auf der Gitarre"},
+    {"song": "Worum es geht", "lyric": "Die Titelmelodie von \"Winnetou\" hat 80 beats per minute"},
 
 
 
