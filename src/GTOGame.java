@@ -216,6 +216,7 @@ public class GTOGame implements TimerEvents {
 /**
  * TODO:
  * - Fix lyric display (currently can be too long for the window)
- * - Implement Tips
+ * - Implement hints
  * - Support Sahnie instead of sahnies collective wisdom
+ * - ? Without creating a LinkedList with 1000 objects? (for performance)
  */

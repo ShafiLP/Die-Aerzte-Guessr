@@ -14,6 +14,8 @@
     {"song": "Teenager Liebe", "icon": "debil"},
     {"song": "Füße vom Tisch", "icon": "debil"},
 
+    {"song": "Erna P.", "icon": "paulSingle"},
+
 
 
     {"song": "Du willst mich küssen", "icon": "schatten"},
@@ -29,6 +31,8 @@
     {"song": "Ich weiss nicht, ob es Liebe ist", "icon": "schatten"},
     {"song": "\"Was hat der Junge doch für Nerven\"", "icon": "schatten"},
 
+    {"song": "Und ich weine", "icon": "wegendirSingle"},
+
 
 
     {"song": "Wie am ersten Tag", "icon": "aerzte"},
@@ -43,6 +47,29 @@
     {"song": "Ich bin reich", "icon": "aerzte"},
     {"song": "Zum letzten Mal", "icon": "aerzte"},
 
+    {"song": "Ewige Blumenkraft", "icon": "fuerimmerSingle"},
+
+
+
+
+
+    {"song": "Sie kratzt, sie stinkt, sie klebt", "icon": "abAchtzehn"},
+    {"song": "Geschwisterliebe", "icon": "abAchtzehn"},
+    {"song": "Helmut K.", "icon": "abAchtzehn"},
+    {"song": "Claudia II", "icon": "abAchtzehn"},
+
+
+
+
+
+    {"song": "Geh'n wie ein Ägypter", "icon": "hoehepunkte"},
+    {"song": "2000 Mädchen", "icon": "hoehepunkte"},
+    {"song": "Radio brennt", "icon": "hoehepunkte"},
+
+    {"song": "Nein, Nein, Nein", "icon": "maedchenSingle"},
+
+    {"song": "Gabi ist pleite", "icon": "radioSingle"},
+    
 
 
 
@@ -61,6 +88,31 @@
     {"song": "Popstar", "icon": "wahrheit"},
     {"song": "Gute Zeit", "icon": "wahrheit"},
     {"song": "Schwanz ab", "icon": "wahrheit"},
+
+    {"song": "Das ist Rock'n'Roll", "icon": "blumenSingle"},
+
+    {"song": "Sie tun es", "icon": "zuspaetLive"},
+
+    {"song": "Gabi gibt 'ne Party", "icon": "bitteSingle"},
+
+
+
+
+
+    {"song": "Annelise Schmidt", "icon": "frueher"},
+    {"song": "Der lustige Astronaut", "icon": "frueher"},
+    {"song": "Die Einsamkeit des Würstchens", "icon": "frueher"},
+    {"song": "Ekelpack", "icon": "frueher"},
+    {"song": "Grace Kelly", "icon": "frueher"},
+    {"song": "Kopfhaut", "icon": "frueher"},
+    {"song": "Mein kleiner Liebling", "icon": "frueher"},
+    {"song": "Sommer, Palmen, Sonnenschein", "icon": "frueher"},
+    {"song": "Teddybär", "icon": "frueher"},
+    {"song": "Tittenmaus", "icon": "frueher"},
+    {"song": "Vollmilch", "icon": "frueher"},
+    {"song": "Wilde Mädchen", "icon": "frueher"},
+    {"song": "Zitroneneis", "icon": "frueher"},
+    {"song": "Zum Bäcker", "icon": "frueher"},
 
 
 
@@ -84,6 +136,15 @@
     {"song": "Lieber Tee", "icon": "bestie"},
     {"song": "Wenn es Abend wird", "icon": "bestie"},
 
+    {"song": "Felicita", "icon": "schreiSingle"},
+    {"song": "Ja (Demo)", "icon": "schreiSingle"},
+    
+    {"song": "25 Stunden am Tag", "icon": "augenSingle"},
+    {"song": "Punkrockgirl", "icon": "augenSingle"},
+    {"song": "Wahre Liebe", "icon": "augenSingle"},
+
+    {"song": "Stick it Out/What's the Ugliest Part of Your Body", "icon": "panzerSingle"},
+    
 
 
 

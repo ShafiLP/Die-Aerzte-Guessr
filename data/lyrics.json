@@ -55,6 +55,11 @@
     {"song": "Füße vom Tisch", "lyric": "Baby, Baby, du und isch, das wird einfach fürchterlisch"},
     {"song": "Füße vom Tisch", "lyric": "Der Rest, der kommt automatisch, drum nimm doch deine Quanten vom Tisch"},
 
+    
+    {"song": "Erna P.", "lyric": "Und hinterm Vorhang steht ein Herr"},
+    {"song": "Erna P.", "lyric": "Unterm Vorhang steh'n zwei Männerschuh"},
+    {"song": "Erna P.", "lyric": "Doch niemand wird sie hören, denn sie ist ganz allein"},
+
 
 
 
@@ -108,6 +113,11 @@
     {"song": "\"Was hat der Junge doch für Nerven\"", "lyric": "Er spricht fließend Latein und hat 'ne Eins in Physik"},
 
 
+    {"song": "Und ich weine", "lyric": "Jetzt sitz' ich hier und dichte ganz alleine"},
+    {"song": "Und ich weine", "lyric": "Dann kannst Du ein paar rote Rosen pflücken"},
+    {"song": "Und ich weine", "lyric": "Du hast geschrieben, dass Du mich nicht mehr lieb hast"},
+
+
 
 
 
@@ -154,6 +164,64 @@
     {"song": "Zum letzten Mal", "lyric": "Er gab ihr einen Kuss, sie lachte ihn aus"},
     {"song": "Zum letzten Mal", "lyric": "Und er schwor sich sie hat heute zum letzten Mal über ihn gelacht"},
     {"song": "Zum letzten Mal", "lyric": "Er küßte sie noch einmal - diesmal lachte sie nicht"},
+
+
+    {"song": "Ewige Blumenkraft", "lyric": "\"Nur wer knallt, kann auch geknallt werden!\""},
+    {"song": "Ewige Blumenkraft", "lyric": "Man nennt mich Bruder Friedlich, und ich sage euch: [...]"},
+
+
+
+
+
+    {"song": "Sie kratzt, sie stinkt, sie klebt", "lyric": "Sie ist jung, sie ist wild, und sie ist mein"},
+    {"song": "Sie kratzt, sie stinkt, sie klebt", "lyric": "Dieses Mädchen ist mein Fall, doch sie hat Haare überall"},
+    {"song": "Sie kratzt, sie stinkt, sie klebt", "lyric": "Dies Mädchen ist sehr nett zu mir, doch sie benutzt kein Klopapier"},
+    {"song": "Sie kratzt, sie stinkt, sie klebt", "lyric": "Ich liebe ein Mädchen, die ist 2 Meter 10"},
+
+    {"song": "Geschwisterliebe", "lyric": "Beim Doktorspielen wollt' ich nur dein Fieber messen"},
+    {"song": "Geschwisterliebe", "lyric": "Auf die Gelegenheit warte ich seit 14 Jahren"},
+    {"song": "Geschwisterliebe", "lyric": "Ich liege auf dir, du schreist: \"JA!!\""},
+    {"song": "Geschwisterliebe", "lyric": "Wir haben zusammen im Sandkasten gesessen"},
+    {"song": "Geschwisterliebe", "lyric": "Und morgen nehme ich dein Hinterteil"},
+    {"song": "Geschwisterliebe", "lyric": "Du bist so eng, das macht mich geil"},
+
+    {"song": "Helmut K.", "lyric": "Hannelores Tag ist grau"},
+    {"song": "Helmut K.", "lyric": "Selbst Rita Süssmuth weiß es schon"},
+    {"song": "Helmut K.", "lyric": "Kriegt seine Frau den Wolf zu spür'n!"},
+
+    {"song": "Claudia II", "lyric": "Der Schäferhund ist nichts mehr wert"},
+    {"song": "Claudia II", "lyric": "Zu Ostern einen - Elefanten"},
+    {"song": "Claudia II", "lyric": "Claudia hat jetzt ein Pferd"},
+
+
+
+
+
+    {"song": "Geh'n wie ein Ägypter", "lyric": "Orgien mit Kleopatra"},
+    {"song": "Geh'n wie ein Ägypter", "lyric": "Ich stell' mir vor, die Sphinx gibt mir einen Zungenkuss"},
+    {"song": "Geh'n wie ein Ägypter", "lyric": "Ich war in Kairo und auch am blauen Nil war ich schon einmal"},
+    {"song": "Geh'n wie ein Ägypter", "lyric": "Ich fühl' mich einsam, wenn ich allein durch die Wüste gehen muss"},
+
+    {"song": "2000 Mädchen", "lyric": "Ma-ma-ma-manchmal ist dein Vater dran"},
+    {"song": "2000 Mädchen", "lyric": "Du gehst nicht mehr ans Telefon, denn du hast Angst vor mir"},
+    {"song": "2000 Mädchen", "lyric": "Doch es gibt genügend Mädchen, die im Telefonbuch steh'n"},
+
+    {"song": "Radio brennt", "lyric": "Sie spielen überall dasselbe: Falcos neue LP"},
+    {"song": "Radio brennt", "lyric": "Nur die Ärzte hör' ich nie!"},
+    {"song": "Radio brennt", "lyric": "Und darum schmeiß ich dein Radio an die Wand"},
+    {"song": "Radio brennt", "lyric": "Sie spielten g'rade dein Lieblingslied (Geronimos Cadillac)"},
+
+
+    {"song": "Nein, Nein, Nein", "lyric": "Das Rendezvous mit Uwe hat sie schnell noch abbestellt"},
+    {"song": "Nein, Nein, Nein", "lyric": "Sie sah es im Spiegel, sie dacht' es wär die Pest"},
+    {"song": "Nein, Nein, Nein", "lyric": "Es war ein grauer Dienstag als Gabi ihren Zahnarzt sah"},
+    {"song": "Nein, Nein, Nein", "lyric": "Liebe ist stärker als fettiges Haar"},
+
+
+    {"song": "Gabi ist pleite", "lyric": "Es herrscht wieder Ebbe in Gabis Portemonnaie"},
+    {"song": "Gabi ist pleite", "lyric": "Kinder ausführen bringt zu wenig. Dafür hat sie keine Zeit"},
+    {"song": "Gabi ist pleite", "lyric": "Auch in Lemke's Sparschwein hat sie schon geschielt"},
+    {"song": "Gabi ist pleite", "lyric": "Lotto spielen ist nicht drin, viel zu spät kommt der Gewinn"},
 
 
 
@@ -210,6 +278,90 @@
 
     {"song": "Schwanz ab", "lyric": "Sie trat mir in den Bauch mit ihren Sandalen"},
     {"song": "Schwanz ab", "lyric": "Ich rief aber, \"Ich liebe dich, kannst du das nicht verstehen?\""},
+
+
+    {"song": "Das ist Rock'n'Roll", "lyric": "Gabi sagt zu Uwe: \"Uwe, lass das sein!\""},
+    {"song": "Das ist Rock'n'Roll", "lyric": "Jetzt gibt Uwe ein Konzert vor 100.000 Leuten"},
+    {"song": "Das ist Rock'n'Roll", "lyric": "Gabi wird mein Groupie sein"},
+    {"song": "Das ist Rock'n'Roll", "lyric": "Die Haare liegen voll im Trend, sind stachlig wie ein Igel"},
+
+
+    {"song": "Sie tun es", "lyric": "Uwe hat sie gleich bemerkt, die Beulen unter Gabis Hemd"},
+    {"song": "Sie tun es", "lyric": "Klar, er weiß schon einiges aus einem Pornoheft"},
+    {"song": "Sie tun es", "lyric": "Gabi wohnt in Schöneberg, Uwe wohnt in Wedding"},
+    {"song": "Sie tun es", "lyric": "Uwe zieht die Hose aus, sie sind allein im Zimmer"},
+
+
+    {"song": "Gabi gibt 'ne Party", "lyric": "Uwe kotzt ins Blumenbeet im Garten hinterm Haus"},
+    {"song": "Gabi gibt 'ne Party", "lyric": "Der Teppich brennt, der Hund ist tot"},
+    {"song": "Gabi gibt 'ne Party", "lyric": "Da kommt Lutz plus Kameraden"},
+    {"song": "Gabi gibt 'ne Party", "lyric": "Und Uwe hat jetzt Hausverbot"},
+
+
+
+
+
+    {"song": "Annelise Schmidt", "lyric": "Das kleine Kind, es spielt im Garten"},
+    {"song": "Annelise Schmidt", "lyric": "In die Küche zum dran Schnuppern"},
+    {"song": "Annelise Schmidt", "lyric": "Ich ess' das Kind von meinem Nachbarn auf"},
+
+    {"song": "Der lustige Astronaut", "lyric": "Wer weiß, ob ich meine Heimat, die Erde, jemals wiedersehen werde"},
+    {"song": "Der lustige Astronaut", "lyric": "Ich weiß, dass Mister Spock mit Vornamen Karl-Heinz heißt"},
+    {"song": "Der lustige Astronaut", "lyric": "Und ich singe ein Lied, ich bin so ein [...]"},
+
+    {"song": "Die Einsamkeit des Würstchens", "lyric": "Früher, da war ich eine Currywurst"},
+    {"song": "Die Einsamkeit des Würstchens", "lyric": "Die Boulette sagte guten Tag"},
+
+    {"song": "Ekelpack", "lyric": "Dieses Stück ist der ehemaligen Freundin von Roman gewidmet"},
+    {"song": "Ekelpack", "lyric": "Eiter, ich sage Eiter, ich sage Eiter"},
+
+    {"song": "Grace Kelly", "lyric": "Meine Welt stürzte ein wie ein Kartenhaus"},
+    {"song": "Grace Kelly", "lyric": "Es war in Monaco letztes Jahr"},
+    {"song": "Grace Kelly", "lyric": "Ich hab' sie als Letzter noch lebend geseh'n"},
+    {"song": "Grace Kelly", "lyric": "Bevor sie um die nächste Kurve verschwand"},
+
+    {"song": "Kopfhaut", "lyric": "Da folgten mir Indianer und sie waren zu dritt"},
+    {"song": "Kopfhaut", "lyric": "Zwei hatten Pfeil und Bogen und einer ein Beil"},
+    {"song": "Kopfhaut", "lyric": "Ich jedenfalls trag' jetzt immer einen Hut"},
+    {"song": "Kopfhaut", "lyric": "\"Sie können das gern mit meinem Anwalt ausmachen\""},
+
+    {"song": "Mein kleiner Liebling", "lyric": "Wir lachen und wir lachen und wir lachen uns schief"},
+    {"song": "Mein kleiner Liebling", "lyric": "Dann stell' ich dir ein Bein und ich lache"},
+    {"song": "Mein kleiner Liebling", "lyric": "Verliebt im März, verliebt im April"},
+    {"song": "Mein kleiner Liebling", "lyric": "Doch Mädchen, Mädchen, verstehst du keinen Spaß?"},
+    {"song": "Mein kleiner Liebling", "lyric": "Das Telegramm vom Tod deiner Mutter"},
+
+    {"song": "Sommer, Palmen, Sonnenschein", "lyric": "Mit dir allein kann es noch schöner sein"},
+    {"song": "Sommer, Palmen, Sonnenschein", "lyric": "Die Sonne brennt heiß, das Meer ist spiegelglatt"},
+    {"song": "Sommer, Palmen, Sonnenschein", "lyric": "Doch die Batterien sind alle, darum komme ich zurück"},
+    {"song": "Sommer, Palmen, Sonnenschein", "lyric": "Denn mein Walkman ist nicht wasserdicht"},
+    {"song": "Sommer, Palmen, Sonnenschein", "lyric": "Du weißt, manchmal muss ich einfach raus "},
+
+    {"song": "Teddybär", "lyric": "Knopfaugen blicken mich traurig an"},
+    {"song": "Teddybär", "lyric": "Ich liebte dich als Junge, ich vergaß dich als Mann"},
+    {"song": "Teddybär", "lyric": "Du gabst mir alles, ich gab dich den Spinnen"},
+    {"song": "Teddybär", "lyric": "Erwachs'n sein heißt Treue verachten"},
+
+    {"song": "Tittenmaus", "lyric": "Ich geb' dir auch einen Jack Daniels aus"},
+    {"song": "Tittenmaus", "lyric": "(30 Zentimeter sind echt nicht übertrieben!)"},
+    {"song": "Tittenmaus", "lyric": "Liebe Jungs: Diese Worte klappen immer"},
+
+    {"song": "Vollmilch", "lyric": "Du trinkst Whiskey, er trinkt Bier"},
+    {"song": "Vollmilch", "lyric": "Du bist ein Punkrocker, doch das passt nicht zu mir, denn [...]"},
+    {"song": "Vollmilch", "lyric": "Du magst dein Mädchen, er mag sein Gummitier"},
+    {"song": "Vollmilch", "lyric": "Du bist ein Bär, ich bin ein Stier"},
+
+    {"song": "Wilde Mädchen", "lyric": "[...] auf dem Kurfürstendamm"},
+
+    {"song": "Zitroneneis", "lyric": "Heute bin ich glücklich, denn sie schläft bei mir"},
+    {"song": "Zitroneneis", "lyric": "Mein Schatz, ich geh' jetzt Eise essen"},
+    {"song": "Zitroneneis", "lyric": "Sie schaut mich komisch an und sie zieht ein Messer"},
+    {"song": "Zitroneneis", "lyric": "Sie liegt neben mir und ich fasse sie an"},
+
+    {"song": "Zum Bäcker", "lyric": "Wollt ihr das totale Brötchen?"},
+    {"song": "Zum Bäcker", "lyric": "Links, rechts (Heil!), links, rechts, links, rechts, links, rechts"},
+    {"song": "Zum Bäcker", "lyric": "Hol' mir Brötchen für fünf Mark"},
+    {"song": "Zum Bäcker", "lyric": "Sonntags ist mein Trauertag, da hat mein Bäcker zu"},
 
 
 
@@ -275,6 +427,30 @@
 
     {"song": "Wenn es Abend wird", "lyric": "[...] steckt er den braven Buam eine gottgeweihte Kerze in den Po"},
     {"song": "Wenn es Abend wird", "lyric": "Denn der Wirt ging fremd mit seiner schönsten Kuh"},
+
+
+    {"song": "Felicita", "lyric": "Mia van tona amare"},
+
+    {"song": "Ja (Demo)", "lyric": "Eu estou com você, para mais que um momento"},
+    {"song": "Ja (Demo)", "lyric": "Pertinho e bonzinho, ja esta tudo bem legal"},
+
+
+    {"song": "25 Stunden am Tag", "lyric": "Ich pflanz' Dir einen Baum auf dem Mond"},
+    {"song": "25 Stunden am Tag", "lyric": "24 Stunden am Tag denk' ich an Dich"},
+    {"song": "25 Stunden am Tag", "lyric": "Ich schenk' Dir die Ewigkeit und dann lieben wir uns für immer"},
+    {"song": "25 Stunden am Tag", "lyric": "Trau mich nicht Dich zu erreichen, das ist der Hohn"},
+
+    {"song": "Punkrockgirl", "lyric": "Die Parasites bringen dich gut drauf"},
+    {"song": "Punkrockgirl", "lyric": "Nur nich' so 'n Scheiß wie King Køng und Depp Jones"},
+    {"song": "Punkrockgirl", "lyric": "Dickies, Buzzcocks, Noise Annoys, Ruts, The Damned, die Bad Town Boys"},
+
+    {"song": "Wahre Liebe", "lyric": "Als sie Gabi das erzählt, sagt Gabi: oioioi!"},
+    {"song": "Wahre Liebe", "lyric": "Das ist - der Vater meines Kindes!"},
+
+
+    {"song": "Stick it Out/What's the Ugliest Part of Your Body", "lyric": "Fick mich, du miserabler Hurensohn"},
+    {"song": "Stick it Out/What's the Ugliest Part of Your Body", "lyric": "Aber beklecker nicht das Sofa, Sofa"},
+    {"song": "Stick it Out/What's the Ugliest Part of Your Body", "lyric": "Mach es sehr schnell, rein und raus (Magisches Schwein)"},
 
 
 

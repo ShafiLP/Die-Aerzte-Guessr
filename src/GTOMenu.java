@@ -250,3 +250,6 @@ public class GTOMenu extends JFrame {
         }
     }
 }
+
+//TODO:
+// - Being able to customize album pool
