@@ -17,7 +17,7 @@ public class CTLMenu extends JFrame {
      * Crates a GUI for starting the game and configuring settings
      */
     public CTLMenu() {
-        //TODO: Read settings
+        settings = readSettings("data\\settings.json");
 
         this.setTitle("Lückenfüller");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,7 +47,8 @@ public class CTLMenu extends JFrame {
         // Buttons
         JButton bPlay = new JButton("Spielen");
         bPlay.addActionListener(_ -> {
-            //TODO
+            this.dispose();
+            new CTLGame(settings);
         });
         JButton bSettings = new JButton("Einstellungen");
         bSettings.addActionListener(_ -> {

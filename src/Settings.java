@@ -1,4 +1,5 @@
 public class Settings {
+    // For GTO
     private String typeOfInput = "Dropdown Menü";
     private boolean showIcons = true;
     private boolean unlimitedTime = false;
@@ -9,13 +10,27 @@ public class Settings {
     private boolean activateSupportiveSahnie = false;
     private int timeLimit = 30;
     private int liveCount = 3;
-
     private int highscore = 0;
+
+    // For CTL
+    private int ctlLiveCount = 3;
+    private int ctlTimeLimit = 30;
 
     public Settings() {
         // Keep default settings
     }
 
+    /**
+     * Constructor for GTO
+     * @param pShowIcons
+     * @param pUnlimitedTime
+     * @param pUnlimitedLives
+     * @param pFarin
+     * @param pBela
+     * @param pSahnie
+     * @param pTimeLimit
+     * @param pLiveCount
+     */
     public Settings(boolean pShowIcons, boolean pUnlimitedTime, boolean pUnlimitedLives, boolean pFarin,
     boolean pBela, boolean pSahnie, int pTimeLimit, int pLiveCount){
         showIcons = pShowIcons;
@@ -114,5 +129,21 @@ public class Settings {
 
     public int getHighscore() {
         return highscore;
+    }
+
+    public void setCtlLiveCount(int pLiveCount) {
+        ctlLiveCount = pLiveCount;
+    }
+
+    public int getCtlLiveCount() {
+        return ctlLiveCount;
+    }
+
+    public void setCtlTimeLimit(int pTimeLimit) {
+        ctlTimeLimit = pTimeLimit;
+    }
+
+    public int getCtlTimeLimit() {
+        return ctlTimeLimit;
     }
 }

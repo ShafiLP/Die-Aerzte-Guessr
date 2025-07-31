@@ -42,7 +42,6 @@ class GTOGui extends JFrame{
         // JFrame settings
         this.setTitle("ÄrzteGuessr");
         this.setLayout(new BorderLayout());
-        this.pack();
         this.setSize(600, 300);
         this.setLocationRelativeTo(null); // Center the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
