@@ -4,10 +4,10 @@ import java.awt.event.KeyListener;
 /**
  * Key Listener to confirm dropdown selection with enter key.
  */
-public class GTOKeyListener extends Thread implements KeyListener {
-    private GTOGui gui;
+public class SubmitKeyListener extends Thread implements KeyListener {
+    private EnterKeyListener gui;
 
-    public GTOKeyListener(GTOGui pGui) {
+    public SubmitKeyListener(EnterKeyListener pGui) {
         gui = pGui;
     }
 
@@ -28,4 +28,8 @@ public class GTOKeyListener extends Thread implements KeyListener {
     public void keyTyped(KeyEvent e) {
         // No action needed on key typed
     }
+}
+
+interface EnterKeyListener {
+    public void submitButtonPressed();
 }

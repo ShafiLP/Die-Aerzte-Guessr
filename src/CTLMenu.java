@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -25,7 +26,6 @@ public class CTLMenu extends JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage()); //TODO: each window gets its own funny icon
-
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -70,9 +70,8 @@ public class CTLMenu extends JFrame {
         bBack.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Highscore
-        //TODO
         JPanel highscorePanel = new JPanel();
-        JLabel lHighscore = new JLabel("Highscore: 0");
+        JLabel lHighscore = new JLabel("Highscore: " + settings.getCtlHighscore());
         highscorePanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         highscorePanel.add(lHighscore);
         this.add(highscorePanel, BorderLayout.SOUTH);
@@ -94,7 +93,135 @@ public class CTLMenu extends JFrame {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        //TODO
+        JFrame settingsFrame = new JFrame();
+        settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        settingsFrame.setSize(500, 500);
+        settingsFrame.setResizable(false);
+        settingsFrame.setLocationRelativeTo(null);
+        settingsFrame.setLayout(new GridLayout(6, 2)); // Icons, hardmode, zeit, unendlich zeit, leben, unendlich leben, farin, bela, sahnie, support sahnie, speichern, highscore reset
+
+        // Timer settings
+        JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
+        JTextField tfTimeLimit = new JTextField(settings.getCtlTimeLimit() + "");
+        JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
+        panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
+        JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isCtlUnlimitedTimeEnabled());
+        cbUnlimitedTime.addActionListener(_ -> {
+            if(cbUnlimitedTime.isSelected()) {
+                tfTimeLimit.setEnabled(false);
+            } else {
+                tfTimeLimit.setEnabled(true);
+            }
+        });
+
+        // Health bar settings
+        JLabel lLives = new JLabel("Anzahl Leben:");
+        JTextField tfLives = new JTextField(settings.getCtlLiveCount() + "");
+        JPanel panLives = new JPanel(new GridLayout(2, 1));
+        panLives.add(lLives); panLives.add(tfLives);
+        JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isCtlUnlimitedLivesEnabled());
+        cbUnlimitedLives.addActionListener(_ -> {
+            if(cbUnlimitedLives.isSelected()) {
+                tfLives.setEnabled(false);
+            } else {
+                tfLives.setEnabled(true);
+            }
+        });
+
+        // Icon settings
+        JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isCtlShowIconsEnabled());
+
+        // Highscore reset button
+        JButton bResetHighscore = new JButton("Highscore zurücksetzen");
+        bResetHighscore.addActionListener(_ -> {
+            settings.setCtlHighscore(0);
+        });
+
+        // Bonus library settings
+        JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isCtlFarinEnabled());
+        JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isCtlBelaEnabled());
+        JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isCtlSahnieEnabled());
+
+        // Hardmode settings
+        JCheckBox cbHardmode = new JCheckBox("Schwieriger Modus aktivieren", settings.isCtlHardmodeEnabled());
+
+        // Supportive Sahnie
+        JCheckBox cbSupportSahnie = new JCheckBox("Aktiviere Unterstüzungs-Sahnie", settings.isCtlSupportSahnieEnabled());
+
+        // Save button
+        JButton bSave = new JButton("Speichern");
+        bSave.addActionListener(_ -> {
+            try {
+                settings.setCtlTimeLimit(Integer.parseInt(tfTimeLimit.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe des Zeitlimits ist ungültig.\nMuss eine Ganzzahl sein!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            if(settings.getCtlTimeLimit() > 1000) {
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe des Zeitlimits ist ungültig.\nDas Limit darf nicht höher als 1000 sein!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            settings.setCtlUnlimitedTime(cbUnlimitedTime.isSelected());
+            try {
+                settings.setCtlLiveCount(Integer.parseInt(tfLives.getText()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe der Lebensanzahl ist ungültig.\nMuss eine Ganzzahl sein!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            if(settings.getLiveCount() > 10) {
+                settings.setCtlLiveCount(3); 
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe der Lebensanzahl ist ungültig.\nDie Leben dürfen maximal 10 sein!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            settings.setCtlUnlimitedLives(cbUnlimitedLives.isSelected());
+
+            settings.setCtlHardmode(cbHardmode.isSelected());
+            settings.setCtlShowIcons(cbShowIcons.isSelected());
+            settings.setCtlFarin(cbFarin.isSelected());
+            settings.setCtlBela(cbBela.isSelected());
+            settings.setCtlSahnie(cbSahnie.isSelected());
+            settings.setCtlSupportSahnie(cbSupportSahnie.isSelected());
+
+            saveSettings(settings);
+            settingsFrame.dispose();
+        });
+
+        // Add all to frame
+        settingsFrame.add(panTimeLimit);
+        settingsFrame.add(cbHardmode);
+        settingsFrame.add(cbUnlimitedTime);
+        settingsFrame.add(cbFarin);
+        settingsFrame.add(panLives);
+        settingsFrame.add(cbBela);
+        settingsFrame.add(cbUnlimitedLives);
+        settingsFrame.add(cbSahnie);
+        settingsFrame.add(cbShowIcons);
+        settingsFrame.add(cbSupportSahnie);
+        settingsFrame.add(bResetHighscore);
+        settingsFrame.add(bSave);
+
+        // Set frame visible
+        settingsFrame.setVisible(true);
     }
 
     /**

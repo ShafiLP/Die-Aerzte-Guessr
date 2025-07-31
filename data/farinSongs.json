@@ -1,0 +1,114 @@
+[
+    {"song": "Intro (Manche nennen es Musik)", "icon": "urlaub"},
+    {"song": "Jeden Tag Sonntag", "icon": "urlaub"},
+    {"song": "Sumisu", "icon": "urlaub"},
+    {"song": "Glücklich", "icon": "urlaub"},
+    {"song": "Ich gehöre nicht dazu", "icon": "urlaub"},
+    {"song": "OK", "icon": "urlaub"},
+    {"song": "Der Kavalier", "icon": "urlaub"},
+    {"song": "Am Strand", "icon": "urlaub"},
+    {"song": "Wunderbar", "icon": "urlaub"},
+    {"song": "Das schöne Mädchen", "icon": "urlaub"},
+    {"song": "1000 Jahre schlechten Sex", "icon": "urlaub"},
+    {"song": "Lieber Staat", "icon": "urlaub"},
+    {"song": "Phänomenal egal", "icon": "urlaub"},
+    {"song": "Abschiedslied", "icon": "urlaub"},
+    {"song": "Outro (Ja, das wurde auch Zeit)", "icon": "urlaub"},
+
+    {"song": "Der Papst", "icon": "gluecklichSingle"},
+    {"song": "Wo ist das Problem?", "icon": "gluecklichSingle"},
+
+    {"song": "Saudade", "icon": "okSingle"},
+    {"song": "Petze", "icon": "okSingle"},
+
+    {"song": "Stein des Anstoßes", "icon": "sumisuSingle"},
+    {"song": "Buch zum Lesen", "icon": "sumisuSingle"},
+
+    {"song": "Pudelsong", "icon": "egalSingle"},
+
+    {"song": "Der ziemlich okaye Popsong", "icon": "popsong"},
+
+
+
+
+
+    {"song": "Mehr", "icon": "sonne"},
+    {"song": "Sonne", "icon": "sonne"},
+    {"song": "Augenblick", "icon": "sonne"},
+    {"song": "Porzellan", "icon": "sonne"},
+    {"song": "Unter Wasser", "icon": "sonne"},
+    {"song": "Wie ich den Marilyn-Manson-Ähnlichkeitswettbewerb verlor", "icon": "sonne"},
+    {"song": "Unsichtbar", "icon": "sonne"},
+    {"song": "Apocalypse wann anders", "icon": "sonne"},
+    {"song": "Immer noch", "icon": "sonne"},
+    {"song": "Alle dasselbe", "icon": "sonne"},
+    {"song": "Kein Zurück", "icon": "sonne"},
+    {"song": "Dermitder", "icon": "sonne"},
+    {"song": "Dusche", "icon": "sonne"},
+
+    {"song": "Alle Fragen dieser Welt", "icon": "duscheSingle"},
+    {"song": "Klasse", "icon": "duscheSingle"},
+
+    {"song": "Atrás", "icon": "porzellanSingle"},
+    {"song": "Xenokratie", "icon": "porzellanSingle"},
+
+    {"song": "Gefährlich", "icon": "sonneSingle"},
+    {"song": "Hart", "icon": "sonneSingle"},
+
+
+
+
+
+    {"song": "Nichtimgriff", "icon": "luegen"},
+    {"song": "Unscharf", "icon": "luegen"},
+    {"song": "Gobi Todic", "icon": "luegen"},
+    {"song": "Seltsam", "icon": "luegen"},
+    {"song": "Krieg", "icon": "luegen"},
+    {"song": "Pakistan", "icon": "luegen"},
+    {"song": "Niemals", "icon": "luegen"},
+    {"song": "Die Leiche", "icon": "luegen"},
+    {"song": "Monster", "icon": "luegen"},
+    {"song": "Atem", "icon": "luegen"},
+    {"song": "Karten", "icon": "luegen"},
+    {"song": "I.F.D.G.", "icon": "luegen"},
+    {"song": "Zu heiß", "icon": "luegen"},
+    {"song": "Insel", "icon": "luegen"},
+    {"song": "Trotzdem", "icon": "luegen"},
+
+    {"song": "Bewegungslos", "icon": "nichtimgriffSingle"},
+
+    {"song": "Worte fehlen", "icon": "niemalsSingle"},
+
+    {"song": "Ein-Personen-Aufstand", "icon": "kriegSingle"},
+
+    {"song": "Der Frauenflüsterer", "icon": "heissSingle"},
+
+
+
+
+
+    {"song": "Mein Lied", "icon": "faszination"},
+    {"song": "Dynamit", "icon": "faszination"},
+    {"song": "Was die Welt jetzt braucht", "icon": "faszination"},
+    {"song": "Herz? Verloren", "icon": "faszination"},
+    {"song": "AWG", "icon": "faszination"},
+    {"song": "Heute tanzen", "icon": "faszination"},
+    {"song": "iDisco", "icon": "faszination"},
+    {"song": "Find dich gut", "icon": "faszination"},
+    {"song": "Keine Angst", "icon": "faszination"},
+    {"song": "Fan", "icon": "faszination"},
+    {"song": "Newton hatte Recht", "icon": "faszination"},
+    {"song": "Das Traurigste", "icon": "faszination"},
+    {"song": "3000", "icon": "faszination"},
+    {"song": "Sommer", "icon": "faszination"},
+    {"song": "Immer dabei", "icon": "faszination"},
+
+    {"song": "Die perfekte Diktatur", "icon": "herzSingle"},
+    {"song": "Wahnsinn", "icon": "herzSingle"},
+
+    {"song": "Rest der Welt", "icon": "awgSingle"},
+    {"song": "Babylon", "icon": "awgSingle"},
+
+    {"song": "Welche Krise?", "icon": "discoSingle"},
+    {"song": "Himmel auf Erden", "icon": "discoSingle"}
+]

@@ -38,13 +38,13 @@ public class GTOGame implements TimerEvents {
         songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
 
         // Add Farin songs if pFarin = true
-        if(settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\farinLyrics.json", songTexts);
+        if(settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
 
         // Add Bela songs if pBela = true
-        if(settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\belaLyrics.json", songTexts);
+        if(settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
 
         // Add Sahnie songs if pSahnie = true
-        if(settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\sahnieLyrics.json", songTexts);
+        if(settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
  
         // Get a random song text part
         currentSongText = getRandomSongText();
@@ -214,6 +214,7 @@ public class GTOGame implements TimerEvents {
      */
     public void timerEvent() {
         timeLimit--;
+        if(timeLimit >= 0)
         gui.setTimerLabel(timeLimit + "s");
 
         if(timeLimit == 0 & blockWrongGuesses == false) {
@@ -227,4 +228,5 @@ public class GTOGame implements TimerEvents {
  * TODO:
  * - Fix lyric display (currently can be too long for the window)
  * - ? Without creating a LinkedList with 1000 objects? (for performance)
+ * - Font Settings
  */

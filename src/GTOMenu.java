@@ -95,7 +95,6 @@ public class GTOMenu extends JFrame {
      */
     private void openSettings() {
         JFrame settingsFrame = new JFrame();
-        settingsFrame.pack();
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         settingsFrame.setSize(500, 500);
         settingsFrame.setResizable(false);

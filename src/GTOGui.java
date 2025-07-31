@@ -13,7 +13,7 @@ import org.json.JSONObject;
 /**
  * Class for the GUI of the game "Guess The Origin"
  */
-class GTOGui extends JFrame{
+class GTOGui extends JFrame implements EnterKeyListener{
     private GTOGame game;
     private Settings settings;
     private JPanel center;
@@ -40,12 +40,14 @@ class GTOGui extends JFrame{
         healthBar = new JLabel[settings.getLiveCount()];
 
         // JFrame settings
-        this.setTitle("ÄrzteGuessr");
+        this.setTitle("Errate den Urpsung"); //TODO: better name sob
         this.setLayout(new BorderLayout());
         this.setSize(600, 300);
         this.setLocationRelativeTo(null); // Center the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+
+        currentSongLabel.setFont(new Font("Folio Extra", Font.PLAIN, 12));
 
         // Health bar
         if(settings.isShowIconsEnabled()) {
@@ -95,12 +97,12 @@ class GTOGui extends JFrame{
                 break;
             case "Suchleiste":
                 songSearchBar = initializAutoCompleteTextField();
-                songSearchBar.addKeyListener(new GTOKeyListener(this));
+                songSearchBar.addKeyListener(new SubmitKeyListener(this));
                 guessBar.add(songSearchBar, gbc);
                 break;
             case "Manuelle Eingabe":
                 manualInput = new JTextField();
-                manualInput.addKeyListener(new GTOKeyListener(this));
+                manualInput.addKeyListener(new SubmitKeyListener(this));
                 guessBar.add(manualInput, gbc);
                 break;
         }
@@ -119,7 +121,7 @@ class GTOGui extends JFrame{
         }});
 
         // Submit button
-        JButton submitButton = new JButton("Submit");
+        JButton submitButton = new JButton("Raten");
         submitButton.addActionListener(_ -> {
             submitButtonPressed();
         });
@@ -133,14 +135,14 @@ class GTOGui extends JFrame{
         // Lyrics to guess in the center
         JPanel lyricPanel = new JPanel(new GridBagLayout());
         lyricLabel = new JLabel("„" + pLyric + "“");
-        lyricLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lyricLabel.setFont(new Font("Folio Extra BT", Font.BOLD, 15));
-            if(settings.isSupportiveSahnieEnabled()) {
-                lyricPanel.add(lyricLabel, new GridBagConstraints() {{
-                gridx = 0;
-                gridy = 0;
-                insets = new Insets(50, 0, 0, 0);
-                anchor = GridBagConstraints.CENTER;
+        //lyricLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        lyricLabel.setFont(new Font("Folio Extra", Font.PLAIN, 15));
+        if(settings.isSupportiveSahnieEnabled()) {
+            lyricPanel.add(lyricLabel, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 0;
+            insets = new Insets(50, 0, 0, 0);
+            anchor = GridBagConstraints.CENTER;
             }});
         } else {
             lyricPanel.add(lyricLabel);
@@ -413,7 +415,7 @@ class GTOGui extends JFrame{
         comboBox.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)
         .put(KeyStroke.getKeyStroke("SPACE"), "none"); // Prevents closing the dropdown menu by pressing space bar
 
-        comboBox.addKeyListener(new GTOKeyListener(this));
+        comboBox.addKeyListener(new SubmitKeyListener(this));
         return comboBox;
     }
 

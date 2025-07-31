@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
@@ -5,15 +7,23 @@ import javax.swing.JOptionPane;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.google.gson.Gson;
+
 public class CTLGame implements TimerEvents {
     private Settings settings;
     private CTLGui gui;
+    private LinkedList<SongTextWithGap> lyricsWithGaps;
     private SongTextWithGap randomTextWithGap;
+    private boolean blockWrongGuesses = false;
 
     private int timeLimit;
     private int liveCount;
     private int score;
 
+    /**
+     * Constructor for "Complete The Lyrics" game
+     * @param pSettings Settings object with all setting parameters
+     */
     public CTLGame(Settings pSettings) {
         // Read settings
         settings = pSettings;
@@ -21,14 +31,27 @@ public class CTLGame implements TimerEvents {
         liveCount = settings.getCtlLiveCount();
 
         // Read CTL elements from file
-        LinkedList<SongTextWithGap> lyricsWithGaps = new LinkedList<>();
+        lyricsWithGaps = new LinkedList<>();
         lyricsWithGaps = readSongsFromJson("data\\lyricCompletion.json", lyricsWithGaps);
+
+        // Read only if enabled in settings
+        if(settings.isCtlFarinEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionFarin", lyricsWithGaps);
+        if(settings.isCtlBelaEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionBela", lyricsWithGaps);
+        if(settings.isCtlSahnieEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletion.json", lyricsWithGaps);
 
         // Get random SongTextWithGap
         randomTextWithGap = getRandomSongTextWithGap(lyricsWithGaps);
         
         // Create GUI
-        gui = new CTLGui(this, pSettings, randomTextWithGap.getBeforeGap(), randomTextWithGap.getAfterGap(), randomTextWithGap.getSongName(), randomTextWithGap.getAlbum());
+        gui = new CTLGui(this, pSettings, randomTextWithGap);
+
+        // Start timer
+        if(!settings.isCtlUnlimitedTimeEnabled()) {
+            TimerEventManager timer = new TimerEventManager(this);
+            timer.start();
+        } else {
+            gui.setTimerLabel("Kein Timer");
+        }
     }
 
     /**
@@ -43,14 +66,42 @@ public class CTLGame implements TimerEvents {
         return false;
     }
 
+    /**
+     * Checks if user input equals the missing song part
+     * This is called when submit button is pressed on GUI
+     * @param pUserInput input in JTextField
+     */
     public void submitPressed(String pUserInput) {
         if(doMatch(randomTextWithGap.getGap(), pUserInput)) {
-            System.out.println("Richtig!");
+            // Update score
+            score++;
+            gui.setScoreLabel(score);
+
+            // Update GUI
+            randomTextWithGap = getRandomSongTextWithGap(lyricsWithGaps);
+            gui.setInfoBarGreen();
+            gui.setNewSongText(randomTextWithGap.getBeforeGap(), randomTextWithGap.getAfterGap());
+            gui.setSongAndAlbum(randomTextWithGap.getSongName(), randomTextWithGap.getAlbum(), randomTextWithGap.getGap());
+
+            // Reset timer
+            timeLimit = settings.getCtlTimeLimit();
+            gui.setTimerLabel(timeLimit);
+
+            blockWrongGuesses = false;
         } else {
-            liveCount--;
-            System.out.println("Falsch!");
+            // Remove one live and update GUI
+            if(!settings.isCtlUnlimitedLivesEnabled()) {
+                liveCount--;
+                gui.removeHealth();
+            }
+            gui.setInfoBarRed();
+            blockWrongGuesses = true;
         }
         if(liveCount == 0) {
+            if(score > settings.getCtlHighscore()) {
+                settings.setHighscore(score);
+                saveSettings(settings);
+            }
             Object[] options = {"Neues Spiel", "Beenden"};
             int n = JOptionPane.showOptionDialog(
                 gui,
@@ -73,10 +124,27 @@ public class CTLGame implements TimerEvents {
         }
     }
 
+    /**
+     * Gets the first letter of the solution as a hint
+     * @return first letter of solution
+     */
+    public String requestHint() {
+        return String.valueOf(randomTextWithGap.getGap().charAt(0));
+    }
+
+    /**
+     * Gets a random SongTextWithGap item from a LinkedList and removes the item to avoid reputition
+     * JOptionPane with game end is shown when LinkedList is empty
+     * @param pListWithData LinkedList with SongTextWithGap items
+     * @return random SongTextWithGap ite form LinkedList
+     */
     private SongTextWithGap getRandomSongTextWithGap(LinkedList<SongTextWithGap> pListWithData) {
         // Checks if all songs were guessed
         if(pListWithData.isEmpty()) {
-            //TODO: Set highscore
+            if(score > settings.getCtlHighscore()) {
+                settings.setHighscore(score);
+                saveSettings(settings);
+            }
             Object[] options = {"Neues Spiel", "Beenden"};
             int n = JOptionPane.showOptionDialog(
                 gui,
@@ -106,6 +174,12 @@ public class CTLGame implements TimerEvents {
         return randomSongTextWithGap;
     }
 
+    /**
+     * Adds SongTextWithGap items read from a JSON file to a LinkedList 
+     * @param pFilepath path to JSON file with SongTextWithGap elements
+     * @param pTextsWithGaps LinkedList to add the elements to
+     * @return Given LinkedList with elements from given JSON file
+     */
     private LinkedList<SongTextWithGap> readSongsFromJson(String pFilepath, LinkedList<SongTextWithGap> pTextsWithGaps) {
         try {
             String content = new String(Files.readAllBytes(Paths.get(pFilepath)));
@@ -121,11 +195,35 @@ public class CTLGame implements TimerEvents {
         return pTextsWithGaps;
     }
 
+    /**
+     * Overrides the current settings in the settings.json file
+     * @param pSettings settings object to override the current settings
+     */
+    private void saveSettings(Settings pSettings) {
+        Gson gson = new Gson();
+        try (FileWriter writer = new FileWriter("data\\settings.json")) {
+            gson.toJson(pSettings, writer);
+            System.out.println("Saved settings to \"data/settings.json\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Handles the timer event
+     * This is called when a second passes
+     */
     public void timerEvent() {
         timeLimit--;
-
-        if(timeLimit == 0) {
-            //TODO: Count as wrong
+        if(timeLimit >= 0)
+        gui.setTimerLabel(timeLimit);
+        if(timeLimit == 0 & !blockWrongGuesses) {
+            submitPressed(""); // Submit as wrong guess when timer runs out
         }
     }
 }
+
+/**
+ * TODO:
+ * - Font settings
+ */
