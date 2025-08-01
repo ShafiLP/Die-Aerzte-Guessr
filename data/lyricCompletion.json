@@ -1,5 +1,18 @@
 [
     {"before": "Deine", "gap": "Springerstiefel", "after": "sehnen sich nach Zärtlichkeit", "song": "Schrei nach Liebe", "album": "bestie"},
     {"before": "Er hat ein gold'nes", "gap": "Kettchen", "after": "das ihm Glück bringt", "song": "Paul", "album": "debil"},
-    {"before": "Sah nicht die", "gap": "Dämonen", "after": "die mich dazu trieben", "song": "Lied vom Scheitern", "album": "jazz"}
+    {"before": "Sah nicht die", "gap": "Dämonen", "after": "die mich dazu trieben", "song": "Lied vom Scheitern", "album": "jazz"},
+		 {"before": "War es schön, habe ich dir meine", "gap": "Briefmarken", "after": "gezeigt", "song": "Kamelralley", "album": "debil"},
+		 {"before": "Hass ist deine", "gap": "Attitüde", "after": "ständig kocht dein Blut", "song": "Schrei nach Liebe", "album": "bestie"},
+		 {"before": "Zwischen", "gap": "Störkraft", "after": "und den Onkelz steht 'be Kuschelrock-LP", "song": "Schrei nach Liebe", "album": "bestie"},
+		 {"before": "Mein Swimmingpool reicht von", "gap": "Casablanca", "after": "Bis nach Istanbul", "song": "Ich bin reich", "album": "aerzte"},
+		 {"before": "Ich bin Supermann und Batman und", "gap": "Spinne", "after": "", "song": "Ich bin reich", "album": "aerzte"},
+		 {"before": "Im Film sieht es so einfach aus, jetzt bin ich", "gap": "kreidebleich", "after": "", "song": "Wie es geht", "album": "spendierhosen"},
+		 {"before": "Jetzt sitz' ich hier, wie ein", "gap": "Kaninchen", "after": "vor der Schlange", "song": "Wie es geht", "album": "spendierhosen"},
+
+		 {"before": "Unser Soundtrack für die Bundesrepublik:", "gap": "Karnickelfickmusik", "after": "", "song": "KFM", "album": "dunkel"},
+		 {"before": "Mein", "gap": "Babykleid", "after": "brachte mich zum Wein'n", "song": "DUNKEL", "album": "dunkel"},
+		 {"before": "Mein Humor ist schwarz, schwarz wie", "gap": "Kaffee", "after": "", "song": "DUNKEL", "album": "dunkel"},
+		 {"before": "Wie lange wird es dauern bis zur", "gap": "Exekution", "after": "?", "song": "ANTI", "album": "dunkel"},
+		 {"before": "", "gap": "Kommunismus", "after": "oder Religion?", "song": "ANTI", "album": "dunkel"}
 ]
