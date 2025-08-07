@@ -40,14 +40,14 @@ class GTOGui extends JFrame implements EnterKeyListener{
         healthBar = new JLabel[settings.getLiveCount()];
 
         // JFrame settings
-        this.setTitle("Errate den Urpsung"); //TODO: better name sob
+        this.setTitle("Straight Outta...");
         this.setLayout(new BorderLayout());
         this.setSize(600, 300);
         this.setLocationRelativeTo(null); // Center the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
-        currentSongLabel.setFont(new Font("Folio Extra", Font.PLAIN, 12));
+        currentSongLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, 12));
 
         // Health bar
         if(settings.isShowIconsEnabled()) {
@@ -136,7 +136,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
         JPanel lyricPanel = new JPanel(new GridBagLayout());
         lyricLabel = new JLabel("„" + pLyric + "“");
         //lyricLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        lyricLabel.setFont(new Font("Folio Extra", Font.PLAIN, 15));
+        lyricLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         if(settings.isSupportiveSahnieEnabled()) {
             lyricPanel.add(lyricLabel, new GridBagConstraints() {{
             gridx = 0;

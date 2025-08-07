@@ -13,12 +13,20 @@ public class SongTextWithGap {
         album = "images\\" + pAlbumName + ".png";
     }
 
+    public void setBeforeGap(String pBefore) {
+        beforeGap = pBefore;
+    }
+
     /**
      * Gets the text before the gap
      * @return String before gap
      */
     public String getBeforeGap() {
         return beforeGap;
+    }
+
+    public void setGap(String pGap) {
+        gap = pGap;
     }
 
     /**
@@ -29,12 +37,20 @@ public class SongTextWithGap {
         return gap;
     }
 
+    public void setAfterGap(String pAfter) {
+        afterGap = pAfter;
+    }
+
     /**
      * Gets the text after the gap
      * @return String after gap
      */
     public String getAfterGap() {
         return afterGap;
+    }
+
+    public void setSongName(String pSongName) {
+        songName = pSongName;
     }
 
     public String getSongName() {

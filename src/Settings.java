@@ -1,4 +1,8 @@
 public class Settings {
+    // General settings
+    private String fontType = "Folio Extra";
+    private int fontSize = 12;
+
     // For GTO
     private String typeOfInput = "Dropdown Menü";
     private boolean showIcons = true;
@@ -64,6 +68,22 @@ public class Settings {
         ctlIncludeSahnie = pSahnie;
         ctlTimeLimit = pTimeLimit;
         ctlLiveCount = pLiveCount;
+    }
+
+    public void setFontType(String pFontType) {
+        fontType = pFontType;
+    }
+    
+    public String getFontType() {
+        return fontType;
+    }
+
+    public void setFontSize(int pFontSize) {
+        fontSize = pFontSize;
+    }
+
+    public int getFontSize() {
+        return fontSize;
     }
 
     public void setTypeOfInput(String pTypeOfInput) {

@@ -53,11 +53,11 @@ public class CTLGui extends JFrame implements EnterKeyListener {
         tfInput.setHorizontalAlignment(JTextField.CENTER);
         tfInput.addKeyListener(new SubmitKeyListener(this));
         lBefore = new JLabel(currentSong.getBeforeGap(), SwingConstants.CENTER);
-        lBefore.setFont(new Font("Folio Extra", Font.PLAIN, 18));
+        lBefore.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         lAfter = new JLabel(currentSong.getAfterGap(), SwingConstants.CENTER);
-        lAfter.setFont(new Font("Folio Extra", Font.PLAIN, 18));
+        lAfter.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         lSolution = new JLabel();
-        lSolution.setFont(new Font("Folio Extra", Font.PLAIN, 18));
+        lSolution.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         lSolution.setForeground(Color.RED);
         lSolution.setVisible(false);
 
@@ -173,7 +173,7 @@ public class CTLGui extends JFrame implements EnterKeyListener {
             }
             
             lSongName = new JLabel(" " + currentSong.getSongName(), SwingConstants.CENTER);
-            lSongName.setFont(new Font("Folio Extra", Font.PLAIN, 16));
+            lSongName.setFont(new Font(settings.getFontType(), Font.PLAIN, 16));
             mPanel.add(lAlbum, new GridBagConstraints() {{
                 gridx = 0;
                 gridy = 0;
@@ -294,6 +294,9 @@ public class CTLGui extends JFrame implements EnterKeyListener {
             ImageIcon albumIcon = new ImageIcon((new ImageIcon(pAlbum)).getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
         lAlbum.setIcon(albumIcon);
         }
+        currentSong.setSongName(pSong);
+        currentSong.setAlbum(pAlbum);
+        currentSong.setGap(pGap);
         
         lSongName.setText(" " + pSong);
         lSolution.setText("Lösung: " + pGap);
@@ -305,6 +308,7 @@ public class CTLGui extends JFrame implements EnterKeyListener {
      */
     public void setInfoBarRed() {
         infoBar.setBackground(Color.RED);
+        lSongName.setVisible(true);
         lSolution.setText("Lösung: " + currentSong.getGap());
         lSolution.setVisible(true);
     }
@@ -315,6 +319,9 @@ public class CTLGui extends JFrame implements EnterKeyListener {
      */
     public void setInfoBarGreen() {
         lSolution.setVisible(false);
+        if(settings.isCtlHardmodeEnabled()) {
+            lSongName.setVisible(false);
+        }
         infoBar.setBackground(Color.GREEN);
         infoBar.paintImmediately(infoBar.getVisibleRect()); // Update GUI immediately
         try {
