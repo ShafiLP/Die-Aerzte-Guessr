@@ -230,5 +230,232 @@
 
     {"song": "Hart", "lyric": "Achts hab' ich sie dann an der Autobahn verscharrt"},
     {"song": "Hart", "lyric": "Ich bin ziemlich groß und ich bin ziemlich breit"},
-    {"song": "Hart", "lyric": "[...] sie liebte mich nicht, also brach' ich ihr das Genick"}
+    {"song": "Hart", "lyric": "[...] sie liebte mich nicht, also brach' ich ihr das Genick"},
+
+
+
+
+
+    {"song": "Nichtimgriff", "lyric": "Niemand versteht dich. Keiner zollt dir Respekt"},
+    {"song": "Nichtimgriff", "lyric": "Frauen verlassen dich, wie Ratten das sinkende Schiff"},
+    {"song": "Nichtimgriff", "lyric": "An deinen Fehlern sind die anderen schuld"},
+    {"song": "Nichtimgriff", "lyric": "Tu dir mal selber Leid"},
+    {"song": "Nichtimgriff", "lyric": "Du hast dein Leben nicht im Griff"},
+
+    {"song": "Unscharf", "lyric": "Sie hinterlässt auch keine Fußspuren im Sand"},
+    {"song": "Unscharf", "lyric": "Sie ist unscharf an den Rändern"},
+    {"song": "Unscharf", "lyric": "Sie will nur Luft holen, sonst gibt es keinen Grund"},
+    {"song": "Unscharf", "lyric": "Ist sie von einem anderen Stern? Ich weiß es nicht genau"},
+    {"song": "Unscharf", "lyric": "Sie schaut zu Boden oder an die Wand"},
+
+    {"song": "Gobi Todic", "lyric": "Verkaufte Waffen an den Vartikan"},
+    {"song": "Gobi Todic", "lyric": "Jetzt sagen wir dem KGB Bescheid"},
+    {"song": "Gobi Todic", "lyric": "Towarischtsch Gobi Todič ist zurück"},
+    {"song": "Gobi Todic", "lyric": "Man hat ihn heute früh in einem Supermarkt gesehn"},
+    {"song": "Gobi Todic", "lyric": "Ich gebe zu, am Anfang hielt ich es für ein Gerücht"},
+    {"song": "Gobi Todic", "lyric": "Spionierte er für Kasachstan"},
+
+    {"song": "Seltsam", "lyric": "Warum haben hässliche Frauen oft 'nen Pelz an?"},
+    {"song": "Seltsam", "lyric": "Wer hat den Damen bloß erzählt, Kadaver hätten Sex-Appeal?"},
+    {"song": "Seltsam", "lyric": "Wer Tiere so peinigt, gehört doch gesteinig"},
+
+    {"song": "Krieg", "lyric": "Ich war heut in der Stadt, ich hatte Geld dabei"},
+    {"song": "Krieg", "lyric": "Ein hässlicher Hund hat mich angekläfft"},
+    {"song": "Krieg", "lyric": "Doch die Nachfrage war größer als das Angebot"},
+    {"song": "Krieg", "lyric": "Da fuhr ein Herr hinter mir, der fuhr sehr infantil"},
+    {"song": "Krieg", "lyric": "Bis das Blut knöchelhoch durch die Straßen fließt"},
+
+    {"song": "Pakistan", "lyric": "Mit dem Segelboot nach Japan"},
+    {"song": "Pakistan", "lyric": "Wir werdens offenbaren in unseren Memoiren"},
+    {"song": "Pakistan", "lyric": "Mit dem Fahrrad durch die Wüste"},
+    {"song": "Pakistan", "lyric": "Seh ich Einflugschneisen, denk ich ans Verreisen"},
+
+    {"song": "Niemals", "lyric": "Mir ist klar, dass da niemals etwas sein wird"},
+    {"song": "Niemals", "lyric": "Mein Kopf ist JWD und es tut mir weh"},
+    {"song": "Niemals", "lyric": "Was ich nicht habe, kann ich auch nicht verlieren"},
+    {"song": "Niemals", "lyric": "Zu spät, denn ich steck' mittendrin"},
+    {"song": "Niemals", "lyric": "Ich denk jetzt an dich, jetzt, in dieser Sekunde"},
+
+    {"song": "Die Leiche", "lyric": "Sie hat deine Figur und sie trägt deine Schuh"},
+    {"song": "Die Leiche", "lyric": "Es war ziemlich dunkel, ich hab ihr Gesicht nicht gesehn"},
+    {"song": "Die Leiche", "lyric": "Mein Blick fiel aus dem Fenster, ich sah sie sofort"},
+    {"song": "Die Leiche", "lyric": "Ich sitz auf dem Rasen, ein Hund läuft vorbei"},
+    {"song": "Die Leiche", "lyric": "Ich trug sie zum Grab, sie war nass und so kalt"},
+
+    {"song": "Monster", "lyric": "Wir bauen uns ein Monster aus Rock"},
+    {"song": "Monster", "lyric": "Und im Radio läuft ein Lied von den Scorpions"},
+    {"song": "Monster", "lyric": "Denn sie wollen uns vergiften mit süßlicher Musik"},
+
+    {"song": "Atem", "lyric": "Deine Augen Sternen gleich"},
+    {"song": "Atem", "lyric": "Weil ich kein Süßholz raspeln kann"},
+    {"song": "Atem", "lyric": "Wie ein Besen ohne Stiel, wie ein Fenster ohne Glas"},
+
+    {"song": "Karten", "lyric": "Du bist immer noch auf der Suche nach dir selbst"},
+    {"song": "Karten", "lyric": "Weil kein Mensch deine Sprache spricht"},
+    {"song": "Karten", "lyric": "Als hättest du ein fremdes Leben gelebt"},
+    {"song": "Karten", "lyric": "Und manchmal schreibst du uns Karten"},
+
+    {"song": "I.F.D.G.", "lyric": "Mach 'ne kleine Pause, komm absichtlich zu spät"},
+    {"song": "I.F.D.G.", "lyric": "Einfach nur zu lächeln ist ein herrlicher Protest"},
+    {"song": "I.F.D.G.", "lyric": "Das Leben kann so schön sein, wenn man in der Nase bohrt"},
+    {"song": "I.F.D.G.", "lyric": "Du weißt, dass du aus der Band fliegtst, wenn du dich mit mir anlegst?"},
+    {"song": "I.F.D.G.", "lyric": "Man sitzt auf einer Parkbank, fühlt sich fast wie ein Tourist"},
+
+    {"song": "Zu heiß", "lyric": "Als ich meinen Luxuskörper in der Hängematte hatte"},
+    {"song": "Zu heiß", "lyric": "Ich lieg seit Tagen hier im eigenen Saft"},
+    {"song": "Zu heiß", "lyric": "Ich glaub, ich werd ein bisschen Tilmann hören"},
+
+    {"song": "Insel", "lyric": "Denn auf Werbung ist unsere Wirtschaft aufgebaut"},
+    {"song": "Insel", "lyric": "Dagegen helfen keine Pillen und auch keine Prophylaxen"},
+    {"song": "Insel", "lyric": "Es ist ein bisschen wie beim Turmbau zu Babylon"},
+    {"song": "Insel", "lyric": "Kein Stress, keine Arbeit, kein Berufsverkehr"},
+    {"song": "Insel", "lyric": "Zwei Wochen Ibiza, einmal im Jahr, fang schonmal an zu sparen"},
+
+    {"song": "Trotzdem", "lyric": "Es ist nie vorbei, es geht nie zu Ende"},
+    {"song": "Trotzdem", "lyric": "Setz dich auf die Couch, lehn dich an die Wand"},
+    {"song": "Trotzdem", "lyric": "Sei mal nicht so ein Erbsenzähler"},
+    {"song": "Trotzdem", "lyric": "Zwischen Bergen gibt es immer Täler"},
+    {"song": "Trotzdem", "lyric": "Denn das Leben ist ein Werden und Vergehen"},
+
+
+    {"song": "Bewegungslos", "lyric": "Und ich denk ich werd mich ändern irgendwann"},
+    {"song": "Bewegungslos", "lyric": "Wir umarmen uns, denn dies wird unser Grab"},
+    {"song": "Bewegungslos", "lyric": "Wir verharren in Bewegungslosigkeit"},
+    {"song": "Bewegungslos", "lyric": "Wie totgeboren, wie eingefroren"},
+
+
+    {"song": "Worte fehlen", "lyric": "Das erste Morgenrot berührt den Himmel kaum"},
+    {"song": "Worte fehlen", "lyric": "Jetzt lächelst du im Traum"},
+    {"song": "Worte fehlen", "lyric": "Wärst du ein Schiff, ich wäre gern dein Hafen"},
+    {"song": "Worte fehlen", "lyric": "Ich hoffe, du hörst mein Schweigen nicht"},
+
+
+    {"song": "Ein-Personen-Aufstand", "lyric": "Protestplakate überall, Demos in den Innenstädten"},
+    {"song": "Ein-Personen-Aufstand", "lyric": "Wann begreifst du endlich ich werd mich nie von dir trennen"},
+    {"song": "Ein-Personen-Aufstand", "lyric": "Was schert mich Stolz, was schert mich Deutschland"},
+    {"song": "Ein-Personen-Aufstand", "lyric": "Mehr Leute wären zu viel Aufwand"},
+    {"song": "Ein-Personen-Aufstand", "lyric": "Ok ich gebe zu, ich war manchmal nicht der perfekte Mann"},
+
+
+    {"song": "Der Frauenflüsterer", "lyric": "Und jetzt kann ich Frauen endlich verstehen"},
+    {"song": "Der Frauenflüsterer", "lyric": "Weil Frauen die Kommunikation erfanden"},
+    {"song": "Der Frauenflüsterer", "lyric": "Dann weiß ich: Sie ist heiß auf Farin U..."},
+    {"song": "Der Frauenflüsterer", "lyric": "Wenn er dich fragt: \"Kennst du Bremerhaven?\""},
+
+
+
+
+
+    {"song": "Mein Lied", "lyric": "Der Himmel ist mir überall das beste Publikum"},
+    {"song": "Mein Lied", "lyric": "Ich träum', ich wäre anderswo auf dieser weiten Welt"},
+    {"song": "Mein Lied", "lyric": "Ich sing' seit heute Morgen und sing weiter bis zum Grab"},
+    {"song": "Mein Lied", "lyric": "Mehr hab ich nicht in meinem Repertoire"},
+
+    {"song": "Dynamit", "lyric": "C3H5N3O9 - hast du mal Feuer?"},
+    {"song": "Dynamit", "lyric": "Wir verschönern unser Innenstadtgebiet"},
+    {"song": "Dynamit", "lyric": "Ich hoffe, die Gebäude steh'n heut Abend leer"},
+
+    {"song": "Was die Welt jetzt braucht", "lyric": "Die alberne Fledermaus tut so, als wär' sie König"},
+    {"song": "Was die Welt jetzt braucht", "lyric": "Du flogst vorbei, dein Cape hat echt gestunken"},
+    {"song": "Was die Welt jetzt braucht", "lyric": "Ein letzter Blick in deinen Spiegel und du bist bereit"},
+    {"song": "Was die Welt jetzt braucht", "lyric": "Dabei ist es heutzutage einfach sich zu therapier'n"},
+    {"song": "Was die Welt jetzt braucht", "lyric": "Zieh den Jogginganzug aus, du weißt, der steht dir eh nicht"},
+
+    {"song": "Herz? Verloren", "lyric": "Meine Freundin sagt, ich darf nicht aus dem Fenster schau'n"},
+    {"song": "Herz? Verloren", "lyric": "Mutier' ich zur Amöbe, mein Hirn ist verschwunden"},
+    {"song": "Herz? Verloren", "lyric": "Weil wir Männer nur für Liebe existier'n"},
+    {"song": "Herz? Verloren", "lyric": "Ich bin völlig perforiert von Amors Pfeil'n"},
+    {"song": "Herz? Verloren", "lyric": "Wo-oh, ich bin polyamorös"},
+    {"song": "Herz? Verloren", "lyric": "Ich wünschte, ich wäre gegen all die Pheromone immun"},
+
+    {"song": "AWG", "lyric": "Ständig fragst du die Orakel nach dem Salz in deinem Leben"},
+    {"song": "AWG", "lyric": "Packt dich die Wut? Lass dich nicht gehn, zähl einfach bis zehn"},
+    {"song": "AWG", "lyric": "Egal, was soll's? Vielleicht wird es schlimmer, klopfe auf Holz"},
+    {"song": "AWG", "lyric": "Jeden Tag liest du dein Horoskop, das machst du schon seit Jahren"},
+    {"song": "AWG", "lyric": "Drei mal täglich gehst du beten, um die Götter zu befragen"},
+
+    {"song": "Heute tanzen", "lyric": "Gelegentlich darf das Niveau auch flacher sein"},
+    {"song": "Heute tanzen", "lyric": "Aber heute abend sollen unsere Ohren bluten"},
+    {"song": "Heute tanzen", "lyric": "Schiller hat viel über Musik geschrieben"},
+    {"song": "Heute tanzen", "lyric": "[...] doch wir leben nicht von Buchstaben allein"},
+    {"song": "Heute tanzen", "lyric": "William Faulkner legt die Stirn in Falten"},
+
+    {"song": "iDisco", "lyric": "Und dich mit Kuhaugen anseh'n"},
+    {"song": "iDisco", "lyric": "Zum Homo Sapiens gehört nicht nur aufrecht geh'n"},
+    {"song": "iDisco", "lyric": "Du bist umgeben von Schwachmaten"},
+
+    {"song": "Find dich gut", "lyric": "Dann hilft nur eins: die Fahne raus"},
+    {"song": "Find dich gut", "lyric": "Weil du nur toll bist, aber nie toll genug?"},
+    {"song": "Find dich gut", "lyric": "Zieh vor dir selbst den Hut"},
+    {"song": "Find dich gut", "lyric": "Sei nicht so schüchtern, und werde dein eigener Fan"},
+    {"song": "Find dich gut", "lyric": "Weil es ständig nur Kritik gibt, doch mit Lob wird gegeizt"},
+
+    {"song": "Keine Angst", "lyric": "Du läufst wochenlang durch heißen Wüstensand"},
+    {"song": "Keine Angst", "lyric": "Du vermischst die Zukunft mit der Gegenwart"},
+    {"song": "Keine Angst", "lyric": "Manchmal denkst du dir dann dunkle Welten aus"},
+
+    {"song": "Fan", "lyric": "Denn früher warst du cool, heut schon lang nicht mehr"},
+    {"song": "Fan", "lyric": "Jetzt machst du so Mainstream-Mist"},
+    {"song": "Fan", "lyric": "Und hab sogar mein Kind nach dir getauft"},
+    {"song": "Fan", "lyric": "Heut bist du downloadbare Massenware"},
+
+    {"song": "Newton hatte Recht", "lyric": "So elastisch, Atom für Atom"},
+    {"song": "Newton hatte Recht", "lyric": "Was nicht geht, geht nicht - und was geht, geht"},
+    {"song": "Newton hatte Recht", "lyric": "Wie Don Quixote, eine traurige Gestalt"},
+    {"song": "Newton hatte Recht", "lyric": "Eine Wand ist eine Wand ist eine Wand ist eine Wand, denn [...]"},
+
+    {"song": "Das Traurigste", "lyric": "Geht es dir gut? Wirst du grad wild geküsst?"},
+    {"song": "Das Traurigste", "lyric": "Es ist 211 Tage her, und du fehlst mir noch immer so sehr"},
+    {"song": "Das Traurigste", "lyric": "Bist du aus Stein, oder bild ich mir das ein?"},
+    {"song": "Das Traurigste", "lyric": "Ich weiß, daß du mich schon vergisst, während ich dich vermiss"},
+    {"song": "Das Traurigste", "lyric": "Wir sind zu zweit, seit langer Zeit - ich und die Einsamkeit"},
+
+    {"song": "3000", "lyric": "Ich hab 'n neuen Anzug, neues Auto - und die alten Probleme"},
+    {"song": "3000", "lyric": "Kann vielleicht mal irgendjemand auf Pause drücken?"},
+    {"song": "3000", "lyric": "Überlebensstrategien für das dritte Jahrtausend"},
+    {"song": "3000", "lyric": "Alle klagen ständig über Burn Out-Beschwerden"},
+
+    {"song": "Sommer", "lyric": "Komm wir fahrn meine Tanks leer, Baby"},
+    {"song": "Sommer", "lyric": "Heut sind alle Ampeln grün"},
+    {"song": "Sommer", "lyric": "Mach das Verdeck auf, Baby, und spür' die Sonnenstrahlen"},
+
+    {"song": "Immer dabei", "lyric": "Getrennt und doch ein Teil von dir"},
+    {"song": "Immer dabei", "lyric": "Ich weiß, das klingt jetzt schizophren"},
+    {"song": "Immer dabei", "lyric": "Von grenzenloser Allmacht phantasierst"},
+
+
+    {"song": "Die perfekte Diktatur", "lyric": "Ich gehe nicht mehr an's Telefon, es klingelt jeden Tag um vier"},
+    {"song": "Die perfekte Diktatur", "lyric": "Die Zeitungen sind voll mit Durchhalteparolen"},
+    {"song": "Die perfekte Diktatur", "lyric": "In der Innenstadt sind Bomben explodiert"},
+    {"song": "Die perfekte Diktatur", "lyric": "Dein Name stand nicht an der Klingel, in der Tür stand irgendwer"},
+    {"song": "Die perfekte Diktatur", "lyric": "Du wusstest nicht: Ich arbeite seit Jahren für die Sicherheit"},
+    {"song": "Die perfekte Diktatur", "lyric": "Und morgen früh besuch ich deine Exekution"},
+
+    {"song": "Wahnsinn", "lyric": "So was war vorher noch nie da, noch nicht mal in Amerika"},
+    {"song": "Wahnsinn", "lyric": "Ich hoffe nur, dass ich nicht vorher schon in Ohnmacht fall"},
+    {"song": "Wahnsinn", "lyric": "Eindrucksvoll und erhaben, der Zenit ist erreicht"},
+    {"song": "Wahnsinn", "lyric": "Toll, toll, toll, super, super, phänomenal"},
+
+
+    {"song": "Rest der Welt", "lyric": "Meine Feinde waren Verräter und Frisöre"},
+    {"song": "Rest der Welt", "lyric": "Was auch passiert, ich weiß: Du stehst an meiner Seite"},
+    {"song": "Rest der Welt", "lyric": "Ich fühl mich furchtloser als jeder Westernheld"},
+    {"song": "Rest der Welt", "lyric": "Ich sag nichts, du sagst nichts, weil Worte überflüssig sind"},
+    {"song": "Rest der Welt", "lyric": "Ich halt dich fest und lass dich nie mehr los"},
+
+    {"song": "Babylon", "lyric": "Du sprachst nur ein paar Brocken Englisch und du wirktest abgelenkt"},
+    {"song": "Babylon", "lyric": "Bin ein einsamer Nordeuropäer"},
+    {"song": "Babylon", "lyric": "Und jetzt steh ich hier, noch fremder als bisher"},
+    {"song": "Babylon", "lyric": "Interkulturelle Sensibilität - woher soll ich wissen, wie das geht?"},
+    {"song": "Babylon", "lyric": "Den Rückflug hab ich längst verpasst"},
+
+
+    {"song": "Welche Krise?", "lyric": "Jehovas Zeugen ziehen von Tür zu Tür"},
+    {"song": "Welche Krise?", "lyric": "Die Russen drehen uns den Gashahn zu"},
+    {"song": "Welche Krise?", "lyric": "Ich hab so zarte Hände - grab lieber du"},
+
+    {"song": "Himmel auf Erden", "lyric": "Warum muss ich denn erst sterben, um das Paradies zu sehen?"},
+    {"song": "Himmel auf Erden", "lyric": "Manche wohnen in Palästen, die anderen essen trocken Brot"},
+    {"song": "Himmel auf Erden", "lyric": "Die einen errichten Tempel und die anderen Moscheen"},
+    {"song": "Himmel auf Erden", "lyric": "Dieses Leben ist zwar bitter, doch im Jenseits winkt der Lohn"}
 ]
