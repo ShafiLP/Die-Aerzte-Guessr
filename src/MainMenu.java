@@ -80,7 +80,7 @@ public class MainMenu extends JFrame {
 
         // Author + Version
         JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
-        JLabel lVersion = new JLabel("Version 0.1.6", SwingConstants.LEFT);
+        JLabel lVersion = new JLabel("Version 0.1.7", SwingConstants.LEFT);
         JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
         authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         authorVersionPanel.add(lVersion);
