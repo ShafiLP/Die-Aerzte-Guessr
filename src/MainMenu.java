@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
 
 /**
@@ -14,7 +16,7 @@ public class MainMenu extends JFrame {
     public MainMenu() {
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, 300);
+        this.setSize(400, 380);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
@@ -25,8 +27,9 @@ public class MainMenu extends JFrame {
 
         // Heading
         JPanel headingPanel = new JPanel();
-        JLabel lHeading = new JLabel("ÄrzteGuessr");
-        lHeading.setFont(new Font("Folio Extra BT", Font.BOLD, 24));
+        ImageIcon icon = new ImageIcon("images\\AerzteGuessr.png");
+        Image img = icon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JLabel lHeading = new JLabel(new ImageIcon(img));
         headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
         headingPanel.add(lHeading);
         this.add(headingPanel, BorderLayout.NORTH);
@@ -36,29 +39,35 @@ public class MainMenu extends JFrame {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
         // Buttons
-        ImageIcon icon = new ImageIcon("images\\GTO.png");
-        Image img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
+        icon = new ImageIcon("images\\GTO.png");
+        img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
         JButton bGTO = new JButton(new ImageIcon(img));
         bGTO.addActionListener(_ -> {
             this.dispose(); // Close the current gui
             new GTOMenu();  // Start the game
         });
+        bGTO.setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
+        bGTO.setBackground(new Color(255, 220, 220));
 
         icon = new ImageIcon("images\\CTL.png");
-        img = icon.getImage().getScaledInstance(250, 35, Image.SCALE_SMOOTH);
+        img = icon.getImage().getScaledInstance(260, 35, Image.SCALE_SMOOTH);
         JButton bCTL = new JButton(new ImageIcon(img));
         bCTL.addActionListener(_ -> {
             this.dispose(); 
             new CTLMenu();
         });
+        bCTL.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
+        bCTL.setBackground(new Color(220, 220, 255));
 
         icon = new ImageIcon("images\\aerztle.png");
-        img = icon.getImage().getScaledInstance(150, 35, Image.SCALE_SMOOTH);
+        img = icon.getImage().getScaledInstance(140, 35, Image.SCALE_SMOOTH);
         JButton bAerztle = new JButton(new ImageIcon(img));
         bAerztle.addActionListener(_ -> {
             this.dispose();
             new AerztleMenu();
         });
+        bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
+        bAerztle.setBackground(new Color(220, 255, 220));
 
         Dimension buttonSize = new Dimension(300, 40);
         bGTO.setMaximumSize(buttonSize);
@@ -68,6 +77,15 @@ public class MainMenu extends JFrame {
         bGTO.setAlignmentX(Component.CENTER_ALIGNMENT);
         bCTL.setAlignmentX(Component.CENTER_ALIGNMENT);
         bAerztle.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Author + Version
+        JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
+        JLabel lVersion = new JLabel("Version 0.1.5", SwingConstants.LEFT);
+        JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
+        authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
+        authorVersionPanel.add(lVersion);
+        authorVersionPanel.add(lAuthor);
+        this.add(authorVersionPanel, BorderLayout.SOUTH);
 
         // Add with vertical padding
         buttonPanel.add(bGTO);

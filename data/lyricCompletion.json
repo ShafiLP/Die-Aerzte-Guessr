@@ -1,7 +1,6 @@
 [
     {"before": "Deine", "gap": "Springerstiefel", "after": "sehnen sich nach Zärtlichkeit", "song": "Schrei nach Liebe", "album": "bestie"},
     {"before": "Er hat ein gold'nes", "gap": "Kettchen", "after": "das ihm Glück bringt", "song": "Paul", "album": "debil"},
-    {"before": "Sah nicht die", "gap": "Dämonen", "after": "die mich dazu trieben", "song": "Lied vom Scheitern", "album": "jazz"},
 	{"before": "War es schön, habe ich dir meine", "gap": "Briefmarken", "after": "gezeigt", "song": "Kamelralley", "album": "debil"},
 	{"before": "Hass ist deine", "gap": "Attitüde", "after": "ständig kocht dein Blut", "song": "Schrei nach Liebe", "album": "bestie"},
 	{"before": "Zwischen", "gap": "Störkraft", "after": "und den Onkelz steht 'be Kuschelrock-LP", "song": "Schrei nach Liebe", "album": "bestie"},
@@ -9,6 +8,78 @@
 	{"before": "Ich bin Supermann und Batman und", "gap": "Spinne", "after": "", "song": "Ich bin reich", "album": "aerzte"},
 	{"before": "Im Film sieht es so einfach aus, jetzt bin ich", "gap": "kreidebleich", "after": "", "song": "Wie es geht", "album": "spendierhosen"},
 	{"before": "Jetzt sitz' ich hier, wie ein", "gap": "Kaninchen", "after": "vor der Schlange", "song": "Wie es geht", "album": "spendierhosen"},
+
+
+
+
+
+	{"before": "Der Himmel ist blau, und der Rest deines Lebens wird", "gap": "schön", "after": "", "song": "Himmelblau", "album": "jazz"},
+	{"before": "Du hast ein", "gap": "gutes", "after": "Gefühl, du denkst an all die schönen Zeiten", "song": "Himmelblau", "album": "jazz"},
+	{"before": "Trotzdem setzte ich mich zwischen alle", "gap": "Stühle", "after": "", "song": "Lied vom Scheitern", "album": "jazz"},
+	{"before": "Sah nicht die", "gap": "Dämonen", "after": "die mich dazu trieben", "song": "Lied vom Scheitern", "album": "jazz"},
+	{"before": "Und am Ende war der Lohn", "gap": "Frustration", "after": "", "song": "Lied vom Scheitern", "album": "jazz"},
+	{"before": "Dein", "gap": "Spiegelbild", "after": "ist anderen egal", "song": "Lied vom Scheitern", "album": "jazz"},
+	{"before": "Wer", "gap": "Wahrheit", "after": "simuliert, wird nur kurz akzeptiert", "song": "Lied vom Scheitern", "album": "jazz"},
+	{"before": "Ich will deinen", "gap": "Elan", "after": "doch überhaupt nicht dämpfen", "song": "Lied vom Scheitern", "album": "jazz"},
+	{"before": "und die Welt sieht für uns jetzt viel", "gap": "bunter", "after": "aus", "song": "Breit", "album": "jazz"},
+	{"before": "So breit - so froh, uns hängt die", "gap": "Zunge", "after": "zum Halse raus", "song": "Breit", "album": "jazz"},
+	{"before": "Weg mit dem alten", "gap": "Gehirn", "after": "du solltest es auch mal probier'n", "song": "Breit", "album": "jazz"},
+	{"before": "Die", "gap": "Tapete", "after": "ist dermaßen schön, ich will gar nichts andres mehr seh'n", "song": "Breit", "album": "jazz"},
+	{"before": "Bist eine", "gap": "Schande", "after": "für die ganze Nachbarschaft", "song": "Lasse redn", "album": "jazz"},
+	{"before": "Lass die Leute", "gap": "reden", "after": "und hör ihnen nicht zu", "song": "Lasse redn", "album": "jazz"},
+	{"before": "Und wieder mal zeigt sich: Sie sind", "gap": "kleinlich", "after": "unvermeidlich fremdenfeindlich", "song": "Lasse redn", "album": "jazz"},
+	{"before": "Der Kollege eines", "gap": "Schwagers", "after": "hat dich neulich geseh'n", "song": "Lasse redn", "album": "jazz"},
+	{"before": "Die meisten Leute haben ihre", "gap": "Bildung", "after": "aus der BILD", "song": "Lasse redn", "album": "jazz"},
+	{"before": "Aus Angst, Hass,", "gap": "Titten", "after": "und dem Wetterbericht", "song": "Lasse redn", "album": "jazz"},
+	{"before": "Er nennt es", "gap": "Freiheit", "after": "und gerecht, das fandest du auch erst nicht schlecht", "song": "Die ewige Maitresse", "album": "jazz"},
+	{"before": "Er kann", "gap": "zärtlich", "after": "zu dir sein, doch lässt er dich danach allein", "song": "Die ewige Maitresse", "album": "jazz"},
+	{"before": "Guck dir den", "gap": "Dieter", "after": "an, der hat sogar ein Auto", "song": "Junge", "album": "jazz"},
+	{"before": "Warum gehst du nicht zu", "gap": "Onkel", "after": "Werner in die Werkstatt?", "song": "Junge", "album": "jazz"},
+	{"before": "Es ist noch nicht zu spät, dich an der", "gap": "Uni", "after": "einzuschreiben", "song": "Junge", "album": "jazz"},
+	{"before": "Denk an deine Zukunft, denk an deine", "gap": "Eltern", "after": "", "song": "Junge", "album": "jazz"},
+	{"before": "Der Sommer war kurz, der", "gap": "Winter", "after": "steht vor der Tür", "song": "Nur einen Kuss", "album": "jazz"},
+	{"before": "Bald darauf kam ein", "gap": "Fremder", "after": " in unsere Stadt", "song": "Nur einen Kuss", "album": "jazz"},
+	{"before": "Beim ersten", "gap": "Schnee", "after": "waren wir nicht mehr zusammen", "song": "Nur einen Kuss", "album": "jazz"},
+	{"before": "Das Gras wurde grün, sie wurde", "gap": "dünn", "after": "und blass", "song": "Nur einen Kuss", "album": "jazz"},
+	{"before": "Der Vollmond ging auf, mein", "gap": "Messer", "after": "war kalt wie er", "song": "Nur einen Kuss", "album": "jazz"},
+	{"before": "Kerzen brennen und", "gap": "Champagner", "after": "steht bereit", "song": "Perfekt", "album": "jazz"},
+	{"before": "Schenk uns noch ein Glas", "gap": "Sekt", "after": " ein, wenn das grad keine Sternschnuppe war", "song": "Perfekt", "album": "jazz"},
+	{"before": "Warum denk ich an", "gap": "Sex", "after": "wenn du grad romantisch bist", "song": "Perfekt", "album": "jazz"},
+	{"before": "Du sagst, du würdest auch ohne mich", "gap": "froh", "after": "", "song": "Heulerei", "album": "jazz"},
+	{"before": "Du würdest vollständig dehydrieren, alles in", "gap": "Taschentücher", "after": "investieren", "song": "Heulerei", "album": "jazz"},
+	{"before": "Ich bin es leid - ich hab es satt, mein", "gap": "Image", "after": "ist mir viel zu glatt", "song": "Licht am Ende des Sarges", "album": "jazz"},
+	{"before": "Will fühlen, was andre fühlen, ins", "gap": "Schwimmbad", "after": "gehen und Fußball spielen", "song": "Licht am Ende des Sarges", "album": "jazz"},
+	{"before": "Statt seiner gibts den", "gap": "lustigen", "after": "Vampir", "song": "Licht am Ende des Sarges", "album": "jazz"},
+	{"before": "Hoch die", "gap": "Tassen", "after": "jetzt wird gelebt", "song": "Licht am Ende des Sarges", "album": "jazz"},
+	{"before": "Sing shalala und shalalu, alles, was ich", "gap": "denken", "after": "kann, bist du", "song": "Niedliches Liebeslied", "album": "jazz"},
+	{"before": "Und selbst der", "gap": "Pudding", "after": "aus der Kantine, weiß, du gehörst zu mir", "song": "Niedliches Liebeslied", "album": "jazz"},
+	{"before": "Deine Freundin ist in der Tat so überhaupt nicht", "gap": "Pflegeleicht ", "after": "", "song": "Deine Freundin (wäre mir zu anstrengend)", "album": "jazz"},
+	{"before": "Kochst du ihr Nudeln, möchte sie", "gap": "Fisch", "after": "", "song": "Deine Freundin (wäre mir zu anstrengend)", "album": "jazz"},
+	{"before": "Schenkst du ihr Blumen, ist sie dagegen", "gap": "allergisch", "after": "", "song": "Deine Freundin (wäre mir zu anstrengend)", "album": "jazz"},
+	{"before": "Weil es nicht so leicht ist, nur der zu sein, der du als", "gap": "Kind", "after": "schon werden solltest", "song": "Allein", "album": "jazz"},
+	{"before": "Du warst auch mal", "gap": "verliebt", "after": "doch das ist lange her", "song": "Allein", "album": "jazz"},
+	{"before": "Hast dein", "gap": "Gefühl", "after": "einfach getötet, irgendwann", "song": "Allein", "album": "jazz"},
+	{"before": "Das kommt davon, wenn man illegal", "gap": "Musik", "after": "runterlädt", "song": "Tu das nicht", "album": "jazz"},
+	{"before": "Wir leben vom Inhalt deiner", "gap": "Brieftasche", "after": "", "song": "Tu das nicht", "album": "jazz"},
+	{"before": "Die Blumen blüh'n, als würden sie dafür", "gap": "bezahlt", "after": "", "song": "Living Hell", "album": "jazz"},
+	{"before": "Ich brauch' kein", "gap": "Haus", "after": "aus purem Gold", "song": "Living Hell", "album": "jazz"},
+	{"before": "Ich kann doch nichts dafür, dass ich ein", "gap": "Glückspilz", "after": "bin", "song": "Living Hell", "album": "jazz"},
+	{"before": "Und du liest jeden Tag dein", "gap": "Horoskop", "after": "Auch wenn gar nichts darin steht", "song": "Vorbei ist vorbei", "album": "jazz"},
+	{"before": "Menschen werden entführt und in", "gap": "Lager", "after": "gebacht", "song": "Wir sind die Besten", "album": "jazz"},
+	{"before": "Wir sind wie guter", "gap": "Whiskey", "after": "viele Jahre gereift", "song": "Wir sind die Besten", "album": "jazz"},
+	{"before": "Vom Pol bis zum", "gap": "Äquator", "after": "und auch in Ulan Bator", "song": "Wir sind die Besten", "album": "jazz"},
+	{"before": "Man muss sie federn und teeren und den", "gap": "Darm", "after": "auf ihnen entleeren", "song": "Wir sind die Besten", "album": "jazz"},
+	{"before": "Wir sitzen hier im", "gap": "Olymp", "after": "wir sitzen ziemlich bequem", "song": "Wir sind die Besten", "album": "jazz"},
+	{"before": "Vom Süden bis zum Norden, in", "gap": "Wüsten", "after": "und in Fjorden", "song": "Wir sind die Besten", "album": "jazz"},
+	{"before": "Für den früheren", "gap": "Schlagzeuger", "after": "Der damals unbestritten besten Band der Welt", "song": "Wir waren die Besten", "album": "jazz"},
+	{"before": "Früher haben wir geträumt in nassen", "gap": "Übungskellern", "after": "in London und Paris", "song": "Wir waren die Besten", "album": "jazz"},
+	{"before": "Und du hast einfach kein Feeling und kein bisschen", "gap": "Rock", "after": "im Blut", "song": "Wir waren die Besten", "album": "jazz"},
+	{"before": "Aufgepasst, mein Freund:", "gap": "Humor", "after": "nehmen wir todernst", "song": "Wir sind die Lustigsten", "album": "jazz"},
+	{"before": "Glaubst du, wir haben Frohsinn mit großen", "gap": "Löffeln", "after": "gegessen?", "song": "Wir sind die Lustigsten", "album": "jazz"},
+	{"before": "Und scheint unser", "gap": "Niveau", "after": "manchmal dumm oder einfach nur abgrundtief", "song": "Wir sind die Lustigsten", "album": "jazz"},
+	{"before": "Auch", "gap": "Treppenwitze", "after": "sind unsere Spezialität", "song": "Wir sind die Lustigsten", "album": "jazz"},
+
+
 
 
 
@@ -56,7 +127,9 @@
 	{"before": "Hast du nichts besseres zu tun als die", "gap": "die Ärzte", "after": "zu hör'n", "song": "zeiDverschwÄndung", "album": "auch"},
 	{"before": "Es gibt soviel schöne neue Musik, auch", "gap": "deutsch", "after": "gesungen", "song": "zeiDverschwÄndung", "album": "auch"},
 	{"before": "Werde", "gap": "Terrorist", "after": "und verbreite Angst und Furcht", "song": "zeiDverschwÄndung", "album": "auch"},
-	{"before": "etzt wird es Zeit dein'", "gap": "Player", "after": "von unseren Songs zu leer'n", "song": "zeiDverschwÄndung", "album": "auch"},
+	{"before": "Jetzt wird es Zeit dein'", "gap": "Player", "after": "von unseren Songs zu leer'n", "song": "zeiDverschwÄndung", "album": "auch"},
+
+
 
 
 
@@ -109,6 +182,8 @@
 	{"before": "Man muss als", "gap": "Gitarrist", "after": "auch Opfer bringen", "song": "WOODBURGER", "album": "hell"},
 	{"before": "", "gap": "Streicheln", "after": "oder peitschen, wer's härter mag", "song": "WOODBURGER", "album": "hell"},
 	{"before": "Ich werde", "gap": "Vaseline", "after": " in die Hand nehmen und ich mach sie …", "song": "WOODBURGER", "album": "hell"},
+
+
 
 
 
