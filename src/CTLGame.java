@@ -37,7 +37,7 @@ public class CTLGame implements TimerEvents {
         // Read only if enabled in settings
         if(settings.isCtlFarinEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionFarin", lyricsWithGaps);
         if(settings.isCtlBelaEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionBela", lyricsWithGaps);
-        if(settings.isCtlSahnieEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletion.json", lyricsWithGaps);
+        if(settings.isCtlSahnieEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionSahnie.json", lyricsWithGaps);
 
         // Get random SongTextWithGap
         randomTextWithGap = getRandomSongTextWithGap(lyricsWithGaps);
@@ -222,8 +222,3 @@ public class CTLGame implements TimerEvents {
         }
     }
 }
-
-/**
- * TODO:
- * - Font settings
- */
