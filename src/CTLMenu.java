@@ -201,7 +201,7 @@ public class CTLMenu extends JFrame {
                 );
                 return;
             }
-            if(settings.getLiveCount() > 10) {
+            if(settings.getCtlLiveCount() > 10) {
                 settings.setCtlLiveCount(3); 
                 JOptionPane.showMessageDialog(
                     bSave,
@@ -296,3 +296,8 @@ public class CTLMenu extends JFrame {
         }
     }
 }
+/*
+ * TODO:
+ * - Stats
+ * - Settings reset button
+ */

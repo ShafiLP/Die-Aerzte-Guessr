@@ -99,7 +99,7 @@ public class CTLGame implements TimerEvents {
         }
         if(liveCount == 0) {
             if(score > settings.getCtlHighscore()) {
-                settings.setHighscore(score);
+                settings.setCtlHighscore(score);
                 saveSettings(settings);
             }
             Object[] options = {"Neues Spiel", "Beenden"};
@@ -142,7 +142,7 @@ public class CTLGame implements TimerEvents {
         // Checks if all songs were guessed
         if(pListWithData.isEmpty()) {
             if(score > settings.getCtlHighscore()) {
-                settings.setHighscore(score);
+                settings.setCtlHighscore(score);
                 saveSettings(settings);
             }
             Object[] options = {"Neues Spiel", "Beenden"};

@@ -2,19 +2,19 @@ public class Settings {
     // General settings
     private String fontType = "Folio Extra";
     private int fontSize = 12;
+    private boolean showIcons = true;
 
     // For GTO
-    private String typeOfInput = "Dropdown Menü";
-    private boolean showIcons = true;
-    private boolean unlimitedTime = false;
-    private boolean unlimitedLives = false;
-    private boolean includeFarinLibrary = false;
-    private boolean includeBelaLibrary = false;
-    private boolean includeSahnieLibrary = false;
-    private boolean activateSupportiveSahnie = false;
-    private int timeLimit = 30;
-    private int liveCount = 3;
-    private int highscore = 0;
+    private String gtoTypeOfInput = "Suchleiste";
+    private boolean gtoUnlimitedTime = false;
+    private boolean gtoUnlimitedLives = false;
+    private boolean gtoIncludeFarinLibrary = false;
+    private boolean gtoIncludeBelaLibrary = false;
+    private boolean gtoIncludeSahnieLibrary = false;
+    private boolean gtoActivateSupportiveSahnie = false;
+    private int gtoTimeLimit = 30;
+    private int gtoLiveCount = 3;
+    private int gtoHighscore = 0;
 
     // For CTL
     private boolean ctlHardMode = false;
@@ -46,15 +46,15 @@ public class Settings {
      */
     public Settings(String pTypeOfInput, boolean pShowIcons, boolean pUnlimitedTime, boolean pUnlimitedLives, boolean pFarin,
     boolean pBela, boolean pSahnie, int pTimeLimit, int pLiveCount) {
-        typeOfInput = pTypeOfInput;
+        gtoTypeOfInput = pTypeOfInput;
         showIcons = pShowIcons;
-        unlimitedTime = pUnlimitedTime;
-        unlimitedLives = pUnlimitedLives;
-        includeFarinLibrary = pFarin;
-        includeBelaLibrary = pBela;
-        includeSahnieLibrary = pSahnie;
-        timeLimit = pTimeLimit;
-        liveCount = pLiveCount;
+        gtoUnlimitedTime = pUnlimitedTime;
+        gtoUnlimitedLives = pUnlimitedLives;
+        gtoIncludeFarinLibrary = pFarin;
+        gtoIncludeBelaLibrary = pBela;
+        gtoIncludeSahnieLibrary = pSahnie;
+        gtoTimeLimit = pTimeLimit;
+        gtoLiveCount = pLiveCount;
     }
 
     public Settings(boolean pHardmode, boolean pShowIcons, boolean pUnlimitedTime, boolean pUnlimitedLives, boolean pFarin,
@@ -69,6 +69,8 @@ public class Settings {
         ctlTimeLimit = pTimeLimit;
         ctlLiveCount = pLiveCount;
     }
+
+    //* GENERAL SETTINGS
 
     public void setFontType(String pFontType) {
         fontType = pFontType;
@@ -86,14 +88,6 @@ public class Settings {
         return fontSize;
     }
 
-    public void setTypeOfInput(String pTypeOfInput) {
-        typeOfInput = pTypeOfInput;
-    }
-
-    public String getTypeOfInput() {
-        return typeOfInput;
-    }
-
     public void setShowIcons(boolean pShowIcons) {
         showIcons = pShowIcons;
     }
@@ -102,76 +96,86 @@ public class Settings {
         return showIcons;
     }
 
-    public void setUnlimitedTime(boolean pUnlimitedTime) {
-        unlimitedTime = pUnlimitedTime;
+    //* GTO SETTINGS
+
+    public void setGtoTypeOfInput(String pTypeOfInput) {
+        gtoTypeOfInput = pTypeOfInput;
     }
 
-    public boolean isUnlimitedTimeEnabled() {
-        return unlimitedTime;
+    public String getGtoTypeOfInput() {
+        return gtoTypeOfInput;
     }
 
-    public void setUnlimitedLives(boolean pUnlimitedLives) {
-        unlimitedLives = pUnlimitedLives;
+    public void setGtoUnlimitedTime(boolean pUnlimitedTime) {
+        gtoUnlimitedTime = pUnlimitedTime;
     }
 
-    public boolean isUnlimitedLivesEnabled() {
-        return unlimitedLives;
+    public boolean isGtoUnlimitedTimeEnabled() {
+        return gtoUnlimitedTime;
     }
 
-    public void setFarinLibrary(boolean pFarin) {
-        includeFarinLibrary = pFarin;
+    public void setGtoUnlimitedLives(boolean pUnlimitedLives) {
+        gtoUnlimitedLives = pUnlimitedLives;
     }
 
-    public boolean isFarinEnabled() {
-        return includeFarinLibrary;
+    public boolean isGtoUnlimitedLivesEnabled() {
+        return gtoUnlimitedLives;
     }
 
-    public void setBelaLibrary(boolean pBela) {
-        includeBelaLibrary = pBela;
+    public void setGtoFarinLibrary(boolean pFarin) {
+        gtoIncludeFarinLibrary = pFarin;
     }
 
-    public boolean isBelaEnabled() {
-        return includeBelaLibrary;
+    public boolean isGtoFarinEnabled() {
+        return gtoIncludeFarinLibrary;
     }
 
-    public void setSahnieLibrary(boolean pSahnie) {
-        includeSahnieLibrary = pSahnie;
+    public void setGtoBelaLibrary(boolean pBela) {
+        gtoIncludeBelaLibrary = pBela;
     }
 
-    public boolean isSahnieEnabled() {
-        return includeSahnieLibrary;
+    public boolean isGtoBelaEnabled() {
+        return gtoIncludeBelaLibrary;
     }
 
-    public void setSupportiveSahnie(boolean pSupportiveSahnie) {
-        activateSupportiveSahnie = pSupportiveSahnie;
+    public void setGtoSahnieLibrary(boolean pSahnie) {
+        gtoIncludeSahnieLibrary = pSahnie;
     }
 
-    public boolean isSupportiveSahnieEnabled() {
-        return activateSupportiveSahnie;
+    public boolean isGtoSahnieEnabled() {
+        return gtoIncludeSahnieLibrary;
     }
 
-    public void setTimeLimit(int pTimeLimit) {
-        timeLimit = pTimeLimit;
+    public void setGtoSupportSahnie(boolean pSupportiveSahnie) {
+        gtoActivateSupportiveSahnie = pSupportiveSahnie;
     }
 
-    public int getTimeLimit() {
-        return timeLimit;
+    public boolean isGtoSupportSahnieEnabled() {
+        return gtoActivateSupportiveSahnie;
     }
 
-    public void setLiveCount(int pLiveCount) {
-        liveCount = pLiveCount;
+    public void setGtoTimeLimit(int pTimeLimit) {
+        gtoTimeLimit = pTimeLimit;
     }
 
-    public int getLiveCount() {
-        return liveCount;
+    public int getGtoTimeLimit() {
+        return gtoTimeLimit;
     }
 
-    public void setHighscore(int pHighscore) {
-        highscore = pHighscore;
+    public void setGtoLiveCount(int pLiveCount) {
+        gtoLiveCount = pLiveCount;
     }
 
-    public int getHighscore() {
-        return highscore;
+    public int getGtoLiveCount() {
+        return gtoLiveCount;
+    }
+
+    public void setGtoHighscore(int pHighscore) {
+        gtoHighscore = pHighscore;
+    }
+
+    public int getGtoHighscore() {
+        return gtoHighscore;
     }
 
     //* CTL SETTINGS

@@ -72,7 +72,7 @@ public class GTOMenu extends JFrame {
 
         // Highscore
         JPanel highscorePanel = new JPanel();
-        JLabel lHighscore = new JLabel("Highscore: " + settings.getHighscore());
+        JLabel lHighscore = new JLabel("Highscore: " + settings.getGtoHighscore());
         highscorePanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         highscorePanel.add(lHighscore);
         this.add(highscorePanel, BorderLayout.SOUTH);
@@ -103,10 +103,10 @@ public class GTOMenu extends JFrame {
 
         // Timer settings
         JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
-        JTextField tfTimeLimit = new JTextField(settings.getTimeLimit() + "");
+        JTextField tfTimeLimit = new JTextField(settings.getGtoTimeLimit() + "");
         JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
         panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
-        JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isUnlimitedTimeEnabled());
+        JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isGtoUnlimitedTimeEnabled());
         cbUnlimitedTime.addActionListener(_ -> {
             if(cbUnlimitedTime.isSelected()) {
                 tfTimeLimit.setEnabled(false);
@@ -117,10 +117,10 @@ public class GTOMenu extends JFrame {
 
         // Health bar settings
         JLabel lLives = new JLabel("Anzahl Leben:");
-        JTextField tfLives = new JTextField(settings.getLiveCount() + "");
+        JTextField tfLives = new JTextField(settings.getGtoLiveCount() + "");
         JPanel panLives = new JPanel(new GridLayout(2, 1));
         panLives.add(lLives); panLives.add(tfLives);
-        JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isUnlimitedLivesEnabled());
+        JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isGtoUnlimitedLivesEnabled());
         cbUnlimitedLives.addActionListener(_ -> {
             if(cbUnlimitedLives.isSelected()) {
                 tfLives.setEnabled(false);
@@ -135,21 +135,21 @@ public class GTOMenu extends JFrame {
         // Highscore reset button
         JButton bResetHighscore = new JButton("Highscore zurücksetzen");
         bResetHighscore.addActionListener(_ -> {
-            settings.setHighscore(0);
+            settings.setGtoHighscore(0);
         });
 
         // Bonus library settings
-        JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isFarinEnabled());
-        JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isBelaEnabled());
-        JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isSahnieEnabled());
+        JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isGtoFarinEnabled());
+        JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isGtoBelaEnabled());
+        JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isGtoSahnieEnabled());
 
         // Type of input settings
         JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
         JComboBox<String> ddTypeOfInput = new JComboBox<>();
-        ddTypeOfInput.addItem("Dropdown Menü");
         ddTypeOfInput.addItem("Suchleiste");
+        ddTypeOfInput.addItem("Dropdown Menü");
         ddTypeOfInput.addItem("Manuelle Eingabe");
-        ddTypeOfInput.setSelectedItem(settings.getTypeOfInput());
+        ddTypeOfInput.setSelectedItem(settings.getGtoTypeOfInput());
         JLabel lTypeOfInput = new JLabel("Eingabemethode:");
         typeOfInputPanel.add(lTypeOfInput);
         typeOfInputPanel.add(ddTypeOfInput);
@@ -173,13 +173,13 @@ public class GTOMenu extends JFrame {
         fontSizePanel.add(lFontSize); fontSizePanel.add(tfFontSize);
 
         // Supportive Sahnie
-        JCheckBox cbSupportSahnie = new JCheckBox("Aktiviere Unterstüzungs-Sahnie", settings.isSupportiveSahnieEnabled());
+        JCheckBox cbSupportSahnie = new JCheckBox("Aktiviere Unterstüzungs-Sahnie", settings.isGtoSupportSahnieEnabled());
 
         // Save button
         JButton bSave = new JButton("Speichern");
         bSave.addActionListener(_ -> {
             try {
-                settings.setTimeLimit(Integer.parseInt(tfTimeLimit.getText()));
+                settings.setGtoTimeLimit(Integer.parseInt(tfTimeLimit.getText()));
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(
                     bSave,
@@ -189,7 +189,7 @@ public class GTOMenu extends JFrame {
                 );
                 return;
             }
-            if(settings.getTimeLimit() > 1000) {
+            if(settings.getGtoTimeLimit() > 1000) {
                 JOptionPane.showMessageDialog(
                     bSave,
                     "Eingabe des Zeitlimits ist ungültig.\nDas Limit darf nicht höher als 1000 sein!",
@@ -198,9 +198,9 @@ public class GTOMenu extends JFrame {
                 );
                 return;
             }
-            settings.setUnlimitedTime(cbUnlimitedTime.isSelected());
+            settings.setGtoUnlimitedTime(cbUnlimitedTime.isSelected());
             try {
-                settings.setLiveCount(Integer.parseInt(tfLives.getText()));
+                settings.setGtoLiveCount(Integer.parseInt(tfLives.getText()));
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(
                     bSave,
@@ -210,8 +210,8 @@ public class GTOMenu extends JFrame {
                 );
                 return;
             }
-            if(settings.getLiveCount() > 10) {
-                settings.setLiveCount(3); 
+            if(settings.getGtoLiveCount() > 10) {
+                settings.setGtoLiveCount(3); 
                 JOptionPane.showMessageDialog(
                     bSave,
                     "Eingabe der Lebensanzahl ist ungültig.\nDie Leben dürfen maximal 10 sein!",
@@ -242,13 +242,13 @@ public class GTOMenu extends JFrame {
                 return;
             }
 
-            settings.setUnlimitedLives(cbUnlimitedLives.isSelected());
+            settings.setGtoUnlimitedLives(cbUnlimitedLives.isSelected());
             settings.setShowIcons(cbShowIcons.isSelected());
-            settings.setFarinLibrary(cbFarin.isSelected());
-            settings.setBelaLibrary(cbBela.isSelected());
-            settings.setSahnieLibrary(cbSahnie.isSelected());
-            settings.setSupportiveSahnie(cbSupportSahnie.isSelected());
-            settings.setTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
+            settings.setGtoFarinLibrary(cbFarin.isSelected());
+            settings.setGtoBelaLibrary(cbBela.isSelected());
+            settings.setGtoSahnieLibrary(cbSahnie.isSelected());
+            settings.setGtoSupportSahnie(cbSupportSahnie.isSelected());
+            settings.setGtoTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
             settings.setFontType(ddFont.getSelectedItem().toString());
 
             saveSettings(settings);
@@ -305,6 +305,10 @@ public class GTOMenu extends JFrame {
         }
     }
 }
+/*
+ * TODO:
+ * - Stats
+ * - Settings reset button
+ * - Being able to customize album pool
+ */
 
-//TODO:
-// - Being able to customize album pool

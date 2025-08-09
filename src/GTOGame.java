@@ -31,20 +31,20 @@ public class GTOGame implements TimerEvents {
     public GTOGame(Settings pSettings) {
         // Apply settings
         settings = pSettings;
-        lives = settings.getLiveCount();
-        timeLimit = settings.getTimeLimit();
+        lives = settings.getGtoLiveCount();
+        timeLimit = settings.getGtoTimeLimit();
 
         // Create a LinkedList containing all available song lyrics
         songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
 
         // Add Farin songs if pFarin = true
-        if(settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
+        if(settings.isGtoFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
 
         // Add Bela songs if pBela = true
-        if(settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
+        if(settings.isGtoBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
 
         // Add Sahnie songs if pSahnie = true
-        if(settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
+        if(settings.isGtoSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
  
         // Get a random song text part
         currentSongText = getRandomSongText();
@@ -53,7 +53,7 @@ public class GTOGame implements TimerEvents {
         gui = new GTOGui(this, currentSongText.getText(), settings);
 
         // Start timer
-        if(!settings.isUnlimitedTimeEnabled()) {
+        if(!settings.isGtoUnlimitedTimeEnabled()) {
             TimerEventManager timer = new TimerEventManager(this);
             timer.start();
         } else {
@@ -71,7 +71,7 @@ public class GTOGame implements TimerEvents {
         currentSongText = getRandomSongText();
         if(currentSongText == null) return;
         gui.guessTheOriginUpdate(currentSongText.getText());
-        timeLimit = settings.getTimeLimit(); // Reset the timer
+        timeLimit = settings.getGtoTimeLimit(); // Reset the timer
         gui.setTimerLabel(timeLimit + "s");
         gui.updateScore(score);
     }
@@ -81,15 +81,15 @@ public class GTOGame implements TimerEvents {
      * Displays a dialog with the score and options to start a new game or exit
      */
     public void wrongGuess() {
-        if(!settings.isUnlimitedLivesEnabled()) {
+        if(!settings.isGtoUnlimitedLivesEnabled()) {
             lives--;
             gui.removeHealth();
             blockWrongGuesses = true;
         }
 
         if(lives <= 0) {
-            if(settings.getHighscore() < score) {
-                settings.setHighscore(score);
+            if(settings.getGtoHighscore() < score) {
+                settings.setGtoHighscore(score);
                 saveSettings(settings);
             }
             String[] options = {"Neues Spiel", "Beenden"};
@@ -133,8 +133,8 @@ public class GTOGame implements TimerEvents {
     private SongText getRandomSongText() {
         // Checks if all songs were guessed
         if(songTexts.isEmpty()) {
-            if(settings.getHighscore() < score) {
-                settings.setHighscore(score);
+            if(settings.getGtoHighscore() < score) {
+                settings.setGtoHighscore(score);
                 saveSettings(settings);
             }
             Object[] options = {"Neues Spiel", "Beenden"};

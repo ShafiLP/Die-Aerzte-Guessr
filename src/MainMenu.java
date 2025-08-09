@@ -63,8 +63,13 @@ public class MainMenu extends JFrame {
         img = icon.getImage().getScaledInstance(140, 35, Image.SCALE_SMOOTH);
         JButton bAerztle = new JButton(new ImageIcon(img));
         bAerztle.addActionListener(_ -> {
-            this.dispose();
-            new AerztleMenu();
+            //this.dispose();
+            //new AerztleMenu();
+            //! JOptionPane for information that game mode is not available yet
+            JOptionPane.showMessageDialog(
+                null,
+                "Dieser Spielmodus ist noch nicht verfügbar."
+            );
         });
         bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
         bAerztle.setBackground(new Color(220, 255, 220));
@@ -80,7 +85,7 @@ public class MainMenu extends JFrame {
 
         // Author + Version
         JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
-        JLabel lVersion = new JLabel("Version 0.1.7", SwingConstants.LEFT);
+        JLabel lVersion = new JLabel("Version 0.1.8", SwingConstants.LEFT);
         JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
         authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         authorVersionPanel.add(lVersion);
@@ -99,3 +104,7 @@ public class MainMenu extends JFrame {
         this.setVisible(true);
     }
 }
+/*
+ * TODO:
+ * - Universal settings (font, icons)
+ */

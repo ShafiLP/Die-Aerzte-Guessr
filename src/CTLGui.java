@@ -142,8 +142,13 @@ public class CTLGui extends JFrame implements EnterKeyListener {
         }});
 
         // Health bar in upper left corner
+        JPanel ulPanel;
         healthBar = new JLabel[settings.getCtlLiveCount()];
-        JPanel ulPanel = new JPanel(new GridLayout(1, healthBar.length));
+        if(settings.getCtlLiveCount() <= 5) {
+            ulPanel = new JPanel(new GridLayout(1, healthBar.length));
+        } else {
+            ulPanel = new JPanel(new GridLayout(2, healthBar.length/2));
+        }
         if(settings.isCtlShowIconsEnabled()) {
             ImageIcon healthIcon = new ImageIcon("images\\health.png");
             Image healtImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
