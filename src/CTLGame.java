@@ -35,8 +35,8 @@ public class CTLGame implements TimerEvents {
         lyricsWithGaps = readSongsFromJson("data\\lyricCompletion.json", lyricsWithGaps);
 
         // Read only if enabled in settings
-        if(settings.isCtlFarinEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionFarin", lyricsWithGaps);
-        if(settings.isCtlBelaEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionBela", lyricsWithGaps);
+        if(settings.isCtlFarinEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionFarin.json", lyricsWithGaps);
+        if(settings.isCtlBelaEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionBela.json", lyricsWithGaps);
         if(settings.isCtlSahnieEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionSahnie.json", lyricsWithGaps);
 
         // Get random SongTextWithGap

@@ -6,10 +6,15 @@
     {"song": "Paul", "lyric": "Und er bringt kleine Mädchen zur Strecke"},
     {"song": "Paul", "lyric": "Er scheint zu fliegen, genauso wie Supermann"},
     {"song": "Paul", "lyric": "Er hat ein gold'nes Kettchen, das ihm Glück bringt"},
+    {"song": "Paul", "lyric": "Dann geh'n wir schwimmen, es ist ja nicht weit"},
+    {"song": "Paul", "lyric": "Wir amüsier'n uns mit Brust oder Kraul"},
+    {"song": "Paul", "lyric": "[...] wirft er sie vom 10-Meter-Brett"},
+    {"song": "Paul", "lyric": "Da zahlt man gerne sein Eintrittsgeld"},
     
     {"song": "Kamelralley", "lyric": "Uns're Liebe war so schön"},
     {"song": "Kamelralley", "lyric": "Stundenlang habe ich dir auf der Geige vorgegeigt"},
     {"song": "Kamelralley", "lyric": "Ich sitz' schon Stunden hier und denk an dich"},
+    {"song": "Kamelralley", "lyric": "Auf der Bank in unserm Hof"},
     
     {"song": "Frank'n'stein", "lyric": "Ich baute eine Frau zum Zeitvertreib"},
     {"song": "Frank'n'stein", "lyric": "Das Ding ging wieder in die Hose"},
@@ -30,14 +35,22 @@
     {"song": "Mr. Sexpistols", "lyric": "Ich war Mister Sexpistols, du warst Lady Punk"},
     {"song": "Mr. Sexpistols", "lyric": "Doch über die Aknepickel kommt sie nicht"},
     {"song": "Mr. Sexpistols", "lyric": "In der Monatskarte ein Foto von dir"},
+    {"song": "Mr. Sexpistols", "lyric": "Ich sitze ganz allein im Bus und ich fahr' nach Haus"},
+    {"song": "Mr. Sexpistols", "lyric": "Glücklich werd' ich hier wohl nicht"},
     
     {"song": "Micha", "lyric": "Er ist unrasiert und staubig, denn sein Tag war ziemlich lang"},
     {"song": "Micha", "lyric": "Tritt sein Pferd und reitet wütend in den Sonnenuntergang, yee-ha!"},
     {"song": "Micha", "lyric": "Und er spielt dies eine Lied, weil er gar kein andres kennt"},
     
-    {"song": "Zu spät", "lyric": "Warum hast du mir das angetan? Ich hab's von einem Bekannten erfahr'n"},
+    {"song": "Zu spät", "lyric": "Ich hab's von einem Bekannten erfahr'n"},
     {"song": "Zu spät", "lyric": "Du liebst ihn nur, weil er ein Auto hat"},
     {"song": "Zu spät", "lyric": "Bei mir gab's nur Currywurst mit Pommes Frites"},
+    {"song": "Zu spät", "lyric": "Zwei Wochen lang hab' ich nur geweint"},
+    {"song": "Zu spät", "lyric": "Und nicht wie ich ein klappriges Damenrad"},
+    {"song": "Zu spät", "lyric": "Dann bin ich ein Star, der in der Zeitung steht"},
+    {"song": "Zu spät", "lyric": "Ich wusste nicht, dass er auch Karate kann"},
+    {"song": "Zu spät", "lyric": "Ich werd' die Herzen aller Mädchen brechen"},
+    {"song": "Zu spät", "lyric": "Und dann tut es dir leid, doch dann ist es zu spät"},
     
     {"song": "Roter Minirock", "lyric": "Ein paar Omas musst'n dran glaub'n und ich fuhr einige Regale um"},
     {"song": "Roter Minirock", "lyric": "Manchmal bescheißt sie mit dem Wechselgeld"},
@@ -237,15 +250,20 @@
     {"song": "Baby ich tu's", "lyric": "Baby ich tu's mit der Wucht einer Kalaschnikoff"},
 
     {"song": "Komm zurück", "lyric": "Obwohl du mich nicht hören kannsts, sag ich dir: ..."},
+    {"song": "Komm zurück", "lyric": "Ich bin allein und die Zeit steht still"},
+    {"song": "Komm zurück", "lyric": "Ich sitze hier und ich bin allein und langsam werde ich verrückt"},
 
     {"song": "Wilde Welt", "lyric": "Es ist früh am Morgen, 15 Uhr"},
     {"song": "Wilde Welt", "lyric": "Oh-ho, ich schneid' mir 'ne Tonsur"},
     {"song": "Wilde Welt", "lyric": "Ein Porsche, der ist teuer, ich bin schnell"},
     {"song": "Wilde Welt", "lyric": "Ich hab' kein'n Chef und kein Büro"},
 
-    {"song": "Westerland", "lyric": "Jeden Tag sitz' ich am Wannsee und ich hör' den Wellen zu"},
+    {"song": "Westerland", "lyric": "Jeden Tag sitz' ich am Wannsee"},
     {"song": "Westerland", "lyric": "Und ich weiß, jeder Zweite hier ist genauso blöd wie ich"},
     {"song": "Westerland", "lyric": "Diese eine Liebe wird nie zu Ende geh'n"},
+    {"song": "Westerland", "lyric": "Oh, ich hab' solche Sehnsucht"},
+    {"song": "Westerland", "lyric": "Wie oft sprang ich in die Spree?"},
+    {"song": "Westerland", "lyric": "Ich will wieder an die Nordsee"},
 
     {"song": "Ich will dich", "lyric": "Ständig die Situation, ein hübsches Mädchen neben mir"},
     {"song": "Ich will dich", "lyric": "Und stell' sie mir dabei schon im Nachthemd vohohor"},
@@ -253,6 +271,11 @@
     {"song": "Elke", "lyric": "Sie sah aus wie eine Pizza, sie war wunder-wunderschön"},
     {"song": "Elke", "lyric": "Ich stürzte in ihr Fettgewebe wie in eine Schlucht"},
     {"song": "Elke", "lyric": "Im Sommer gibt sie Schatten, im Winter hält sie warm"},
+    {"song": "Elke", "lyric": "Ihre Stimme klang so zärtlich und so sanft in meinen Ohren"},
+    {"song": "Elke", "lyric": "Es fing an, als sie mich anrief, da war ich gleich verlor'n"},
+    {"song": "Elke", "lyric": "Sie sieht so aus wie Putenbrust mit Gurke in Aspik"},
+    {"song": "Elke", "lyric": "Ich aß ein bisschen Tofu, sie aß ein ganzes Schwein"},
+    {"song": "Elke", "lyric": "Ich konnt sie nicht begraben: Auf dem Friedhof war kein Platz!"},
 
     {"song": "Blumen", "lyric": "Ich ess' Blumen, denn Tiere tun mir leid"},
     {"song": "Blumen", "lyric": "Und die Fäkalien tun dann auch nicht mehr so stinken"},
@@ -371,6 +394,10 @@
     {"song": "Schrei nach Liebe", "lyric": "Weil du Schiss vorm Schmus'n hast, bist du ein Faschist"},
     {"song": "Schrei nach Liebe", "lyric": "Du hast nie gelernt, dich zu artikulieren"},
     {"song": "Schrei nach Liebe", "lyric": "Zwischen Störkraft und den Onkelz steht 'ne Kuschelrock-LP"},
+    {"song": "Schrei nach Liebe", "lyric": "Du musst deinen Selbsthass nicht auf andre projizieren"},
+    {"song": "Schrei nach Liebe", "lyric": "Und deine Freundin, die hat niemals für dich Zeit"},
+    {"song": "Schrei nach Liebe", "lyric": "Hass ist deine Attitüde"},
+    {"song": "Schrei nach Liebe", "lyric": "Du bist wirklich saudumm, darum geht's dir gut"},
 
     {"song": "Schopenhauer", "lyric": "Kein Wort von Sex oder Gewalt, diese Zeiten sind vorbei"},
     {"song": "Schopenhauer", "lyric": "Und es kommt nicht mal was vom Flachlegen drin vor"},
@@ -1362,6 +1389,8 @@
     {"song": "KRAFT", "lyric": "Doch dann springt sie vor die U-Bahn und du fühlst dich ekelhaft"},
     {"song": "KRAFT", "lyric": "Viel zu spät begreifst du: Lügen haben Konsequenzen"},
     {"song": "KRAFT", "lyric": "Sie sind Waffen, sie sind Balsam, sie sind manchmal rätselhaft"},
+    {"song": "KRAFT", "lyric": "Deine Muskeln schützen dich vielleicht, wenn du mal fällst"},
+    {"song": "KRAFT", "lyric": "Füllen Liebesbriefe, Bücher und Gesetze"},
 
     {"song": "SCHWEIGEN", "lyric": "Ein Herz trocknet erst, dann zerbricht's"},
     {"song": "SCHWEIGEN", "lyric": "Und sagte doch ganz genau nichts, nein, blieb stumm"},
