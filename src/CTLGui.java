@@ -168,33 +168,37 @@ public class CTLGui extends JFrame implements EnterKeyListener {
 
         // Song name and album cover in the upper middle
         JPanel mPanel = new JPanel(new GridBagLayout());
-        if(!settings.isCtlHardmodeEnabled()) { // No song and album name if hardmode is activated
-
-            if(settings.isCtlShowIconsEnabled()) {
-                ImageIcon albumIcon = new ImageIcon((new ImageIcon(currentSong.getAlbum())).getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
-                lAlbum = new JLabel(albumIcon);
-            } else {
-                lAlbum = new JLabel();
-            }
-            
-            lSongName = new JLabel(" " + currentSong.getSongName(), SwingConstants.CENTER);
-            lSongName.setFont(new Font(settings.getFontType(), Font.PLAIN, 16));
-            mPanel.add(lAlbum, new GridBagConstraints() {{
-                gridx = 0;
-                gridy = 0;
-                weightx = 0;
-                anchor = GridBagConstraints.LINE_START;
-                fill = GridBagConstraints.HORIZONTAL;
-            }});
-            mPanel.add(lSongName, new GridBagConstraints() {{
-                gridx = 1;
-                gridy = 0;
-                weightx = 0;
-                anchor = GridBagConstraints.CENTER;
-                fill = GridBagConstraints.HORIZONTAL;
-            }});
-            mPanel.setOpaque(false);
-        } 
+        if(settings.isCtlShowIconsEnabled()) {
+            ImageIcon albumIcon = new ImageIcon((new ImageIcon(currentSong.getAlbum())).getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
+            lAlbum = new JLabel(albumIcon);
+        } else {
+            lAlbum = new JLabel();
+        }
+        
+        lSongName = new JLabel(" " + currentSong.getSongName(), SwingConstants.CENTER);
+        lSongName.setFont(new Font(settings.getFontType(), Font.PLAIN, 16));
+        mPanel.add(lAlbum, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 0;
+            weightx = 0;
+            anchor = GridBagConstraints.LINE_START;
+            fill = GridBagConstraints.HORIZONTAL;
+        }});
+        mPanel.add(lSongName, new GridBagConstraints() {{
+            gridx = 1;
+            gridy = 0;
+            weightx = 0;
+            anchor = GridBagConstraints.CENTER;
+            fill = GridBagConstraints.HORIZONTAL;
+        }});
+        mPanel.setOpaque(false);
+        
+        // Deactivate visibility if hardmode is activated
+        if(settings.isCtlHardmodeEnabled()) {
+            lAlbum.setVisible(false);
+            lSongName.setVisible(false);
+            //lSolution.setVisible(false);
+        }
 
         // Timer and Score in upper right corner
         JPanel urPanel = new JPanel(new GridLayout(2, 1));
@@ -278,6 +282,15 @@ public class CTLGui extends JFrame implements EnterKeyListener {
         lScore.setText("Punktzahl: " + pScore);
     }
 
+    public void setHintLabel(String pHint) {
+        lSolution.setText("Hinweis: " + pHint + "...");
+        lSolution.setVisible(true);
+    }
+
+    public void revealAlbum() {
+        lAlbum.setVisible(true);
+    }
+
     /**
      * Sets the text before and after the song text gap
      * @param pBefore text before the gap
@@ -297,7 +310,7 @@ public class CTLGui extends JFrame implements EnterKeyListener {
     public void setSongAndAlbum(String pSong, String pAlbum, String pGap) {
         if(settings.isCtlShowIconsEnabled()) {
             ImageIcon albumIcon = new ImageIcon((new ImageIcon(pAlbum)).getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH));
-        lAlbum.setIcon(albumIcon);
+            lAlbum.setIcon(albumIcon);
         }
         currentSong.setSongName(pSong);
         currentSong.setAlbum(pAlbum);
@@ -316,6 +329,10 @@ public class CTLGui extends JFrame implements EnterKeyListener {
         lSongName.setVisible(true);
         lSolution.setText("Lösung: " + currentSong.getGap());
         lSolution.setVisible(true);
+
+        // Show album name and icon if hardmode is activated
+        lSongName.setVisible(true);
+        lAlbum.setVisible(true);
     }
 
     /**
@@ -324,9 +341,6 @@ public class CTLGui extends JFrame implements EnterKeyListener {
      */
     public void setInfoBarGreen() {
         lSolution.setVisible(false);
-        if(settings.isCtlHardmodeEnabled()) {
-            lSongName.setVisible(false);
-        }
         infoBar.setBackground(Color.GREEN);
         infoBar.paintImmediately(infoBar.getVisibleRect()); // Update GUI immediately
         try {
@@ -335,5 +349,9 @@ public class CTLGui extends JFrame implements EnterKeyListener {
             e.printStackTrace();
         }
         infoBar.setBackground(Color.LIGHT_GRAY); // Reset to default color
+        if(settings.isCtlHardmodeEnabled()) {
+            lSongName.setVisible(false);
+            lAlbum.setVisible(false);
+        }
     }
 }

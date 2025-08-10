@@ -84,9 +84,10 @@ public class CTLGame implements TimerEvents {
             gui.setSongAndAlbum(randomTextWithGap.getSongName(), randomTextWithGap.getAlbum(), randomTextWithGap.getGap());
 
             // Reset timer
-            timeLimit = settings.getCtlTimeLimit();
-            gui.setTimerLabel(timeLimit);
-
+            if(!settings.isCtlUnlimitedTimeEnabled()) {
+                timeLimit = settings.getCtlTimeLimit();
+                gui.setTimerLabel(timeLimit);
+            }
             blockWrongGuesses = false;
         } else {
             // Remove one live and update GUI
@@ -222,3 +223,4 @@ public class CTLGame implements TimerEvents {
         }
     }
 }
+//!BUG: TODO INFO POPUP AFTER GAME END CAN JUST GET CLICKED AWAY
