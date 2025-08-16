@@ -1,0 +1,110 @@
+public class AerztleObject {
+    private String songName;
+
+    private String album;
+
+    private int releaseYear;
+
+    private int streams;
+
+    private int durationMinutes;
+    private int durationSeconds;
+
+    private int wordCount;
+
+    private String singer;
+
+    private boolean isASingle;
+
+
+    /**
+     * Constructor for AerztleObject
+     * @param pAlbum Name of the song's album
+     * @param pReleaseYear Release year of the song
+     * @param pStreams Spotify streams of the song
+     * @param pDurationMinutes Minutes duration of the song
+     * @param pDurationSeconds Seconds duration of the song (excluding full minutes)
+     * @param pWordCount Count of words the song contains (including backing vocals, intro and outro)
+     * @param pSinger Singer of the song (Bela, Farin, Rod or Sahnie)
+     * @param pSingle Boolean if the song was released as a single
+     */
+    public AerztleObject(String pSongName, String pAlbum, int pReleaseYear, int pStreams, int pDurationMinutes, int pDurationSeconds, int pWordCount, String pSinger, boolean pSingle) {
+        songName = pSongName;
+        album = pAlbum;
+        releaseYear = pReleaseYear;
+        streams = pStreams;
+        durationMinutes = pDurationMinutes;
+        durationSeconds = pDurationSeconds;
+        wordCount = pWordCount;
+        singer = pSinger;
+        isASingle = pSingle;
+    }
+
+    public String getSongName() {
+        return songName;
+    }
+
+    /**
+     * Get operation for the name of the song's album
+     * @return Album name of the song as a String
+     */
+    public String getAlbum() {
+        return album;
+    }
+
+    /**
+     * Get operation for the song's release year
+     * @return Release year of the song as an Integer
+     */
+    public int getReleaseYear() {
+        return releaseYear;
+    }
+
+    /**
+     * Get operation for the song's spotify streams
+     * @return Spotify streams of the song as an Integer
+     */
+    public int getStreams() {
+        return streams;
+    }
+
+    /**
+     * Get operation for the song's minutes duration
+     * @return Minute duration of the song (mm:--) as an Integer
+     */
+    public int getDurationMinutes() {
+        return durationMinutes;
+    }
+
+    /**
+     * Get operation for the song's seconds duration
+     * @return Seconds duration of the song (--:ss) as an Integer
+     */
+    public int getDurationSeconds() {
+        return durationSeconds;
+    }
+
+    /**
+     * Get operation for the song's word count (including backing vocals, intro and outro)
+     * @return Word count of the song as an Integer
+     */
+    public int getWordCount() {
+        return wordCount;
+    }
+
+    /**
+     * Get operation for the song's singer
+     * @return Singer of the song (Bela, Farin, Rod or Sahnie) as a String
+     */
+    public String getSinger() {
+        return singer;
+    }
+
+    /**
+     * Get operation for wheter the song was released as a single
+     * @return true if the song was released as a single, false otherwise
+     */
+    public boolean isSingle() {
+        return isASingle;
+    }
+}

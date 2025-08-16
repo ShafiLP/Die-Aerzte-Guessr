@@ -1,0 +1,7 @@
+[
+    {"song": "Junge", "album": "jazz", "release": "2007", "streams": "93762555", "durationMin": "3", "durationSec": "7", "wordCount": "225", "singer": "Farin", "single": "true"},
+    {"song": "Schrei nach Liebe", "album": "bestie", "release": "1993", "streams": "109480799", "durationMin": "4", "durationSec": "12", "wordCount": "203", "singer": "Bela, Farin", "single": "true"},
+    {"song": "Wie es geht", "album": "spendierhosen", "release": "2000", "streams": "17071638", "durationMin": "3", "durationSec": "44", "wordCount": "249", "singer": "Farin", "single": ""},
+    {"song": "Lied vom Scheitern", "album": "jazz", "release": "2007", "streams": "11859929", "durationMin": "3", "durationSec": "29", "wordCount": "326", "singer": "Bela", "single": ""},
+    {"song": "Die Hard", "album": "auch", "release": "2012", "streams": "608289", "durationMin": "2", "durationSec": "20", "wordCount": "180", "singer": "Rod", "single": "false"}
+]
