@@ -1,7 +1,23 @@
 [
-    {"song": "Junge", "album": "jazz", "release": "2007", "streams": "93762555", "durationMin": "3", "durationSec": "7", "wordCount": "225", "singer": "Farin", "single": "true"},
-    {"song": "Schrei nach Liebe", "album": "bestie", "release": "1993", "streams": "109480799", "durationMin": "4", "durationSec": "12", "wordCount": "203", "singer": "Bela, Farin", "single": "true"},
-    {"song": "Wie es geht", "album": "spendierhosen", "release": "2000", "streams": "17071638", "durationMin": "3", "durationSec": "44", "wordCount": "249", "singer": "Farin", "single": ""},
-    {"song": "Lied vom Scheitern", "album": "jazz", "release": "2007", "streams": "11859929", "durationMin": "3", "durationSec": "29", "wordCount": "326", "singer": "Bela", "single": ""},
-    {"song": "Die Hard", "album": "auch", "release": "2012", "streams": "608289", "durationMin": "2", "durationSec": "20", "wordCount": "180", "singer": "Rod", "single": "false"}
+    {"song": "Ärzte Theme", "album": "debil", "release": "1984", "streams": "321.000", "durationMin": "2", "durationSec": "0", "wordCount": "0", "singer": "/", "single": "false"},
+    {"song": "Scheißtyp", "album": "debil", "release": "1984", "streams": "394.000", "durationMin": "2", "durationSec": "58", "wordCount": "98", "singer": "Bela", "single": "false"},
+    {"song": "Paul", "album": "debil", "release": "1984", "streams": "4.598.000", "durationMin": "2", "durationSec": "28", "wordCount": "140", "singer": "Farin", "single": "true"},
+    {"song": "Kamelralley", "album": "debil", "release": "1984", "streams": "366.000", "durationMin": "4", "durationSec": "2", "wordCount": "336", "singer": "Sahnie", "single": "false"},
+    {"song": "Frank'n'stein", "album": "debil", "release": "1984", "streams": "309.000", "durationMin": "2", "durationSec": "41", "wordCount": "232", "singer": "Bela", "single": "false"},
+    {"song": "El Cattivo", "album": "debil", "release": "1984", "streams": "1.205.000", "durationMin": "3", "durationSec": "16", "wordCount": "203", "singer": "Farin", "single": ""},
+    {"song": "Claudia hat 'nen Schäferhund", "album": "debil", "release": "1984", "streams": "3.309.000", "durationMin": "2", "durationSec": "1", "wordCount": "159", "singer": "Farin", "single": "false"},
+    {"song": "Mädchen", "album": "debil", "release": "1984", "streams": "746.000", "durationMin": "2", "durationSec": "58", "wordCount": "188", "singer": "Farin", "single": "false"},
+    {"song": "Mr. Sexpistols", "album": "debil", "release": "1984", "streams": "563.000", "durationMin": "3", "durationSec": "16", "wordCount": "236", "singer": "Bela", "single": "false"},
+    {"song": "Micha", "album": "debil", "release": "1984", "streams": "478.000", "durationMin": "2", "durationSec": "56", "wordCount": "201", "singer": "Farin", "single": "false"},
+    {"song": "Zu spät", "album": "debil", "release": "1984", "streams": "33.639.000", "durationMin": "2", "durationSec": "45", "wordCount": "248", "singer": "Farin", "single": "true"},
+    {"song": "Roter Minirock", "album": "debil", "release": "1984", "streams": "752.000", "durationMin": "2", "durationSec": "18", "wordCount": "247", "singer": "Farin, Sahnie", "single": "false"},
+    {"song": "Schlaflied", "album": "debil", "release": "1984", "streams": "2.114.000", "durationMin": "4", "durationSec": "12", "wordCount": "191", "singer": "Farin", "single": "false"},
+
+
+
+    {"song": "Junge", "album": "jazz", "release": "2007", "streams": "93.763.000", "durationMin": "3", "durationSec": "7", "wordCount": "225", "singer": "Farin", "single": "true"},
+    {"song": "Schrei nach Liebe", "album": "bestie", "release": "1993", "streams": "109.481.000", "durationMin": "4", "durationSec": "12", "wordCount": "203", "singer": "Bela, Farin", "single": "true"},
+    {"song": "Wie es geht", "album": "spendierhosen", "release": "2000", "streams": "17.072.000", "durationMin": "3", "durationSec": "44", "wordCount": "249", "singer": "Farin", "single": "true"},
+    {"song": "Lied vom Scheitern", "album": "jazz", "release": "2007", "streams": "11.860.000", "durationMin": "3", "durationSec": "29", "wordCount": "326", "singer": "Bela", "single": "true"},
+    {"song": "Die Hard", "album": "auch", "release": "2012", "streams": "608.000", "durationMin": "2", "durationSec": "20", "wordCount": "180", "singer": "Rod", "single": "false"}
 ]

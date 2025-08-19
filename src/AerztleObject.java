@@ -5,7 +5,7 @@ public class AerztleObject {
 
     private int releaseYear;
 
-    private int streams;
+    private String streams;
 
     private int durationMinutes;
     private int durationSeconds;
@@ -28,7 +28,7 @@ public class AerztleObject {
      * @param pSinger Singer of the song (Bela, Farin, Rod or Sahnie)
      * @param pSingle Boolean if the song was released as a single
      */
-    public AerztleObject(String pSongName, String pAlbum, int pReleaseYear, int pStreams, int pDurationMinutes, int pDurationSeconds, int pWordCount, String pSinger, boolean pSingle) {
+    public AerztleObject(String pSongName, String pAlbum, int pReleaseYear, String pStreams, int pDurationMinutes, int pDurationSeconds, int pWordCount, String pSinger, boolean pSingle) {
         songName = pSongName;
         album = pAlbum;
         releaseYear = pReleaseYear;
@@ -62,10 +62,18 @@ public class AerztleObject {
 
     /**
      * Get operation for the song's spotify streams
+     * @return Spotify streams of the song as a String
+     */
+    public String getStreamsAsText() {
+        return streams;
+    }
+
+    /**
+     * Get operation for the song's spotify streams
      * @return Spotify streams of the song as an Integer
      */
-    public int getStreams() {
-        return streams;
+    public int getStreamsAsInteger() {
+        return Integer.parseInt(streams.replace(".", ""));
     }
 
     /**

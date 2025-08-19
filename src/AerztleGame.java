@@ -1,12 +1,19 @@
+import java.awt.Color;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
+
+import javax.swing.JOptionPane;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class AerztleGame {
     private AerztleGui gui;
+    private AerztleObject randomAerztleObject;
+
+    private final int TRIES = 7;
+    private int currentGuess = 1;
 
     public AerztleGame() {
         gui = new AerztleGui(this);
@@ -15,100 +22,180 @@ public class AerztleGame {
         aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
 
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
-        AerztleObject randomAerztleObject =  aerztleObjects.get(randomIndex);
+        randomAerztleObject =  aerztleObjects.get(randomIndex);
         //pListWithData.remove(randomLyricIndex); // Removes the object from the List to avoid reputition
         //return randomSongTextWithGap;
 
+        // DEBUG
         System.out.println(randomAerztleObject.getSongName());
         System.out.println(randomAerztleObject.getAlbum());
         System.out.println(randomAerztleObject.getReleaseYear());
-        System.out.println(randomAerztleObject.getStreams());
+        System.out.println(randomAerztleObject.getStreamsAsText());
         System.out.println(randomAerztleObject.getDurationMinutes());
         System.out.println(randomAerztleObject.getDurationSeconds());
         System.out.println(randomAerztleObject.getWordCount());
         System.out.println(randomAerztleObject.getSinger());
         System.out.println(randomAerztleObject.isSingle());
     }
-    
-    private boolean compSongName(AerztleObject pGuess, AerztleObject pSolution) {
-        if(pGuess.getSongName().equals(pSolution.getSongName()))
-        return true;
-        return false;
+
+    private void compSongName(AerztleObject pGuess, AerztleObject pSolution) {
+        if(pGuess.getSongName().equals(pSolution.getSongName())){
+            gui.paintSongName(currentGuess, Color.GREEN, pGuess.getSongName());
+        } else {
+            gui.paintSongName(currentGuess, Color.RED, pGuess.getSongName());
+        }
     }
 
     private void compAlbum(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getAlbum().equals(pSolution.getAlbum())){
-            // Color category green
+            gui.paintAlbum(currentGuess, Color.GREEN, pGuess.getAlbum());
         } else {
-            // Color category red
+            gui.paintAlbum(currentGuess, Color.RED, pGuess.getAlbum());
         }
     }
 
     private void compReleaseYear(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getReleaseYear() == pSolution.getReleaseYear()) {
-            // Color category green
+            gui.paintReleaseYear(currentGuess, Color.GREEN, pGuess.getReleaseYear() + "");
         } else {
             if(pGuess.getReleaseYear() - pSolution.getReleaseYear() > 0) {
-                // Color category red, guess too high
+                gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬇️");
             } else {
-                // Color category red, guess too low
+                gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬆️");
             }
         }
     }
 
     private void compStreams(AerztleObject pGuess, AerztleObject pSolution) {
-        if(pGuess.getStreams() == pSolution.getStreams()) {
-            // Color category green
+        if(pGuess.getStreamsAsInteger() == pSolution.getStreamsAsInteger()) {
+            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsText() + "");
         } else {
-            if(pGuess.getStreams() - pSolution.getStreams() > 0) {
-                // Color category red, guess too high
+            if(pGuess.getStreamsAsInteger() - pSolution.getStreamsAsInteger() > 0) {
+                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() + " ⬇️");
             } else {
-                // Color category red, guess too low
+                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() + " ⬆️");
             }
         }
     }
 
     private void compDuration(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getDurationMinutes() * 60 + pGuess.getDurationSeconds() == pSolution.getDurationMinutes() * 60 + pSolution.getDurationSeconds()) {
-            // Color category green
+            gui.paintDuration(currentGuess, Color.GREEN, pGuess.getDurationMinutes() + ":" + pGuess.getDurationSeconds());
         } else {
             if((pGuess.getDurationMinutes() * 60 + pGuess.getDurationSeconds()) - (pSolution.getDurationMinutes() * 60 + pSolution.getDurationSeconds()) > 0) {
-                // Color category red, guess too high
+                gui.paintDuration(currentGuess, Color.RED, pGuess.getDurationMinutes() + ":" + pGuess.getDurationSeconds() + " ⬇️");
             } else {
-                // Color category red, guess too low
+                gui.paintDuration(currentGuess, Color.RED, pGuess.getDurationMinutes() + ":" + pGuess.getDurationSeconds() + " ⬆️");
             }
         }
     }
 
     private void compWordCount(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getWordCount() == pSolution.getWordCount()) {
-            // Color category green
+            gui.paintWordCount(currentGuess, Color.GREEN, pGuess.getWordCount() + "");
         } else {
             if(pGuess.getWordCount() - pSolution.getWordCount() > 0) {
-                // Color category red, guess too high
+                gui.paintWordCount(currentGuess, Color.RED, pGuess.getWordCount() + " ⬇️");
             } else {
-                // Color category red, guess too low
+                gui.paintWordCount(currentGuess, Color.RED, pGuess.getWordCount() + " ⬆️");
             }
         }
     }
 
     private void compSinger(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getSinger().equals(pSolution.getSinger())) {
-            // Color category green
+            gui.paintSinger(currentGuess, Color.GREEN, pGuess.getSinger() + "");
         } else {
             if(pSolution.getSinger().contains(pGuess.getSinger())) {
-                // Color category yellow, guess partly right
+                gui.paintSinger(currentGuess, Color.YELLOW, pGuess.getSinger());
             } else {
-                // Color category red, guess wrong
+                gui.paintSinger(currentGuess, Color.RED, pGuess.getSinger());
             }
         }
     }
 
     private void compIsSingle(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.isSingle() == pSolution.isSingle()) {
-            // Color category green
+            gui.paintSingle(currentGuess, Color.GREEN, pGuess.isSingle() + "");
         } else {
-            // Color category red
+            gui.paintSingle(currentGuess, Color.RED, pGuess.isSingle() + "");
+        }
+    }
+
+    private AerztleObject getSelectedSong(String pFilepath, String pSelection) {
+        try {
+            String content = new String(Files.readAllBytes(Paths.get(pFilepath)));
+            JSONArray arr = new JSONArray(content);
+            for(int i = 0; i < arr.length(); i++) {
+                JSONObject obj = arr.getJSONObject(i);
+                if(pSelection.equals(obj.getString("song")))
+                return new AerztleObject(obj.getString("song"), obj.getString("album"), obj.getInt("release"),
+                obj.getString("streams"), obj.getInt("durationMin"), obj.getInt("durationSec"), obj.getInt("wordCount"),
+                obj.getString("singer"), obj.getBoolean("single"));
+            } 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // If no match was found:
+        System.out.println("Song name wasn't found");
+        return new AerztleObject("Error", "Error", 1970, "0", 0, 0, 0, "Error", false);
+    }
+
+    public void submitButtonPressed(String pGuess) {
+        AerztleObject guess = getSelectedSong("data\\aerztleData.json", pGuess);
+
+        // Check all categories
+        compSongName(guess, randomAerztleObject);
+        compAlbum(guess, randomAerztleObject);
+        compReleaseYear(guess, randomAerztleObject);
+        compStreams(guess, randomAerztleObject);
+        compDuration(guess, randomAerztleObject);
+        compWordCount(guess, randomAerztleObject);
+        compSinger(guess, randomAerztleObject);
+        compIsSingle(guess, randomAerztleObject);
+
+        currentGuess++;
+        if(randomAerztleObject.getSongName().equals(guess.getSongName())) {
+            Object[] options = {"Neues Spiel", "Beenden"};
+            int n = JOptionPane.showOptionDialog(
+                gui,
+                "Du hast den Song erraten!\nNochmal spielen?",
+                "Ärztle",
+                JOptionPane.INFORMATION_MESSAGE,
+                JOptionPane.OK_CANCEL_OPTION,
+                null,
+                options,
+                options[0]
+            );
+            switch(n) {
+                case 0:
+                    gui.dispose();         // Close the current GUI
+                    new AerztleGame();     // Restart the game
+                case 1:
+                    gui.dispose();         // Close the GUI & exit the game
+                    System.exit(0);
+            }
+        }
+        if(currentGuess > TRIES) {
+            Object[] options = {"Neues Spiel", "Beenden"};
+            int n = JOptionPane.showOptionDialog(
+                gui,
+                "Du hast keine Versuche mehr, der Song war: " + randomAerztleObject.getSongName() + "\nNochmal spielen?",
+                "Ärztle",
+                JOptionPane.INFORMATION_MESSAGE,
+                JOptionPane.OK_CANCEL_OPTION,
+                null,
+                options,
+                options[0]
+            );
+            switch(n) {
+                case 0:
+                    gui.dispose();         // Close the current GUI
+                    new AerztleGame();     // Restart the game
+                case 1:
+                    gui.dispose();         // Close the GUI & exit the game
+                    System.exit(0);
+            }
         }
     }
 
@@ -125,7 +212,7 @@ public class AerztleGame {
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
                 pLinkedList.add(new AerztleObject(obj.getString("song"), obj.getString("album"),
-                obj.getInt("release"), obj.getInt("streams"), obj.getInt("durationMin"),
+                obj.getInt("release"), obj.getString("streams"), obj.getInt("durationMin"),
                 obj.getInt("durationSec"), obj.getInt("wordCount"), obj.getString("singer"), obj.getBoolean("single")));
             } 
         } catch (Exception e) {
