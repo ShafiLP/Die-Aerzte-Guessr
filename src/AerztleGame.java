@@ -1,7 +1,9 @@
 import java.awt.Color;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.NumberFormat;
 import java.util.LinkedList;
+import java.util.Locale;
 
 import javax.swing.JOptionPane;
 
@@ -9,13 +11,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class AerztleGame {
+    private Settings settings;
+
     private AerztleGui gui;
     private AerztleObject randomAerztleObject;
 
     private final int TRIES = 7;
     private int currentGuess = 1;
 
-    public AerztleGame() {
+    public AerztleGame(Settings pSettings) {
+        settings = pSettings;
         gui = new AerztleGui(this);
 
         LinkedList<AerztleObject> aerztleObjects = new LinkedList<>();
@@ -23,8 +28,6 @@ public class AerztleGame {
 
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
         randomAerztleObject =  aerztleObjects.get(randomIndex);
-        //pListWithData.remove(randomLyricIndex); // Removes the object from the List to avoid reputition
-        //return randomSongTextWithGap;
 
         // DEBUG
         System.out.println(randomAerztleObject.getSongName());
@@ -67,25 +70,27 @@ public class AerztleGame {
     }
 
     private void compStreams(AerztleObject pGuess, AerztleObject pSolution) {
+        NumberFormat nf = NumberFormat.getInstance(Locale.GERMAN);
+        String streamsMaximum = nf.format(pGuess.getStreamsAsInteger() + 100000);
         if(pGuess.getStreamsAsInteger() == pSolution.getStreamsAsInteger()) {
-            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsText() + "");
+            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsText() + " - " + streamsMaximum);
         } else {
             if(pGuess.getStreamsAsInteger() - pSolution.getStreamsAsInteger() > 0) {
-                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() + " ⬇️");
+                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() +  " - " + streamsMaximum + " ⬇️");
             } else {
-                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() + " ⬆️");
+                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() + " - " + streamsMaximum + " ⬆️");
             }
         }
     }
 
     private void compDuration(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getDurationMinutes() * 60 + pGuess.getDurationSeconds() == pSolution.getDurationMinutes() * 60 + pSolution.getDurationSeconds()) {
-            gui.paintDuration(currentGuess, Color.GREEN, pGuess.getDurationMinutes() + ":" + pGuess.getDurationSeconds());
+            gui.paintDuration(currentGuess, Color.GREEN, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()));
         } else {
             if((pGuess.getDurationMinutes() * 60 + pGuess.getDurationSeconds()) - (pSolution.getDurationMinutes() * 60 + pSolution.getDurationSeconds()) > 0) {
-                gui.paintDuration(currentGuess, Color.RED, pGuess.getDurationMinutes() + ":" + pGuess.getDurationSeconds() + " ⬇️");
+                gui.paintDuration(currentGuess, Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬇️");
             } else {
-                gui.paintDuration(currentGuess, Color.RED, pGuess.getDurationMinutes() + ":" + pGuess.getDurationSeconds() + " ⬆️");
+                gui.paintDuration(currentGuess, Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬆️");
             }
         }
     }
@@ -116,12 +121,18 @@ public class AerztleGame {
 
     private void compIsSingle(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.isSingle() == pSolution.isSingle()) {
-            gui.paintSingle(currentGuess, Color.GREEN, pGuess.isSingle() + "");
+            gui.paintSingle(currentGuess, Color.GREEN, pGuess.isSingle() == true ? "Single" : "Keine Single");
         } else {
-            gui.paintSingle(currentGuess, Color.RED, pGuess.isSingle() + "");
+            gui.paintSingle(currentGuess, Color.RED, pGuess.isSingle() == true ? "Single" : "Keine Single");
         }
     }
 
+    /**
+     * Searches for a matching song to the user's input in a JSON file
+     * @param pFilepath File path to the JSON file that contains the data as a String
+     * @param pSelection User's input, name of the song to search for as a String
+     * @return If a match was found, return AerztleObject with data. Else return AerztleObject with placeholder data
+     */
     private AerztleObject getSelectedSong(String pFilepath, String pSelection) {
         try {
             String content = new String(Files.readAllBytes(Paths.get(pFilepath)));
@@ -141,6 +152,11 @@ public class AerztleGame {
         return new AerztleObject("Error", "Error", 1970, "0", 0, 0, 0, "Error", false);
     }
 
+    /**
+     * Handles the event, when the submit button on the GUI gets pressed
+     * Compares the user's input with the searched song and checks if the game ends
+     * @param pGuess User's guess for the searched song
+     */
     public void submitButtonPressed(String pGuess) {
         AerztleObject guess = getSelectedSong("data\\aerztleData.json", pGuess);
 
@@ -170,7 +186,7 @@ public class AerztleGame {
             switch(n) {
                 case 0:
                     gui.dispose();         // Close the current GUI
-                    new AerztleGame();     // Restart the game
+                    new AerztleGame(settings);     // Restart the game
                 case 1:
                     gui.dispose();         // Close the GUI & exit the game
                     System.exit(0);
@@ -191,7 +207,7 @@ public class AerztleGame {
             switch(n) {
                 case 0:
                     gui.dispose();         // Close the current GUI
-                    new AerztleGame();     // Restart the game
+                    new AerztleGame(settings);     // Restart the game
                 case 1:
                     gui.dispose();         // Close the GUI & exit the game
                     System.exit(0);

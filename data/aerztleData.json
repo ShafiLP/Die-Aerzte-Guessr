@@ -1,23 +1,148 @@
 [
-    {"song": "Ärzte Theme", "album": "debil", "release": "1984", "streams": "321.000", "durationMin": "2", "durationSec": "0", "wordCount": "0", "singer": "/", "single": "false"},
-    {"song": "Scheißtyp", "album": "debil", "release": "1984", "streams": "394.000", "durationMin": "2", "durationSec": "58", "wordCount": "98", "singer": "Bela", "single": "false"},
-    {"song": "Paul", "album": "debil", "release": "1984", "streams": "4.598.000", "durationMin": "2", "durationSec": "28", "wordCount": "140", "singer": "Farin", "single": "true"},
-    {"song": "Kamelralley", "album": "debil", "release": "1984", "streams": "366.000", "durationMin": "4", "durationSec": "2", "wordCount": "336", "singer": "Sahnie", "single": "false"},
-    {"song": "Frank'n'stein", "album": "debil", "release": "1984", "streams": "309.000", "durationMin": "2", "durationSec": "41", "wordCount": "232", "singer": "Bela", "single": "false"},
-    {"song": "El Cattivo", "album": "debil", "release": "1984", "streams": "1.205.000", "durationMin": "3", "durationSec": "16", "wordCount": "203", "singer": "Farin", "single": ""},
-    {"song": "Claudia hat 'nen Schäferhund", "album": "debil", "release": "1984", "streams": "3.309.000", "durationMin": "2", "durationSec": "1", "wordCount": "159", "singer": "Farin", "single": "false"},
-    {"song": "Mädchen", "album": "debil", "release": "1984", "streams": "746.000", "durationMin": "2", "durationSec": "58", "wordCount": "188", "singer": "Farin", "single": "false"},
-    {"song": "Mr. Sexpistols", "album": "debil", "release": "1984", "streams": "563.000", "durationMin": "3", "durationSec": "16", "wordCount": "236", "singer": "Bela", "single": "false"},
-    {"song": "Micha", "album": "debil", "release": "1984", "streams": "478.000", "durationMin": "2", "durationSec": "56", "wordCount": "201", "singer": "Farin", "single": "false"},
-    {"song": "Zu spät", "album": "debil", "release": "1984", "streams": "33.639.000", "durationMin": "2", "durationSec": "45", "wordCount": "248", "singer": "Farin", "single": "true"},
-    {"song": "Roter Minirock", "album": "debil", "release": "1984", "streams": "752.000", "durationMin": "2", "durationSec": "18", "wordCount": "247", "singer": "Farin, Sahnie", "single": "false"},
-    {"song": "Schlaflied", "album": "debil", "release": "1984", "streams": "2.114.000", "durationMin": "4", "durationSec": "12", "wordCount": "191", "singer": "Farin", "single": "false"},
+    {"song": "Ärzte Theme", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "0", "wordCount": "0", "singer": "/", "single": "false"},
+    {"song": "Scheißtyp", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "58", "wordCount": "98", "singer": "Bela", "single": "false"},
+    {"song": "Paul", "album": "debil", "release": "1984", "streams": "4.500.000", "durationMin": "2", "durationSec": "28", "wordCount": "140", "singer": "Farin", "single": "true"},
+    {"song": "Kamelralley", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "4", "durationSec": "2", "wordCount": "336", "singer": "Sahnie", "single": "false"},
+    {"song": "Frank'n'stein", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "41", "wordCount": "232", "singer": "Bela", "single": "false"},
+    {"song": "El Cattivo", "album": "debil", "release": "1984", "streams": "1.200.000", "durationMin": "3", "durationSec": "16", "wordCount": "203", "singer": "Farin", "single": "false"},
+    {"song": "Claudia hat 'nen Schäferhund", "album": "debil", "release": "1984", "streams": "3.300.000", "durationMin": "2", "durationSec": "1", "wordCount": "159", "singer": "Farin", "single": "false"},
+    {"song": "Mädchen", "album": "debil", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "58", "wordCount": "188", "singer": "Farin", "single": "false"},
+    {"song": "Mr. Sexpistols", "album": "debil", "release": "1984", "streams": "500.000", "durationMin": "3", "durationSec": "16", "wordCount": "236", "singer": "Bela", "single": "false"},
+    {"song": "Micha", "album": "debil", "release": "1984", "streams": "400.000", "durationMin": "2", "durationSec": "56", "wordCount": "201", "singer": "Farin", "single": "false"},
+    {"song": "Zu spät", "album": "debil", "release": "1984", "streams": "33.600.000", "durationMin": "2", "durationSec": "45", "wordCount": "248", "singer": "Farin", "single": "true"},
+    {"song": "Roter Minirock", "album": "debil", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "18", "wordCount": "247", "singer": "Farin, Sahnie", "single": "false"},
+    {"song": "Schlaflied", "album": "debil", "release": "1984", "streams": "2.100.000", "durationMin": "4", "durationSec": "12", "wordCount": "191", "singer": "Farin", "single": "false"},
+
+    {"song": "Erna P.", "album": "/", "release": "1984", "streams": "400.000", "durationMin": "2", "durationSec": "29", "wordCount": "130", "singer": "Farin", "single": "false"},
 
 
 
-    {"song": "Junge", "album": "jazz", "release": "2007", "streams": "93.763.000", "durationMin": "3", "durationSec": "7", "wordCount": "225", "singer": "Farin", "single": "true"},
-    {"song": "Schrei nach Liebe", "album": "bestie", "release": "1993", "streams": "109.481.000", "durationMin": "4", "durationSec": "12", "wordCount": "203", "singer": "Bela, Farin", "single": "true"},
-    {"song": "Wie es geht", "album": "spendierhosen", "release": "2000", "streams": "17.072.000", "durationMin": "3", "durationSec": "44", "wordCount": "249", "singer": "Farin", "single": "true"},
-    {"song": "Lied vom Scheitern", "album": "jazz", "release": "2007", "streams": "11.860.000", "durationMin": "3", "durationSec": "29", "wordCount": "326", "singer": "Bela", "single": "true"},
-    {"song": "Die Hard", "album": "auch", "release": "2012", "streams": "608.000", "durationMin": "2", "durationSec": "20", "wordCount": "180", "singer": "Rod", "single": "false"}
+    {"song": "Du willst mich küssen", "album": "schatten", "release": "1985", "streams": "4.200.000", "durationMin": "3", "durationSec": "13", "wordCount": "199", "singer": "Farin", "single": "true"},
+    {"song": "Dein Vampyr", "album": "schatten", "release": "1985", "streams": "700.000", "durationMin": "3", "durationSec": "20", "wordCount": "177", "singer": "Bela", "single": "false"},
+    {"song": "...und es regnet", "album": "schatten", "release": "1985", "streams": "200.000", "durationMin": "3", "durationSec": "32", "wordCount": "224", "singer": "Bela, Farin, Sahnie", "single": "false"},
+    {"song": "Alles", "album": "schatten", "release": "1985", "streams": "100.000", "durationMin": "2", "durationSec": "58", "wordCount": "170", "singer": "Bela", "single": "false"},
+    {"song": "Rennen nicht Laufen!", "album": "schatten", "release": "1985", "streams": "200.000", "durationMin": "2", "durationSec": "55", "wordCount": "143", "singer": "Farin", "single": "false"},
+    {"song": "Wie ein Kind", "album": "schatten", "release": "1985", "streams": "200.000", "durationMin": "3", "durationSec": "40", "wordCount": "152", "singer": "Sahnie", "single": "false"},
+    {"song": "Wegen Dir", "album": "schatten", "release": "1985", "streams": "1.500.000", "durationMin": "3", "durationSec": "18", "wordCount": "249", "singer": "Farin", "single": "true"},
+    {"song": "Die Antwort bist Du", "album": "schatten", "release": "1985", "streams": "100.000", "durationMin": "3", "durationSec": "21", "wordCount": "170", "singer": "Bela", "single": "false"},
+    {"song": "Buddy Holly's Brille", "album": "schatten", "release": "1985", "streams": "900.000", "durationMin": "3", "durationSec": "39", "wordCount": "231", "singer": "Farin", "single": "false"},
+    {"song": "Käfer", "album": "schatten", "release": "1985", "streams": "300.00", "durationMin": "2", "durationSec": "55", "wordCount": "189", "singer": "Farin", "single": "false"},
+    {"song": "Ich weiss nicht, ob es Liebe ist", "album": "schatten", "release": "1985", "streams": "1.200.000", "durationMin": "3", "durationSec": "48", "wordCount": "207", "singer": "Farin", "single": "false"},
+    {"song": "\"Was hat der Junge doch für Nerven\"", "album": "schatten", "release": "1985", "streams": "100.000", "durationMin": "4", "durationSec": "15", "wordCount": "246", "singer": "Bela, Farin, Sahnie", "single": "false"},
+
+    {"song": "Und ich weine", "album": "/", "release": "1985", "streams": "", "durationMin": "", "durationSec": "", "wordCount": "", "singer": "", "single": ""},
+
+
+
+    {"song": "Himmelblau", "album": "jazz", "release": "2007", "streams": "15.400.000", "durationMin": "3", "durationSec": "18", "wordCount": "146", "singer": "Farin", "single": "true"},
+    {"song": "Lied vom Scheitern", "album": "jazz", "release": "2007", "streams": "11.800.000", "durationMin": "3", "durationSec": "29", "wordCount": "326", "singer": "Bela", "single": "true"},
+    {"song": "Breit", "album": "jazz", "release": "2007", "streams": "1.500.000", "durationMin": "3", "durationSec": "14", "wordCount": "251", "singer": "Rod", "single": "true"},
+    {"song": "Lasse redn", "album": "jazz", "release": "2007", "streams": "70.200.000", "durationMin": "2", "durationSec": "49", "wordCount": "327", "singer": "Farin", "single": "true"},
+    {"song": "Die ewige Maitresse", "album": "jazz", "release": "2007", "streams": "1.600.000", "durationMin": "2", "durationSec": "24", "wordCount": "175", "singer": "Bela, Farin", "single": "false"},
+    {"song": "Junge", "album": "jazz", "release": "2007", "streams": "93.700.000", "durationMin": "3", "durationSec": "7", "wordCount": "225", "singer": "Farin", "single": "true"},
+    {"song": "Nur einen Kuss", "album": "jazz", "release": "2007", "streams": "3.300.000", "durationMin": "4", "durationSec": "25", "wordCount": "341", "singer": "Farin", "single": "false"},
+    {"song": "Perfekt", "album": "jazz", "release": "2007", "streams": "6.200.000", "durationMin": "2", "durationSec": "37", "wordCount": "212", "singer": "Bela", "single": "true"},
+    {"song": "Heulerei", "album": "jazz", "release": "2007", "streams": "1.500.000", "durationMin": "2", "durationSec": "13", "wordCount": "128", "singer": "Farin", "single": "false"},
+    {"song": "Licht am Ende des Sarges", "album": "jazz", "release": "2007", "streams": "1.100.000", "durationMin": "2", "durationSec": "47", "wordCount": "192", "singer": "Bela", "single": "false"},
+    {"song": "Niedliches Liebeslied", "album": "jazz", "release": "2007", "streams": "800.000", "durationMin": "3", "durationSec": "40", "wordCount": "171", "singer": "Rod", "single": "false"},
+    {"song": "Deine Freundin (wäre mir zu anstrengend)", "album": "jazz", "release": "2007", "streams": "1.100.000", "durationMin": "2", "durationSec": "13", "wordCount": "104", "singer": "Farin", "single": "false"},
+    {"song": "Allein", "album": "jazz", "release": "2007", "streams": "2.300.000", "durationMin": "3", "durationSec": "50", "wordCount": "215", "singer": "Farin", "single": "false"},
+    {"song": "Tu das nicht", "album": "jazz", "release": "2007", "streams": "900.000", "durationMin": "3", "durationSec": "52", "wordCount": "179", "singer": "Bela", "single": "false"},
+    {"song": "Living Hell", "album": "jazz", "release": "2007", "streams": "2.400.000", "durationMin": "3", "durationSec": "41", "wordCount": "263", "singer": "Farin", "single": "false"},
+    {"song": "Vorbei ist vorbei", "album": "jazz", "release": "2007", "streams": "1.700.000", "durationMin": "3", "durationSec": "4", "wordCount": "141", "singer": "Farin", "single": "false"},
+    {"song": "Wir sind die Besten", "album": "jazz", "release": "2007", "streams": "2.000.000", "durationMin": "2", "durationSec": "28", "wordCount": "264", "singer": "Farin", "single": "false"},
+    {"song": "Wir waren die Besten", "album": "jazz", "release": "2007", "streams": "600.000", "durationMin": "4", "durationSec": "14", "wordCount": "253", "singer": "Bela", "single": "false"},
+    {"song": "Wir sind die Lustigsten", "album": "jazz", "release": "2007", "streams": "500.000", "durationMin": "4", "durationSec": "34", "wordCount": "172", "singer": "Rod", "single": "false"},
+
+    {"song": "Das schönste Lied der Welt", "album": "/", "release": "2007", "streams": "0", "durationMin": "2", "durationSec": "36", "wordCount": "286", "singer": "Bela", "single": "false"},
+    {"song": "Tut mir leid", "album": "/", "release": "2007", "streams": "0", "durationMin": "3", "durationSec": "25", "wordCount": "409", "singer": "Bela", "single": "false"},
+
+    {"song": "Nichts gesehen", "album": "/", "release": "2008", "streams": "0", "durationMin": "3", "durationSec": "49", "wordCount": "253", "singer": "Farin", "single": "false"},
+
+    {"song": "Komm zu Papa", "album": "/", "release": "2008", "streams": "0", "durationMin": "3", "durationSec": "57", "wordCount": "196", "singer": "Bela", "single": "false"},
+
+
+
+    {"song": "Ist das noch Punkrock?", "album": "auch", "release": "2012", "streams": "14.300.000", "durationMin": "2", "durationSec": "59", "wordCount": "237", "singer": "Farin", "single": "true"},
+    {"song": "Bettmagnet", "album": "auch", "release": "2012", "streams": "900.000", "durationMin": "3", "durationSec": "7", "wordCount": "249", "singer": "Bela", "single": "false"},
+    {"song": "Sohn der Leere", "album": "auch", "release": "2012", "streams": "800.000", "durationMin": "3", "durationSec": "44", "wordCount": "121", "singer": "Rod", "single": "true"},
+    {"song": "TCR", "album": "auch", "release": "2012", "streams": "2.600.000", "durationMin": "3", "durationSec": "44", "wordCount": "295", "singer": "Farin", "single": "false"},
+    {"song": "Das darfst du", "album": "auch", "release": "2012", "streams": "900.000", "durationMin": "3", "durationSec": "20", "wordCount": "218", "singer": "Bela", "single": "false"},
+    {"song": "Tamagotchi", "album": "auch", "release": "2012", "streams": "800.000", "durationMin": "3", "durationSec": "6", "wordCount": "198", "singer": "Rod", "single": "false"},
+    {"song": "M&F", "album": "auch", "release": "2012", "streams": "37.500.000", "durationMin": "4", "durationSec": "16", "wordCount": "233", "singer": "Farin", "single": "true"},
+    {"song": "Freundschaft ist Kunst", "album": "auch", "release": "2012", "streams": "600.000", "durationMin": "3", "durationSec": "22", "wordCount": "170", "singer": "Bela", "single": "false"},
+    {"song": "Angekumpelt", "album": "auch", "release": "2012", "streams": "600.000", "durationMin": "2", "durationSec": "34", "wordCount": "186", "singer": "Farin, Rod", "single": "false"},
+    {"song": "Waldspaziergang mit Folgen", "album": "auch", "release": "2012", "streams": "2.900.000", "durationMin": "3", "durationSec": "27", "wordCount": "276", "singer": "Farin", "single": "true"},
+    {"song": "Fiasko", "album": "auch", "release": "2012", "streams": "2.900.000", "durationMin": "2", "durationSec": "44", "wordCount": "206", "singer": "Farin", "single": "false"},
+    {"song": "Miststück", "album": "auch", "release": "2012", "streams": "1.000.000", "durationMin": "3", "durationSec": "39", "wordCount": "203", "singer": "Bela", "single": "false"},
+    {"song": "Das finde ich gut", "album": "auch", "release": "2012", "streams": "500.000", "durationMin": "2", "durationSec": "27", "wordCount": "106", "singer": "Rod", "single": "false"},
+    {"song": "Cpt. Metal", "album": "auch", "release": "2012", "streams": "1.400.000", "durationMin": "4", "durationSec": "36", "wordCount": "255", "singer": "Farin", "single": "false"},
+    {"song": "Die Hard", "album": "auch", "release": "2012", "streams": "600.000", "durationMin": "2", "durationSec": "20", "wordCount": "180", "singer": "Rod", "single": "false"},
+    {"song": "zeiDverschwÄndung", "album": "auch", "release": "2012", "streams": "600.000", "durationMin": "2", "durationSec": "59", "wordCount": "217", "singer": "Bela", "single": "true"},
+
+    {"song": "Mutig", "album": "/", "release": "2012", "streams": "0", "durationMin": "2", "durationSec": "17", "wordCount": "205", "singer": "Farin", "single": "false"},
+    {"song": "Quadrophenia", "album": "/", "release": "2012", "streams": "0", "durationMin": "4", "durationSec": "48", "wordCount": "329", "singer": "Rod", "single": "false"},
+    {"song": "Will dich zurück", "album": "/", "release": "2012", "streams": "0", "durationMin": "3", "durationSec": "19", "wordCount": "148", "singer": "Bela", "single": "false"},
+
+    {"song": "Endstück des Eros", "album": "/", "release": "2012", "streams": "0", "durationMin": "2", "durationSec": "23", "wordCount": "186", "singer": "Bela", "single": "false"},
+    {"song": "Generation Ä", "album": "/", "release": "2012", "streams": "0", "durationMin": "2", "durationSec": "20", "wordCount": "152", "singer": "Farin", "single": "false"},
+
+
+
+    {"song": "Abschied", "album": "/", "release": "2019", "streams": "4.700.000", "durationMin": "3", "durationSec": "15", "wordCount": "244", "singer": "Bela, Farin", "single": "false"},
+    {"song": "Rückkehr", "album": "/", "release": "2019", "streams": "4.000.000", "durationMin": "2", "durationSec": "56", "wordCount": "342", "singer": "Bela, Farin", "single": "false"},
+
+    {"song": "Ein Lied für jetzt", "album": "/", "release": "2020", "streams": "2.800.000", "durationMin": "4", "durationSec": "15", "wordCount": "249", "singer": "Bela, Farin, Rod", "single": "true"},
+
+
+
+    {"song": "E.V.J.M.F.", "album": "hell", "release": "2020", "streams": "1.800.000", "durationMin": "1", "durationSec": "43", "wordCount": "64", "singer": "Farin", "single": "false"},
+    {"song": "PLAN B", "album": "hell", "release": "2020", "streams": "4.600.000", "durationMin": "3", "durationSec": "18", "wordCount": "267", "singer": "Farin", "single": "false"},
+    {"song": "ACHTUNG: BIELEFELD", "album": "hell", "release": "2020", "streams": "3.100.000", "durationMin": "3", "durationSec": "33", "wordCount": "294", "singer": "Bela", "single": "true"},
+    {"song": "WARUM SPRICHT NIEMAND ÜBER GITARRISTEN?", "album": "hell", "release": "2020", "streams": "2.400.000", "durationMin": "3", "durationSec": "22", "wordCount": "191", "singer": "Farin", "single": "false"},
+    {"song": "MORGENS PAUKEN", "album": "hell", "release": "2020", "streams": "5.500.000", "durationMin": "4", "durationSec": "4", "wordCount": "285", "singer": "Farin, Rod", "single": "true"},
+    {"song": "DAS LETZTE LIED DES SOMMERS", "album": "hell", "release": "2020", "streams": "4.800.000", "durationMin": "3", "durationSec": "19", "wordCount": "234", "singer": "Farin", "single": "false"},
+    {"song": "CLOWN AUS DEM HOSPIZ", "album": "hell", "release": "2020", "streams": "2.400.000", "durationMin": "3", "durationSec": "5", "wordCount": "263", "singer": "Bela", "single": "false"},
+    {"song": "ICH, AM STRAND", "album": "hell", "release": "2020", "streams": "10.500.000", "durationMin": "4", "durationSec": "21", "wordCount": "286", "singer": "Farin", "single": "true"},
+    {"song": "TRUE ROMANCE", "album": "hell", "release": "2020", "streams": "8.200.000", "durationMin": "2", "durationSec": "50", "wordCount": "165", "singer": "Farin", "single": "true"},
+    {"song": "EINMAL EIN BIER", "album": "hell", "release": "2020", "streams": "1.900.000", "durationMin": "1", "durationSec": "59", "wordCount": "242", "singer": "Bela", "single": "false"},
+    {"song": "WER VERLIERT, HAT SCHON VERLOREN", "album": "hell", "release": "2020", "streams": "2.000.000", "durationMin": "4", "durationSec": "1", "wordCount": "198", "singer": "Farin", "single": "false"},
+    {"song": "POLYESTER", "album": "hell", "release": "2020", "streams": "1.700.000", "durationMin": "4", "durationSec": "8", "wordCount": "134", "singer": "Rod", "single": "false"},
+    {"song": "FEXXO CIGOL", "album": "hell", "release": "2020", "streams": "1.400.000", "durationMin": "3", "durationSec": "45", "wordCount": "195", "singer": "Bela", "single": "false"},
+    {"song": "LIEBE GEGEN RECHTS", "album": "hell", "release": "2020", "streams": "2.000.000", "durationMin": "2", "durationSec": "21", "wordCount": "146", "singer": "Farin", "single": "false"},
+    {"song": "ALLE AUF BRILLE", "album": "hell", "release": "2020", "streams": "1.400.000", "durationMin": "3", "durationSec": "28", "wordCount": "222", "singer": "Bela", "single": "false"},
+    {"song": "THOR", "album": "hell", "release": "2020", "streams": "1.600.000", "durationMin": "2", "durationSec": "28", "wordCount": "274", "singer": "Farin", "single": "false"},
+    {"song": "LEBEN VOR DEM TOD", "album": "hell", "release": "2020", "streams": "2.800.000", "durationMin": "4", "durationSec": "5", "wordCount": "213", "singer": "Farin", "single": "false"},
+    {"song": "WOODBURGER", "album": "hell", "release": "2020", "streams": "2.000.000", "durationMin": "4", "durationSec": "16", "wordCount": "304", "singer": "Farin", "single": "false"},
+    
+    {"song": "KLAUS, PETER, WILLI UND PETRA", "album": "/", "release": "2021", "streams": "500.000", "durationMin": "2", "durationSec": "15", "wordCount": "196", "singer": "Farin", "single": "false"},
+
+
+
+    {"song": "KFM", "album": "dunkel", "release": "2021", "streams": "1.200.000", "durationMin": "1", "durationSec": "27", "wordCount": "51", "singer": "Farin", "single": "false"},
+    {"song": "WISSEN", "album": "dunkel", "release": "2021", "streams": "2.200.000", "durationMin": "3", "durationSec": "15", "wordCount": "201", "singer": "Farin", "single": "false"},
+    {"song": "DUNKEL", "album": "dunkel", "release": "2021", "streams": "4.000.000", "durationMin": "3", "durationSec": "37", "wordCount": "258", "singer": "Bela", "single": "true"},
+    {"song": "ANTI", "album": "dunkel", "release": "2021", "streams": "1.600.000", "durationMin": "3", "durationSec": "6", "wordCount": "143", "singer": "Farin", "single": "false"},
+    {"song": "DOOF", "album": "dunkel", "release": "2021", "streams": "3.100.000", "durationMin": "3", "durationSec": "14", "wordCount": "265", "singer": "Bela", "single": "false"},
+    {"song": "SCHREI", "album": "dunkel", "release": "2021", "streams": "1.200.000", "durationMin": "3", "durationSec": "3", "wordCount": "75", "singer": "Rod", "single": "false"},
+    {"song": "KRAFT", "album": "dunkel", "release": "2021", "streams": "2.200.000", "durationMin": "4", "durationSec": "17", "wordCount": "321", "singer": "Farin", "single": "true"},
+    {"song": "SCHWEIGEN", "album": "dunkel", "release": "2021", "streams": "1.100.000", "durationMin": "3", "durationSec": "50", "wordCount": "174", "singer": "Bela", "single": "false"},
+    {"song": "TRISTESSE", "album": "dunkel", "release": "2021", "streams": "1.200.000", "durationMin": "3", "durationSec": "27", "wordCount": "179", "singer": "Farin", "single": "false"},
+    {"song": "KERNGESCHÄFT", "album": "dunkel", "release": "2021", "streams": "1.000.000", "durationMin": "3", "durationSec": "53", "wordCount": "303", "singer": "Bela, Ebow", "single": "false"},
+    {"song": "NOISE", "album": "dunkel", "release": "2021", "streams": "4.100.000", "durationMin": "3", "durationSec": "23", "wordCount": "217", "singer": "Bela, Farin", "single": "true"},
+    {"song": "EINSCHLAG", "album": "dunkel", "release": "2021", "streams": "900.000", "durationMin": "3", "durationSec": "5", "wordCount": "179", "singer": "Bela", "single": "false"},
+    {"song": "ANASTASIA", "album": "dunkel", "release": "2021", "streams": "1.000.000", "durationMin": "2", "durationSec": "42", "wordCount": "216", "singer": "Farin", "single": "false"},
+    {"song": "BESSER", "album": "dunkel", "release": "2021", "streams": "700.000", "durationMin": "4", "durationSec": "1", "wordCount": "113", "singer": "Farin", "single": "false"},
+    {"song": "NACHMITTAG", "album": "dunkel", "release": "2021", "streams": "800.000", "durationMin": "3", "durationSec": "54", "wordCount": "157", "singer": "Farin", "single": "false"},
+    {"song": "MENSCHEN", "album": "dunkel", "release": "2021", "streams": "600.000", "durationMin": "2", "durationSec": "40", "wordCount": "122", "singer": "Bela", "single": "false"},
+    {"song": "ERHABEN", "album": "dunkel", "release": "2021", "streams": "700.000", "durationMin": "4", "durationSec": "39", "wordCount": "213", "singer": "Farin", "single": "false"},
+    {"song": "DANACH", "album": "dunkel", "release": "2021", "streams": "500.000", "durationMin": "3", "durationSec": "44", "wordCount": "272", "singer": "Bela", "single": "false"},
+    {"song": "DEMOKRATIE", "album": "dunkel", "release": "2021", "streams": "3.000.000", "durationMin": "4", "durationSec": "0", "wordCount": "213", "singer": "Farin", "single": "true"},
+
+    {"song": "AUSERZÄHLT", "album": "/", "release": "2021", "streams": "200.000", "durationMin": "2", "durationSec": "19", "wordCount": "97", "singer": "Bela", "single": "false"},
+    {"song": "DOBLY", "album": "/", "release": "2021", "streams": "300.000", "durationMin": "2", "durationSec": "28", "wordCount": "129", "singer": "Farin", "single": "false"},
+
+    {"song": "SCHRITTE", "album": "/", "release": "2021", "streams": "600.000", "durationMin": "3", "durationSec": "33", "wordCount": "280", "singer": "Farin", "single": "false"},
+
+    {"song": "SCHULDSELBER", "album": "/", "release": "2022", "streams": "400.000", "durationMin": "2", "durationSec": "53", "wordCount": "230", "singer": "Bela", "single": "false"}
 ]

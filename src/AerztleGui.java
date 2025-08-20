@@ -110,6 +110,10 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
 
     public void paintAlbum(int pIndex, Color pColor, String pText) {
         lTable[pIndex][1].setBackground(pColor);
+        if(pText.equals("/")) {
+            lTable[pIndex][1].setText("Keins");
+            return;
+        }
         ImageIcon albumIcon = new ImageIcon("images\\" + pText + ".png");
         Image albumImg = albumIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
         lTable[pIndex][1].setIcon(new ImageIcon(albumImg));

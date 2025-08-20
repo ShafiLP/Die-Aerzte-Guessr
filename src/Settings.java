@@ -29,6 +29,13 @@ public class Settings {
     private int ctlTimeLimit = 30;
     private int ctlHighscore = 0;
 
+    // For Ärztle
+    private boolean aeIncludeFarin = false;
+    private boolean aeIncludeBela = false;
+    private boolean aeIncludeSahnie = false;
+    private int aeTries = 7;
+    private int aeHighscore = 0;
+
     public Settings() {
         // Keep default settings
     }
@@ -266,5 +273,47 @@ public class Settings {
     
     public int getCtlHighscore() {
         return ctlHighscore;
+    }
+
+    //* ÄRZTLE SETTINGS
+
+    public void setAeFarin(boolean pFarin) {
+        aeIncludeFarin = pFarin;
+    }
+    
+    public boolean isAeFarinEnabled() {
+        return aeIncludeFarin;
+    }
+
+    public void setAeBela(boolean pBela) {
+        aeIncludeBela = pBela;
+    }
+
+    public boolean isAeBelaEnabled() {
+        return aeIncludeBela;
+    }
+
+    public void setAeSahnie(boolean pSahnie) {
+        aeIncludeSahnie = pSahnie;
+    }
+
+    public boolean isAeSahnieEnabled() {
+        return aeIncludeSahnie;
+    }
+
+    public void setAeTries(int pTries) {
+        aeTries = pTries;
+    }
+
+    public int getAeTries() {
+        return aeTries;
+    }
+
+    public void setAeHighscore(int pScore) {
+        aeHighscore = pScore;
+    }
+
+    public int getAeHighscore() {
+        return aeHighscore;
     }
 }
