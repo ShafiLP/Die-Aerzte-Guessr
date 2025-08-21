@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
@@ -22,14 +23,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class AerztleGui extends JFrame implements EnterKeyListener {
+    private Settings settings;
     private AerztleGame game;
     private final int TRIES = 7;
     private JLabel[][] lTable;
 
     private AutoCompleteTextField songSearchBar;
 
-    public AerztleGui(AerztleGame pGame) {
+    public AerztleGui(AerztleGame pGame, Settings pSettings) {
         game = pGame;
+        settings = pSettings;
 
         // JFrame settings
         this.setTitle("Ärztle");
@@ -50,7 +53,13 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         JButton bSubmit = new JButton("Raten");
         bSubmit.addActionListener(_ -> {
             submitButtonPressed();
+            songSearchBar.setText("");
+            songSearchBar.requestFocusInWindow();
         });
+
+        JLabel lDisclaimer = new JLabel("*Manche Informationen, überwiegend bei der Wortanzahl und dem Sänger, könnten Fehler aufweisen", SwingConstants.CENTER);
+        lDisclaimer.setFont(new Font(settings.getFontType(), Font.PLAIN, 13));
+
         guessingPanel.setBorder(BorderFactory.createEmptyBorder(10, 40, 20, 40)); // Padding
         guessingPanel.add(songSearchBar, new GridBagConstraints() {{
             gridx = 0;
@@ -66,6 +75,16 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
             anchor = GridBagConstraints.LINE_END;
             fill = GridBagConstraints.HORIZONTAL;
         }});
+        guessingPanel.add(lDisclaimer, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 1;
+            gridwidth = 2;
+            weightx = 1.0;
+            weighty = 1.0;
+            anchor = GridBagConstraints.PAGE_END;
+            fill = GridBagConstraints.HORIZONTAL;
+            ipady = 10;
+        }});
 
         // JPanel with categories
         lTable = new JLabel[TRIES+1][8];
@@ -75,7 +94,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
             }
         }
         lTable[0][0].setText("Name");
-        lTable[0][1].setText("Album");
+        lTable[0][1].setText("Studio-Album");
         lTable[0][2].setText("Erscheinungsjahr");
         lTable[0][3].setText("Spotify Streams");
         lTable[0][4].setText("Dauer");

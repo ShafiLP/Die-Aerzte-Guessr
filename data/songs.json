@@ -119,6 +119,7 @@
 
 
 
+    {"song": "Inntro", "icon": "bestie"},
     {"song": "Schrei nach Liebe", "icon": "bestie"},
     {"song": "Schopenhauer", "icon": "bestie"},
     {"song": "Für uns", "icon": "bestie"},
@@ -128,6 +129,7 @@
     {"song": "Mach die Augen zu", "icon": "bestie"},
     {"song": "Gehirn-Stürm", "icon": "bestie"},
     {"song": "Mit dem Schwert nach Polen, warum René?", "icon": "bestie"},
+    {"song": "Claudia (Teil 95)", "icon": "bestie"},
     {"song": "Die Allerschürfste", "icon": "bestie"},
     {"song": "Friedenspanzer", "icon": "bestie"},
     {"song": "Quark", "icon": "bestie"},
@@ -144,6 +146,7 @@
     {"song": "Punkrockgirl", "icon": "augenSingle"},
     {"song": "Wahre Liebe", "icon": "augenSingle"},
 
+    {"song": "Die Wiking-Jugend hat mein Mädchen entführt", "icon": "panzerSingle"},
     {"song": "Stick it Out/What's the Ugliest Part of Your Body", "icon": "panzerSingle"},
     
 

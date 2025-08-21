@@ -30,7 +30,112 @@
     {"song": "Ich weiss nicht, ob es Liebe ist", "album": "schatten", "release": "1985", "streams": "1.200.000", "durationMin": "3", "durationSec": "48", "wordCount": "207", "singer": "Farin", "single": "false"},
     {"song": "\"Was hat der Junge doch für Nerven\"", "album": "schatten", "release": "1985", "streams": "100.000", "durationMin": "4", "durationSec": "15", "wordCount": "246", "singer": "Bela, Farin, Sahnie", "single": "false"},
 
-    {"song": "Und ich weine", "album": "/", "release": "1985", "streams": "", "durationMin": "", "durationSec": "", "wordCount": "", "singer": "", "single": ""},
+    {"song": "Und ich weine", "album": "/", "release": "1985", "streams": "100.000", "durationMin": "3", "durationSec": "7", "wordCount": "161", "singer": "Farin", "single": "false"},
+
+
+
+    {"song": "Wie am ersten Tag", "album": "aerzte", "release": "1986", "streams": "1.300.000", "durationMin": "3", "durationSec": "41", "wordCount": "233", "singer": "Farin", "single": "false"},
+    {"song": "Mysteryland", "album": "aerzte", "release": "1986", "streams": "800.000", "durationMin": "4", "durationSec": "1", "wordCount": "213", "singer": "Bela", "single": "false"},
+    {"song": "Sweet Sweet Gwendoline", "album": "aerzte", "release": "1986", "streams": "2.100.000", "durationMin": "2", "durationSec": "49", "wordCount": "141", "singer": "Farin", "single": "false"},
+    {"song": "Ist das alles?", "album": "aerzte", "release": "1986", "streams": "1.700.000", "durationMin": "3", "durationSec": "37", "wordCount": "179", "singer": "Bela", "single": "true"},
+    {"song": "Frühjahrsputz", "album": "aerzte", "release": "1986", "streams": "100.000", "durationMin": "4", "durationSec": "11", "wordCount": "163", "singer": "Farin", "single": "false"},
+    {"song": "Alleine in der Nacht", "album": "aerzte", "release": "1986", "streams": "1.200.000", "durationMin": "2", "durationSec": "46", "wordCount": "257", "singer": "Bela", "single": "false"},
+    {"song": "Jenseits von Eden", "album": "aerzte", "release": "1986", "streams": "200.000", "durationMin": "3", "durationSec": "59", "wordCount": "166", "singer": "Bela, Farin", "single": "false"},
+    {"song": "Wir werden schön", "album": "aerzte", "release": "1986", "streams": "200.000", "durationMin": "4", "durationSec": "1", "wordCount": "183", "singer": "Bela", "single": "false"},
+    {"song": "Für immer", "album": "aerzte", "release": "1986", "streams": "1.500.000", "durationMin": "3", "durationSec": "44", "wordCount": "124", "singer": "Farin", "single": "true"},
+    {"song": "Ich bin reich", "album": "aerzte", "release": "1986", "streams": "1.000.000", "durationMin": "4", "durationSec": "21", "wordCount": "327", "singer": "Farin", "single": "false"},
+    {"song": "Zum letzten Mal", "album": "aerzte", "release": "1986", "streams": "500.000", "durationMin": "4", "durationSec": "25", "wordCount": "139", "singer": "Farin", "single": "false"},
+
+    {"song": "Ewige Blumenkraft", "album": "/", "release": "1986", "streams": "100.000", "durationMin": "3", "durationSec": "22", "wordCount": "94", "singer": "Bela, Farin", "single": "false"},
+
+
+
+    {"song": "Sie kratzt, sie stinkt, sie klebt", "album": "/", "release": "1987", "streams": "100.000", "durationMin": "2", "durationSec": "35", "wordCount": "176", "singer": "Farin", "single": "false"},
+    {"song": "Geschwisterliebe", "album": "/", "release": "1986", "streams": "0", "durationMin": "4", "durationSec": "6", "wordCount": "134", "singer": "Farin", "single": "false"},
+    {"song": "Helmut K.", "album": "/", "release": "1987", "streams": "200.000", "durationMin": "2", "durationSec": "38", "wordCount": "119", "singer": "Bela, Farin, Hagen", "single": "false"},
+    {"song": "Claudia II", "album": "/", "release": "1987", "streams": "200.000", "durationMin": "2", "durationSec": "32", "wordCount": "146", "singer": "Farin", "single": "false"},
+
+
+
+    {"song": "Geh'n wie ein Ägypter", "album": "/", "release": "1987", "streams": "6.600.000", "durationMin": "2", "durationSec": "22", "wordCount": "143", "singer": "Bela, Farin", "single": "true"},
+    {"song": "2000 Mädchen", "album": "/", "release": "1987", "streams": "2.900.000", "durationMin": "3", "durationSec": "57", "wordCount": "188", "singer": "Farin", "single": "true"},
+    {"song": "Radio brennt", "album": "/", "release": "1987", "streams": "1.200.000", "durationMin": "2", "durationSec": "41", "wordCount": "132", "singer": "Farin", "single": "true"},
+
+    {"song": "Nein, Nein, Nein", "album": "/", "release": "1987", "streams": "0", "durationMin": "3", "durationSec": "47", "wordCount": "255", "singer": "Bela, Farin", "single": "false"},
+
+    {"song": "Gabi ist pleite", "album": "/", "release": "1987", "streams": "0", "durationMin": "2", "durationSec": "42", "wordCount": "174", "singer": "Bela, Farin", "single": "false"},
+
+
+
+    {"song": "Ohne dich", "album": "wahrheit", "release": "1988", "streams": "1.600.000", "durationMin": "2", "durationSec": "49", "wordCount": "132", "singer": "Farin", "single": "false"},
+    {"song": "Baby ich tu's", "album": "wahrheit", "release": "1988", "streams": "500.000", "durationMin": "3", "durationSec": "0", "wordCount": "153", "singer": "Bela", "single": "false"},
+    {"song": "Komm zurück", "album": "wahrheit", "release": "1988", "streams": "900.000", "durationMin": "3", "durationSec": "33", "wordCount": "141", "singer": "Farin", "single": "false"},
+    {"song": "Wilde Welt", "album": "wahrheit", "release": "1988", "streams": "400.000", "durationMin": "2", "durationSec": "51", "wordCount": "156", "singer": "Bela", "single": "false"},
+    {"song": "Westerland", "album": "wahrheit", "release": "1988", "streams": "68.500.000", "durationMin": "3", "durationSec": "41", "wordCount": "208", "singer": "Farin", "single": "true"},
+    {"song": "Ich will dich", "album": "wahrheit", "release": "1988", "streams": "300.000", "durationMin": "2", "durationSec": "18", "wordCount": "168", "singer": "Bela", "single": "false"},
+    {"song": "Elke", "album": "wahrheit", "release": "1988", "streams": "3.200.000", "durationMin": "3", "durationSec": "22", "wordCount": "233", "singer": "Farin", "single": "false"},
+    {"song": "Blumen", "album": "wahrheit", "release": "1988", "streams": "2.300.000", "durationMin": "3", "durationSec": "44", "wordCount": "253", "singer": "Bela", "single": "true"},
+    {"song": "Ausserirdische", "album": "wahrheit", "release": "1988", "streams": "600.000", "durationMin": "2", "durationSec": "45", "wordCount": "199", "singer": "Bela", "single": "false"},
+    {"song": "Siegerin", "album": "wahrheit", "release": "1988", "streams": "300.000", "durationMin": "3", "durationSec": "10", "wordCount": "204", "singer": "Bela", "single": "false"},
+    {"song": "Bitte, Bitte", "album": "wahrheit", "release": "1988", "streams": "1.500.000", "durationMin": "3", "durationSec": "17", "wordCount": "136", "singer": "Farin", "single": "true"},
+    {"song": "Popstar", "album": "wahrheit", "release": "1988", "streams": "400.000", "durationMin": "3", "durationSec": "12", "wordCount": "132", "singer": "Bela", "single": "false"},
+    {"song": "Gute Zeit", "album": "wahrheit", "release": "1988", "streams": "300.000", "durationMin": "3", "durationSec": "41", "wordCount": "197", "singer": "Bela", "single": "false"},
+    {"song": "Schwanz ab", "album": "wahrheit", "release": "1988", "streams": "500.000", "durationMin": "1", "durationSec": "49", "wordCount": "151", "singer": "Farin", "single": "false"},
+
+    {"song": "Das ist Rock'n'Roll", "album": "/", "release": "1988", "streams": "300.000", "durationMin": "3", "durationSec": "5", "wordCount": "241", "singer": "Bela, Farin", "single": "false"},
+
+    {"song": "Sie tun es", "album": "/", "release": "1988", "streams": "0", "durationMin": "3", "durationSec": "5", "wordCount": "235", "singer": "Bela, Farin", "single": "false"},
+
+    {"song": "Gabi gibt 'ne Party", "album": "/", "release": "1988", "streams": "200.000", "durationMin": "3", "durationSec": "10", "wordCount": "179", "singer": "Bela, Farin", "single": "false"},
+
+
+    
+    {"song": "Annelise Schmidt", "album": "/", "release": "1983", "streams": "400.000", "durationMin": "3", "durationSec": "11", "wordCount": "169", "singer": "Farin", "single": "false"},
+    {"song": "Der lustige Astronaut", "album": "/", "release": "1984", "streams": "600.000", "durationMin": "2", "durationSec": "34", "wordCount": "150", "singer": "Farin", "single": "false"},
+    {"song": "Die Einsamkeit des Würstchens", "album": "/", "release": "1989", "streams": "100.000", "durationMin": "1", "durationSec": "24", "wordCount": "86", "singer": "Bela", "single": "false"},
+    {"song": "Ekelpack", "album": "/", "release": "1989", "streams": "100.000", "durationMin": "2", "durationSec": "3", "wordCount": "79", "singer": "Bela, Farin", "single": "false"},
+    {"song": "Grace Kelly", "album": "/", "release": "1983", "streams": "400.000", "durationMin": "2", "durationSec": "19", "wordCount": "195", "singer": "Farin", "single": "false"},
+    {"song": "Kopfhaut", "album": "/", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "57", "wordCount": "296", "singer": "Farin", "single": "false"},
+    {"song": "Mein kleiner Liebling", "album": "/", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "29", "wordCount": "293", "singer": "Bela", "single": "false"},
+    {"song": "Sommer, Palmen, Sonnenschein", "album": "/", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "53", "wordCount": "281", "singer": "Farin", "single": "false"},
+    {"song": "Teddybär", "album": "/", "release": "1983", "streams": "200.000", "durationMin": "2", "durationSec": "47", "wordCount": "153", "singer": "Bela", "single": "false"},
+    {"song": "Tittenmaus", "album": "/", "release": "1989", "streams": "300.000", "durationMin": "5", "durationSec": "3", "wordCount": "261", "singer": "Bela", "single": "false"},
+    {"song": "Vollmilch", "album": "/", "release": "1989", "streams": "200.000", "durationMin": "1", "durationSec": "55", "wordCount": "87", "singer": "Farin", "single": "false"},
+    {"song": "Wilde Mädchen", "album": "/", "release": "1989", "streams": "100.000", "durationMin": "1", "durationSec": "21", "wordCount": "48", "singer": "Farin", "single": "false"},
+    {"song": "Zitroneneis", "album": "/", "release": "1989", "streams": "300.000", "durationMin": "2", "durationSec": "9", "wordCount": "151", "singer": "Farin", "single": "false"},
+    {"song": "Zum Bäcker", "album": "/", "release": "1989", "streams": "200.000", "durationMin": "2", "durationSec": "7", "wordCount": "238", "singer": "Farin", "single": "false"},
+
+
+    
+    {"song": "Inntro", "album": "bestie", "release": "1993", "streams": "0", "durationMin": "0", "durationSec": "5", "wordCount": "0", "singer": "/", "single": "false"},
+    {"song": "Schrei nach Liebe", "album": "bestie", "release": "1993", "streams": "109.000.000", "durationMin": "4", "durationSec": "12", "wordCount": "203", "singer": "Bela, Farin", "single": "true"},
+    {"song": "Schopenhauer", "album": "bestie", "release": "1993", "streams": "800.000", "durationMin": "3", "durationSec": "6", "wordCount": "159", "singer": "Farin", "single": "false"},
+    {"song": "Für uns", "album": "bestie", "release": "1993", "streams": "700.000", "durationMin": "4", "durationSec": "43", "wordCount": "383", "singer": "Bela", "single": "false"},
+    {"song": "Hey Huh (in Scheiben)", "album": "bestie", "release": "1993", "streams": "500.000", "durationMin": "1", "durationSec": "28", "wordCount": "140", "singer": "Bela, Farin", "single": "false"},
+    {"song": "FaFaFa", "album": "bestie", "release": "1993", "streams": "1.000.000", "durationMin": "1", "durationSec": "41", "wordCount": "267", "singer": "Farin", "single": "false"},
+    {"song": "Deutschrockgirl", "album": "bestie", "release": "1993", "streams": "600.000", "durationMin": "1", "durationSec": "53", "wordCount": "168", "singer": "Bela", "single": "false"},
+    {"song": "Mach die Augen zu", "album": "bestie", "release": "1993", "streams": "8.600.000", "durationMin": "4", "durationSec": "0", "wordCount": "164", "singer": "Farin", "single": "true"},
+    {"song": "Gehirn-Stürm", "album": "bestie", "release": "1993", "streams": "400.000", "durationMin": "4", "durationSec": "4", "wordCount": "338", "singer": "Bela, Farin", "single": "false"},
+    {"song": "Mit dem Schwert nach Polen, warum René?", "album": "bestie", "release": "1993", "streams": "800.000", "durationMin": "4", "durationSec": "28", "wordCount": "266", "singer": "Bela, Rod", "single": "false"},
+    {"song": "Claudia (Teil 95)", "album": "bestie", "release": "1993", "streams": "0", "durationMin": "0", "durationSec": "8", "wordCount": "6", "singer": "Bela, Farin, Rod", "single": "false"},
+    {"song": "Die Allerschürfste", "album": "bestie", "release": "1993", "streams": "600.000", "durationMin": "3", "durationSec": "24", "wordCount": "122", "singer": "Farin", "single": "false"},
+    {"song": "Friedenspanzer", "album": "bestie", "release": "1993", "streams": "3.700.000", "durationMin": "3", "durationSec": "57", "wordCount": "212", "singer": "Bela, Rod", "single": "true"},
+    {"song": "Quark", "album": "bestie", "release": "1993", "streams": "800.000", "durationMin": "2", "durationSec": "45", "wordCount": "192", "singer": "Farin", "single": "true"},
+    {"song": "Dos Corazones", "album": "bestie", "release": "1993", "streams": "300.000", "durationMin": "3", "durationSec": "47", "wordCount": "174", "singer": "Rod", "single": "false"},
+    {"song": "Kopfüber in die Hölle", "album": "bestie", "release": "1993", "streams": "2.900.000", "durationMin": "2", "durationSec": "54", "wordCount": "170", "singer": "Farin", "single": "false"},
+    {"song": "Omaboy", "album": "bestie", "release": "1993", "streams": "400.000", "durationMin": "4", "durationSec": "44", "wordCount": "225", "singer": "Bela", "single": "false"},
+    {"song": "Lieber Tee", "album": "bestie", "release": "1993", "streams": "400.000", "durationMin": "4", "durationSec": "48", "wordCount": "195", "singer": "Farin", "single": "false"},
+    {"song": "Wenn es Abend wird", "album": "bestie", "release": "1993", "streams": "300.000", "durationMin": "6", "durationSec": "36", "wordCount": "273", "singer": "Farin", "single": "false"},
+
+    {"song": "Felicita", "album": "/", "release": "1993", "streams": "0", "durationMin": "0", "durationSec": "52", "wordCount": "45", "singer": "Farin", "single": "false"},
+    {"song": "Ja (Demo)", "album": "/", "release": "1993", "streams": "0", "durationMin": "2", "durationSec": "38", "wordCount": "112", "singer": "Farin", "single": "false"},
+
+    {"song": "25 Stunden am Tag", "album": "/", "release": "1993", "streams": "0", "durationMin": "3", "durationSec": "6", "wordCount": "253", "singer": "Bela", "single": "false"},
+    {"song": "Punkrockgirl", "album": "/", "release": "1993", "streams": "0", "durationMin": "1", "durationSec": "52", "wordCount": "193", "singer": "Bela", "single": "false"},
+    {"song": "Wahre Liebe", "album": "/", "release": "1993", "streams": "0", "durationMin": "3", "durationSec": "15", "wordCount": "151", "singer": "Bela, Farin, Rod", "single": "false"},
+
+    {"song": "Die Wiking-Jugend hat mein Mädchen entführt", "album": "bestie", "release": "1993", "streams": "0", "durationMin": "2", "durationSec": "30", "wordCount": "224", "singer": "Bela", "single": "false"},
+    {"song": "Stick it Out/What's the Ugliest Part of Your Body", "album": "bestie", "release": "1993", "streams": "0", "durationMin": "3", "durationSec": "10", "wordCount": "183", "singer": "Bela, Farin", "single": "false"},
 
 
 

@@ -16,12 +16,15 @@ public class AerztleGame {
     private AerztleGui gui;
     private AerztleObject randomAerztleObject;
 
-    private final int TRIES = 7;
+    private final int TRIES;
     private int currentGuess = 1;
 
     public AerztleGame(Settings pSettings) {
         settings = pSettings;
-        gui = new AerztleGui(this);
+        gui = new AerztleGui(this, settings);
+
+        // Load from settings
+        TRIES = pSettings.getAeTries();
 
         LinkedList<AerztleObject> aerztleObjects = new LinkedList<>();
         aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
@@ -73,12 +76,14 @@ public class AerztleGame {
         NumberFormat nf = NumberFormat.getInstance(Locale.GERMAN);
         String streamsMaximum = nf.format(pGuess.getStreamsAsInteger() + 100000);
         if(pGuess.getStreamsAsInteger() == pSolution.getStreamsAsInteger()) {
-            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsText() + " - " + streamsMaximum);
+            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : pGuess.getStreamsAsText() + " - " + streamsMaximum);
         } else {
             if(pGuess.getStreamsAsInteger() - pSolution.getStreamsAsInteger() > 0) {
-                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() +  " - " + streamsMaximum + " ⬇️");
+                gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() - 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬇️" : pGuess.getStreamsAsText() + " - " + streamsMaximum + " ⬇️");
             } else {
-                gui.paintStreams(currentGuess, Color.RED, pGuess.getStreamsAsText() + " - " + streamsMaximum + " ⬆️");
+                gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() + 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬆️" : pGuess.getStreamsAsText() + " - " + streamsMaximum + " ⬆️");
             }
         }
     }
