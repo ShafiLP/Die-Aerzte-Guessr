@@ -30,6 +30,7 @@ public class Settings {
     private int ctlHighscore = 0;
 
     // For Ärztle
+    private String aeTypeOfInput = "Suchleiste";
     private boolean aeIncludeFarin = false;
     private boolean aeIncludeBela = false;
     private boolean aeIncludeSahnie = false;
@@ -186,6 +187,14 @@ public class Settings {
     }
 
     //* CTL SETTINGS
+
+    public void setAeTypeOfInput(String pInput) {
+        aeTypeOfInput = pInput;
+    }
+
+    public String getAeTypeOfInput() {
+        return aeTypeOfInput;
+    }
 
     public void setCtlLiveCount(int pLiveCount) {
         ctlLiveCount = pLiveCount;

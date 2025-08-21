@@ -139,6 +139,34 @@
 
 
 
+    {"song": "Super Drei", "album": "planet", "release": "1995", "streams": "1.900.000", "durationMin": "2", "durationSec": "16", "wordCount": "181", "singer": "Bela, Farin, Rod", "single": "false"},
+    {"song": "Schunder-Song", "album": "planet", "release": "1995", "streams": "15.700.000", "durationMin": "2", "durationSec": "6", "wordCount": "247", "singer": "Farin", "single": "true"},
+    {"song": "Hurra", "album": "planet", "release": "1995", "streams": "9.900.000", "durationMin": "2", "durationSec": "26", "wordCount": "247", "singer": "Farin", "single": "true"},
+    {"song": "Geh mit mir", "album": "planet", "release": "1995", "streams": "500.000", "durationMin": "2", "durationSec": "29", "wordCount": "180", "singer": "Bela", "single": "false"},
+    {"song": "Langweilig", "album": "planet", "release": "1995", "streams": "2.400.000", "durationMin": "3", "durationSec": "7", "wordCount": "230", "singer": "Farin", "single": "false"},
+    {"song": "Mein Freund Michael", "album": "planet", "release": "1995", "streams": "600.000", "durationMin": "3", "durationSec": "39", "wordCount": "426", "singer": "Farin", "single": "false"},
+    {"song": "Rod Loves You", "album": "planet", "release": "1995", "streams": "900.000", "durationMin": "3", "durationSec": "26", "wordCount": "178", "singer": "Farin, Rod", "single": "false"},
+    {"song": "Der Misanthrop", "album": "planet", "release": "1995", "streams": "700.000", "durationMin": "3", "durationSec": "21", "wordCount": "271", "singer": "Farin", "single": "false"},
+    {"song": "Vermissen, Baby", "album": "planet", "release": "1995", "streams": "400.000", "durationMin": "3", "durationSec": "37", "wordCount": "203", "singer": "Rod", "single": "false"},
+    {"song": "Nazareth", "album": "planet", "release": "1995", "streams": "300.000", "durationMin": "4", "durationSec": "20", "wordCount": "220", "singer": "Bela", "single": "false"},
+    {"song": "Meine Ex(plodierte Freundin)", "album": "planet", "release": "1995", "streams": "2.100.000", "durationMin": "3", "durationSec": "39", "wordCount": "315", "singer": "Farin", "single": "false"},
+    {"song": "Die Banane", "album": "planet", "release": "1995", "streams": "1.100.000", "durationMin": "4", "durationSec": "35", "wordCount": "250", "singer": "Bela", "single": "false"},
+    {"song": "B.S.L.", "album": "planet", "release": "1995", "streams": "300.000", "durationMin": "2", "durationSec": "35", "wordCount": "165", "singer": "Farin", "single": "false"},
+    {"song": "Die Traurige Ballade von Susi Spakowski", "album": "planet", "release": "1995", "streams": "400.000", "durationMin": "4", "durationSec": "1", "wordCount": "225", "singer": "Bela", "single": "false"},
+    {"song": "Red mit mir", "album": "planet", "release": "1995", "streams": "400.000", "durationMin": "3", "durationSec": "58", "wordCount": "286", "singer": "Farin", "single": "false"},
+    {"song": "Trick 17 M. S.", "album": "planet", "release": "1995", "streams": "600.000", "durationMin": "3", "durationSec": "5", "wordCount": "185", "singer": "Farin", "single": "false"},
+    {"song": "Opfer", "album": "planet", "release": "1995", "streams": "400.000", "durationMin": "3", "durationSec": "0", "wordCount": "167", "singer": "Farin", "single": "false"},
+
+    {"song": "Is ja irre", "album": "/", "release": "1995", "streams": "0", "durationMin": "1", "durationSec": "23", "wordCount": "37", "singer": "Farin", "single": "false"},
+    {"song": "Regierung", "album": "/", "release": "1995", "streams": "0", "durationMin": "2", "durationSec": "32", "wordCount": "229", "singer": "Farin", "single": "false"},
+    {"song": "Unholy", "album": "/", "release": "1995", "streams": "0", "durationMin": "3", "durationSec": "28", "wordCount": "190", "singer": "Bela", "single": "false"},
+
+    {"song": "Sex Me, Baby", "album": "/", "release": "1995", "streams": "0", "durationMin": "2", "durationSec": "53", "wordCount": "166", "singer": "Rod", "single": "false"},
+    {"song": "Warrumska", "album": "/", "release": "1995", "streams": "0", "durationMin": "3", "durationSec": "54", "wordCount": "277", "singer": "Farin", "single": "false"},
+    {"song": "Eine Frage der Ehre", "album": "/", "release": "1995", "streams": "0", "durationMin": "3", "durationSec": "50", "wordCount": "0", "singer": "/", "single": "false"},
+
+
+
     {"song": "Himmelblau", "album": "jazz", "release": "2007", "streams": "15.400.000", "durationMin": "3", "durationSec": "18", "wordCount": "146", "singer": "Farin", "single": "true"},
     {"song": "Lied vom Scheitern", "album": "jazz", "release": "2007", "streams": "11.800.000", "durationMin": "3", "durationSec": "29", "wordCount": "326", "singer": "Bela", "single": "true"},
     {"song": "Breit", "album": "jazz", "release": "2007", "streams": "1.500.000", "durationMin": "3", "durationSec": "14", "wordCount": "251", "singer": "Rod", "single": "true"},

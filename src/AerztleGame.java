@@ -89,13 +89,13 @@ public class AerztleGame {
     }
 
     private void compDuration(AerztleObject pGuess, AerztleObject pSolution) {
-        if(pGuess.getDurationMinutes() * 60 + pGuess.getDurationSeconds() == pSolution.getDurationMinutes() * 60 + pSolution.getDurationSeconds()) {
+        if(pGuess.getFullDurationInSecs() == pSolution.getFullDurationInSecs()) {
             gui.paintDuration(currentGuess, Color.GREEN, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()));
         } else {
-            if((pGuess.getDurationMinutes() * 60 + pGuess.getDurationSeconds()) - (pSolution.getDurationMinutes() * 60 + pSolution.getDurationSeconds()) > 0) {
-                gui.paintDuration(currentGuess, Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬇️");
+            if(pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() > 0) {
+                gui.paintDuration(currentGuess, pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬇️");
             } else {
-                gui.paintDuration(currentGuess, Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬆️");
+                gui.paintDuration(currentGuess, pSolution.getFullDurationInSecs() - pGuess.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬆️");
             }
         }
     }
@@ -105,9 +105,9 @@ public class AerztleGame {
             gui.paintWordCount(currentGuess, Color.GREEN, pGuess.getWordCount() + "");
         } else {
             if(pGuess.getWordCount() - pSolution.getWordCount() > 0) {
-                gui.paintWordCount(currentGuess, Color.RED, pGuess.getWordCount() + " ⬇️");
+                gui.paintWordCount(currentGuess, pGuess.getWordCount() - pSolution.getWordCount() < 5 ? Color.YELLOW : Color.RED, pGuess.getWordCount() + " ⬇️");
             } else {
-                gui.paintWordCount(currentGuess, Color.RED, pGuess.getWordCount() + " ⬆️");
+                gui.paintWordCount(currentGuess, pSolution.getWordCount() - pGuess.getWordCount() < 5 ? Color.YELLOW : Color.RED, pGuess.getWordCount() + " ⬆️");
             }
         }
     }
@@ -190,10 +190,10 @@ public class AerztleGame {
             );
             switch(n) {
                 case 0:
-                    gui.dispose();         // Close the current GUI
+                    gui.dispose();                 // Close the current GUI
                     new AerztleGame(settings);     // Restart the game
                 case 1:
-                    gui.dispose();         // Close the GUI & exit the game
+                    gui.dispose();                 // Close the GUI & exit the game
                     System.exit(0);
             }
         }

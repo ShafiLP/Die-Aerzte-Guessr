@@ -92,6 +92,10 @@ public class AerztleObject {
         return durationSeconds;
     }
 
+    public int getFullDurationInSecs() {
+        return (durationMinutes * 60) + durationSeconds;
+    }
+
     /**
      * Get operation for the song's word count (including backing vocals, intro and outro)
      * @return Word count of the song as an Integer
