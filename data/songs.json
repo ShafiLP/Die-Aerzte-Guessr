@@ -183,6 +183,7 @@
     
     
 
+    {"song": "Erklärung", "icon": "frisur"},
     {"song": "Mein Baby war beim Frisör", "icon": "frisur"},
     {"song": "Vokuhila Superstar", "icon": "frisur"},
     {"song": "3-Tage-Bart", "icon": "frisur"},
@@ -198,8 +199,10 @@
     {"song": "Hair Today, Gone Tomorrow", "icon": "frisur"},
     {"song": "Am Ende meines Körpers", "icon": "frisur"},
     {"song": "Kaperfahrt", "icon": "frisur"},
+    {"song": "Zusammenfassung", "icon": "frisur"},
 
     {"song": "Chanson d'Albert", "icon": "bartSingle"},
+    {"song": "In den See! Mit einem Gewicht an den Füßen!", "icon": "bartSingle"},
 
 
 
