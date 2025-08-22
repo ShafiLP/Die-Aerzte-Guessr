@@ -40,6 +40,10 @@ public class AerztleObject {
         isASingle = pSingle;
     }
 
+    /**
+     * Get operation for the song's name
+     * @return Name of the song as a String
+     */
     public String getSongName() {
         return songName;
     }
@@ -92,6 +96,10 @@ public class AerztleObject {
         return durationSeconds;
     }
 
+    /**
+     * Get operation for the songs full furation in seconds
+     * @return Full duration of the song as an Integer
+     */
     public int getFullDurationInSecs() {
         return (durationMinutes * 60) + durationSeconds;
     }

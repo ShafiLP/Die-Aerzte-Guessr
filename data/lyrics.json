@@ -66,6 +66,7 @@
     {"song": "Füße vom Tisch", "lyric": "Denn jetzt kommt, ja, jetzt kommt die Liebe physisch"},
     {"song": "Füße vom Tisch", "lyric": "Baby, Baby, du und isch, das wird einfach fürchterlisch"},
     {"song": "Füße vom Tisch", "lyric": "Der Rest, der kommt automatisch, drum nimm doch deine Quanten vom Tisch"},
+    {"song": "Füße vom Tisch", "lyric": "Und wenn sie die vom Tisch nimmt, ich glaube, dann geht's ganz tierisch ab"},
 
     
     {"song": "Erna P.", "lyric": "Und hinterm Vorhang steht ein Herr"},
@@ -1366,24 +1367,35 @@
 
     {"song": "KFM", "lyric": "Unser Soundtrack für die Bundesrepublik: Karnickelfickmusik"},
     {"song": "KFM", "lyric": "Wir sagen, „Spring!“, und du fragst, „Wie hoch?“"},
+    {"song": "KFM", "lyric": "Und als Punker aus Prinzip schon gegen Krieg"},
 
     {"song": "WISSEN", "lyric": "Und alles, was ich für dich empfand, ist heut vom Winde verweht"},
     {"song": "WISSEN", "lyric": "Und jetzt rufst du an und fragst mich, wie's um uns steht"},
+    {"song": "WISSEN", "lyric": "Ich will nicht wissen, ob du dich grad einsam fühlst"},
 
     {"song": "DUNKEL", "lyric": "Ich brauch' es schwarz, schwarz wie die Nacht"},
     {"song": "DUNKEL", "lyric": "Mein Humor ist schwarz, schwarz wie Kaffee"},
     {"song": "DUNKEL", "lyric": "Ich kam auf die Welt und fing an zu schrei'n"},
+    {"song": "DUNKEL", "lyric": "Meine Mutter weinte auch und mein Vater sprach von einem Fluch"},
+    {"song": "DUNKEL", "lyric": "Siehst du, wie die Sterne funkeln? Das tun sie nur im Dunkeln"},
+    {"song": "DUNKEL", "lyric": "Ich brauch' das Dunkel, hell ist nicht für mich gemacht"},
+    {"song": "DUNKEL", "lyric": "Meine Eltern schickten mich ständig zum Arzt"},
 
     {"song": "ANTI", "lyric": "Wie lange wird es dauern bis zur Exekution?"},
     {"song": "ANTI", "lyric": "Wenn das meine Wahl ist, bin ich gegen alles"},
     {"song": "ANTI", "lyric": "Ich werf' die Münze nicht noch einmal"},
+    {"song": "ANTI", "lyric": "Brennst du noch oder explodierst du schon?"},
 
     {"song": "DOOF", "lyric": "Nazis sind Nazis, weil sie Nazis sein woll'n"},
     {"song": "DOOF", "lyric": "Da helf'n keine Pill'n, nicht beim allerbest'n Will'n"},
     {"song": "DOOF", "lyric": "Menschen flücht'n nur, um uns die Arbeit wegzunehm'n"},
+    {"song": "DOOF", "lyric": "Und meine Oma hat den Grund dafür gekannt"},
+    {"song": "DOOF", "lyric": "Es gibt Leute, die glaub'n, dass die Welt 'ne Scheibe ist"},
+    {"song": "DOOF", "lyric": "Und den Klimawandel bild'n wir uns ein, oh nein, oh nein"},
 
     {"song": "SCHREI", "lyric": "Ich freu' mich drauf, euch weiter anzuschrei'n"},
     {"song": "SCHREI", "lyric": "Mit Speed und Energy, Power-Heavy-Metal-Agonie"},
+    {"song": "SCHREI", "lyric": "Wann hört es jemals auf? Bin permanent so drauf"},
 
     {"song": "KRAFT", "lyric": "Doch dann springt sie vor die U-Bahn und du fühlst dich ekelhaft"},
     {"song": "KRAFT", "lyric": "Viel zu spät begreifst du: Lügen haben Konsequenzen"},

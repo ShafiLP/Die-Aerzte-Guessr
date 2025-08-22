@@ -69,13 +69,6 @@ public class AerztleMenu extends JFrame {
         bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
         bBack.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Highscore
-        JPanel highscorePanel = new JPanel();
-        JLabel lHighscore = new JLabel("Highscore: " + settings.getAeHighscore());
-        highscorePanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
-        highscorePanel.add(lHighscore);
-        this.add(highscorePanel, BorderLayout.SOUTH);
-
         // Add with vertical padding
         buttonPanel.add(bPlay);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
@@ -129,30 +122,35 @@ public class AerztleMenu extends JFrame {
         JLabel lFontSize = new JLabel("Schriftgröße:");
         fontSizePanel.add(lFontSize); fontSizePanel.add(tfFontSize);
 
-        // Highscore reset button
-        JButton bResetHighscore = new JButton("Highscore zurücksetzen");
-        bResetHighscore.addActionListener(_ -> {
-            settings.setCtlHighscore(0);
-        });
+        // Type of input settings
+        JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
+        JComboBox<String> ddTypeOfInput = new JComboBox<>();
+        ddTypeOfInput.addItem("Suchleiste");
+        ddTypeOfInput.addItem("Dropdown Menü");
+        ddTypeOfInput.addItem("Manuelle Eingabe");
+        ddTypeOfInput.setSelectedItem(settings.getAeTypeOfInput());
+        JLabel lTypeOfInput = new JLabel("Eingabemethode:");
+        typeOfInputPanel.add(lTypeOfInput);
+        typeOfInputPanel.add(ddTypeOfInput);
 
         // Save button
         JButton bSave = new JButton("Speichern");
         bSave.addActionListener(_ -> {
             try {
-                settings.setCtlTimeLimit(Integer.parseInt(tfTries.getText()));
+                settings.setAeTries(Integer.parseInt(tfTries.getText()));
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(
                     bSave,
-                    "Eingabe des Zeitlimits ist ungültig.\nMuss eine Ganzzahl sein!",
+                    "Eingabe der Versuche ist ungültig.\nMuss eine Ganzzahl sein!",
                     "Error",
                     JOptionPane.ERROR_MESSAGE
                 );
                 return;
             }
-            if(settings.getCtlTimeLimit() > 10) {
+            if(settings.getAeTries() > 15 || settings.getAeTries() < 5) {
                 JOptionPane.showMessageDialog(
                     bSave,
-                    "Eingabe des Zeitlimits ist ungültig.\nDas Limit darf nicht höher als 10 sein!",
+                    "Eingabe der Versuche ist ungültig.\nDas Limit liegt zwischen 5 und 15!",
                     "Error",
                     JOptionPane.ERROR_MESSAGE
                 );
@@ -181,10 +179,11 @@ public class AerztleMenu extends JFrame {
                 return;
             }
 
-            settings.setCtlFarin(cbFarin.isSelected());
-            settings.setCtlBela(cbBela.isSelected());
-            settings.setCtlSahnie(cbSahnie.isSelected());
-            settings.setFontType(ddFont.getSelectedItem().toString());;
+            settings.setAeFarin(cbFarin.isSelected());
+            settings.setAeBela(cbBela.isSelected());
+            settings.setAeSahnie(cbSahnie.isSelected());
+            settings.setFontType(ddFont.getSelectedItem().toString());
+            settings.setAeTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
 
             saveSettings(settings);
             settingsFrame.dispose();
@@ -197,7 +196,7 @@ public class AerztleMenu extends JFrame {
         settingsFrame.add(cbBela);
         settingsFrame.add(panTries);
         settingsFrame.add(cbSahnie);
-        settingsFrame.add(bResetHighscore);
+        settingsFrame.add(typeOfInputPanel);
         settingsFrame.add(bSave);
 
         // Set frame visible

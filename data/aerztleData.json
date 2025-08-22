@@ -1,16 +1,16 @@
 [
     {"song": "Ärzte Theme", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "0", "wordCount": "0", "singer": "/", "single": "false"},
-    {"song": "Scheißtyp", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "58", "wordCount": "98", "singer": "Bela", "single": "false"},
+    {"song": "Scheißtyp", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "58", "wordCount": "146", "singer": "Bela", "single": "false"},
     {"song": "Paul", "album": "debil", "release": "1984", "streams": "4.500.000", "durationMin": "2", "durationSec": "28", "wordCount": "140", "singer": "Farin", "single": "true"},
-    {"song": "Kamelralley", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "4", "durationSec": "2", "wordCount": "336", "singer": "Sahnie", "single": "false"},
-    {"song": "Frank'n'stein", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "41", "wordCount": "232", "singer": "Bela", "single": "false"},
-    {"song": "El Cattivo", "album": "debil", "release": "1984", "streams": "1.200.000", "durationMin": "3", "durationSec": "16", "wordCount": "203", "singer": "Farin", "single": "false"},
-    {"song": "Claudia hat 'nen Schäferhund", "album": "debil", "release": "1984", "streams": "3.300.000", "durationMin": "2", "durationSec": "1", "wordCount": "159", "singer": "Farin", "single": "false"},
-    {"song": "Mädchen", "album": "debil", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "58", "wordCount": "188", "singer": "Farin", "single": "false"},
-    {"song": "Mr. Sexpistols", "album": "debil", "release": "1984", "streams": "500.000", "durationMin": "3", "durationSec": "16", "wordCount": "236", "singer": "Bela", "single": "false"},
-    {"song": "Micha", "album": "debil", "release": "1984", "streams": "400.000", "durationMin": "2", "durationSec": "56", "wordCount": "201", "singer": "Farin", "single": "false"},
+    {"song": "Kamelralley", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "4", "durationSec": "2", "wordCount": "181", "singer": "Sahnie", "single": "false"},
+    {"song": "Frank'n'stein", "album": "debil", "release": "1984", "streams": "300.000", "durationMin": "2", "durationSec": "41", "wordCount": "190", "singer": "Bela", "single": "false"},
+    {"song": "El Cattivo", "album": "debil", "release": "1984", "streams": "1.200.000", "durationMin": "3", "durationSec": "16", "wordCount": "173", "singer": "Farin", "single": "false"},
+    {"song": "Claudia hat 'nen Schäferhund", "album": "debil", "release": "1984", "streams": "3.300.000", "durationMin": "2", "durationSec": "1", "wordCount": "156", "singer": "Farin", "single": "false"},
+    {"song": "Mädchen", "album": "debil", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "58", "wordCount": "147", "singer": "Farin", "single": "false"},
+    {"song": "Mr. Sexpistols", "album": "debil", "release": "1984", "streams": "500.000", "durationMin": "3", "durationSec": "16", "wordCount": "178", "singer": "Bela", "single": "false"},
+    {"song": "Micha", "album": "debil", "release": "1984", "streams": "400.000", "durationMin": "2", "durationSec": "56", "wordCount": "167", "singer": "Farin", "single": "false"},
     {"song": "Zu spät", "album": "debil", "release": "1984", "streams": "33.600.000", "durationMin": "2", "durationSec": "45", "wordCount": "248", "singer": "Farin", "single": "true"},
-    {"song": "Roter Minirock", "album": "debil", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "18", "wordCount": "247", "singer": "Farin, Sahnie", "single": "false"},
+    {"song": "Roter Minirock", "album": "debil", "release": "1984", "streams": "700.000", "durationMin": "2", "durationSec": "18", "wordCount": "182", "singer": "Farin, Sahnie", "single": "false"},
     {"song": "Schlaflied", "album": "debil", "release": "1984", "streams": "2.100.000", "durationMin": "4", "durationSec": "12", "wordCount": "191", "singer": "Farin", "single": "false"},
 
     {"song": "Erna P.", "album": "/", "release": "1984", "streams": "400.000", "durationMin": "2", "durationSec": "29", "wordCount": "130", "singer": "Farin", "single": "false"},
@@ -143,7 +143,7 @@
     {"song": "Super Drei", "album": "planet", "release": "1995", "streams": "1.900.000", "durationMin": "2", "durationSec": "16", "wordCount": "181", "singer": "Bela, Farin, Rod", "single": "false"},
     {"song": "Schunder-Song", "album": "planet", "release": "1995", "streams": "15.700.000", "durationMin": "2", "durationSec": "6", "wordCount": "247", "singer": "Farin", "single": "true"},
     {"song": "Hurra", "album": "planet", "release": "1995", "streams": "9.900.000", "durationMin": "2", "durationSec": "26", "wordCount": "247", "singer": "Farin", "single": "true"},
-    {"song": "Geh mit mir", "album": "planet", "release": "1995", "streams": "500.000", "durationMin": "2", "durationSec": "29", "wordCount": "180", "singer": "Bela", "single": "false"},
+    {"song": "Geh mit mir", "album": "planet", "release": "1995", "streams": "500.000", "durationMin": "2", "durationSec": "29", "wordCount": "180", "singer": "Bela, Jasmin Tabatabai", "single": "false"},
     {"song": "Langweilig", "album": "planet", "release": "1995", "streams": "2.400.000", "durationMin": "3", "durationSec": "7", "wordCount": "230", "singer": "Farin", "single": "false"},
     {"song": "Mein Freund Michael", "album": "planet", "release": "1995", "streams": "600.000", "durationMin": "3", "durationSec": "39", "wordCount": "426", "singer": "Farin", "single": "false"},
     {"song": "Rod Loves You", "album": "planet", "release": "1995", "streams": "900.000", "durationMin": "3", "durationSec": "26", "wordCount": "178", "singer": "Farin, Rod", "single": "false"},
@@ -191,10 +191,108 @@
 
 
 
-    {"song": "", "album": "/", "release": "1996", "streams": "", "durationMin": "", "durationSec": "", "wordCount": "", "singer": "", "single": ""},
-    {"song": "", "album": "/", "release": "1996", "streams": "", "durationMin": "", "durationSec": "", "wordCount": "", "singer": "", "single": ""},
-    {"song": "", "album": "/", "release": "1996", "streams": "", "durationMin": "", "durationSec": "", "wordCount": "", "singer": "", "single": ""},
-    {"song": "", "album": "/", "release": "1996", "streams": "", "durationMin": "", "durationSec": "", "wordCount": "", "singer": "", "single": ""},
+    {"song": "Punk ist...", "album": "dreizehn", "release": "1998", "streams": "800.000", "durationMin": "3", "durationSec": "42", "wordCount": "208", "singer": "Bela", "single": "false"},
+    {"song": "Ein Lied für dich", "album": "dreizehn", "release": "1998", "streams": "5.100.000", "durationMin": "2", "durationSec": "43", "wordCount": "267", "singer": "Farin", "single": "false"},
+    {"song": "Goldenes Handwerk", "album": "dreizehn", "release": "1998", "streams": "2.000.000", "durationMin": "3", "durationSec": "37", "wordCount": "238", "singer": "Bela", "single": "true"},
+    {"song": "Meine Freunde", "album": "dreizehn", "release": "1998", "streams": "3.300.000", "durationMin": "1", "durationSec": "47", "wordCount": "181", "singer": "Farin", "single": "false"},
+    {"song": "Party stinkt", "album": "dreizehn", "release": "1998", "streams": "800.000", "durationMin": "3", "durationSec": "26", "wordCount": "224", "singer": "Bela", "single": "false"},
+    {"song": "1/2 Lovesong", "album": "dreizehn", "release": "1998", "streams": "8.500.000", "durationMin": "3", "durationSec": "54", "wordCount": "304", "singer": "Rod", "single": "true"},
+    {"song": "Ignorama", "album": "dreizehn", "release": "1998", "streams": "1.900.000", "durationMin": "3", "durationSec": "0", "wordCount": "278", "singer": "Bela, Rod", "single": "false"},
+    {"song": "Nie wieder Krieg, nie mehr Las Vegas!", "album": "dreizehn", "release": "1998", "streams": "2.700.000", "durationMin": "2", "durationSec": "35", "wordCount": "228", "singer": "Farin", "single": "false"},
+    {"song": "Rebell", "album": "dreizehn", "release": "1998", "streams": "16.200.000", "durationMin": "3", "durationSec": "53", "wordCount": "304", "singer": "Farin", "single": "true"},
+    {"song": "Der Graf", "album": "dreizehn", "release": "1998", "streams": "2.600.000", "durationMin": "3", "durationSec": "46", "wordCount": "180", "singer": "Bela", "single": "false"},
+    {"song": "Grau", "album": "dreizehn", "release": "1998", "streams": "700.000", "durationMin": "2", "durationSec": "44", "wordCount": "176", "singer": "Farin", "single": "false"},
+    {"song": "Angeber", "album": "dreizehn", "release": "1998", "streams": "2.000.000", "durationMin": "3", "durationSec": "12", "wordCount": "192", "singer": "Farin", "single": "false"},
+    {"song": "Männer sind Schweine", "album": "dreizehn", "release": "1998", "streams": "38.800.000", "durationMin": "4", "durationSec": "17", "wordCount": "294", "singer": "Farin", "single": "true"},
+    {"song": "Liebe und Schmerz", "album": "dreizehn", "release": "1998", "streams": "900.000", "durationMin": "3", "durationSec": "54", "wordCount": "263", "singer": "Bela", "single": "false"},
+    {"song": "Nie gesagt", "album": "dreizehn", "release": "1998", "streams": "1.100.000", "durationMin": "5", "durationSec": "0", "wordCount": "235", "singer": "Farin", "single": "false"},
+    {"song": "Der Infant", "album": "dreizehn", "release": "1998", "streams": "700.000", "durationMin": "3", "durationSec": "7", "wordCount": "272", "singer": "Bela", "single": "false"},
+    {"song": "Grotesksong", "album": "dreizehn", "release": "1998", "streams": "3.200.000", "durationMin": "3", "durationSec": "52", "wordCount": "258", "singer": "Farin", "single": "false"},
+
+    {"song": "Du bist nicht mein Freund", "album": "/", "release": "1998", "streams": "0", "durationMin": "1", "durationSec": "40", "wordCount": "128", "singer": "Bela", "single": "false"},
+    {"song": "Saufen", "album": "/", "release": "1998", "streams": "0", "durationMin": "3", "durationSec": "50", "wordCount": "313", "singer": "Farin", "single": "false"},
+    {"song": "Ein Lächeln (Für jeden Tag deines Lebens)", "album": "/", "release": "1998", "streams": "0", "durationMin": "4", "durationSec": "23", "wordCount": "94", "singer": "Bela, Farin, Rod", "single": "false"},
+
+    {"song": "Wunderbare Welt des Farin U.", "album": "/", "release": "1998", "streams": "0", "durationMin": "2", "durationSec": "50", "wordCount": "227", "singer": "Farin", "single": "false"},
+    {"song": "Rod Army", "album": "/", "release": "1998", "streams": "0", "durationMin": "2", "durationSec": "50", "wordCount": "138", "singer": "Rod", "single": "false"},
+
+    {"song": "Ein Lied über Zensur", "album": "/", "release": "1998", "streams": "0", "durationMin": "3", "durationSec": "22", "wordCount": "186", "singer": "Farin", "single": "false"},
+    {"song": "Schlimm", "album": "/", "release": "1998", "streams": "0", "durationMin": "3", "durationSec": "34", "wordCount": "291", "singer": "Bela", "single": "false"},
+    {"song": "Danke für jeden guten Morgen", "album": "/", "release": "1998", "streams": "0", "durationMin": "2", "durationSec": "43", "wordCount": "105", "singer": "Bela, Farin, Rod", "single": "false"},
+
+    {"song": "Backpfeifengesicht", "album": "/", "release": "1999", "streams": "0", "durationMin": "2", "durationSec": "25", "wordCount": "110", "singer": "Farin", "single": "false"},
+    {"song": "Alles für dich", "album": "/", "release": "1999", "streams": "0", "durationMin": "4", "durationSec": "10", "wordCount": "190", "singer": "Farin", "single": "false"},
+
+
+
+    {"song": "Wie es geht", "album": "spendierhosen", "release": "2000", "streams": "19.600.000", "durationMin": "4", "durationSec": "0", "wordCount": "249", "singer": "Farin", "single": "true"},
+    {"song": "Geld", "album": "spendierhosen", "release": "2000", "streams": "600.000", "durationMin": "3", "durationSec": "45", "wordCount": "281", "singer": "Bela", "single": "false"},
+    {"song": "Gib mir Zeit", "album": "spendierhosen", "release": "2000", "streams": "400.000", "durationMin": "2", "durationSec": "10", "wordCount": "209", "singer": "Farin", "single": "false"},
+    {"song": "Dir", "album": "spendierhosen", "release": "2000", "streams": "300.000", "durationMin": "3", "durationSec": "39", "wordCount": "183", "singer": "Bela", "single": "false"},
+    {"song": "Mondo Bondage", "album": "spendierhosen", "release": "2000", "streams": "400.000", "durationMin": "3", "durationSec": "2", "wordCount": "231", "singer": "Rod", "single": "false"},
+    {"song": "Onprangering", "album": "spendierhosen", "release": "2000", "streams": "500.000", "durationMin": "3", "durationSec": "55", "wordCount": "163", "singer": "Farin", "single": "false"},
+    {"song": "Leichenhalle", "album": "spendierhosen", "release": "2000", "streams": "600.000", "durationMin": "3", "durationSec": "53", "wordCount": "195", "singer": "Rod", "single": "false"},
+    {"song": "Der Optimist", "album": "spendierhosen", "release": "2000", "streams": "500.000", "durationMin": "2", "durationSec": "38", "wordCount": "210", "singer": "Bela", "single": "false"},
+    {"song": "Alles so einfach", "album": "spendierhosen", "release": "2000", "streams": "300.000", "durationMin": "4", "durationSec": "27", "wordCount": "171", "singer": "Farin", "single": "false"},
+    {"song": "N 48.3", "album": "spendierhosen", "release": "2000", "streams": "800.000", "durationMin": "2", "durationSec": "52", "wordCount": "304", "singer": "Farin", "single": "false"},
+    {"song": "Manchmal haben Frauen...", "album": "spendierhosen", "release": "2000", "streams": "12.400.000", "durationMin": "4", "durationSec": "16", "wordCount": "319", "singer": "Bela", "single": "true"},
+    {"song": "Las Vegas", "album": "spendierhosen", "release": "2000", "streams": "400.000", "durationMin": "1", "durationSec": "48", "wordCount": "95", "singer": "Bela", "single": "false"},
+    {"song": "Yoko Ono", "album": "spendierhosen", "release": "2000", "streams": "3.000.000", "durationMin": "0", "durationSec": "33", "wordCount": "45", "singer": "Farin", "single": "true"},
+    {"song": "Rock Rendezvous", "album": "spendierhosen", "release": "2000", "streams": "600.000", "durationMin": "4", "durationSec": "8", "wordCount": "294", "singer": "Bela, Farin, Rod", "single": "false"},
+    {"song": "Baby", "album": "spendierhosen", "release": "2000", "streams": "400.000", "durationMin": "4", "durationSec": "32", "wordCount": "270", "singer": "Farin", "single": "false"},
+    {"song": "Kann es sein?", "album": "spendierhosen", "release": "2000", "streams": "300.000", "durationMin": "2", "durationSec": "47", "wordCount": "139", "singer": "Rod", "single": "false"},
+    {"song": "Ein Sommer nur für mich", "album": "spendierhosen", "release": "2000", "streams": "5.000.000", "durationMin": "2", "durationSec": "53", "wordCount": "232", "singer": "Farin", "single": "false"},
+    {"song": "Rock'n'Roll Übermensch", "album": "spendierhosen", "release": "2000", "streams": "700.000", "durationMin": "4", "durationSec": "48", "wordCount": "232", "singer": "Bela", "single": "true"},
+    {"song": "Herrliche Jahre", "album": "spendierhosen", "release": "2000", "streams": "600.000", "durationMin": "3", "durationSec": "50", "wordCount": "269", "singer": "Farin", "single": "false"},
+
+    {"song": "Poser, du bist ein...", "album": "/", "release": "2000", "streams": "0", "durationMin": "2", "durationSec": "2", "wordCount": "193", "singer": "Bela", "single": "false"},
+    {"song": "Die Instrumente des Orchesters", "album": "/", "release": "2000", "streams": "0", "durationMin": "2", "durationSec": "38", "wordCount": "47", "singer": "Farin", "single": "false"},
+    {"song": "Kpt. Blaubär", "album": "/", "release": "2000", "streams": "0", "durationMin": "4", "durationSec": "16", "wordCount": "180", "singer": "Bela", "single": "false"},
+
+    {"song": "Rettet die Wale", "album": "/", "release": "2000", "streams": "0", "durationMin": "1", "durationSec": "50", "wordCount": "160", "singer": "Farin", "single": "false"},
+    {"song": "Matthäus 1:5:0", "album": "/", "release": "2000", "streams": "0", "durationMin": "1", "durationSec": "4", "wordCount": "13", "singer": "Rod", "single": "false"},
+    {"song": "Methan", "album": "/", "release": "2000", "streams": "0", "durationMin": "2", "durationSec": "18", "wordCount": "141", "singer": "Bela", "single": "false"},
+
+    {"song": "Die Welt ist schlecht", "album": "/", "release": "2001", "streams": "0", "durationMin": "3", "durationSec": "44", "wordCount": "212", "singer": "Bela", "single": "false"},
+
+
+
+    {"song": "Als ich den Punk erfand...", "album": "geraeusch", "release": "2003", "streams": "600.000", "durationMin": "1", "durationSec": "52", "wordCount": "164", "singer": "Bela", "single": "false"},
+    {"song": "System", "album": "geraeusch", "release": "2003", "streams": "600.000", "durationMin": "2", "durationSec": "44", "wordCount": "124", "singer": "Farin", "single": "false"},
+    {"song": "T-Error", "album": "geraeusch", "release": "2003", "streams": "400.000", "durationMin": "3", "durationSec": "37", "wordCount": "222", "singer": "Rod", "single": "false"},
+    {"song": "Nicht allein", "album": "geraeusch", "release": "2003", "streams": "900.000", "durationMin": "5", "durationSec": "19", "wordCount": "290", "singer": "Farin", "single": "false"},
+    {"song": "Dinge von denen", "album": "geraeusch", "release": "2003", "streams": "3.800.000", "durationMin": "3", "durationSec": "56", "wordCount": "284", "singer": "Rod", "single": "true"},
+    {"song": "Der Grund", "album": "geraeusch", "release": "2003", "streams": "300.000", "durationMin": "2", "durationSec": "54", "wordCount": "131", "singer": "Bela", "single": "false"},
+    {"song": "Geisterhaus", "album": "geraeusch", "release": "2003", "streams": "600.000", "durationMin": "3", "durationSec": "49", "wordCount": "191", "singer": "Rod", "single": "false"},
+    {"song": "Ein Mann", "album": "geraeusch", "release": "2003", "streams": "500.000", "durationMin": "2", "durationSec": "18", "wordCount": "143", "singer": "Farin", "single": "false"},
+    {"song": "Anders als beim letzten Mal", "album": "geraeusch", "release": "2003", "streams": "500.000", "durationMin": "4", "durationSec": "16", "wordCount": "309", "singer": "Farin", "single": "false"},
+    {"song": "Ruhig angehn", "album": "geraeusch", "release": "2003", "streams": "400.000", "durationMin": "3", "durationSec": "24", "wordCount": "251", "singer": "Bela", "single": "false"},
+    {"song": "Jag Älskar Sverige!", "album": "geraeusch", "release": "2003", "streams": "900.000", "durationMin": "3", "durationSec": "40", "wordCount": "292", "singer": "Farin", "single": "false"},
+    {"song": "Richtig schön evil", "album": "geraeusch", "release": "2003", "streams": "400.000", "durationMin": "3", "durationSec": "21", "wordCount": "289", "singer": "Bela", "single": "false"},
+    {"song": "Schneller leben", "album": "geraeusch", "release": "2003", "streams": "500.000", "durationMin": "3", "durationSec": "3", "wordCount": "252", "singer": "Farin", "single": "false"},
+    {"song": "Unrockbar", "album": "geraeusch", "release": "2003", "streams": "10.500.000", "durationMin": "4", "durationSec": "1", "wordCount": "220", "singer": "Farin", "single": "true"},
+    {"song": "Deine Schuld", "album": "geraeusch", "release": "2003", "streams": "35.500.00", "durationMin": "3", "durationSec": "35", "wordCount": "226", "singer": "Farin", "single": "true"},
+    {"song": "Lovepower", "album": "geraeusch", "release": "2003", "streams": "500.000", "durationMin": "2", "durationSec": "31", "wordCount": "150", "singer": "Rod", "single": "false"},
+    {"song": "Der Tag", "album": "geraeusch", "release": "2003", "streams": "900.000", "durationMin": "3", "durationSec": "48", "wordCount": "227", "singer": "Farin, Celina Bostic", "single": "false"},
+    {"song": "Die Nacht", "album": "geraeusch", "release": "2003", "streams": "500.000", "durationMin": "4", "durationSec": "56", "wordCount": "266", "singer": "Bela", "single": "false"},
+    {"song": "Nichts in der Welt", "album": "geraeusch", "release": "2003", "streams": "1.000.000", "durationMin": "3", "durationSec": "47", "wordCount": "257", "singer": "Farin", "single": "true"},
+    {"song": "Die klügsten Männer der Welt", "album": "geraeusch", "release": "2003", "streams": "1.400.000", "durationMin": "3", "durationSec": "57", "wordCount": "157", "singer": "Bela", "single": "true"},
+    {"song": "Piercing", "album": "geraeusch", "release": "2003", "streams": "300.000", "durationMin": "4", "durationSec": "17", "wordCount": "225", "singer": "Rod", "single": "false"},
+    {"song": "Besserwisserboy", "album": "geraeusch", "release": "2003", "streams": "800.000", "durationMin": "3", "durationSec": "40", "wordCount": "242", "singer": "Farin", "single": "false"},
+    {"song": "Anti-Zombie", "album": "geraeusch", "release": "2003", "streams": "600.000", "durationMin": "4", "durationSec": "9", "wordCount": "211", "singer": "Rod", "single": "false"},
+    {"song": "Pro-Zombie", "album": "geraeusch", "release": "2003", "streams": "300.000", "durationMin": "2", "durationSec": "8", "wordCount": "159", "singer": "Farin", "single": "false"},
+    {"song": "Wammw", "album": "geraeusch", "release": "2003", "streams": "600.000", "durationMin": "1", "durationSec": "51", "wordCount": "98", "singer": "Farin", "single": "false"},
+    {"song": "Nichtwissen", "album": "geraeusch", "release": "2003", "streams": "300.000", "durationMin": "4", "durationSec": "58", "wordCount": "296", "singer": "Bela", "single": "false"},
+
+    {"song": "Kontovollmacht...", "album": "/", "release": "2003", "streams": "0", "durationMin": "4", "durationSec": "40", "wordCount": "297", "singer": "Bela", "single": "false"},
+    {"song": "Aus dem Tagebuch eines Amokläufers", "album": "/", "release": "2003", "streams": "0", "durationMin": "2", "durationSec": "36", "wordCount": "118", "singer": "Farin", "single": "false"},
+
+    {"song": "Powerlove", "album": "/", "release": "2003", "streams": "0", "durationMin": "4", "durationSec": "36", "wordCount": "249", "singer": "Bela", "single": "false"},
+    {"song": "Worum es geht", "album": "/", "release": "2003", "streams": "0", "durationMin": "2", "durationSec": "52", "wordCount": "153", "singer": "Farin", "single": "false"},
+
+
+
+    {"song": "Füße vom Tisch", "album": "/", "release": "2005", "streams": "100.000", "durationMin": "7", "durationSec": "26", "wordCount": "352", "singer": "Bela, Farin", "single": "false"},
 
 
 

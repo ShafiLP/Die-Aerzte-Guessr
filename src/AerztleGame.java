@@ -190,11 +190,14 @@ public class AerztleGame {
             );
             switch(n) {
                 case 0:
+                    // TODO replace with more efficient algorithm
                     gui.dispose();                 // Close the current GUI
                     new AerztleGame(settings);     // Restart the game
+                    break;    
                 case 1:
                     gui.dispose();                 // Close the GUI & exit the game
                     System.exit(0);
+                    break;
             }
         }
         if(currentGuess > TRIES) {

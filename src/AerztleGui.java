@@ -148,7 +148,6 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
                 lTable[x][y].setBorder(new LineBorder(getForeground(), 1));
             }
         }
-        tablePanel.setBackground(new Color(230, 230, 230));
 
         // Show GUI
         this.add(topPanel, BorderLayout.NORTH);
@@ -161,11 +160,14 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
      * Calls the submit button pressed event inside the game controll class
      */
     public void submitButtonPressed() {
-        game.submitButtonPressed(songSearchBar.getText());
         if(settings.getAeTypeOfInput().equals("Suchleiste")) {
-                songSearchBar.setText("");
-                songSearchBar.requestFocusInWindow();
-            }
+            game.submitButtonPressed(songSearchBar.getText());
+            songSearchBar.setText("");
+            songSearchBar.requestFocusInWindow();
+        } else {
+            DropdownItem dmSelected = (DropdownItem) songDropdown.getSelectedItem();
+            game.submitButtonPressed(dmSelected.getDropdownText().trim());
+        }
     }
 
     /**
