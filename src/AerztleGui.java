@@ -230,6 +230,19 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
     }
 
     /**
+     * Resets all cells of the table
+     */
+    public void resetGui() {
+        for(int x = 1; x < lTable.length; x++) {
+            for(int y  = 0; y < lTable[0].length; y++) {
+                lTable[x][y].setText("");
+                lTable[x][y].setIcon(null);
+                lTable[x][y].setBackground(Color.WHITE);
+            }
+        }
+    }
+
+    /**
      * Creates a JComboBox object with all all items from song files as DropdownItem objects
      * @return JComboBox with all songs from .json files
      */

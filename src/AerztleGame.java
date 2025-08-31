@@ -15,6 +15,7 @@ public class AerztleGame {
 
     private AerztleGui gui;
     private AerztleObject randomAerztleObject;
+    private LinkedList<AerztleObject> aerztleObjects;
 
     private final int TRIES;
     private int currentGuess = 1;
@@ -26,7 +27,7 @@ public class AerztleGame {
         // Load from settings
         TRIES = pSettings.getAeTries();
 
-        LinkedList<AerztleObject> aerztleObjects = new LinkedList<>();
+        aerztleObjects = new LinkedList<>();
         aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
 
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
@@ -154,7 +155,7 @@ public class AerztleGame {
         }
         // If no match was found:
         System.out.println("Song name wasn't found");
-        return new AerztleObject("Error", "Error", 1970, "0", 0, 0, 0, "Error", false);
+        return new AerztleObject(null, null, 0, null, 0, 0, 0, null, false);
     }
 
     /**
@@ -166,16 +167,20 @@ public class AerztleGame {
         AerztleObject guess = getSelectedSong("data\\aerztleData.json", pGuess);
 
         // Check all categories
-        compSongName(guess, randomAerztleObject);
-        compAlbum(guess, randomAerztleObject);
-        compReleaseYear(guess, randomAerztleObject);
-        compStreams(guess, randomAerztleObject);
-        compDuration(guess, randomAerztleObject);
-        compWordCount(guess, randomAerztleObject);
-        compSinger(guess, randomAerztleObject);
-        compIsSingle(guess, randomAerztleObject);
-
-        currentGuess++;
+        if(guess.getSongName() != null) {
+            compSongName(guess, randomAerztleObject);
+            compAlbum(guess, randomAerztleObject);
+            compReleaseYear(guess, randomAerztleObject);
+            compStreams(guess, randomAerztleObject);
+            compDuration(guess, randomAerztleObject);
+            compWordCount(guess, randomAerztleObject);
+            compSinger(guess, randomAerztleObject);
+            compIsSingle(guess, randomAerztleObject);
+            currentGuess++;
+        } else {
+            return;
+        }
+        
         if(randomAerztleObject.getSongName().equals(guess.getSongName())) {
             Object[] options = {"Neues Spiel", "Beenden"};
             int n = JOptionPane.showOptionDialog(
@@ -190,9 +195,7 @@ public class AerztleGame {
             );
             switch(n) {
                 case 0:
-                    // TODO replace with more efficient algorithm
-                    gui.dispose();                 // Close the current GUI
-                    new AerztleGame(settings);     // Restart the game
+                    restart();
                     break;    
                 case 1:
                     gui.dispose();                 // Close the GUI & exit the game
@@ -221,6 +224,13 @@ public class AerztleGame {
                     System.exit(0);
             }
         }
+    }
+
+    private void restart() {
+        gui.resetGui();
+        currentGuess = 1;
+        int randomIndex = (int) (Math.random() * aerztleObjects.size());
+        randomAerztleObject =  aerztleObjects.get(randomIndex);
     }
 
     /**
