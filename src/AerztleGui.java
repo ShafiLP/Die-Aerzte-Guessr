@@ -375,6 +375,21 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if(settings.isAeFarinEnabled()) {
+            try {
+            String content = new String(Files.readAllBytes(Paths.get("data\\farinSongs.json")));
+            JSONArray arr = new JSONArray(content);
+            for(int i = 0; i < arr.length(); i++) {
+                JSONObject obj = arr.getJSONObject(i);
+                String songName = obj.getString("song");
+                String iconPath = obj.getString("icon");
+                Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                songs.add(new DropdownItem(songName, icon));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        }
         return songs;
     }
 }

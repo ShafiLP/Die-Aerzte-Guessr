@@ -1,7 +1,12 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import com.google.gson.Gson;
+
 import java.awt.*;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Class for the game main menu
@@ -16,7 +21,7 @@ public class MainMenu extends JFrame {
     public MainMenu() {
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, 380);
+        this.setSize(400, 480);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
@@ -69,18 +74,43 @@ public class MainMenu extends JFrame {
         bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
         bAerztle.setBackground(new Color(220, 255, 220));
 
+        icon = new ImageIcon("images\\MNEM.png");
+        img = icon.getImage().getScaledInstance(200, 35, Image.SCALE_SMOOTH);
+        JButton bMnem = new JButton(new ImageIcon(img));
+        bMnem.addActionListener(_ -> {
+            JOptionPane.showConfirmDialog(null, "Dieser Spielmodus ist noch in Arbeit.");
+            /* 
+            TODO
+            this.dispose();
+            new MnemMenu();
+            */
+        });
+        bMnem.setBorder(new LineBorder(new Color(125, 125, 100), 2, true));
+        bMnem.setBackground(new Color(255, 255, 220));
+
+        JButton bSettings = new JButton("Einstellungen");
+        bSettings.addActionListener(_ -> {
+            openSettings();
+        });
+        bSettings.setBorder(new LineBorder(new Color(170, 170, 170), 2, true));
+        bSettings.setBackground(new Color(200, 200, 200));
+
         Dimension buttonSize = new Dimension(300, 40);
         bGTO.setMaximumSize(buttonSize);
         bCTL.setMaximumSize(buttonSize);
         bAerztle.setMaximumSize(buttonSize);
+        bMnem.setMaximumSize(buttonSize);
+        bSettings.setMaximumSize(buttonSize);
 
         bGTO.setAlignmentX(Component.CENTER_ALIGNMENT);
         bCTL.setAlignmentX(Component.CENTER_ALIGNMENT);
         bAerztle.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bMnem.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Author + Version
         JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
-        JLabel lVersion = new JLabel("Version 0.3.1", SwingConstants.LEFT);
+        JLabel lVersion = new JLabel("Version 0.3.2", SwingConstants.LEFT);
         JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
         authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         authorVersionPanel.add(lVersion);
@@ -93,10 +123,123 @@ public class MainMenu extends JFrame {
         buttonPanel.add(bCTL);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         buttonPanel.add(bAerztle);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        buttonPanel.add(bMnem);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        buttonPanel.add(bSettings);
 
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
         this.add(mainPanel);
         this.setVisible(true);
+    }
+    
+    /**
+     * Open universal settings for the game
+     */
+    private void openSettings() {
+        // Load settings from file
+        Settings settings = readSettings("data\\settings.json");
+
+        // JFrame settings
+        JFrame settingsFrame = new JFrame();
+        settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        settingsFrame.setSize(500, 300);
+        settingsFrame.setResizable(false);
+        settingsFrame.setLocationRelativeTo(null);
+        settingsFrame.setLayout(new GridLayout(4, 2));
+
+        // Icon settings
+        JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isShowIconsEnabled());
+
+        // Bonus library settings
+        JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isFarinEnabled());
+        JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isBelaEnabled());
+        JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isSahnieEnabled());
+
+        // Font type settings
+        JPanel fontTypePanel = new JPanel(new GridLayout(2, 1));
+        JComboBox<String> ddFont = new JComboBox<>();
+        ddFont.addItem("Folio Extra");
+        ddFont.addItem("Arial");
+        ddFont.addItem("Comic Sans MS");
+        ddFont.setSelectedItem(settings.getFontType());
+        JLabel lFont = new JLabel("Schriftart:");
+        fontTypePanel.add(lFont);
+        fontTypePanel.add(ddFont);
+
+        // Font size settings
+        JPanel fontSizePanel = new JPanel(new GridLayout(2, 1));
+        JTextField tfFontSize = new JTextField();
+        tfFontSize.setText(settings.getFontSize() + "");
+        JLabel lFontSize = new JLabel("Schriftgröße:");
+        fontSizePanel.add(lFontSize); fontSizePanel.add(tfFontSize);
+
+        // Save button
+        JButton bSave = new JButton("Speichern");
+        bSave.addActionListener(_ -> {
+            try {
+                settings.setFontSize(Integer.parseInt(tfFontSize.getText().trim()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe der Schriftgröße ist ungültig.\nMuss eine Ganzzahl sein!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            settings.setFontType(ddFont.getSelectedItem().toString());
+            settings.setShowIcons(cbShowIcons.isSelected());
+            settings.setFarinLibrary(cbFarin.isSelected());
+            settings.setBelaLibrary(cbBela.isSelected());
+            settings.setSahnieLibrary(cbSahnie.isSelected());
+
+            saveSettings(settings);
+            settingsFrame.dispose();
+        });
+
+        // Add all to frame
+        settingsFrame.add(fontTypePanel);
+        settingsFrame.add(cbFarin);
+        settingsFrame.add(fontSizePanel);
+        settingsFrame.add(cbBela);
+        settingsFrame.add(cbShowIcons);
+        settingsFrame.add(cbSahnie);
+        settingsFrame.add(new JLabel());
+        settingsFrame.add(bSave);
+
+        // Set frame visible
+        settingsFrame.setVisible(true);
+    }
+
+    /**
+     * Reads settings from JSON file
+     * @param filepath path to settings JSON file
+     * @return Settings object with data from JSON file
+     */
+    private Settings readSettings(String filepath) {
+        Settings settingsFromJson = new Settings();
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader(filepath)) {
+            settingsFromJson = gson.fromJson(reader, Settings.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return settingsFromJson;
+    }
+
+    /**
+     * Overrides settings in settings.json file
+     * @param pSettings settings object with parameters to override settings
+     */
+    private void saveSettings(Settings pSettings) {
+        Gson gson = new Gson();
+        try (FileWriter writer = new FileWriter("data\\settings.json")) {
+            gson.toJson(pSettings, writer);
+            System.out.println("Saved settings to \"data/settings.json\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 /*

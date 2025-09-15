@@ -3,15 +3,14 @@ public class Settings {
     private String fontType = "Folio Extra";
     private int fontSize = 12;
     private boolean showIcons = true;
+    private boolean farinLibrary = false;
+    private boolean belaLibrary = false;
+    private boolean sahnieLibrary = false;
 
     // For GTO
     private String gtoTypeOfInput = "Suchleiste";
     private boolean gtoUnlimitedTime = false;
     private boolean gtoUnlimitedLives = false;
-    private boolean gtoIncludeFarinLibrary = false;
-    private boolean gtoIncludeBelaLibrary = false;
-    private boolean gtoIncludeSahnieLibrary = false;
-    private boolean gtoActivateSupportiveSahnie = false;
     private int gtoTimeLimit = 30;
     private int gtoLiveCount = 3;
     private int gtoHighscore = 0;
@@ -58,9 +57,6 @@ public class Settings {
         showIcons = pShowIcons;
         gtoUnlimitedTime = pUnlimitedTime;
         gtoUnlimitedLives = pUnlimitedLives;
-        gtoIncludeFarinLibrary = pFarin;
-        gtoIncludeBelaLibrary = pBela;
-        gtoIncludeSahnieLibrary = pSahnie;
         gtoTimeLimit = pTimeLimit;
         gtoLiveCount = pLiveCount;
     }
@@ -104,6 +100,30 @@ public class Settings {
         return showIcons;
     }
 
+    public void setFarinLibrary(boolean pFarin) {
+        farinLibrary = pFarin;
+    }
+
+    public boolean isFarinEnabled() {
+        return farinLibrary;
+    }
+
+    public void setBelaLibrary(boolean pBela) {
+        belaLibrary = pBela;
+    }
+
+    public boolean isBelaEnabled() {
+        return belaLibrary;
+    }
+
+    public void setSahnieLibrary(boolean pSahnie) {
+        sahnieLibrary = pSahnie;
+    }
+
+    public boolean isSahnieEnabled() {
+        return sahnieLibrary;
+    }
+
     //* GTO SETTINGS
 
     public void setGtoTypeOfInput(String pTypeOfInput) {
@@ -128,38 +148,6 @@ public class Settings {
 
     public boolean isGtoUnlimitedLivesEnabled() {
         return gtoUnlimitedLives;
-    }
-
-    public void setGtoFarinLibrary(boolean pFarin) {
-        gtoIncludeFarinLibrary = pFarin;
-    }
-
-    public boolean isGtoFarinEnabled() {
-        return gtoIncludeFarinLibrary;
-    }
-
-    public void setGtoBelaLibrary(boolean pBela) {
-        gtoIncludeBelaLibrary = pBela;
-    }
-
-    public boolean isGtoBelaEnabled() {
-        return gtoIncludeBelaLibrary;
-    }
-
-    public void setGtoSahnieLibrary(boolean pSahnie) {
-        gtoIncludeSahnieLibrary = pSahnie;
-    }
-
-    public boolean isGtoSahnieEnabled() {
-        return gtoIncludeSahnieLibrary;
-    }
-
-    public void setGtoSupportSahnie(boolean pSupportiveSahnie) {
-        gtoActivateSupportiveSahnie = pSupportiveSahnie;
-    }
-
-    public boolean isGtoSupportSahnieEnabled() {
-        return gtoActivateSupportiveSahnie;
     }
 
     public void setGtoTimeLimit(int pTimeLimit) {

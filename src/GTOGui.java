@@ -67,6 +67,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Create GUI center, where the song text will be displayed
         centerPanel = new JPanel(new GridBagLayout());
+        centerPanel.setBackground(new Color(255, 220, 220));
 
         // Lyrics to guess in the center
         lyricLabel = new JLabel("„" + pLyric + "“");
@@ -92,29 +93,9 @@ class GTOGui extends JFrame implements EnterKeyListener{
             fill = GridBagConstraints.NONE;
         }});
 
-        // Add a suppoert Sahnie if setting is enabled
-        if(settings.isGtoSupportSahnieEnabled()) {
-            JPanel sahniePanel = new JPanel(new BorderLayout());
-            sahniePanel.setOpaque(false);
-
-            // Get a scaled ImageIcon
-            ImageIcon icon = new ImageIcon("images\\sahnie.png");
-            Image img = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-            JLabel lSahnie = new JLabel(new ImageIcon(img));
-            // Add to panel
-            //sahniePanel.add(lSahnie , BorderLayout.WEST);
-            centerPanel.add(lSahnie, new GridBagConstraints() {{
-                gridx = 0;
-                gridy = 1;
-                weightx = 1.0;
-                weighty = 1.0;
-                anchor = GridBagConstraints.LAST_LINE_START;
-                fill = GridBagConstraints.NONE;
-            }});
-        }
-
         // Guessing bar for guess input and submit button
         JPanel guessBar = new JPanel(new GridBagLayout());
+        guessBar.setBackground(new Color(255, 220, 220));
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -206,6 +187,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Initialize infoBar Panel
         infoBar = new JPanel(new GridBagLayout());
+        infoBar.setBackground(new Color(230, 100, 100));
 
         infoBar.add(upperLeft, new GridBagConstraints() {{
             gridx = 0;
@@ -232,7 +214,6 @@ class GTOGui extends JFrame implements EnterKeyListener{
         }});
 
         infoBar.setBorder(new EmptyBorder(5, 5, 5, 5));
-        infoBar.setBackground(Color.LIGHT_GRAY);
         
         // Add all components to the main frame
         this.add(guessBar, BorderLayout.SOUTH);
@@ -353,7 +334,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
         JComboBox<DropdownItem> comboBox = new JComboBox<>(dropdownArrayFromJson("data\\songs.json"));
 
         // Add Farin songs if pFarin = true
-        if(settings.isGtoFarinEnabled()) {
+        if(settings.isFarinEnabled()) {
             JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\farinSongs.json"));
             for(int i = 0; i < farinDropdown.getItemCount(); i++) {
                 comboBox.addItem(farinDropdown.getItemAt(i));
@@ -362,7 +343,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
         }
 
         // Add Bela songs if pBela = true
-        if(settings.isGtoBelaEnabled()) {
+        if(settings.isBelaEnabled()) {
                 JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\belaSongs.json"));
             for(int i = 0; i < belaDropdown.getItemCount(); i++) {
                 comboBox.addItem(belaDropdown.getItemAt(i));
@@ -371,7 +352,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
         }
 
         // Add Sahnie songs if pSahnie = true
-        if(settings.isGtoSahnieEnabled()) {
+        if(settings.isSahnieEnabled()) {
                 JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\sahnieSongs.json"));
             for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
                 comboBox.addItem(sahnieDropdown.getItemAt(i));
@@ -441,15 +422,15 @@ class GTOGui extends JFrame implements EnterKeyListener{
      */
     private AutoCompleteTextField initializAutoCompleteTextField() {
         LinkedList<DropdownItem> suggestions = dropdownListFromJson("data\\songs.json");
-        if(settings.isGtoFarinEnabled()) {
+        if(settings.isFarinEnabled()) {
             LinkedList<DropdownItem> farinSuggestions = dropdownListFromJson("data\\farinSongs.json");
             suggestions.addAll(farinSuggestions);
         }
-        if(settings.isGtoBelaEnabled()) {
+        if(settings.isBelaEnabled()) {
             LinkedList<DropdownItem> belaSuggestions = dropdownListFromJson("data\\belaSongs.json");
             suggestions.addAll(belaSuggestions);
         }
-        if(settings.isGtoSahnieEnabled()) {
+        if(settings.isSahnieEnabled()) {
             LinkedList<DropdownItem> sahnieSuggestions = dropdownListFromJson("data\\sahnieSongs.json");
             suggestions.addAll(sahnieSuggestions);
         }

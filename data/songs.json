@@ -41,6 +41,7 @@
     {"song": "Sweet Sweet Gwendoline", "icon": "aerzte"},
     {"song": "Ist das alles?", "icon": "aerzte"},
     {"song": "Frühjahrsputz", "icon": "aerzte"},
+    {"song": "Geschwisterliebe", "icon": "aerzte"},
     {"song": "Alleine in der Nacht", "icon": "aerzte"},
     {"song": "Jenseits von Eden", "icon": "aerzte"},
     {"song": "Wir werden schön", "icon": "aerzte"},
@@ -55,7 +56,6 @@
 
 
     {"song": "Sie kratzt, sie stinkt, sie klebt", "icon": "abAchtzehn"},
-    {"song": "Geschwisterliebe", "icon": "abAchtzehn"},
     {"song": "Helmut K.", "icon": "abAchtzehn"},
     {"song": "Claudia II", "icon": "abAchtzehn"},
 
@@ -335,6 +335,7 @@
     {"song": "Wir sind die Besten", "icon": "jazz"},
     {"song": "Wir waren die Besten", "icon": "jazz"},
     {"song": "Wir sind die Lustigsten", "icon": "jazz"},
+    {"song": "Nimm es wie ein Mann (a.k.a. Kurt Cobain)", "icon": "jazz"},
 
     {"song": "Das schönste Lied der Welt", "icon": "jungeSingle"},
     {"song": "Tut mir leid", "icon": "jungeSingle"},

@@ -191,7 +191,7 @@
 
 
 
-    {"song": "Punk ist...", "album": "dreizehn", "release": "1998", "streams": "800.000", "durationMin": "3", "durationSec": "42", "wordCount": "208", "singer": "Bela", "single": "false"},
+    {"song": "Punk ist...", "album": "dreizehn", "release": "1998", "streams": "800.000", "durationMin": "3", "durationSec": "42", "wordCount": "208", "singer": "Bela, Farin, Rod", "single": "false"},
     {"song": "Ein Lied für dich", "album": "dreizehn", "release": "1998", "streams": "5.100.000", "durationMin": "2", "durationSec": "43", "wordCount": "267", "singer": "Farin", "single": "false"},
     {"song": "Goldenes Handwerk", "album": "dreizehn", "release": "1998", "streams": "2.000.000", "durationMin": "3", "durationSec": "37", "wordCount": "238", "singer": "Bela", "single": "true"},
     {"song": "Meine Freunde", "album": "dreizehn", "release": "1998", "streams": "3.300.000", "durationMin": "1", "durationSec": "47", "wordCount": "181", "singer": "Farin", "single": "false"},
@@ -315,6 +315,7 @@
     {"song": "Wir sind die Besten", "album": "jazz", "release": "2007", "streams": "2.000.000", "durationMin": "2", "durationSec": "28", "wordCount": "264", "singer": "Farin", "single": "false"},
     {"song": "Wir waren die Besten", "album": "jazz", "release": "2007", "streams": "600.000", "durationMin": "4", "durationSec": "14", "wordCount": "253", "singer": "Bela", "single": "false"},
     {"song": "Wir sind die Lustigsten", "album": "jazz", "release": "2007", "streams": "500.000", "durationMin": "4", "durationSec": "34", "wordCount": "172", "singer": "Rod", "single": "false"},
+    {"song": "Nimm es wie ein Mann (a.k.a. Kurt Cobain)", "album": "jazz", "release": "2007", "streams": "0", "durationMin": "1", "durationSec": "57", "wordCount": "186", "singer": "Bela, Rod", "single": "false"},
 
     {"song": "Das schönste Lied der Welt", "album": "/", "release": "2007", "streams": "0", "durationMin": "2", "durationSec": "36", "wordCount": "286", "singer": "Bela", "single": "false"},
     {"song": "Tut mir leid", "album": "/", "release": "2007", "streams": "0", "durationMin": "3", "durationSec": "25", "wordCount": "409", "singer": "Bela", "single": "false"},

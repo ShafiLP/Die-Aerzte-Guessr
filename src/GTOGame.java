@@ -38,13 +38,13 @@ public class GTOGame implements TimerEvents {
         songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
 
         // Add Farin songs if pFarin = true
-        if(settings.isGtoFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
+        if(settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
 
         // Add Bela songs if pBela = true
-        if(settings.isGtoBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
+        if(settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
 
         // Add Sahnie songs if pSahnie = true
-        if(settings.isGtoSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
+        if(settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
  
         // Get a random song text part
         currentSongText = getRandomSongText();

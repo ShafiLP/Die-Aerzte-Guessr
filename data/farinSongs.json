@@ -32,6 +32,7 @@
 
 
 
+    {"song": "Noch einmal", "icon": "sonne"},
     {"song": "Mehr", "icon": "sonne"},
     {"song": "Sonne", "icon": "sonne"},
     {"song": "Augenblick", "icon": "sonne"},
@@ -40,6 +41,7 @@
     {"song": "Wie ich den Marilyn-Manson-Ähnlichkeitswettbewerb verlor", "icon": "sonne"},
     {"song": "Unsichtbar", "icon": "sonne"},
     {"song": "Apocalypse wann anders", "icon": "sonne"},
+    {"song": "Schon wieder", "icon": "sonne"},
     {"song": "Immer noch", "icon": "sonne"},
     {"song": "Alle dasselbe", "icon": "sonne"},
     {"song": "Kein Zurück", "icon": "sonne"},

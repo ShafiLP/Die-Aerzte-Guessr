@@ -25,7 +25,7 @@ public class GTOMenu extends JFrame {
         this.setSize(300, 300);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
-        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage()); //TODO: each window gets its own funny icon
+        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
 
         // Main panel with BorderLayout
@@ -96,84 +96,48 @@ public class GTOMenu extends JFrame {
     private void openSettings() {
         JFrame settingsFrame = new JFrame();
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 500);
+        settingsFrame.setSize(400, 200);
         settingsFrame.setResizable(false);
         settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(7, 2));
+        settingsFrame.setLayout(new GridLayout(4, 2));
 
         // Timer settings
         JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
         JTextField tfTimeLimit = new JTextField(settings.getGtoTimeLimit() + "");
+        tfTimeLimit.setEnabled(!settings.isGtoUnlimitedTimeEnabled());
         JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
         panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
         JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isGtoUnlimitedTimeEnabled());
         cbUnlimitedTime.addActionListener(_ -> {
-            if(cbUnlimitedTime.isSelected()) {
-                tfTimeLimit.setEnabled(false);
-            } else {
-                tfTimeLimit.setEnabled(true);
-            }
+            tfTimeLimit.setEnabled(!cbUnlimitedTime.isSelected());
         });
 
         // Health bar settings
         JLabel lLives = new JLabel("Anzahl Leben:");
         JTextField tfLives = new JTextField(settings.getGtoLiveCount() + "");
+        tfLives.setEnabled(!settings.isGtoUnlimitedLivesEnabled());
         JPanel panLives = new JPanel(new GridLayout(2, 1));
         panLives.add(lLives); panLives.add(tfLives);
         JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isGtoUnlimitedLivesEnabled());
         cbUnlimitedLives.addActionListener(_ -> {
-            if(cbUnlimitedLives.isSelected()) {
-                tfLives.setEnabled(false);
-            } else {
-                tfLives.setEnabled(true);
-            }
+            tfLives.setEnabled(!cbUnlimitedLives.isSelected());
         });
-
-        // Icon settings
-        JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isShowIconsEnabled());
-
-        // Highscore reset button
-        JButton bResetHighscore = new JButton("Highscore zurücksetzen");
-        bResetHighscore.addActionListener(_ -> {
-            settings.setGtoHighscore(0);
-        });
-
-        // Bonus library settings
-        JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isGtoFarinEnabled());
-        JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isGtoBelaEnabled());
-        JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isGtoSahnieEnabled());
 
         // Type of input settings
         JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
         JComboBox<String> ddTypeOfInput = new JComboBox<>();
         ddTypeOfInput.addItem("Suchleiste");
         ddTypeOfInput.addItem("Dropdown Menü");
-        ddTypeOfInput.addItem("Manuelle Eingabe");
         ddTypeOfInput.setSelectedItem(settings.getGtoTypeOfInput());
         JLabel lTypeOfInput = new JLabel("Eingabemethode:");
         typeOfInputPanel.add(lTypeOfInput);
         typeOfInputPanel.add(ddTypeOfInput);
 
-        // Font type settings
-        JPanel fontTypePanel = new JPanel(new GridLayout(2, 1));
-        JComboBox<String> ddFont = new JComboBox<>();
-        ddFont.addItem("Folio Extra");
-        ddFont.addItem("Arial");
-        ddFont.addItem("Comic Sans MS");
-        ddFont.setSelectedItem(settings.getFontType());
-        JLabel lFont = new JLabel("Schriftart:");
-        fontTypePanel.add(lFont);
-        fontTypePanel.add(ddFont);
-
-        // Font size settings
-        JPanel fontSizePanel = new JPanel(new GridLayout(2, 1));
-        JTextField tfFontSize = new JTextField();
-        tfFontSize.setText(settings.getFontSize() + "");
-        JLabel lFontSize = new JLabel("Schriftgröße:");
-        fontSizePanel.add(lFontSize); fontSizePanel.add(tfFontSize);
-
-        // Supportive Sahnie
-        JCheckBox cbSupportSahnie = new JCheckBox("Aktiviere Unterstüzungs-Sahnie", settings.isGtoSupportSahnieEnabled());
+        // Highscore reset button
+        JButton bResetHighscore = new JButton("Highscore zurücksetzen");
+        bResetHighscore.addActionListener(_ -> {
+            settings.setGtoHighscore(0);
+        });
 
         // Save button
         JButton bSave = new JButton("Speichern");
@@ -220,36 +184,9 @@ public class GTOMenu extends JFrame {
                 );
                 return;
             }
-            try {
-                settings.setFontSize(Integer.parseInt(tfFontSize.getText().trim()));
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Schriftgröße ist ungültig.\nMuss eine Ganzzahl sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-            if(settings.getFontSize() > 18 || settings.getFontSize() < 4) {
-                settings.setFontSize(12);
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Schriftgröße ist ungültig.\nDie Schriftgröße muss zwischen 4 und 18 liegen!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
 
             settings.setGtoUnlimitedLives(cbUnlimitedLives.isSelected());
-            settings.setShowIcons(cbShowIcons.isSelected());
-            settings.setGtoFarinLibrary(cbFarin.isSelected());
-            settings.setGtoBelaLibrary(cbBela.isSelected());
-            settings.setGtoSahnieLibrary(cbSahnie.isSelected());
-            settings.setGtoSupportSahnie(cbSupportSahnie.isSelected());
             settings.setGtoTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
-            settings.setFontType(ddFont.getSelectedItem().toString());
 
             saveSettings(settings);
             settingsFrame.dispose();
@@ -257,17 +194,11 @@ public class GTOMenu extends JFrame {
 
         // Add all to frame
         settingsFrame.add(panTimeLimit);
-        settingsFrame.add(fontTypePanel);
-        settingsFrame.add(cbUnlimitedTime);
-        settingsFrame.add(fontSizePanel);
         settingsFrame.add(panLives);
-        settingsFrame.add(cbFarin);
+        settingsFrame.add(cbUnlimitedTime);
         settingsFrame.add(cbUnlimitedLives);
-        settingsFrame.add(cbBela);
-        settingsFrame.add(cbShowIcons);
-        settingsFrame.add(cbSahnie);
         settingsFrame.add(typeOfInputPanel);
-        settingsFrame.add(cbSupportSahnie);
+        settingsFrame.add(new JLabel());
         settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);
 

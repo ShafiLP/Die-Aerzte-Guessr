@@ -29,6 +29,8 @@ public class AerztleGame {
 
         aerztleObjects = new LinkedList<>();
         aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
+        if(settings.isAeFarinEnabled())
+        aerztleObjects = readSongsFromJson("data\\aerztleDataFarin.json", aerztleObjects);
 
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
         randomAerztleObject =  aerztleObjects.get(randomIndex);
@@ -165,6 +167,8 @@ public class AerztleGame {
      */
     public void submitButtonPressed(String pGuess) {
         AerztleObject guess = getSelectedSong("data\\aerztleData.json", pGuess);
+        if(guess.getSongName() == null | settings.isAeFarinEnabled())
+        guess = getSelectedSong("data\\aerztleDataFarin.json", pGuess);
 
         // Check all categories
         if(guess.getSongName() != null) {
