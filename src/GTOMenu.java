@@ -133,6 +133,13 @@ public class GTOMenu extends JFrame {
         typeOfInputPanel.add(lTypeOfInput);
         typeOfInputPanel.add(ddTypeOfInput);
 
+        // Number or hints settings
+        JPanel hintPanel = new JPanel(new GridLayout(2, 1));
+        JLabel lHints = new JLabel("Anzahl der Hinweise");
+        JTextField tfHints = new JTextField(settings.getGtoHintCount() + "");
+        hintPanel.add(lHints);
+        hintPanel.add(tfHints);
+
         // Highscore reset button
         JButton bResetHighscore = new JButton("Highscore zurücksetzen");
         bResetHighscore.addActionListener(_ -> {
@@ -142,8 +149,18 @@ public class GTOMenu extends JFrame {
         // Save button
         JButton bSave = new JButton("Speichern");
         bSave.addActionListener(_ -> {
+            // Check if time limit input is valid
             try {
-                settings.setGtoTimeLimit(Integer.parseInt(tfTimeLimit.getText()));
+                int timeLimit = Integer.parseInt(tfLives.getText());
+                if(timeLimit > 1000) {
+                    JOptionPane.showMessageDialog(
+                        bSave,
+                        "Eingabe des Zeitlimits ist ungültig.\nDas Limit darf nicht höher als 1000 sein!",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(
                     bSave,
@@ -153,18 +170,19 @@ public class GTOMenu extends JFrame {
                 );
                 return;
             }
-            if(settings.getGtoTimeLimit() > 1000) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe des Zeitlimits ist ungültig.\nDas Limit darf nicht höher als 1000 sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-            settings.setGtoUnlimitedTime(cbUnlimitedTime.isSelected());
+
+            // Check if live count input is valid
             try {
-                settings.setGtoLiveCount(Integer.parseInt(tfLives.getText()));
+                int liveCount = Integer.parseInt(tfLives.getText());
+                if(liveCount > 10) {
+                    JOptionPane.showMessageDialog(
+                        bSave,
+                        "Eingabe der Lebensanzahl ist ungültig.\nDie Leben dürfen maximal 10 sein!",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(
                     bSave,
@@ -176,19 +194,40 @@ public class GTOMenu extends JFrame {
             }
             if(settings.getGtoLiveCount() > 10) {
                 settings.setGtoLiveCount(3); 
+                
+            }
+
+            // Check if hint input is valid
+            try {
+                int hints = Integer.parseInt(tfHints.getText());
+                if(hints > 1000) {
+                    JOptionPane.showMessageDialog(
+                        bSave,
+                        "Eingabe der Hinweisanzahl ungültig.\nDarf nicht höher als 1000 sein!",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
+            } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(
                     bSave,
-                    "Eingabe der Lebensanzahl ist ungültig.\nDie Leben dürfen maximal 10 sein!",
+                    "Eingabe der Hinweisanzahl ungültig.\nMuss eine Ganzzahl sein!",
                     "Error",
                     JOptionPane.ERROR_MESSAGE
                 );
-                return;
             }
 
+            // Save settings
+            settings.setGtoTimeLimit(Integer.parseInt(tfTimeLimit.getText()));
+            settings.setGtoLiveCount(Integer.parseInt(tfLives.getText()));
+            settings.setGtoHintCount(Integer.parseInt(tfHints.getText()));
+            settings.setGtoUnlimitedTime(cbUnlimitedTime.isSelected());
             settings.setGtoUnlimitedLives(cbUnlimitedLives.isSelected());
             settings.setGtoTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
-
             saveSettings(settings);
+
+            // Close frame
             settingsFrame.dispose();
         });
 
@@ -198,7 +237,7 @@ public class GTOMenu extends JFrame {
         settingsFrame.add(cbUnlimitedTime);
         settingsFrame.add(cbUnlimitedLives);
         settingsFrame.add(typeOfInputPanel);
-        settingsFrame.add(new JLabel());
+        settingsFrame.add(hintPanel);
         settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);
 

@@ -78,7 +78,7 @@ public class MainMenu extends JFrame {
         img = icon.getImage().getScaledInstance(200, 35, Image.SCALE_SMOOTH);
         JButton bMnem = new JButton(new ImageIcon(img));
         bMnem.addActionListener(_ -> {
-            JOptionPane.showConfirmDialog(null, "Dieser Spielmodus ist noch in Arbeit.");
+            JOptionPane.showMessageDialog(null, "Dieser Spielmodus ist noch in Arbeit.");
             /* 
             TODO
             this.dispose();
@@ -89,6 +89,7 @@ public class MainMenu extends JFrame {
         bMnem.setBackground(new Color(255, 255, 220));
 
         JButton bSettings = new JButton("Einstellungen");
+        bSettings.setFont(new Font("Folio Extra", Font.BOLD, 20));
         bSettings.addActionListener(_ -> {
             openSettings();
         });
@@ -110,7 +111,7 @@ public class MainMenu extends JFrame {
 
         // Author + Version
         JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
-        JLabel lVersion = new JLabel("Version 0.3.2", SwingConstants.LEFT);
+        JLabel lVersion = new JLabel("Version 0.3.3", SwingConstants.LEFT);
         JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
         authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         authorVersionPanel.add(lVersion);
@@ -143,7 +144,7 @@ public class MainMenu extends JFrame {
         // JFrame settings
         JFrame settingsFrame = new JFrame();
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 300);
+        settingsFrame.setSize(500, 200);
         settingsFrame.setResizable(false);
         settingsFrame.setLocationRelativeTo(null);
         settingsFrame.setLayout(new GridLayout(4, 2));
@@ -242,7 +243,8 @@ public class MainMenu extends JFrame {
         }
     }
 }
+
 /*
- * TODO:
- * - Universal settings (font, icons)
+ * TODO
+ * - Setting for colourful GUI
  */

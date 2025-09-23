@@ -19,6 +19,7 @@ public class GTOGame implements TimerEvents {
     private GTOGui gui;
     private int score = 0;
     private int lives;
+    private int hints;
     private boolean blockWrongGuesses = false;
     private SongText currentSongText;
     private LinkedList<SongText> songTexts = new LinkedList<>();
@@ -33,6 +34,7 @@ public class GTOGame implements TimerEvents {
         settings = pSettings;
         lives = settings.getGtoLiveCount();
         timeLimit = settings.getGtoTimeLimit();
+        hints = settings.getGtoHintCount();
 
         // Create a LinkedList containing all available song lyrics
         songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
@@ -171,7 +173,13 @@ public class GTOGame implements TimerEvents {
      * @return first letter of the current song
      */
     public String requestHint() {
-        return String.valueOf(currentSongText.getSongName().charAt(0));
+        if(hints > 0) {
+            hints--;
+            gui.setHints(hints);
+            return String.valueOf(currentSongText.getSongName().charAt(0));
+        } else {
+            return "Keine Hinweise mehr übrig.";
+        }
     }
 
     /**
@@ -228,5 +236,4 @@ public class GTOGame implements TimerEvents {
  * TODO:
  * - Fix lyric display (currently can be too long for the window)
  * - ? Without creating a LinkedList with 1000 objects? (for performance)
- * - Font Settings
  */

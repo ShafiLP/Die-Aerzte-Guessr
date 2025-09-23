@@ -13,6 +13,7 @@ public class Settings {
     private boolean gtoUnlimitedLives = false;
     private int gtoTimeLimit = 30;
     private int gtoLiveCount = 3;
+    private int gtoHintCount = 3;
     private int gtoHighscore = 0;
 
     // For CTL
@@ -164,6 +165,14 @@ public class Settings {
 
     public int getGtoLiveCount() {
         return gtoLiveCount;
+    }
+
+    public void setGtoHintCount(int pHints) {
+        gtoHintCount = pHints;
+    }
+
+    public int getGtoHintCount() {
+        return gtoHintCount;
     }
 
     public void setGtoHighscore(int pHighscore) {

@@ -25,6 +25,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
     private JLabel timerLabel;
     private JLabel currentSongLabel = new JLabel();
     private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.RIGHT);
+    private JLabel lHints = new JLabel();
     private JLabel[] healthBar;
     private JLabel lSolution;
 
@@ -73,7 +74,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
         lyricLabel = new JLabel("„" + pLyric + "“");
         lyricLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
 
-        lSolution = new JLabel("Hineweis: " + game.requestHint() + "...");
+        lSolution = new JLabel(/*"Hineweis: " + game.requestHint() + "..."*/);
         lSolution.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         lSolution.setForeground(Color.RED);
         lSolution.setVisible(false);
@@ -123,8 +124,10 @@ class GTOGui extends JFrame implements EnterKeyListener{
         // Hint button
         JButton bHint = new JButton("Hinweis");
         bHint.addActionListener(_ -> {
-            lSolution.setText("Hinweis: " + game.requestHint() + "...");
-            lSolution.setVisible(true);
+            if(!lSolution.isVisible()) {
+                lSolution.setText("Hinweis: " + game.requestHint() + "...");
+                lSolution.setVisible(true);
+            }
         });
         bHint.setPreferredSize(new Dimension(120, 30));
         guessBar.add(bHint, new GridBagConstraints() {{
@@ -180,6 +183,16 @@ class GTOGui extends JFrame implements EnterKeyListener{
         upperRight.add(timerLabel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 1;
+            weightx = 1.0;
+            gbc.anchor = GridBagConstraints.LINE_END;
+            gbc.fill = GridBagConstraints.NONE;
+        }});
+
+        lHints.setText("Hinweise: " + settings.getGtoHintCount());
+        lHints.setAlignmentX(SwingConstants.CENTER);
+        upperRight.add(lHints, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 2;
             weightx = 1.0;
             gbc.anchor = GridBagConstraints.LINE_END;
             gbc.fill = GridBagConstraints.NONE;
@@ -280,8 +293,12 @@ class GTOGui extends JFrame implements EnterKeyListener{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        infoBar.setBackground(Color.LIGHT_GRAY); // Reset to default color
+        infoBar.setBackground(new Color(230, 100, 100)); // Reset to default color
         lSolution.setVisible(false);
+    }
+
+    public void setHints(int pHints) {
+        lHints.setText("Hinweise: " + pHints);
     }
 
     /**
