@@ -88,16 +88,39 @@ public class AerztleMenu extends JFrame {
     private void openSettings() {
         JFrame settingsFrame = new JFrame();
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 150);
+        settingsFrame.setSize(500, 250);
         settingsFrame.setResizable(false);
         settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(2, 2)); 
+        settingsFrame.setLayout(new GridLayout(4, 2)); 
 
         // Tries settings
         JLabel lTries = new JLabel("Versuche:");
         JTextField tfTries = new JTextField(settings.getAeTries() + "");
         JPanel panTries = new JPanel(new GridLayout(2, 1));
         panTries.add(lTries);  panTries.add(tfTries);
+
+        // Bonus library settings
+        JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isAeFarinEnabled());
+        JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isAeBelaEnabled());
+        JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isAeSahnieEnabled());
+
+        // Font type settings
+        JPanel fontTypePanel = new JPanel(new GridLayout(2, 1));
+        JComboBox<String> ddFont = new JComboBox<>();
+        ddFont.addItem("Folio Extra");
+        ddFont.addItem("Arial");
+        ddFont.addItem("Comic Sans MS");
+        ddFont.setSelectedItem(settings.getFontType());
+        JLabel lFont = new JLabel("Schriftart:");
+        fontTypePanel.add(lFont);
+        fontTypePanel.add(ddFont);
+
+        // Font size settings
+        JPanel fontSizePanel = new JPanel(new GridLayout(2, 1));
+        JTextField tfFontSize = new JTextField();
+        tfFontSize.setText(settings.getFontSize() + "");
+        JLabel lFontSize = new JLabel("Schriftgröße:");
+        fontSizePanel.add(lFontSize); fontSizePanel.add(tfFontSize);
 
         // Type of input settings
         JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
@@ -113,7 +136,6 @@ public class AerztleMenu extends JFrame {
         // Save button
         JButton bSave = new JButton("Speichern");
         bSave.addActionListener(_ -> {
-            // Check if tries input is valid
             try {
                 settings.setAeTries(Integer.parseInt(tfTries.getText()));
             } catch (NumberFormatException e) {
@@ -135,6 +157,32 @@ public class AerztleMenu extends JFrame {
                 return;
             }
 
+            try {
+                settings.setFontSize(Integer.parseInt(tfFontSize.getText().trim()));
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe der Schriftgröße ist ungültig.\nMuss eine Ganzzahl sein!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+            if(settings.getFontSize() > 18 || settings.getFontSize() < 4) {
+                settings.setFontSize(12);
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe der Schriftgröße ist ungültig.\nDie Schriftgröße muss zwischen 4 und 18 liegen!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+                return;
+            }
+
+            settings.setAeFarin(cbFarin.isSelected());
+            settings.setAeBela(cbBela.isSelected());
+            settings.setAeSahnie(cbSahnie.isSelected());
+            settings.setFontType(ddFont.getSelectedItem().toString());
             settings.setAeTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
 
             saveSettings(settings);
@@ -142,9 +190,13 @@ public class AerztleMenu extends JFrame {
         });
 
         // Add all to frame
+        settingsFrame.add(fontTypePanel);
+        settingsFrame.add(cbFarin);
+        settingsFrame.add(fontSizePanel);
+        settingsFrame.add(cbBela);
         settingsFrame.add(panTries);
+        settingsFrame.add(cbSahnie);
         settingsFrame.add(typeOfInputPanel);
-        settingsFrame.add(new JLabel());
         settingsFrame.add(bSave);
 
         // Set frame visible

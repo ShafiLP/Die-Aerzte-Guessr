@@ -9,9 +9,9 @@ import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
-public class LueckenfuellerGame implements TimerEvents {
+public class CTLGame implements TimerEvents {
     private Settings settings;
-    private LueckenfuellerGui gui;
+    private CTLGui gui;
     private LinkedList<SongTextWithGap> lyricsWithGaps;
     private SongTextWithGap randomTextWithGap;
     private boolean blockWrongGuesses = false;
@@ -24,7 +24,7 @@ public class LueckenfuellerGame implements TimerEvents {
      * Constructor for "Complete The Lyrics" game
      * @param pSettings Settings object with all setting parameters
      */
-    public LueckenfuellerGame(Settings pSettings) {
+    public CTLGame(Settings pSettings) {
         // Read settings
         settings = pSettings;
         timeLimit = settings.getCtlTimeLimit();
@@ -43,7 +43,7 @@ public class LueckenfuellerGame implements TimerEvents {
         randomTextWithGap = getRandomSongTextWithGap(lyricsWithGaps);
         
         // Create GUI
-        gui = new LueckenfuellerGui(this, pSettings, randomTextWithGap);
+        gui = new CTLGui(this, pSettings, randomTextWithGap);
 
         // Start timer
         if(!settings.isCtlUnlimitedTimeEnabled()) {
@@ -117,7 +117,7 @@ public class LueckenfuellerGame implements TimerEvents {
             switch(n) {
                 case 0:
                     gui.dispose();         // Close the current GUI
-                    new LueckenfuellerGame(settings); // Restart the game
+                    new CTLGame(settings); // Restart the game
                 case 1:
                     gui.dispose();         // Close the GUI & exit the game
                     System.exit(0);
@@ -160,7 +160,7 @@ public class LueckenfuellerGame implements TimerEvents {
             switch(n) {
                 case 0:
                     gui.dispose();         // Close the current GUI
-                    new LueckenfuellerGame(settings); // Restart the game
+                    new CTLGame(settings); // Restart the game
                     return null;
                 case 1:
                     gui.dispose();         // Close the GUI & exit the game

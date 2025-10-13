@@ -21,7 +21,7 @@ public class MainMenu extends JFrame {
     public MainMenu() {
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, /*480*/440);
+        this.setSize(400, 480);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
@@ -49,7 +49,7 @@ public class MainMenu extends JFrame {
         JButton bGTO = new JButton(new ImageIcon(img));
         bGTO.addActionListener(_ -> {
             this.dispose(); // Close the current gui
-            new StraightOuttaMenu();  // Start the game
+            new GTOMenu();  // Start the game
         });
         bGTO.setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
         bGTO.setBackground(new Color(255, 220, 220));
@@ -59,7 +59,7 @@ public class MainMenu extends JFrame {
         JButton bCTL = new JButton(new ImageIcon(img));
         bCTL.addActionListener(_ -> {
             this.dispose(); 
-            new LueckenfuellerMenu();
+            new CTLMenu();
         });
         bCTL.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
         bCTL.setBackground(new Color(220, 220, 255));
@@ -74,19 +74,19 @@ public class MainMenu extends JFrame {
         bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
         bAerztle.setBackground(new Color(220, 255, 220));
 
-        /* TODO
         icon = new ImageIcon("images\\MNEM.png");
         img = icon.getImage().getScaledInstance(200, 35, Image.SCALE_SMOOTH);
         JButton bMnem = new JButton(new ImageIcon(img));
         bMnem.addActionListener(_ -> {
             JOptionPane.showMessageDialog(null, "Dieser Spielmodus ist noch in Arbeit.");
+            /* 
+            TODO
             this.dispose();
             new MnemMenu();
-            
+            */
         });
         bMnem.setBorder(new LineBorder(new Color(125, 125, 100), 2, true));
         bMnem.setBackground(new Color(255, 255, 220));
-        */
 
         JButton bSettings = new JButton("Einstellungen");
         bSettings.setFont(new Font("Folio Extra", Font.BOLD, 20));
@@ -100,18 +100,18 @@ public class MainMenu extends JFrame {
         bGTO.setMaximumSize(buttonSize);
         bCTL.setMaximumSize(buttonSize);
         bAerztle.setMaximumSize(buttonSize);
-        // TODO bMnem.setMaximumSize(buttonSize);
+        bMnem.setMaximumSize(buttonSize);
         bSettings.setMaximumSize(buttonSize);
 
         bGTO.setAlignmentX(Component.CENTER_ALIGNMENT);
         bCTL.setAlignmentX(Component.CENTER_ALIGNMENT);
         bAerztle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // TODO bMnem.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bMnem.setAlignmentX(Component.CENTER_ALIGNMENT);
         bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Author + Version
         JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
-        JLabel lVersion = new JLabel("Version 0.3.4", SwingConstants.LEFT);
+        JLabel lVersion = new JLabel("Version 0.3.3", SwingConstants.LEFT);
         JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
         authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         authorVersionPanel.add(lVersion);
@@ -125,10 +125,8 @@ public class MainMenu extends JFrame {
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         buttonPanel.add(bAerztle);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        /* TODO
         buttonPanel.add(bMnem);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        */
         buttonPanel.add(bSettings);
 
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
@@ -158,9 +156,6 @@ public class MainMenu extends JFrame {
         JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isFarinEnabled());
         JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isBelaEnabled());
         JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isSahnieEnabled());
-
-        // Colourful GUI settings
-        JCheckBox cbColourfulGui = new JCheckBox("Farbiges Design", settings.isColourfulGuiEnabled());
 
         // Font type settings
         JPanel fontTypePanel = new JPanel(new GridLayout(2, 1));
@@ -199,7 +194,6 @@ public class MainMenu extends JFrame {
             settings.setFarinLibrary(cbFarin.isSelected());
             settings.setBelaLibrary(cbBela.isSelected());
             settings.setSahnieLibrary(cbSahnie.isSelected());
-            settings.setColourfulGui(cbColourfulGui.isSelected());
 
             saveSettings(settings);
             settingsFrame.dispose();
@@ -212,7 +206,7 @@ public class MainMenu extends JFrame {
         settingsFrame.add(cbBela);
         settingsFrame.add(cbShowIcons);
         settingsFrame.add(cbSahnie);
-        settingsFrame.add(cbColourfulGui);
+        settingsFrame.add(new JLabel());
         settingsFrame.add(bSave);
 
         // Set frame visible

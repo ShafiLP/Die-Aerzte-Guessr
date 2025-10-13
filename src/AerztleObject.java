@@ -10,7 +10,7 @@ public class AerztleObject {
     private int durationMinutes;
     private int durationSeconds;
 
-    private int playedLive;
+    private int wordCount;
 
     private String singer;
 
@@ -28,14 +28,14 @@ public class AerztleObject {
      * @param pSinger Singer of the song (Bela, Farin, Rod or Sahnie)
      * @param pSingle Boolean if the song was released as a single
      */
-    public AerztleObject(String pSongName, String pAlbum, int pReleaseYear, String pStreams, int pDurationMinutes, int pDurationSeconds, int pPlayedLive, String pSinger, boolean pSingle) {
+    public AerztleObject(String pSongName, String pAlbum, int pReleaseYear, String pStreams, int pDurationMinutes, int pDurationSeconds, int pWordCount, String pSinger, boolean pSingle) {
         songName = pSongName;
         album = pAlbum;
         releaseYear = pReleaseYear;
         streams = pStreams;
         durationMinutes = pDurationMinutes;
         durationSeconds = pDurationSeconds;
-        playedLive = pPlayedLive;
+        wordCount = pWordCount;
         singer = pSinger;
         isASingle = pSingle;
     }
@@ -108,8 +108,8 @@ public class AerztleObject {
      * Get operation for the song's word count (including backing vocals, intro and outro)
      * @return Word count of the song as an Integer
      */
-    public int getLivePlays() {
-        return playedLive;
+    public int getWordCount() {
+        return wordCount;
     }
 
     /**

@@ -42,7 +42,7 @@ public class AerztleGame {
         System.out.println(randomAerztleObject.getStreamsAsText());
         System.out.println(randomAerztleObject.getDurationMinutes());
         System.out.println(randomAerztleObject.getDurationSeconds());
-        System.out.println(randomAerztleObject.getLivePlays());
+        System.out.println(randomAerztleObject.getWordCount());
         System.out.println(randomAerztleObject.getSinger());
         System.out.println(randomAerztleObject.isSingle());
     }
@@ -103,14 +103,14 @@ public class AerztleGame {
         }
     }
 
-    private void compLivePlays(AerztleObject pGuess, AerztleObject pSolution) {
-        if(pGuess.getLivePlays() == pSolution.getLivePlays()) {
-            gui.paintLivePlays(currentGuess, Color.GREEN, pGuess.getLivePlays() + "");
+    private void compWordCount(AerztleObject pGuess, AerztleObject pSolution) {
+        if(pGuess.getWordCount() == pSolution.getWordCount()) {
+            gui.paintWordCount(currentGuess, Color.GREEN, pGuess.getWordCount() + "");
         } else {
-            if(pGuess.getLivePlays() - pSolution.getLivePlays() > 0) {
-                gui.paintLivePlays(currentGuess, pGuess.getLivePlays() - pSolution.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + " ⬇️");
+            if(pGuess.getWordCount() - pSolution.getWordCount() > 0) {
+                gui.paintWordCount(currentGuess, pGuess.getWordCount() - pSolution.getWordCount() < 5 ? Color.YELLOW : Color.RED, pGuess.getWordCount() + " ⬇️");
             } else {
-                gui.paintLivePlays(currentGuess, pSolution.getLivePlays() - pGuess.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + " ⬆️");
+                gui.paintWordCount(currentGuess, pSolution.getWordCount() - pGuess.getWordCount() < 5 ? Color.YELLOW : Color.RED, pGuess.getWordCount() + " ⬆️");
             }
         }
     }
@@ -149,9 +149,9 @@ public class AerztleGame {
                 JSONObject obj = arr.getJSONObject(i);
                 if(pSelection.equals(obj.getString("song")))
                 return new AerztleObject(obj.getString("song"), obj.getString("album"), obj.getInt("release"),
-                obj.getString("streams"), obj.getInt("durationMin"), obj.getInt("durationSec"), obj.getInt("livePlays"),
+                obj.getString("streams"), obj.getInt("durationMin"), obj.getInt("durationSec"), obj.getInt("wordCount"),
                 obj.getString("singer"), obj.getBoolean("single"));
-            }
+            } 
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -167,19 +167,8 @@ public class AerztleGame {
      */
     public void submitButtonPressed(String pGuess) {
         AerztleObject guess = getSelectedSong("data\\aerztleData.json", pGuess);
-
-        // If no match was found search in Farin library
-        if(guess.getSongName() == null & settings.isFarinEnabled())
+        if(guess.getSongName() == null | settings.isAeFarinEnabled())
         guess = getSelectedSong("data\\aerztleDataFarin.json", pGuess);
-
-        // If no match was found search in Bela library
-        if(guess.getSongName() == null & settings.isBelaEnabled())
-        guess = getSelectedSong("data\\aerztleDataBela.json", pGuess);
-        
-        // If no match was found search in Sahnie library
-        if(guess.getSongName() == null & settings.isSahnieEnabled())
-        guess = getSelectedSong("data\\aerztleDataSahnie.json", pGuess);
-
 
         // Check all categories
         if(guess.getSongName() != null) {
@@ -188,7 +177,7 @@ public class AerztleGame {
             compReleaseYear(guess, randomAerztleObject);
             compStreams(guess, randomAerztleObject);
             compDuration(guess, randomAerztleObject);
-            compLivePlays(guess, randomAerztleObject);
+            compWordCount(guess, randomAerztleObject);
             compSinger(guess, randomAerztleObject);
             compIsSingle(guess, randomAerztleObject);
             currentGuess++;

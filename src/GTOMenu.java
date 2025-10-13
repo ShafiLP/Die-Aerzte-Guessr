@@ -10,14 +10,14 @@ import java.io.IOException;
 
 import com.google.gson.Gson;
 
-public class StraightOuttaMenu extends JFrame {
+public class GTOMenu extends JFrame {
     // Settings for the settings frame
     private Settings settings;
 
     /**
      * Crates a GUI for starting the game and configuring settings
      */
-    public StraightOuttaMenu() {
+    public GTOMenu() {
         settings = readSettings("data\\settings.json");
 
         this.setTitle("Straight Outta...");
@@ -49,7 +49,7 @@ public class StraightOuttaMenu extends JFrame {
         JButton bPlay = new JButton("Spielen");
         bPlay.addActionListener(_ -> {
             this.dispose();        // Close the current gui
-            new StraightOuttaGame(settings); // Start the game
+            new GTOGame(settings); // Start the game
         });
         JButton bSettings = new JButton("Einstellungen");
         bSettings.addActionListener(_ -> {

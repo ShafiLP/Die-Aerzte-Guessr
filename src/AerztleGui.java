@@ -35,8 +35,6 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
     private AerztleGame game;
     private final int TRIES;
     private JLabel[][] lTable;
-    private Color backgroundColor;
-    private Color infobarColor;
 
     private AutoCompleteTextField songSearchBar;
     private JComboBox<DropdownItem> songDropdown;
@@ -45,15 +43,8 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         game = pGame;
         settings = pSettings;
 
-        // Read settings
+        // Load from settings
         TRIES = pSettings.getAeTries();
-        if(settings.isColourfulGuiEnabled()) {
-            backgroundColor = new Color(220, 255, 220);
-            infobarColor = new Color(100, 230, 100);
-        } else {
-            backgroundColor = Color.WHITE;
-            infobarColor = Color.LIGHT_GRAY;
-        }
 
         // JFrame settings
         this.setTitle("Ärztle");
@@ -65,7 +56,6 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
 
         // Top panel
         JPanel topPanel = new JPanel(new GridLayout(2, 1));
-        topPanel.setBackground(infobarColor);
 
         // Heading
         JLabel lHeading = new JLabel("", SwingConstants.CENTER);
@@ -76,7 +66,6 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
 
         // JPanel with songs to guess
         JPanel guessingPanel = new JPanel(new GridBagLayout());
-        guessingPanel.setBackground(infobarColor);
         guessingPanel.setBorder(BorderFactory.createEmptyBorder(10, 40, 20, 40)); // Padding
 
         // Initialize type of input
@@ -136,7 +125,6 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
 
         // JPanel with categories
         JPanel tablePanel = new JPanel(new GridLayout(TRIES+1, 8));
-        tablePanel.setBackground(backgroundColor);
 
         lTable = new JLabel[TRIES+1][8];
         for(int x = 0; x < lTable.length; x++) {
@@ -149,7 +137,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         lTable[0][2].setText("Erscheinungsjahr");
         lTable[0][3].setText("Spotify Streams");
         lTable[0][4].setText("Dauer");
-        lTable[0][5].setText("Live gespielt");
+        lTable[0][5].setText("Wortanzahl");
         lTable[0][6].setText("Sänger");
         lTable[0][7].setText("Single");
 
@@ -157,7 +145,6 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
             for(int y = 0; y < lTable[0].length; y++) {
                 tablePanel.add(lTable[x][y]);
                 lTable[x][y].setOpaque(true);
-                lTable[x][y].setBackground(backgroundColor);
                 lTable[x][y].setBorder(new LineBorder(getForeground(), 1));
             }
         }
@@ -174,7 +161,6 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
      */
     public void submitButtonPressed() {
         if(settings.getAeTypeOfInput().equals("Suchleiste")) {
-            System.out.println(songSearchBar.getText());
             game.submitButtonPressed(songSearchBar.getText());
             songSearchBar.setText("");
             songSearchBar.requestFocusInWindow();
@@ -228,7 +214,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         lTable[pIndex][4].setText(pText);
     }
 
-    public void paintLivePlays(int pIndex, Color pColor, String pText) {
+    public void paintWordCount(int pIndex, Color pColor, String pText) {
         lTable[pIndex][5].setBackground(pColor);
         lTable[pIndex][5].setText(pText);
     }
@@ -264,8 +250,8 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         JComboBox<DropdownItem> comboBox = new JComboBox<>(dropdownArrayFromJson("data\\songs.json"));
 
         // Add Farin songs if pFarin = true
-        if(settings.isFarinEnabled()) {
-            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsFarin.json"));
+        if(settings.isAeFarinEnabled()) {
+            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\farinSongs.json"));
             for(int i = 0; i < farinDropdown.getItemCount(); i++) {
                 comboBox.addItem(farinDropdown.getItemAt(i));
             }
@@ -273,8 +259,8 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         }
 
         // Add Bela songs if pBela = true
-        if(settings.isBelaEnabled()) {
-                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsBela.json"));
+        if(settings.isAeBelaEnabled()) {
+                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\belaSongs.json"));
             for(int i = 0; i < belaDropdown.getItemCount(); i++) {
                 comboBox.addItem(belaDropdown.getItemAt(i));
             }
@@ -282,8 +268,8 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         }
 
         // Add Sahnie songs if pSahnie = true
-        if(settings.isSahnieEnabled()) {
-                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsSahnie.json"));
+        if(settings.isAeSahnieEnabled()) {
+                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\sahnieSongs.json"));
             for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
                 comboBox.addItem(sahnieDropdown.getItemAt(i));
             }
@@ -389,9 +375,9 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(settings.isFarinEnabled()) {
+        if(settings.isAeFarinEnabled()) {
             try {
-            String content = new String(Files.readAllBytes(Paths.get("data\\songsFarin.json")));
+            String content = new String(Files.readAllBytes(Paths.get("data\\farinSongs.json")));
             JSONArray arr = new JSONArray(content);
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);

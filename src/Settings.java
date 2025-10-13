@@ -6,7 +6,6 @@ public class Settings {
     private boolean farinLibrary = false;
     private boolean belaLibrary = false;
     private boolean sahnieLibrary = false;
-    private boolean colourfulGui = true;
 
     // For GTO
     private String gtoTypeOfInput = "Suchleiste";
@@ -124,14 +123,6 @@ public class Settings {
 
     public boolean isSahnieEnabled() {
         return sahnieLibrary;
-    }
-
-    public void setColourfulGui(boolean pColourfulGui) {
-        colourfulGui = pColourfulGui;
-    }
-
-    public boolean isColourfulGuiEnabled() {
-        return colourfulGui;
     }
 
     //* GTO SETTINGS

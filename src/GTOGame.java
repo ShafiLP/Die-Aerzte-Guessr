@@ -14,9 +14,9 @@ import com.google.gson.Gson;
  * Class for the game "Guess The Origin"
  * Implements TimerEvents to handle timer
  */
-public class StraightOuttaGame implements TimerEvents {
+public class GTOGame implements TimerEvents {
     private Settings settings;
-    private StraightOuttaGui gui;
+    private GTOGui gui;
     private int score = 0;
     private int lives;
     private int hints;
@@ -29,7 +29,7 @@ public class StraightOuttaGame implements TimerEvents {
      * Constructor for the GTOGame class
      * @param pSettings Settings for the game
      */
-    public StraightOuttaGame(Settings pSettings) {
+    public GTOGame(Settings pSettings) {
         // Apply settings
         settings = pSettings;
         lives = settings.getGtoLiveCount();
@@ -52,7 +52,7 @@ public class StraightOuttaGame implements TimerEvents {
         currentSongText = getRandomSongText();
 
         // Create GUI
-        gui = new StraightOuttaGui(this, currentSongText.getText(), settings);
+        gui = new GTOGui(this, currentSongText.getText(), settings);
 
         // Start timer
         if(!settings.isGtoUnlimitedTimeEnabled()) {
@@ -108,7 +108,7 @@ public class StraightOuttaGame implements TimerEvents {
             switch(n) {
                 case 0:
                     gui.dispose(); // Close the current GUI
-                    new StraightOuttaGame(settings); // Restart the game
+                    new GTOGame(settings); // Restart the game
                     return;
                 case 1:
                     gui.dispose(); // Close the GUI & exit the game
@@ -153,7 +153,7 @@ public class StraightOuttaGame implements TimerEvents {
             switch(n) {
                 case 0:
                     gui.dispose(); // Close the current GUI
-                    new StraightOuttaGame(settings); // Restart the game
+                    new GTOGame(settings); // Restart the game
                     return null;
                 case 1:
                     gui.dispose(); // Close the GUI & exit the game
