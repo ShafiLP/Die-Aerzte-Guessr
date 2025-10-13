@@ -13,8 +13,8 @@ import org.json.JSONObject;
 /**
  * Class for the GUI of the game "Guess The Origin"
  */
-class GTOGui extends JFrame implements EnterKeyListener{
-    private GTOGame game;
+class StraightOuttaGui extends JFrame implements EnterKeyListener{
+    private StraightOuttaGame game;
     private Settings settings;
     private JPanel centerPanel;
     private JPanel infoBar;
@@ -28,18 +28,27 @@ class GTOGui extends JFrame implements EnterKeyListener{
     private JLabel lHints = new JLabel();
     private JLabel[] healthBar;
     private JLabel lSolution;
+    private Color backgroundColor;
+    private Color infobarColor;
 
     /**
      * Constructor for the GTGGui class
      * Creates a GUI for the game "Guess The Origin"
      */
-    public GTOGui(GTOGame pGame, String pLyric, Settings pSettings) {
+    public StraightOuttaGui(StraightOuttaGame pGame, String pLyric, Settings pSettings) {
         game = pGame;
 
         // Read settings
         settings = pSettings;
         timerLabel = new JLabel("Timer: " + settings.getGtoTimeLimit());
         healthBar = new JLabel[settings.getGtoLiveCount()];
+        if(settings.isColourfulGuiEnabled()) {
+            backgroundColor = new Color(255, 220, 220);
+            infobarColor = new Color(230, 100, 100);
+        } else {
+            backgroundColor = Color.WHITE;
+            infobarColor = Color.LIGHT_GRAY;
+        }
 
         // JFrame settings
         this.setTitle("Straight Outta...");
@@ -68,7 +77,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Create GUI center, where the song text will be displayed
         centerPanel = new JPanel(new GridBagLayout());
-        centerPanel.setBackground(new Color(255, 220, 220));
+        centerPanel.setBackground(backgroundColor);
 
         // Lyrics to guess in the center
         lyricLabel = new JLabel("„" + pLyric + "“");
@@ -96,7 +105,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Guessing bar for guess input and submit button
         JPanel guessBar = new JPanel(new GridBagLayout());
-        guessBar.setBackground(new Color(255, 220, 220));
+        guessBar.setBackground(backgroundColor);
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -200,7 +209,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Initialize infoBar Panel
         infoBar = new JPanel(new GridBagLayout());
-        infoBar.setBackground(new Color(230, 100, 100));
+        infoBar.setBackground(infobarColor);
 
         infoBar.add(upperLeft, new GridBagConstraints() {{
             gridx = 0;
@@ -293,7 +302,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        infoBar.setBackground(new Color(230, 100, 100)); // Reset to default color
+        infoBar.setBackground(infobarColor); // Reset to default color
         lSolution.setVisible(false);
     }
 
@@ -352,7 +361,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Add Farin songs if pFarin = true
         if(settings.isFarinEnabled()) {
-            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\farinSongs.json"));
+            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsFarin.json"));
             for(int i = 0; i < farinDropdown.getItemCount(); i++) {
                 comboBox.addItem(farinDropdown.getItemAt(i));
             }
@@ -361,7 +370,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Add Bela songs if pBela = true
         if(settings.isBelaEnabled()) {
-                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\belaSongs.json"));
+                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsBela.json"));
             for(int i = 0; i < belaDropdown.getItemCount(); i++) {
                 comboBox.addItem(belaDropdown.getItemAt(i));
             }
@@ -370,7 +379,7 @@ class GTOGui extends JFrame implements EnterKeyListener{
 
         // Add Sahnie songs if pSahnie = true
         if(settings.isSahnieEnabled()) {
-                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\sahnieSongs.json"));
+                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsSahnie.json"));
             for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
                 comboBox.addItem(sahnieDropdown.getItemAt(i));
             }
@@ -440,15 +449,15 @@ class GTOGui extends JFrame implements EnterKeyListener{
     private AutoCompleteTextField initializAutoCompleteTextField() {
         LinkedList<DropdownItem> suggestions = dropdownListFromJson("data\\songs.json");
         if(settings.isFarinEnabled()) {
-            LinkedList<DropdownItem> farinSuggestions = dropdownListFromJson("data\\farinSongs.json");
+            LinkedList<DropdownItem> farinSuggestions = dropdownListFromJson("data\\songsFarin.json");
             suggestions.addAll(farinSuggestions);
         }
         if(settings.isBelaEnabled()) {
-            LinkedList<DropdownItem> belaSuggestions = dropdownListFromJson("data\\belaSongs.json");
+            LinkedList<DropdownItem> belaSuggestions = dropdownListFromJson("data\\songsBela.json");
             suggestions.addAll(belaSuggestions);
         }
         if(settings.isSahnieEnabled()) {
-            LinkedList<DropdownItem> sahnieSuggestions = dropdownListFromJson("data\\sahnieSongs.json");
+            LinkedList<DropdownItem> sahnieSuggestions = dropdownListFromJson("data\\songsSahnie.json");
             suggestions.addAll(sahnieSuggestions);
         }
 
