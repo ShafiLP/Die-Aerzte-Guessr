@@ -1,17 +1,60 @@
 [
-    {"song": "Noch einmal", "album": "sonne", "release": "2005", "streams": "0", "durationMin": "4", "durationSec": "42", "wordCount": "308", "singer": "Farin", "single": "false"},
-    {"song": "Mehr", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "3", "durationSec": "14", "wordCount": "125", "singer": "Farin", "single": "false"},
-    {"song": "Sonne", "album": "sonne", "release": "2005", "streams": "2.500.000", "durationMin": "4", "durationSec": "39", "wordCount": "245", "singer": "Farin", "single": "true"},
-    {"song": "Augenblick", "album": "sonne", "release": "2005", "streams": "600.000", "durationMin": "3", "durationSec": "7", "wordCount": "186", "singer": "Farin", "single": "false"},
-    {"song": "Porzellan", "album": "sonne", "release": "2005", "streams": "1.500.000", "durationMin": "3", "durationSec": "58", "wordCount": "177", "singer": "Farin", "single": "true"},
-    {"song": "Unter Wasser", "album": "sonne", "release": "2005", "streams": "800.000", "durationMin": "4", "durationSec": "2", "wordCount": "240", "singer": "Farin", "single": "false"},
-    {"song": "Wie ich den Marilyn-Manson-Ähnlichkeitswettbewerb verlor", "album": "sonne", "release": "2005", "streams": "600.000", "durationMin": "3", "durationSec": "11", "wordCount": "152", "singer": "Farin", "single": "false"},
-    {"song": "Unsichtbar", "album": "sonne", "release": "2005", "streams": "500.000", "durationMin": "3", "durationSec": "14", "wordCount": "206", "singer": "Farin", "single": "false"},
-    {"song": "Apocalypse wann anders", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "3", "durationSec": "58", "wordCount": "235", "singer": "Farin", "single": "false"},
-    {"song": "Schon wieder", "album": "sonne", "release": "2005", "streams": "200.000", "durationMin": "1", "durationSec": "18", "wordCount": "0", "singer": "Farin", "single": "false"},
-    {"song": "Immer noch", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "4", "durationSec": "38", "wordCount": "213", "singer": "Farin", "single": "false"},
-    {"song": "Alle dasselbe", "album": "sonne", "release": "2005", "streams": "700.000", "durationMin": "3", "durationSec": "27", "wordCount": "360", "singer": "Farin", "single": "false"},
-    {"song": "Kein Zurück", "album": "sonne", "release": "2005", "streams": "800.000", "durationMin": "4", "durationSec": "54", "wordCount": "276", "singer": "Farin", "single": "false"},
-    {"song": "Dermitder", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "4", "durationSec": "2", "wordCount": "246", "singer": "Farin", "single": "false"},
-    {"song": "Dusche", "album": "sonne", "release": "2005", "streams": "4.500.000", "durationMin": "4", "durationSec": "13", "wordCount": "278", "singer": "Farin", "single": "true"}
+    {"song": "Intro (Manche nennen es Musik)", "album": "urlaub", "release": "2001", "streams": "300.000", "durationMin": "1", "durationSec": "3", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Jeden Tag Sonntag", "album": "urlaub", "release": "2001", "streams": "700.000", "durationMin": "2", "durationSec": "10", "livePlays": "53", "singer": "Farin", "single": "false"},
+    {"song": "Sumisu", "album": "urlaub", "release": "2001", "streams": "2.400.000", "durationMin": "2", "durationSec": "15", "livePlays": "56", "singer": "Farin", "single": "true"},
+    {"song": "Glücklich", "album": "urlaub", "release": "2001", "streams": "3.600.000", "durationMin": "2", "durationSec": "58", "livePlays": "166", "singer": "Farin", "single": "true"},
+    {"song": "Ich gehöre nicht dazu", "album": "urlaub", "release": "2001", "streams": "900.000", "durationMin": "3", "durationSec": "16", "livePlays": "152", "singer": "Farin", "single": "false"},
+    {"song": "OK", "album": "urlaub", "release": "2001", "streams": "8.400.000", "durationMin": "4", "durationSec": "20", "livePlays": "167", "singer": "Farin", "single": "true"},
+    {"song": "Der Kavalier", "album": "urlaub", "release": "2001", "streams": "300.000", "durationMin": "3", "durationSec": "27", "livePlays": "18", "singer": "Farin", "single": "false"},
+    {"song": "Am Strand", "album": "urlaub", "release": "2001", "streams": "3.600.000", "durationMin": "2", "durationSec": "46", "livePlays": "167", "singer": "Farin", "single": "false"},
+    {"song": "Wunderbar", "album": "urlaub", "release": "2001", "streams": "600.000", "durationMin": "2", "durationSec": "39", "livePlays": "75", "singer": "Farin", "single": "false"},
+    {"song": "Das schöne Mädchen", "album": "urlaub", "release": "2001", "streams": "400.000", "durationMin": "4", "durationSec": "37", "livePlays": "17", "singer": "Farin", "single": "false"},
+    {"song": "1000 Jahre schlechten Sex", "album": "urlaub", "release": "2001", "streams": "1.000.000", "durationMin": "3", "durationSec": "30", "livePlays": "134", "singer": "Farin", "single": "false"},
+    {"song": "...und die Gitarre war noch warm", "album": "urlaub", "release": "2001", "streams": "300.000", "durationMin": "3", "durationSec": "39", "livePlays": "26", "singer": "Farin", "single": "false"},
+    {"song": "Lieber Staat", "album": "urlaub", "release": "2001", "streams": "900.000", "durationMin": "3", "durationSec": "53", "livePlays": "105", "singer": "Farin", "single": "false"},
+    {"song": "Phänomenal egal", "album": "urlaub", "release": "2001", "streams": "1.900.000", "durationMin": "3", "durationSec": "15", "livePlays": "129", "singer": "Farin", "single": "false"},
+    {"song": "Abschiedslied", "album": "urlaub", "release": "2001", "streams": "1.600.000", "durationMin": "3", "durationSec": "28", "livePlays": "165", "singer": "Farin", "single": "false"},
+    {"song": "Outro (Ja, das wurde auch Zeit)", "album": "urlaub", "release": "2001", "streams": "200.000", "durationMin": "2", "durationSec": "22", "livePlays": "24", "singer": "Farin", "single": "false"},
+
+    {"song": "Der Papst", "album": "Single/B-Seite", "release": "2001", "streams": "100.000", "durationMin": "2", "durationSec": "47", "livePlays": "25", "singer": "Farin", "single": "false"},
+    {"song": "Wo ist das Problem?", "album": "Single/B-Seite", "release": "2001", "streams": "100.000", "durationMin": "1", "durationSec": "36", "livePlays": "153", "singer": "Farin", "single": "false"},
+
+    {"song": "Stein des Anstoßes", "album": "Single/B-Seite", "release": "2001", "streams": "0", "durationMin": "5", "durationSec": "45", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Buch zum Lesen", "album": "Single/B-Seite", "release": "2001", "streams": "100.000", "durationMin": "1", "durationSec": "47", "livePlays": "0", "singer": "Farin", "single": "false"},
+
+    {"song": "Saudade", "album": "Single/B-Seite", "release": "2002", "streams": "0", "durationMin": "3", "durationSec": "24", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Petze", "album": "Single/B-Seite", "release": "2002", "streams": "200.000", "durationMin": "3", "durationSec": "32", "livePlays": "155", "singer": "Farin", "single": "false"},
+
+    {"song": "Pudelsong", "album": "Single/B-Seite", "release": "2002", "streams": "0", "durationMin": "2", "durationSec": "25", "livePlays": "30", "singer": "Farin", "single": "false"},
+
+    {"song": "Der ziemlich okaye Popsong", "album": "Single/B-Seite", "release": "2004", "streams": "100.000", "durationMin": "3", "durationSec": "0", "livePlays": "130", "singer": "Farin", "single": "true"},
+
+
+
+
+    
+    {"song": "Noch einmal", "album": "sonne", "release": "2005", "streams": "0", "durationMin": "4", "durationSec": "42", "livePlays": "57", "singer": "Farin", "single": "false"},
+    {"song": "Mehr", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "3", "durationSec": "14", "livePlays": "83", "singer": "Farin", "single": "false"},
+    {"song": "Sonne", "album": "sonne", "release": "2005", "streams": "2.500.000", "durationMin": "4", "durationSec": "39", "livePlays": "112", "singer": "Farin", "single": "true"},
+    {"song": "Augenblick", "album": "sonne", "release": "2005", "streams": "600.000", "durationMin": "3", "durationSec": "7", "livePlays": "98", "singer": "Farin", "single": "false"},
+    {"song": "Porzellan", "album": "sonne", "release": "2005", "streams": "1.500.000", "durationMin": "3", "durationSec": "58", "livePlays": "124", "singer": "Farin", "single": "true"},
+    {"song": "Unter Wasser", "album": "sonne", "release": "2005", "streams": "800.000", "durationMin": "4", "durationSec": "2", "livePlays": "129", "singer": "Farin", "single": "false"},
+    {"song": "Wie ich den Marilyn-Manson-Ähnlichkeitswettbewerb verlor", "album": "sonne", "release": "2005", "streams": "600.000", "durationMin": "3", "durationSec": "11", "livePlays": "71", "singer": "Farin", "single": "false"},
+    {"song": "Unsichtbar", "album": "sonne", "release": "2005", "streams": "500.000", "durationMin": "3", "durationSec": "14", "livePlays": "114", "singer": "Farin", "single": "false"},
+    {"song": "Apocalypse wann anders", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "3", "durationSec": "58", "livePlays": "50", "singer": "Farin", "single": "false"},
+    {"song": "Schon wieder", "album": "sonne", "release": "2005", "streams": "200.000", "durationMin": "1", "durationSec": "18", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Immer noch", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "4", "durationSec": "38", "livePlays": "51", "singer": "Farin", "single": "false"},
+    {"song": "Alle dasselbe", "album": "sonne", "release": "2005", "streams": "700.000", "durationMin": "3", "durationSec": "27", "livePlays": "141", "singer": "Farin", "single": "false"},
+    {"song": "Kein Zurück", "album": "sonne", "release": "2005", "streams": "800.000", "durationMin": "4", "durationSec": "54", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Dermitder", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "4", "durationSec": "2", "livePlays": "61", "singer": "Farin", "single": "false"},
+    {"song": "Dusche", "album": "sonne", "release": "2005", "streams": "4.500.000", "durationMin": "4", "durationSec": "13", "livePlays": "52", "singer": "Farin", "single": "true"},
+
+    {"song": "Alle Fragen dieser Welt", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "1", "durationSec": "50", "livePlays": "49", "singer": "Farin", "single": "false"},
+    {"song": "Klasse", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "3", "durationSec": "12", "livePlays": "69", "singer": "Farin", "single": "false"},
+
+    {"song": "Atrás", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "4", "durationSec": "27", "livePlays": "20", "singer": "Farin, Casielena", "single": "false"},
+    {"song": "Xenokratie", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "3", "durationSec": "10", "livePlays": "41", "singer": "Farin", "single": "false"},
+
+    {"song": "Gefährlich", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "2", "durationSec": "58", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Hart", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "3", "durationSec": "6", "livePlays": "0", "singer": "Farin", "single": "false"}
 ]

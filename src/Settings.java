@@ -6,6 +6,7 @@ public class Settings {
     private boolean farinLibrary = false;
     private boolean belaLibrary = false;
     private boolean sahnieLibrary = false;
+    private boolean colourfulGui = true;
 
     // For GTO
     private String gtoTypeOfInput = "Suchleiste";
@@ -21,19 +22,12 @@ public class Settings {
     private boolean ctlShowIcons = true;
     private boolean ctlUnlimitedTime = false;
     private boolean ctlUnlimitedLives = false;
-    private boolean ctlIncludeFarin = false;
-    private boolean ctlIncludeBela = false;
-    private boolean ctlIncludeSahnie = false;
-    private boolean ctlActivateSupportSahnie = false;
     private int ctlLiveCount = 3;
     private int ctlTimeLimit = 30;
     private int ctlHighscore = 0;
 
     // For Ärztle
     private String aeTypeOfInput = "Suchleiste";
-    private boolean aeIncludeFarin = false;
-    private boolean aeIncludeBela = false;
-    private boolean aeIncludeSahnie = false;
     private int aeTries = 7;
     private int aeHighscore = 0;
 
@@ -68,9 +62,6 @@ public class Settings {
         ctlShowIcons = pShowIcons;
         ctlUnlimitedTime = pUnlimitedTime;
         ctlUnlimitedLives = pUnlimitedLives;
-        ctlIncludeFarin = pFarin;
-        ctlIncludeBela = pBela;
-        ctlIncludeSahnie = pSahnie;
         ctlTimeLimit = pTimeLimit;
         ctlLiveCount = pLiveCount;
     }
@@ -123,6 +114,14 @@ public class Settings {
 
     public boolean isSahnieEnabled() {
         return sahnieLibrary;
+    }
+
+    public void setColourfulGui(boolean pColourfulGui) {
+        colourfulGui = pColourfulGui;
+    }
+
+    public boolean isColourfulGuiEnabled() {
+        return colourfulGui;
     }
 
     //* GTO SETTINGS
@@ -185,14 +184,6 @@ public class Settings {
 
     //* CTL SETTINGS
 
-    public void setAeTypeOfInput(String pInput) {
-        aeTypeOfInput = pInput;
-    }
-
-    public String getAeTypeOfInput() {
-        return aeTypeOfInput;
-    }
-
     public void setCtlLiveCount(int pLiveCount) {
         ctlLiveCount = pLiveCount;
     }
@@ -241,38 +232,6 @@ public class Settings {
         return ctlUnlimitedLives;
     }
 
-    public void setCtlFarin(boolean pFarin) {
-        ctlIncludeFarin = pFarin;
-    }
-
-    public boolean isCtlFarinEnabled() {
-        return ctlIncludeFarin;
-    }
-
-    public void setCtlBela(boolean pBela) {
-        ctlIncludeBela = pBela;
-    }
-
-    public boolean isCtlBelaEnabled() {
-        return ctlIncludeBela;
-    }
-
-    public void setCtlSahnie(boolean pSahnie) {
-        ctlIncludeSahnie = pSahnie;
-    }
-
-    public boolean isCtlSahnieEnabled() {
-        return ctlIncludeSahnie;
-    }
-
-    public void setCtlSupportSahnie(boolean pSupportSahnie) {
-        ctlActivateSupportSahnie = pSupportSahnie;
-    }
-
-    public boolean isCtlSupportSahnieEnabled() {
-        return ctlActivateSupportSahnie;
-    }
-
     public void setCtlHighscore(int pScore) {
         ctlHighscore = pScore;
     }
@@ -283,28 +242,12 @@ public class Settings {
 
     //* ÄRZTLE SETTINGS
 
-    public void setAeFarin(boolean pFarin) {
-        aeIncludeFarin = pFarin;
-    }
-    
-    public boolean isAeFarinEnabled() {
-        return aeIncludeFarin;
+    public void setAeTypeOfInput(String pInput) {
+        aeTypeOfInput = pInput;
     }
 
-    public void setAeBela(boolean pBela) {
-        aeIncludeBela = pBela;
-    }
-
-    public boolean isAeBelaEnabled() {
-        return aeIncludeBela;
-    }
-
-    public void setAeSahnie(boolean pSahnie) {
-        aeIncludeSahnie = pSahnie;
-    }
-
-    public boolean isAeSahnieEnabled() {
-        return aeIncludeSahnie;
+    public String getAeTypeOfInput() {
+        return aeTypeOfInput;
     }
 
     public void setAeTries(int pTries) {

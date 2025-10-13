@@ -208,6 +208,7 @@
 
 
 
+    {"song": "Lady", "icon": "dreizehn"},
     {"song": "Punk ist...", "icon": "dreizehn"},
     {"song": "Ein Lied für dich", "icon": "dreizehn"},
     {"song": "Goldenes Handwerk", "icon": "dreizehn"},
@@ -279,6 +280,7 @@
 
 
 
+    {"song": "Hände innen", "icon": "geraeusch"},
     {"song": "Als ich den Punk erfand...", "icon": "geraeusch"},
     {"song": "System", "icon": "geraeusch"},
     {"song": "T-Error", "icon": "geraeusch"},

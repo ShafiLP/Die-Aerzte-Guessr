@@ -14,9 +14,9 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import java.awt.Image;
 
-public class CTLGui extends JFrame implements EnterKeyListener {
+public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
     private Settings settings;
-    private CTLGame game;
+    private LueckenfuellerGame game;
     private SongTextWithGap currentSong;
 
     private JPanel infoBar;
@@ -30,6 +30,8 @@ public class CTLGui extends JFrame implements EnterKeyListener {
     private JLabel lBefore;
     private JLabel lAfter;
     private JTextField tfInput;
+    private Color backgroundColor;
+    private Color infobarColor;
 
     /**
      * Constructor for the "Complete The Lyrics" game GUI
@@ -40,7 +42,7 @@ public class CTLGui extends JFrame implements EnterKeyListener {
      * @param pSongName name of the current song
      * @param pAlbumName name of the album of the current song
      */
-    public CTLGui(CTLGame pGame, Settings pSettings, SongTextWithGap pCurrentSong) {
+    public LueckenfuellerGui(LueckenfuellerGame pGame, Settings pSettings, SongTextWithGap pCurrentSong) {
         game = pGame;
         currentSong = pCurrentSong;
 
@@ -48,6 +50,13 @@ public class CTLGui extends JFrame implements EnterKeyListener {
         settings = pSettings;
         lTimer = new JLabel("Timer: " + settings.getCtlTimeLimit() + "s", SwingConstants.CENTER);
         lScore = new JLabel("Punktzahl: " + 0);
+        if(settings.isColourfulGuiEnabled()) {
+            backgroundColor = new Color(220, 220, 255);
+            infobarColor = new Color(100, 100, 230);
+        } else {
+            backgroundColor = Color.WHITE;
+            infobarColor = Color.LIGHT_GRAY;
+        }
 
         tfInput = new JTextField();
         tfInput.setHorizontalAlignment(JTextField.CENTER);
@@ -71,12 +80,14 @@ public class CTLGui extends JFrame implements EnterKeyListener {
 
         // LyricPanel for GridLayout
         JPanel lyricPanel = new JPanel(new GridLayout(5, 1));
+        lyricPanel.setBackground(backgroundColor);
         lyricPanel.add(lBefore);
         lyricPanel.add(tfInput);
         lyricPanel.add(lAfter);
 
         // Main panel for lyric display
         JPanel mainPanel = new JPanel(new GridBagLayout());
+        mainPanel.setBackground(backgroundColor);
         mainPanel.add(lyricPanel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
@@ -92,29 +103,9 @@ public class CTLGui extends JFrame implements EnterKeyListener {
             fill = GridBagConstraints.NONE;
         }});
 
-        // Add a suppoert Sahnie if setting is enabled
-        if(settings.isCtlSupportSahnieEnabled()) {
-            JPanel sahniePanel = new JPanel(new BorderLayout());
-            sahniePanel.setOpaque(false);
-
-            // Get a scaled ImageIcon
-            ImageIcon icon = new ImageIcon("images\\sahnie.png");
-            Image img = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-            JLabel lSahnie = new JLabel(new ImageIcon(img));
-            // Add to panel
-            //sahniePanel.add(lSahnie , BorderLayout.WEST);
-            mainPanel.add(lSahnie, new GridBagConstraints() {{
-                gridx = 0;
-                gridy = 1;
-                weightx = 1.0;
-                weighty = 1.0;
-                anchor = GridBagConstraints.LAST_LINE_START;
-                fill = GridBagConstraints.NONE;
-            }});
-        }
-
         // Lower bar for submit and hint button
         JPanel lowerPanel = new JPanel(new GridBagLayout());
+        lowerPanel.setBackground(backgroundColor);
         JButton bHint = new JButton("Hinweis");
         bHint.addActionListener(_ -> {
             lSolution.setText("Hinweis: " + game.requestHint() + "...");
@@ -209,7 +200,7 @@ public class CTLGui extends JFrame implements EnterKeyListener {
         // Info bar for health, current song, timer, etc.
         infoBar = new JPanel(new GridBagLayout());
         infoBar.setBorder(new EmptyBorder(5, 5, 5, 5));
-        infoBar.setBackground(Color.LIGHT_GRAY);
+        infoBar.setBackground(infobarColor);
         infoBar.add(ulPanel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
@@ -348,7 +339,7 @@ public class CTLGui extends JFrame implements EnterKeyListener {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        infoBar.setBackground(Color.LIGHT_GRAY); // Reset to default color
+        infoBar.setBackground(infobarColor); // Reset to default color
         if(settings.isCtlHardmodeEnabled()) {
             lSongName.setVisible(false);
             lAlbum.setVisible(false);
