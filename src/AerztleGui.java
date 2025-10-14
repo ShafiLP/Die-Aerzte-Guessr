@@ -120,7 +120,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         }});
 
         // Disclaimer label for wrong information
-        JLabel lDisclaimer = new JLabel("*Manche Informationen, überwiegend bei der Wortanzahl und dem Sänger, könnten Fehler aufweisen", SwingConstants.CENTER);
+        JLabel lDisclaimer = new JLabel("*Manche Informationen, überwiegend bei dem Sänger, könnten Fehler aufweisen", SwingConstants.CENTER);
         lDisclaimer.setFont(new Font(settings.getFontType(), Font.PLAIN, 13));
         guessingPanel.add(lDisclaimer, new GridBagConstraints() {{
             gridx = 0;
@@ -391,19 +391,50 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         }
         if(settings.isFarinEnabled()) {
             try {
-            String content = new String(Files.readAllBytes(Paths.get("data\\songsFarin.json")));
-            JSONArray arr = new JSONArray(content);
-            for(int i = 0; i < arr.length(); i++) {
-                JSONObject obj = arr.getJSONObject(i);
-                String songName = obj.getString("song");
-                String iconPath = obj.getString("icon");
-                Icon icon = new ImageIcon("images\\" + iconPath + ".png");
-                songs.add(new DropdownItem(songName, icon));
+                String content = new String(Files.readAllBytes(Paths.get("data\\songsFarin.json")));
+                JSONArray arr = new JSONArray(content);
+                for(int i = 0; i < arr.length(); i++) {
+                    JSONObject obj = arr.getJSONObject(i);
+                    String songName = obj.getString("song");
+                    String iconPath = obj.getString("icon");
+                    Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                    songs.add(new DropdownItem(songName, icon));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
+        if(settings.isBelaEnabled()) {
+            try {
+                String content = new String(Files.readAllBytes(Paths.get("data\\songsBela.json")));
+                JSONArray arr = new JSONArray(content);
+                for(int i = 0; i < arr.length(); i++) {
+                    JSONObject obj = arr.getJSONObject(i);
+                    String songName = obj.getString("song");
+                    String iconPath = obj.getString("icon");
+                    Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                    songs.add(new DropdownItem(songName, icon));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+        if(settings.isSahnieEnabled()) {
+            try {
+                String content = new String(Files.readAllBytes(Paths.get("data\\songsSahnie.json")));
+                JSONArray arr = new JSONArray(content);
+                for(int i = 0; i < arr.length(); i++) {
+                    JSONObject obj = arr.getJSONObject(i);
+                    String songName = obj.getString("song");
+                    String iconPath = obj.getString("icon");
+                    Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                    songs.add(new DropdownItem(songName, icon));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
         return songs;
     }
 }

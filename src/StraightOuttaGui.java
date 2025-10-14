@@ -25,9 +25,9 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
     private JLabel timerLabel;
     private JLabel currentSongLabel = new JLabel();
     private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.RIGHT);
-    private JLabel lHints = new JLabel();
     private JLabel[] healthBar;
     private JLabel lSolution;
+    private JButton bHint;
     private Color backgroundColor;
     private Color infobarColor;
 
@@ -75,33 +75,48 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
             }
         }
 
-        // Create GUI center, where the song text will be displayed
-        centerPanel = new JPanel(new GridBagLayout());
+        // Create GUI center, where heading and panel with lyrics will be displayed
+        centerPanel = new JPanel(new BorderLayout());
         centerPanel.setBackground(backgroundColor);
+        centerPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
+
+        // Heading
+        JLabel lHeading = new JLabel("", SwingConstants.CENTER);
+        ImageIcon icon = new ImageIcon("images\\StraightOutta.png");
+        Image img = icon.getImage().getScaledInstance(280, 40, Image.SCALE_SMOOTH);
+        lHeading.setIcon(new ImageIcon(img));
+        centerPanel.add(lHeading, BorderLayout.NORTH);
+
+        // Lyrics label with lyrics and hint
+        JPanel lyricsPanel = new JPanel();
+        lyricsPanel.setLayout(new GridBagLayout());
 
         // Lyrics to guess in the center
         lyricLabel = new JLabel("„" + pLyric + "“");
         lyricLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
+        lyricsPanel.setOpaque(false);
 
         lSolution = new JLabel(/*"Hineweis: " + game.requestHint() + "..."*/);
         lSolution.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         lSolution.setForeground(Color.RED);
         lSolution.setVisible(false);
 
-        centerPanel.add(lyricLabel, new GridBagConstraints() {{
+        lyricsPanel.add(lyricLabel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
             weightx = 0;
             anchor = GridBagConstraints.CENTER;
             fill = GridBagConstraints.VERTICAL;
         }});
-        centerPanel.add(lSolution, new GridBagConstraints() {{
+        lyricsPanel.add(lSolution, new GridBagConstraints() {{
             gridx = 0;
             gridy = 1;
             gridwidth = 1;
             anchor = GridBagConstraints.CENTER;
             fill = GridBagConstraints.NONE;
         }});
+
+        centerPanel.add(lyricsPanel, BorderLayout.CENTER);
 
         // Guessing bar for guess input and submit button
         JPanel guessBar = new JPanel(new GridBagLayout());
@@ -131,14 +146,14 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
         }
 
         // Hint button
-        JButton bHint = new JButton("Hinweis");
+        bHint = new JButton("Hinweis (Noch " + settings.getGtoHintCount() + ")");
         bHint.addActionListener(_ -> {
             if(!lSolution.isVisible()) {
                 lSolution.setText("Hinweis: " + game.requestHint() + "...");
                 lSolution.setVisible(true);
             }
         });
-        bHint.setPreferredSize(new Dimension(120, 30));
+        bHint.setPreferredSize(new Dimension(150, 30));
         guessBar.add(bHint, new GridBagConstraints() {{
             gridx = 1;
             gridy = 0;
@@ -151,7 +166,7 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
         bSubmit.addActionListener(_ -> {
             submitButtonPressed();
         });
-        bSubmit.setPreferredSize(new Dimension(120, 30));
+        bSubmit.setPreferredSize(new Dimension(150, 30));
         guessBar.add(bSubmit, new GridBagConstraints() {{
             gridx = 2;
             gridy = 0;
@@ -192,16 +207,6 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
         upperRight.add(timerLabel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 1;
-            weightx = 1.0;
-            gbc.anchor = GridBagConstraints.LINE_END;
-            gbc.fill = GridBagConstraints.NONE;
-        }});
-
-        lHints.setText("Hinweise: " + settings.getGtoHintCount());
-        lHints.setAlignmentX(SwingConstants.CENTER);
-        upperRight.add(lHints, new GridBagConstraints() {{
-            gridx = 0;
-            gridy = 2;
             weightx = 1.0;
             gbc.anchor = GridBagConstraints.LINE_END;
             gbc.fill = GridBagConstraints.NONE;
@@ -307,7 +312,7 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
     }
 
     public void setHints(int pHints) {
-        lHints.setText("Hinweise: " + pHints);
+        bHint.setText("Hinweis (Noch " + pHints + ")");
     }
 
     /**

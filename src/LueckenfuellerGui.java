@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -85,23 +87,37 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
         lyricPanel.add(tfInput);
         lyricPanel.add(lAfter);
 
-        // Main panel for lyric display
-        JPanel mainPanel = new JPanel(new GridBagLayout());
-        mainPanel.setBackground(backgroundColor);
-        mainPanel.add(lyricPanel, new GridBagConstraints() {{
+        // Center panel for lyric display
+        JPanel centerPanel = new JPanel(new GridBagLayout());
+        centerPanel.setBackground(backgroundColor);
+        centerPanel.add(lyricPanel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
             weightx = 0;
             anchor = GridBagConstraints.CENTER;
             fill = GridBagConstraints.VERTICAL;
         }});
-        mainPanel.add(lSolution, new GridBagConstraints() {{
+        centerPanel.add(lSolution, new GridBagConstraints() {{
             gridx = 0;
             gridy = 1;
             gridwidth = 1;
             anchor = GridBagConstraints.CENTER;
             fill = GridBagConstraints.NONE;
         }});
+
+        // Main panel for center + heading
+        JPanel mainPanel = new JPanel(new BorderLayout());
+        mainPanel.setBackground(backgroundColor);
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
+
+        // Heading
+        JLabel lHeading = new JLabel("", SwingConstants.CENTER);
+        ImageIcon icon = new ImageIcon("images\\Lueckenfueller.png");
+        Image img = icon.getImage().getScaledInstance(300, 40, Image.SCALE_SMOOTH);
+        lHeading.setIcon(new ImageIcon(img));
+        mainPanel.add(lHeading, BorderLayout.NORTH);
+
+        mainPanel.add(centerPanel, BorderLayout.CENTER);
 
         // Lower bar for submit and hint button
         JPanel lowerPanel = new JPanel(new GridBagLayout());

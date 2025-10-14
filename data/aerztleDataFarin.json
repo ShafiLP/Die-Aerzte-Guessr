@@ -56,5 +56,62 @@
     {"song": "Xenokratie", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "3", "durationSec": "10", "livePlays": "41", "singer": "Farin", "single": "false"},
 
     {"song": "Gefährlich", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "2", "durationSec": "58", "livePlays": "0", "singer": "Farin", "single": "false"},
-    {"song": "Hart", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "3", "durationSec": "6", "livePlays": "0", "singer": "Farin", "single": "false"}
+    {"song": "Hart", "album": "Single/B-Seite", "release": "2005", "streams": "0", "durationMin": "3", "durationSec": "6", "livePlays": "0", "singer": "Farin", "single": "false"},
+
+
+
+
+
+    {"song": "Nichtimgriff", "album": "luegen", "release": "2008", "streams": "900.000", "durationMin": "2", "durationSec": "46", "livePlays": "34", "singer": "Farin", "single": "true"},
+    {"song": "Unscharf", "album": "luegen", "release": "2008", "streams": "1.200.000", "durationMin": "2", "durationSec": "55", "livePlays": "70", "singer": "Farin", "single": "false"},
+    {"song": "Gobi Todic", "album": "luegen", "release": "2008", "streams": "300.000", "durationMin": "2", "durationSec": "32", "livePlays": "42", "singer": "Farin", "single": "false"},
+    {"song": "Seltsam", "album": "luegen", "release": "2008", "streams": "200.000", "durationMin": "2", "durationSec": "51", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Krieg", "album": "luegen", "release": "2008", "streams": "1.100.000", "durationMin": "3", "durationSec": "18", "livePlays": "51", "singer": "Farin", "single": "true"},
+    {"song": "Pakistan", "album": "luegen", "release": "2008", "streams": "300.000", "durationMin": "2", "durationSec": "50", "livePlays": "4", "singer": "Farin", "single": "false"},
+    {"song": "Niemals", "album": "luegen", "release": "2008", "streams": "1.900.000", "durationMin": "3", "durationSec": "30", "livePlays": "76", "singer": "Farin", "single": "true"},
+    {"song": "Die Leiche", "album": "luegen", "release": "2008", "streams": "1.200.000", "durationMin": "3", "durationSec": "45", "livePlays": "77", "singer": "Farin", "single": "false"},
+    {"song": "Monster", "album": "luegen", "release": "2008", "streams": "200.000", "durationMin": "3", "durationSec": "28", "livePlays": "2", "singer": "Farin", "single": "false"},
+    {"song": "Atem", "album": "luegen", "release": "2008", "streams": "600.000", "durationMin": "4", "durationSec": "9", "livePlays": "19", "singer": "Farin", "single": "false"},
+    {"song": "Karten", "album": "luegen", "release": "2008", "streams": "500.000", "durationMin": "4", "durationSec": "21", "livePlays": "77", "singer": "Farin", "single": "false"},
+    {"song": "I.F.D.G.", "album": "luegen", "release": "2008", "streams": "800.000", "durationMin": "4", "durationSec": "6", "livePlays": "43", "singer": "Farin", "single": "false"},
+    {"song": "Zu heiß", "album": "luegen", "release": "2008", "streams": "1.300.000", "durationMin": "4", "durationSec": "3", "livePlays": "17", "singer": "Farin", "single": "true"},
+    {"song": "Insel", "album": "luegen", "release": "2008", "streams": "1.200.000", "durationMin": "3", "durationSec": "29", "livePlays": "40", "singer": "Farin", "single": "false"},
+    {"song": "Trotzdem", "album": "luegen", "release": "2008", "streams": "400.000", "durationMin": "2", "durationSec": "18", "livePlays": "79", "singer": "Farin", "single": "false"},
+
+    {"song": "Bewegungslos", "album": "Single/B-Seite", "release": "2008", "streams": "100.000", "durationMin": "3", "durationSec": "14", "livePlays": "7", "singer": "Farin", "single": "false"},
+
+    {"song": "Worte fehlen", "album": "Single/B-Seite", "release": "2009", "streams": "200.000", "durationMin": "3", "durationSec": "34", "livePlays": "34", "singer": "Farin", "single": "false"},
+
+    {"song": "Ein-Personen-Aufstand", "album": "Single/B-Seite", "release": "2009", "streams": "0", "durationMin": "2", "durationSec": "50", "livePlays": "0", "singer": "Farin", "single": "false"},
+
+    {"song": "Der Frauenflüsterer", "album": "Single/B-Seite", "release": "2006", "streams": "100.000", "durationMin": "4", "durationSec": "6", "livePlays": "24", "singer": "Farin", "single": "false"},
+
+
+
+
+
+    {"song": "Mein Lied", "album": "faszination", "release": "2014", "streams": "400.000", "durationMin": "2", "durationSec": "36", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Dynamit", "album": "faszination", "release": "2014", "streams": "200.000", "durationMin": "3", "durationSec": "23", "livePlays": "20", "singer": "Farin", "single": "false"},
+    {"song": "Was die Welt jetzt braucht", "album": "faszination", "release": "2014", "streams": "800.000", "durationMin": "2", "durationSec": "44", "livePlays": "30", "singer": "Farin", "single": "false"},
+    {"song": "Herz? Verloren", "album": "faszination", "release": "2014", "streams": "9.800.000", "durationMin": "3", "durationSec": "22", "livePlays": "38", "singer": "Farin", "single": "true"},
+    {"song": "AWG", "album": "faszination", "release": "2014", "streams": "1.400.000", "durationMin": "2", "durationSec": "41", "livePlays": "1", "singer": "Farin", "single": "true"},
+    {"song": "Heute tanzen", "album": "faszination", "release": "2014", "streams": "300.000", "durationMin": "2", "durationSec": "27", "livePlays": "6", "singer": "Farin", "single": "false"},
+    {"song": "iDisco", "album": "faszination", "release": "2014", "streams": "7.800.000", "durationMin": "4", "durationSec": "2", "livePlays": "30", "singer": "Farin", "single": "true"},
+    {"song": "Find dich gut", "album": "faszination", "release": "2014", "streams": "300.000", "durationMin": "3", "durationSec": "9", "livePlays": "1", "singer": "Farin", "single": "false"},
+    {"song": "Keine Angst", "album": "faszination", "release": "2014", "streams": "300.000", "durationMin": "3", "durationSec": "55", "livePlays": "30", "singer": "Farin", "single": "false"},
+    {"song": "Fan", "album": "faszination", "release": "2014", "streams": "200.000", "durationMin": "3", "durationSec": "39", "livePlays": "2", "singer": "Farin", "single": "false"},
+    {"song": "Newton hatte Recht", "album": "faszination", "release": "2014", "streams": "400.000", "durationMin": "3", "durationSec": "16", "livePlays": "30", "singer": "Farin", "single": "false"},
+    {"song": "Das Traurigste", "album": "faszination", "release": "2014", "streams": "300.000", "durationMin": "5", "durationSec": "0", "livePlays": "20", "singer": "Farin", "single": "false"},
+    {"song": "3000", "album": "faszination", "release": "2014", "streams": "200.000", "durationMin": "2", "durationSec": "44", "livePlays": "19", "singer": "Farin", "single": "false"},
+    {"song": "Sommer", "album": "faszination", "release": "2014", "streams": "200.000", "durationMin": "4", "durationSec": "21", "livePlays": "28", "singer": "Farin", "single": "false"},
+    {"song": "Immer dabei", "album": "faszination", "release": "2014", "streams": "300.000", "durationMin": "4", "durationSec": "7", "livePlays": "20", "singer": "Farin", "single": "false"},
+
+    {"song": "Die perfekte Diktatur", "album": "Single/B-Seite", "release": "2014", "streams": "600.000", "durationMin": "4", "durationSec": "50", "livePlays": "7", "singer": "Farin", "single": "false"},
+    {"song": "Wahnsinn", "album": "Single/B-Seite", "release": "2014", "streams": "0", "durationMin": "3", "durationSec": "35", "livePlays": "0", "singer": "Farin", "single": "false"},
+
+    {"song": "Rest der Welt", "album": "Single/B-Seite", "release": "2014", "streams": "100.000", "durationMin": "2", "durationSec": "53", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Babylon", "album": "Single/B-Seite", "release": "2014", "streams": "0", "durationMin": "3", "durationSec": "45", "livePlays": "0", "singer": "Farin", "single": "false"},
+
+    {"song": "Welche Krise?", "album": "Single/B-Seite", "release": "2015", "streams": "200.000", "durationMin": "2", "durationSec": "52", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Himmel auf Erden", "album": "Single/B-Seite", "release": "2015", "streams": "100.000", "durationMin": "3", "durationSec": "31", "livePlays": "0", "singer": "Farin", "single": "false"}
 ]

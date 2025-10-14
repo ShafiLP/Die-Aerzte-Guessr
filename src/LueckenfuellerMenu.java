@@ -33,7 +33,7 @@ public class LueckenfuellerMenu extends JFrame {
 
         // Heading
         JPanel headingPanel = new JPanel();
-        ImageIcon icon = new ImageIcon("images\\CTL.png");
+        ImageIcon icon = new ImageIcon("images\\Lueckenfueller.png");
         Image img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
         JLabel lHeading = new JLabel(new ImageIcon(img));
         headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));

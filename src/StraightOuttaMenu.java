@@ -34,7 +34,7 @@ public class StraightOuttaMenu extends JFrame {
 
         // Heading
         JPanel headingPanel = new JPanel();
-        ImageIcon icon = new ImageIcon("images\\GTO.png");
+        ImageIcon icon = new ImageIcon("images\\StraightOutta.png");
         Image img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
         JLabel lHeading = new JLabel(new ImageIcon(img));
         headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));

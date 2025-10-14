@@ -1,4 +1,5 @@
 [
+    {"song": "Theme From Bingowings", "icon": "bingo"},
     {"song": "B-Vertüre", "icon": "bingo"},
     {"song": "Gitarre runter", "icon": "bingo"},
     {"song": "Tag mit Schutzumschlag", "icon": "bingo"},
@@ -16,8 +17,10 @@
     {"song": "Wiehr thind sssuper", "icon": "bingo"},
     {"song": "Baby läuft fort", "icon": "bingo"},
     {"song": "Traumfrau again", "icon": "bingo"},
-    {"song": "Loverboy", "icon": "bingo"},
     {"song": "Deutsche - kauft nicht bei Nazis", "icon": "bingo"},
+    {"song": "Kein Ort für einen Mann", "icon": "bingo"},
+
+    {"song": "Loverboy", "icon": "schutzumschlagSingle"},
 
 
 
@@ -37,9 +40,10 @@
     {"song": "Nein!", "icon": "codeb"},
     {"song": "Dein Schlaflied", "icon": "codeb"},
     {"song": "Der Wahrheit", "icon": "codeb"},
-    {"song": "Satan, Gott und das Glück", "icon": "codeb"},
-    {"song": "Do the Helmstedt", "icon": "codeb"},
     {"song": "Paris", "icon": "codeb"},
+
+    {"song": "Satan, Gott und das Glück", "icon": "altesArschlochLiebeSingle"},
+    {"song": "Do the Helmstedt", "icon": "schwarzWeissSingle"},
 
 
 

@@ -8,7 +8,7 @@ public class Settings {
     private boolean sahnieLibrary = false;
     private boolean colourfulGui = true;
 
-    // For GTO
+    // For Straight Outta...
     private String gtoTypeOfInput = "Suchleiste";
     private boolean gtoUnlimitedTime = false;
     private boolean gtoUnlimitedLives = false;
@@ -17,7 +17,7 @@ public class Settings {
     private int gtoHintCount = 3;
     private int gtoHighscore = 0;
 
-    // For CTL
+    // For Lückenfüller
     private boolean ctlHardMode = false;
     private boolean ctlShowIcons = true;
     private boolean ctlUnlimitedTime = false;

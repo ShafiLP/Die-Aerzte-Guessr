@@ -13,7 +13,7 @@ import java.io.IOException;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-
+    private final String VERSION = "0.3.6";
     /**
      * Constructor of main menu
      * Contains paths to all games
@@ -44,7 +44,7 @@ public class MainMenu extends JFrame {
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
 
         // Buttons
-        icon = new ImageIcon("images\\GTO.png");
+        icon = new ImageIcon("images\\StraightOutta.png");
         img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
         JButton bGTO = new JButton(new ImageIcon(img));
         bGTO.addActionListener(_ -> {
@@ -54,7 +54,7 @@ public class MainMenu extends JFrame {
         bGTO.setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
         bGTO.setBackground(new Color(255, 220, 220));
 
-        icon = new ImageIcon("images\\CTL.png");
+        icon = new ImageIcon("images\\Lueckenfueller.png");
         img = icon.getImage().getScaledInstance(260, 35, Image.SCALE_SMOOTH);
         JButton bCTL = new JButton(new ImageIcon(img));
         bCTL.addActionListener(_ -> {
@@ -111,7 +111,7 @@ public class MainMenu extends JFrame {
 
         // Author + Version
         JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
-        JLabel lVersion = new JLabel("Version 0.3.5", SwingConstants.LEFT);
+        JLabel lVersion = new JLabel("Version " + VERSION, SwingConstants.LEFT);
         JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
         authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         authorVersionPanel.add(lVersion);

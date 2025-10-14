@@ -40,6 +40,10 @@ public class AerztleObject {
         isASingle = pSingle;
     }
 
+    public AerztleObject() {
+        //
+    }
+
     /**
      * Get operation for the song's name
      * @return Name of the song as a String

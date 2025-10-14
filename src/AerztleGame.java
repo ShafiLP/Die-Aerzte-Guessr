@@ -14,7 +14,7 @@ public class AerztleGame {
     private Settings settings;
 
     private AerztleGui gui;
-    private AerztleObject randomAerztleObject;
+    private AerztleObject currentSong;
     private LinkedList<AerztleObject> aerztleObjects;
 
     private final int TRIES;
@@ -29,22 +29,30 @@ public class AerztleGame {
 
         aerztleObjects = new LinkedList<>();
         aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
+
+        // Load bonus libraries if enabled
         if(settings.isFarinEnabled())
         aerztleObjects = readSongsFromJson("data\\aerztleDataFarin.json", aerztleObjects);
 
+        if(settings.isBelaEnabled())
+        aerztleObjects = readSongsFromJson("data\\aerztleDataBela.json", aerztleObjects);
+
+        if(settings.isSahnieEnabled())
+        aerztleObjects = readSongsFromJson("data\\aerztleDataSahnie.json", aerztleObjects);
+
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
-        randomAerztleObject =  aerztleObjects.get(randomIndex);
+        currentSong =  aerztleObjects.get(randomIndex);
 
         // DEBUG
-        System.out.println(randomAerztleObject.getSongName());
-        System.out.println(randomAerztleObject.getAlbum());
-        System.out.println(randomAerztleObject.getReleaseYear());
-        System.out.println(randomAerztleObject.getStreamsAsText());
-        System.out.println(randomAerztleObject.getDurationMinutes());
-        System.out.println(randomAerztleObject.getDurationSeconds());
-        System.out.println(randomAerztleObject.getLivePlays());
-        System.out.println(randomAerztleObject.getSinger());
-        System.out.println(randomAerztleObject.isSingle());
+        System.out.println(currentSong.getSongName());
+        System.out.println(currentSong.getAlbum());
+        System.out.println(currentSong.getReleaseYear());
+        System.out.println(currentSong.getStreamsAsText());
+        System.out.println(currentSong.getDurationMinutes());
+        System.out.println(currentSong.getDurationSeconds());
+        System.out.println(currentSong.getLivePlays());
+        System.out.println(currentSong.getSinger());
+        System.out.println(currentSong.isSingle());
     }
 
     private void compSongName(AerztleObject pGuess, AerztleObject pSolution) {
@@ -183,20 +191,20 @@ public class AerztleGame {
 
         // Check all categories
         if(guess.getSongName() != null) {
-            compSongName(guess, randomAerztleObject);
-            compAlbum(guess, randomAerztleObject);
-            compReleaseYear(guess, randomAerztleObject);
-            compStreams(guess, randomAerztleObject);
-            compDuration(guess, randomAerztleObject);
-            compLivePlays(guess, randomAerztleObject);
-            compSinger(guess, randomAerztleObject);
-            compIsSingle(guess, randomAerztleObject);
+            compSongName(guess, currentSong);
+            compAlbum(guess, currentSong);
+            compReleaseYear(guess, currentSong);
+            compStreams(guess, currentSong);
+            compDuration(guess, currentSong);
+            compLivePlays(guess, currentSong);
+            compSinger(guess, currentSong);
+            compIsSingle(guess, currentSong);
             currentGuess++;
         } else {
             return;
         }
         
-        if(randomAerztleObject.getSongName().equals(guess.getSongName())) {
+        if(currentSong.getSongName().equals(guess.getSongName())) {
             Object[] options = {"Neues Spiel", "Beenden"};
             int n = JOptionPane.showOptionDialog(
                 gui,
@@ -222,7 +230,7 @@ public class AerztleGame {
             Object[] options = {"Neues Spiel", "Beenden"};
             int n = JOptionPane.showOptionDialog(
                 gui,
-                "Du hast keine Versuche mehr, der Song war: " + randomAerztleObject.getSongName() + "\nNochmal spielen?",
+                "Du hast keine Versuche mehr, der Song war: " + currentSong.getSongName() + "\nNochmal spielen?",
                 "Ärztle",
                 JOptionPane.INFORMATION_MESSAGE,
                 JOptionPane.OK_CANCEL_OPTION,
@@ -245,7 +253,7 @@ public class AerztleGame {
         gui.resetGui();
         currentGuess = 1;
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
-        randomAerztleObject =  aerztleObjects.get(randomIndex);
+        currentSong =  aerztleObjects.get(randomIndex);
     }
 
     /**
