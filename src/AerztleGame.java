@@ -1,9 +1,7 @@
 import java.awt.Color;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.NumberFormat;
 import java.util.LinkedList;
-import java.util.Locale;
 
 import javax.swing.JOptionPane;
 
@@ -76,25 +74,31 @@ public class AerztleGame {
             gui.paintReleaseYear(currentGuess, Color.GREEN, pGuess.getReleaseYear() + "");
         } else {
             if(pGuess.getReleaseYear() - pSolution.getReleaseYear() > 0) {
-                gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬇️");
+                if(pGuess.getReleaseYear() - 1 == pSolution.getReleaseYear()) {
+                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + " ⬇️");
+                } else {
+                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬇️");
+                }
             } else {
-                gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬆️");
+                if(pGuess.getReleaseYear() + 1 == pSolution.getReleaseYear()) {
+                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + " ⬆️");
+                } else {
+                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬆️");
+                }
             }
         }
     }
 
     private void compStreams(AerztleObject pGuess, AerztleObject pSolution) {
-        NumberFormat nf = NumberFormat.getInstance(Locale.GERMAN);
-        String streamsMaximum = nf.format(pGuess.getStreamsAsInteger() + 100000);
         if(pGuess.getStreamsAsInteger() == pSolution.getStreamsAsInteger()) {
-            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : pGuess.getStreamsAsText() + " - " + streamsMaximum);
+            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsInteger() == 0 ? "≥ 100.000" : "≥" + pGuess.getStreamsAsText());
         } else {
             if(pGuess.getStreamsAsInteger() - pSolution.getStreamsAsInteger() > 0) {
                 gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() - 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬇️" : pGuess.getStreamsAsText() + " - " + streamsMaximum + " ⬇️");
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬇️" : "≥" + pGuess.getStreamsAsText() + " ⬇️");
             } else {
                 gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() + 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬆️" : pGuess.getStreamsAsText() + " - " + streamsMaximum + " ⬆️");
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬆️" : "≥" + pGuess.getStreamsAsText() + " ⬆️");
             }
         }
     }

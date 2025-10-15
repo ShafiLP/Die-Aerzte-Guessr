@@ -1,9 +1,14 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -11,25 +16,32 @@ import java.io.IOException;
 import com.google.gson.Gson;
 
 public class LueckenfuellerMenu extends JFrame {
-    // Settings for the settings frame
     private Settings settings;
+    private JFrame fHtp;
+    private JFrame settingsFrame;
 
     /**
      * Crates a GUI for starting the game and configuring settings
      */
     public LueckenfuellerMenu() {
+        // Read settings
         settings = readSettings("data\\settings.json");
+        Color backgroundColor = Color.WHITE;
+
+        if(settings.isColourfulGuiEnabled())
+        backgroundColor = new Color(220, 220, 255);
 
         this.setTitle("Lückenfüller");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(300, 300);
+        this.setSize(310, 350);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
-        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage()); //TODO: each window gets its own funny icon
+        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 40, 30, 40)); // Padding
+        mainPanel.setBackground(backgroundColor);
 
         // Heading
         JPanel headingPanel = new JPanel();
@@ -38,15 +50,23 @@ public class LueckenfuellerMenu extends JFrame {
         JLabel lHeading = new JLabel(new ImageIcon(img));
         headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
         headingPanel.add(lHeading);
+        headingPanel.setBackground(backgroundColor);
         this.add(headingPanel, BorderLayout.NORTH);
 
         // Button panel for start, settings, etc.
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        buttonPanel.setOpaque(false);;
 
         // Buttons
         JButton bPlay = new JButton("Spielen");
         bPlay.addActionListener(_ -> {
+            if(fHtp != null && fHtp.isVisible()) {
+                fHtp.dispose();
+            }
+            if(settingsFrame != null && settingsFrame.isVisible()) {
+                settingsFrame.dispose();
+            }
             this.dispose();
             new LueckenfuellerGame(settings);
         });
@@ -54,19 +74,47 @@ public class LueckenfuellerMenu extends JFrame {
         bSettings.addActionListener(_ -> {
             openSettings();
         });
+        JButton bHowToPlay = new JButton("Wie man spielt");
+        bHowToPlay.addActionListener(_ -> {
+            openHowToPlay();
+        });
         JButton bBack = new JButton("Hauptmenü");
         bBack.addActionListener(_ -> {
+            if(fHtp != null && fHtp.isVisible()) {
+                fHtp.dispose();
+            }
+            if(settingsFrame != null && settingsFrame.isVisible()) {
+                settingsFrame.dispose();
+            }
             this.dispose();
             new MainMenu();
         });
 
+        bPlay.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
+        bPlay.setBackground(Color.WHITE);
+        bPlay.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+
+        bSettings.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
+        bSettings.setBackground(Color.WHITE);
+        bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+
+        bHowToPlay.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
+        bHowToPlay.setBackground(Color.WHITE);
+        bHowToPlay.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+
+        bBack.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
+        bBack.setBackground(Color.WHITE);
+        bBack.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+
         Dimension buttonSize = new Dimension(200, 40);
         bPlay.setMaximumSize(buttonSize);
         bSettings.setMaximumSize(buttonSize);
+        bHowToPlay.setMaximumSize(buttonSize);
         bBack.setMaximumSize(buttonSize);
 
         bPlay.setAlignmentX(Component.CENTER_ALIGNMENT);
         bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
+        bHowToPlay.setAlignmentX(CENTER_ALIGNMENT);
         bBack.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Highscore
@@ -74,12 +122,15 @@ public class LueckenfuellerMenu extends JFrame {
         JLabel lHighscore = new JLabel("Highscore: " + settings.getCtlHighscore());
         highscorePanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
         highscorePanel.add(lHighscore);
+        highscorePanel.setBackground(backgroundColor);
         this.add(highscorePanel, BorderLayout.SOUTH);
 
         // Add with vertical padding
         buttonPanel.add(bPlay);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         buttonPanel.add(bSettings);
+        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        buttonPanel.add(bHowToPlay);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         buttonPanel.add(bBack);
 
@@ -93,7 +144,7 @@ public class LueckenfuellerMenu extends JFrame {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        JFrame settingsFrame = new JFrame();
+        settingsFrame = new JFrame();
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         settingsFrame.setSize(500, 200);
         settingsFrame.setResizable(false);
@@ -128,14 +179,21 @@ public class LueckenfuellerMenu extends JFrame {
             }
         });
 
+        // Number or hints settings
+        JPanel hintPanel = new JPanel(new GridLayout(2, 1));
+        JLabel lHints = new JLabel("Anzahl der Hinweise");
+        JTextField tfHints = new JTextField(settings.getCtlHintCount() + "");
+        hintPanel.add(lHints);
+        hintPanel.add(tfHints);
+
+        // Hardmode settings
+        JCheckBox cbHardmode = new JCheckBox("Schwieriger Modus", settings.isCtlHardmodeEnabled());
+
         // Highscore reset button
         JButton bResetHighscore = new JButton("Highscore zurücksetzen");
         bResetHighscore.addActionListener(_ -> {
             settings.setCtlHighscore(0);
         });
-
-        // Hardmode settings
-        JCheckBox cbHardmode = new JCheckBox("Schwieriger Modus", settings.isCtlHardmodeEnabled());
 
         // Save button
         JButton bSave = new JButton("Speichern");
@@ -185,8 +243,30 @@ public class LueckenfuellerMenu extends JFrame {
                 return;
             }
 
+            // Check if hint input is valid
+            try {
+                int hints = Integer.parseInt(tfHints.getText());
+                if(hints > 1000) {
+                    JOptionPane.showMessageDialog(
+                        bSave,
+                        "Eingabe der Hinweisanzahl ungültig.\nDarf nicht höher als 1000 sein!",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE
+                    );
+                    return;
+                }
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(
+                    bSave,
+                    "Eingabe der Hinweisanzahl ungültig.\nMuss eine Ganzzahl sein!",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE
+                );
+            }
+
             settings.setCtlUnlimitedTime(cbUnlimitedTime.isSelected());
             settings.setCtlUnlimitedLives(cbUnlimitedLives.isSelected());
+            settings.setCtlHintCount(Integer.parseInt(tfHints.getText()));
             settings.setCtlHardmode(cbHardmode.isSelected());
 
             saveSettings(settings);
@@ -198,13 +278,48 @@ public class LueckenfuellerMenu extends JFrame {
         settingsFrame.add(panLives);
         settingsFrame.add(cbUnlimitedTime);
         settingsFrame.add(cbUnlimitedLives);
+        settingsFrame.add(hintPanel);
         settingsFrame.add(cbHardmode);
-        settingsFrame.add(new JLabel());
         settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);
 
         // Set frame visible
         settingsFrame.setVisible(true);
+    }
+
+    /**
+     * Opens a HTML file that explains how to play this game
+     */
+    private void openHowToPlay() {
+        fHtp = new JFrame();
+        fHtp.setTitle("Wie man spielt");
+        fHtp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fHtp.setSize(500, 500);
+        fHtp.setResizable(false);
+        fHtp.setLocationRelativeTo(null); // Center the window
+        fHtp.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+        fHtp.setLayout(new BorderLayout());
+
+        JEditorPane content = new JEditorPane();
+        content.setEditable(false);
+        content.setContentType("text/html");
+        File htmlFile = new File("html\\howToPlayLueckenfueller.html");
+        try {
+            content.setPage(htmlFile.toURI().toURL());
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+        JScrollPane scorllableContent = new JScrollPane(content);
+
+        JButton bBack = new JButton("Verstanden!");
+        bBack.addActionListener(_ -> {
+            fHtp.dispose();
+        });
+
+        fHtp.add(scorllableContent, BorderLayout.CENTER);
+        fHtp.add(bBack, BorderLayout.SOUTH);
+        fHtp.setVisible(true);
     }
 
     /**

@@ -18,6 +18,7 @@ public class LueckenfuellerGame implements TimerEvents {
 
     private int timeLimit;
     private int liveCount;
+    private int hintCount;
     private int score;
 
     /**
@@ -29,6 +30,7 @@ public class LueckenfuellerGame implements TimerEvents {
         settings = pSettings;
         timeLimit = settings.getCtlTimeLimit();
         liveCount = settings.getCtlLiveCount();
+        hintCount = settings.getCtlHintCount();
 
         // Read CTL elements from file
         lyricsWithGaps = new LinkedList<>();
@@ -130,7 +132,13 @@ public class LueckenfuellerGame implements TimerEvents {
      * @return first letter of solution
      */
     public String requestHint() {
-        return String.valueOf(randomTextWithGap.getGap().charAt(0));
+        if(hintCount > 0) {
+            hintCount--;
+            gui.setHints(hintCount);
+            return String.valueOf(randomTextWithGap.getGap().charAt(0));
+        } else {
+            return "Keine Hinweise mehr übrig.";
+        }
     }
 
     /**

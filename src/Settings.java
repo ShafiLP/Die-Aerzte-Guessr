@@ -24,12 +24,12 @@ public class Settings {
     private boolean ctlUnlimitedLives = false;
     private int ctlLiveCount = 3;
     private int ctlTimeLimit = 30;
+    private int ctlHintCount = 3;
     private int ctlHighscore = 0;
 
     // For Ärztle
     private String aeTypeOfInput = "Suchleiste";
     private int aeTries = 7;
-    private int aeHighscore = 0;
 
     public Settings() {
         // Keep default settings
@@ -232,6 +232,14 @@ public class Settings {
         return ctlUnlimitedLives;
     }
 
+    public void setCtlHintCount(int pHints) {
+        ctlHintCount = pHints;
+    }
+
+    public int getCtlHintCount() {
+        return ctlHintCount;
+    }
+
     public void setCtlHighscore(int pScore) {
         ctlHighscore = pScore;
     }
@@ -256,13 +264,5 @@ public class Settings {
 
     public int getAeTries() {
         return aeTries;
-    }
-
-    public void setAeHighscore(int pScore) {
-        aeHighscore = pScore;
-    }
-
-    public int getAeHighscore() {
-        return aeHighscore;
     }
 }

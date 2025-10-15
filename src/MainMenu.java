@@ -13,7 +13,7 @@ import java.io.IOException;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.3.6";
+    private final String VERSION = "0.4.0";
     /**
      * Constructor of main menu
      * Contains paths to all games

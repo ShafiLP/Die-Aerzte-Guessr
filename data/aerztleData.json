@@ -148,7 +148,7 @@
     {"song": "Geh mit mir", "album": "planet", "release": "1995", "streams": "500.000", "durationMin": "2", "durationSec": "29", "livePlays": "73", "singer": "Bela, Jasmin Tabatabai", "single": "false"},
     {"song": "Langweilig", "album": "planet", "release": "1995", "streams": "2.400.000", "durationMin": "3", "durationSec": "7", "livePlays": "200", "singer": "Farin", "single": "false"},
     {"song": "Mein Freund Michael", "album": "planet", "release": "1995", "streams": "600.000", "durationMin": "3", "durationSec": "39", "livePlays": "4", "singer": "Farin", "single": "false"},
-    {"song": "Rod Loves You", "album": "planet", "release": "1995", "streams": "900.000", "durationMin": "3", "durationSec": "26", "livePlays": "13", "singer": "Farin, Rod", "single": "false"},
+    {"song": "Rod Loves You", "album": "planet", "release": "1995", "streams": "900.000", "durationMin": "3", "durationSec": "26", "livePlays": "13", "singer": "Farin, Rod", "single": "true"},
     {"song": "Der Misanthrop", "album": "planet", "release": "1995", "streams": "700.000", "durationMin": "3", "durationSec": "21", "livePlays": "42", "singer": "Farin", "single": "false"},
     {"song": "Vermissen, Baby", "album": "planet", "release": "1995", "streams": "400.000", "durationMin": "3", "durationSec": "37", "livePlays": "87", "singer": "Rod", "single": "false"},
     {"song": "Nazareth", "album": "planet", "release": "1995", "streams": "300.000", "durationMin": "4", "durationSec": "20", "livePlays": "0", "singer": "Bela", "single": "false"},

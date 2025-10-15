@@ -120,7 +120,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         }});
 
         // Disclaimer label for wrong information
-        JLabel lDisclaimer = new JLabel("*Manche Informationen, überwiegend bei dem Sänger, könnten Fehler aufweisen", SwingConstants.CENTER);
+        JLabel lDisclaimer = new JLabel("*Manche Informationen könnten Fehler aufweisen!", SwingConstants.CENTER);
         lDisclaimer.setFont(new Font(settings.getFontType(), Font.PLAIN, 13));
         guessingPanel.add(lDisclaimer, new GridBagConstraints() {{
             gridx = 0;

@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            h1 {
+                text-align: center;
+                font-size: 20px;
+            }
+            h2 {
+                text-align: left;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 style="color:green"><b>Wie man Spielt: Ärztle</b></h1>
+        <img src="file:Aerztle_GUI.png" alt="GUI" width="465">
+        <p>
+            In diesem Spielmodus (inspiriert von Webseiten wie Wordle oder Globle) geht es darum, <b>das richtige Lied durch blindes Raten zu finden</b>!<br>
+            Hierbei kann es sich um alle Lieder aus Studio-Alben, Singles und B-Seiten handeln. Kompilationen wie "5, 6, 7, 8 Bullenstaat"
+            oder "Nummus Cecidid" sind nicht in den Daten vorhanden. <br>
+            Wenn in den Einstellungen im Hauptmenü die Diskografien von Farin Urlaub, Bela B oder Sahnie aktiviert sind,
+            können auch Textzeilen mit Lücken aus den jeweiligen Solokarrieren erscheinen.
+        </p>
+        <br>
+        <h2>Antwort eingeben</h2>
+        <img src="file:Aerztle_Eingabeleiste.png" alt="Eingabeleiste" width="465">
+        <p>
+            Das Lied, dass man Raten will, gibt man <span style="color:red"><b>in das Eingabefeld</b></span> im oberen Teil der Oberfläche ein
+            und <span style="color: blue;"><b>drückt auf "Raten"</b></span> oder die Enter-Taste. <br>
+            Das erste Lied, das man raten möchte, kann komplett willkürlich gewählt werden.
+            Es wird empfohlen, ein Lied Ende der 90er oder Anfang der 2000er zu wählen, da dies das Raten vereinfachen kann.
+        </p>
+        <br>
+        <h2>Tabelle</h2>
+        <img src="Aerztle_Categories.png" alt="Kategorien" width="465">
+        <p>
+            Durch 8 verschiedene Kategorien bekommt man Hinweise, welches Lied aktuell gesucht wird. <br>
+            Ist die Zelle <span style="color: green;"><b>grün</b></span>, sind die Werte von dem geratenen Lied und dem gesuchten Lied <b>identisch</b>. <br>
+            Ist die Zelle <span style="color: red;"><b>rot</b></span>, sind die Werte von dem geratenen Lied und dem gesuchten Lied <b>verschieden</b>. <br>
+            Ist die Zelle <span style="color: orange;"><b>gelb</b></span>, bedeutet das, der geratene Wert ist <b>nah</b> an dem gesuchten Wert. <br>
+            <br>
+            Insgesamt gibt es 8 Kategorien: <br>
+            <b>Name:</b> Wenn diese Kategorie grün ist, hat man das richtige Lied erraten. Ansonsten, auch wenn alles andere grün ist, ist das geratene Lied es falsch. <br>
+            <b>Album:</b> Diese Kategorie wird grün, wenn das geratene Lied und das gesuchte Lied auf dem gleichen Album sind ODER beide eine Single oder eine B-Seite sind. <br>
+            <b>Erscheinungsjahr:</b> Das Jahr, in dem das Lied zum ersten Mal veröffentlicht wurde.
+            Pfeile zeigen an, ob das gesuchte Lied vor oder nach dem Erscheinungsjahr des geratenen Liedes veröffentlicht wurde. Gelb bedeutet, dass die Erscheinungsjahre nur ein Jahr auseinanderliegen.
+            Diese Kategorie muss nicht immer mit den Ergebnissen der Album-Kategorie übereinstimmen, da z. B. Singles schon ein Jahr vor dem eigentlichen Album rausgekommen sein könnten. <br>
+            <b>Spotify Streams:</b> Die Streaming-Anzahl (Wiedergaben), wie sie auf Spotify geteilt wird. Hierbei handelt es sich immer um 100.000er-Schritte, also alles von 300.000 bis 399.999 besitzt den gleichen Wert (≥300.000).
+            Kleinere Werte als 100.000 und nicht auf Spotify verfügbare Lieder besitzen den Wert < 100.000. Pfeile zeigen an, ob der gesuchte Wert größer oder kleiner ist, als der des geratenen Liedes.
+            Gelb bedeutet, dass der gesuchte Wert im angrenzenden Hunderttausenderbereich liegt (Gelb bei ≥500.000 und Pfeil nach oben bedeutet, der gesuchte Wert liegt bei ≥600.000). <br>
+            <b>Dauer:</b> Schlicht und einfach die Dauer des Liedes in Minuten:Sekunden. Pfeile zeigen ob, ob die Dauer des gesuchten Liedes länger oder kürzer ist, als der des eingegebenen Liedes.
+            Wenn die gesuchte und die geratene Dauer weniger als 5 Sekunden auseinanderliegen, wird die Zelle gelb angezeigt. <br>
+            <b>Live-Auftritte:</b> Die Anzahl, wie oft ein Lied Live auf der Bühne gespielt wurde (Offizielle Tourdaten! Privatkonzerte für Sahnies Oma zählen nicht).
+            Pfeile zeigen an, ob der gesuchte Wert höher oder niedriger ist, als der eingegebene. Ein gelber Hintergrund bedeutet, dass der eingegebene und der gesuchte Wert um weniger als 5 auseinanderliegen. <br>
+            <b>Sänger:</b> Wer singt das Lied? Sind alle Sänger korrekt, wird der Hintergrund grün. Ein roter Hintergrund bedeutet, dass der Sänger oder einer der Sänger nicht dabei ist.
+            Der gelbe Hintergrund bedeutet, dass ALLE Sänger von dem geratenen Lied bei dem gesuchten Lied mitsingen (Bela und gelb = Sänger könnte Bela, Farin oder Bela, Rod sein // Farin, Rod und gelb = Sänger könnte Bela, Farin, Rod sein // 
+            Bela, Farin und der gesuchte Sänger ist Farin = roter Hintergrund, weil Bela falsch ist). <br>
+            <b>Single:</b> Ja/Nein-Wert, ob es zu dem Lied eine Single-Auskopplung gibt. Sind das eingegebene Lied und das gesuchte Lied beide eine Single oder beide sind keine Single, 
+            gibt es einen grünen Hintergrund. Sind die Werte unterschiedlich, gibt es einen roten Hintergrund.
+        </p>
+    </body>
+</html>

@@ -31,6 +31,7 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
     private JLabel lSolution;
     private JLabel lBefore;
     private JLabel lAfter;
+    private JButton bHint;
     private JTextField tfInput;
     private Color backgroundColor;
     private Color infobarColor;
@@ -122,7 +123,7 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
         // Lower bar for submit and hint button
         JPanel lowerPanel = new JPanel(new GridBagLayout());
         lowerPanel.setBackground(backgroundColor);
-        JButton bHint = new JButton("Hinweis");
+        bHint = new JButton("Hinweis (Noch " + settings.getCtlHintCount() + ")");
         bHint.addActionListener(_ -> {
             lSolution.setText("Hinweis: " + game.requestHint() + "...");
             lSolution.setVisible(true);
@@ -204,7 +205,6 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
         if(settings.isCtlHardmodeEnabled()) {
             lAlbum.setVisible(false);
             lSongName.setVisible(false);
-            //lSolution.setVisible(false);
         }
 
         // Timer and Score in upper right corner
@@ -294,8 +294,8 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
         lSolution.setVisible(true);
     }
 
-    public void revealAlbum() {
-        lAlbum.setVisible(true);
+    public void setHints(int pHintsLeft) {
+        bHint.setText("Hinweis (Noch " + pHintsLeft + ")");
     }
 
     /**
