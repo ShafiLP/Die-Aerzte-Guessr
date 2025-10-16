@@ -32,6 +32,7 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
     private JLabel lBefore;
     private JLabel lAfter;
     private JButton bHint;
+    private JButton bSubmit;
     private JTextField tfInput;
     private Color backgroundColor;
     private Color infobarColor;
@@ -128,7 +129,7 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
             lSolution.setText("Hinweis: " + game.requestHint() + "...");
             lSolution.setVisible(true);
         });
-        JButton bSubmit = new JButton("Raten");
+        bSubmit = new JButton("Raten");
         bSubmit.addActionListener(_ -> {
             submitButtonPressed();
         });
@@ -360,5 +361,15 @@ public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
             lSongName.setVisible(false);
             lAlbum.setVisible(false);
         }
+    }
+
+    /**
+     * Deactivates or activates all ways to do an input on the GUI
+     * @param pInteractable If true all elements are interactable (enabled), if false all elements are not interactabe (disabled)
+     */
+    public void setInteractable(boolean pInteractable) {
+        tfInput.setEnabled(pInteractable);
+        bHint.setEnabled(pInteractable);
+        bSubmit.setEnabled(pInteractable);
     }
 }

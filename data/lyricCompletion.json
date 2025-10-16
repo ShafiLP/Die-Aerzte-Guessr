@@ -46,6 +46,10 @@
 	{"before": "Sie stand da ganz", "gap": "allein", "after": "und ich musst' sie dauernd anstarr'n", "song": "Teenager Liebe", "album": "debil"},
 	{"before": "Denn jetzt kommt, ja, jetzt kommt die", "gap": "Liebe", "after": "physisch", "song": "Füße vom Tisch", "album": "debil"},
 
+	{"before": "Und hinterm Vorhang steht ein", "gap": "Herr", "after": "", "song": "Erna P.", "album": "paulSingle"},
+	{"before": "Unterm Vorhang stehn zwei", "gap": "Männerschuhe", "after": "", "song": "Erna P.", "album": "paulSingle"},
+	{"before": "Sie dreht sich um, will", "gap": "Kaffee", "after": "machen, da hört sie [...]", "song": "Erna P.", "album": "paulSingle"},
+
 
 
 
@@ -91,6 +95,10 @@
 	{"before": "Dann zertrümmert er mir mein", "gap": "Nasenbein", "after": "", "song": "\"Was hat der Junge doch für Nerven\"", "album": "schatten"},
 	{"before": "Er braucht keinen", "gap": "Spickzettel", "after": "in Mathematik", "song": "\"Was hat der Junge doch für Nerven\"", "album": "schatten"},
 	{"before": "Er lässt mich niemals im", "gap": "Diktat", "after": "abschreiben", "song": "\"Was hat der Junge doch für Nerven\"", "album": "schatten"},
+
+	{"before": "Doch als ich gestern deinen", "gap": "Brief", "after": "bekam, da dachte ich, mein Herz steht still", "song": "Und ich weine", "album": "wegendirSingle"},
+	{"before": "Es ist aus, du bist fort und ich", "gap": "weine", "after": "", "song": "Und ich weine", "album": "wegendirSingle"},
+	{"before": "Dann kannst du ein paar", "gap": "rote Rosen", "after": " pflücken und die legst du dann auf mein Grab", "song": "Und ich weine", "album": "wegendirSingle"},
 
 
 
@@ -146,6 +154,52 @@
 	{"before": "Naja... Ein bisschen", "gap": "blauäugig", "after": "(so dunkelblau)", "song": "Ich bin reich", "album": "aerzte"},
 	{"before": "Denn im", "gap": "Schaufenster", "after": "Hatte er etwas geseh'n", "song": "Zum letzten Mal", "album": "aerzte"},
 	{"before": "Sie lag alleine im Bett und der", "gap": "Vollmond", "after": "schien", "song": "Zum letzten Mal", "album": "aerzte"},
+
+	{"before": "Bald haben wir's geschafft, ewige", "gap": "Blumenkraft", "after": "", "song": "Ewige Blumenkraft", "album": "fuerimmerSingle"},
+	{"before": "Man nennt mich", "gap": "Bruder Friedlich", "after": "Und ich sage euch: [...]", "song": "Ewige Blumenkraft", "album": "fuerimmerSingle"},
+	{"before": "Dann gibt es kein", "gap": "Morgen", "after": "mehr, sondern nur noch gestern", "song": "Ewige Blumenkraft", "album": "fuerimmerSingle"},
+	{"before": "Die weißen", "gap": "Tauben", "after": "Baby, yeah yeah yeah, sie sind müde", "song": "Ewige Blumenkraft", "album": "fuerimmerSingle"},
+
+
+
+
+
+	{"before": "Ich liebe ein Mädchen, die ist", "gap": "zwei", "after": "Meter lang", "song": "Sie kratzt, sie stinkt, sie klebt", "album": "abAchtzehn"},
+	{"before": "Dieses Mädchen ist mein Fall, doch sie hat", "gap": "Haare", "after": "überall", "song": "Sie kratzt, sie stinkt, sie klebt", "album": "abAchtzehn"},
+	{"before": "Die hat ein Kreuz wie ein", "gap": "Kleiderschrank", "after": "Dieses Mädchen ist mein Fall", "song": "Sie kratzt, sie stinkt, sie klebt", "album": "abAchtzehn"},
+	{"before": "Es macht die Runde in der", "gap": "Koalition", "after": "Selbst Rita Süssmuth weiß es schon", "song": "Helmut K.", "album": "abAchtzehn"},
+	{"before": "Neulich ließ die", "gap": "Hannelore", "after": "mal etwas auf dem Teller", "song": "Helmut K.", "album": "abAchtzehn"},
+	{"before": "Er ist ein", "gap": "Mann", "after": "wie ich und du, und Helmut Kohl [...]", "song": "Helmut K.", "album": "abAchtzehn"},
+	{"before": "Claudia hat jetzt ein", "gap": "Pferd", "after": "Mit dem sie ziemlich oft [...]", "song": "Claudia II", "album": "abAchtzehn"},
+	{"before": "Doch sie wünscht sich von ihren Tanten zu", "gap": "Ostern", "after": "einen Elefanten", "song": "Claudia II", "album": "abAchtzehn"},
+
+
+
+
+
+	{"before": "Ich war in", "gap": "Kairo", "after": "und auch am blauen Nil war ich schon einmal", "song": "Geh'n wie ein Ägypter", "album": "hoehepunkte"},
+	{"before": "Ich war in Gizeh dort wo die 3 spitzen", "gap": "Pyramiden", "after": "stehen", "song": "Geh'n wie ein Ägypter", "album": "hoehepunkte"},
+	{"before": "Ich stell mir vor, die", "gap": "Sphinx", "after": "gibt mir einen Zungenkuss", "song": "Geh'n wie ein Ägypter", "album": "hoehepunkte"},
+	{"before": "Doch es gibt genügend", "gap": "Mädchen", "after": "Die im Telefonbuch stehen", "song": "2000 Mädchen", "album": "hoehepunkte"},
+	{"before": "Ich kenn nur deine", "gap": "Stimme", "after": "Und den Rest stell ich mir vor", "song": "2000 Mädchen", "album": "hoehepunkte"},
+	{"before": "Ich will genau jetzt bei dir sein, für", "gap": "Minuten", "after": "bist du mein", "song": "2000 Mädchen", "album": "hoehepunkte"},
+	{"before": "Manchmal ist dein Vater dran, zu", "gap": "Fremden", "after": "ist er nett", "song": "2000 Mädchen", "album": "hoehepunkte"},
+	{"before": "Und darum schmeiß ich dein", "gap": "Radio", "after": "an die Wand", "song": "Radio brennt", "album": "hoehepunkte"},
+	{"before": "Sie spielen überall dasselbe,", "gap": "Falcos", "after": "neue LP", "song": "Radio brennt", "album": "hoehepunkte"},
+	{"before": "Ich höre", "gap": "Madonna", "after": "und Chris de Burgh, nur die Ärzte höre ich nie", "song": "Radio brennt", "album": "hoehepunkte"},
+
+	{"before": "Es war ein grauer Dienstag, als", "gap": "Gabi", "after": "ihren Zahnarzt sah", "song": "Nein, Nein, Nein", "album": "maedchenSingle"},
+	{"before": "Der", "gap": "Zahnarzt", "after": "hatte Gabi grauenvoll entstellt", "song": "Nein, Nein, Nein", "album": "maedchenSingle"},
+	{"before": "Kleine", "gap": "rote Punkte", "after": "mitten im Gesicht", "song": "Nein, Nein, Nein", "album": "maedchenSingle"},
+	{"before": "Denn Gabi weiß, seit heute ist sie in der", "gap": "Pubertät", "after": "", "song": "Nein, Nein, Nein", "album": "maedchenSingle"},
+	{"before": "Liebe ist stärker als alle Pickel und", "gap": "Zahnspangen", "after": "dieser Erde", "song": "Nein, Nein, Nein", "album": "maedchenSingle"},
+
+	{"before": "Sie hat sogar mit dem Gedanken an einen", "gap": "Job", "after": "gespielt", "song": "Gabi ist pleite", "album": "radioSingle"},
+	{"before": "Es herrscht wieder", "gap": "Ebbe", "after": "in Gabis Portemonnaie", "song": "Gabi ist pleite", "album": "radioSingle"},
+	{"before": "Doch um Uwe", "gap": "einzuladen", "after": "wär zu allem sie bereit", "song": "Gabi ist pleite", "album": "radioSingle"},
+	{"before": "Es ist wieder", "gap": "Wochenende", "after": "und Gabi ist mal wieder blank", "song": "Gabi ist pleite", "album": "radioSingle"},
+	{"before": "Wie wärs mit 'ner", "gap": "Konfirmation", "after": "Auf lange Sicht lohnt sich das schon", "song": "Gabi ist pleite", "album": "radioSingle"},
+	{"before": "Gabi stellt sich mit", "gap": "Gitarre", "after": "singend in die Innenstadt", "song": "Gabi ist pleite", "album": "radioSingle"},
 
 
 
@@ -205,6 +259,18 @@
 	{"before": "Wir woll 'n lauter als die", "gap": "Hölle", "after": "sein, unser Herz ist groß und die Welt ist klein", "song": "Gute Zeit", "album": "wahrheit"},
 	{"before": "Als ich das Mädchen mit den", "gap": "Latzhosen", "after": "sah, da war mir eines sofort klar ", "song": "Schwanz ab", "album": "wahrheit"},
 	{"before": "Sie trat mir in den Bauch mit ihren", "gap": "Sandalen", "after": "Ich ging zu Boden, sie waren hart wie Zement", "song": "Schwanz ab", "album": "wahrheit"},
+
+
+
+
+
+	{"before": "Mit", "gap": "Tennisschläger", "after": "in der Hand steht er vor dem Spiegel", "song": "Das ist Rock'n'Roll", "album": "blumenSingle"},
+	{"before": "Du wirst dann mein", "gap": "Groupie", "after": "sein, denn das ist Rock'n'Roll", "song": "Das ist Rock'n'Roll", "album": "blumenSingle"},
+	{"before": "Uwe, sei doch vernünftig, werd doch", "gap": "Beamter", "after": "oder Pilot!", "song": "Das ist Rock'n'Roll", "album": "blumenSingle"},
+
+	{"before": "Uwe hat sie gleich bemerkt, die", "gap": "Beulen", "after": "unter Gabis Hemd", "song": "Sie tun es", "album": "zuspaetLive"},
+	{"before": "Klar, er weiß schon einiges aus einem", "gap": "Pornoheft", "after": "", "song": "Sie tun es", "album": "zuspaetLive"},
+	{"before": "Gabi wohnt in", "gap": "Schöneberg", "after": " Uwe wohnt in Wedding", "song": "Sie tun es", "album": "zuspaetLive"},
 
 
 
@@ -520,6 +586,43 @@
 	{"before": "Wenn ich Lust dazu hab', scheiß' ich die", "gap": "Nordsee", "after": "zu", "song": "Grotesksong", "album": "dreizehn"},
 	{"before": "Und dann leg' ich die", "gap": "Schlampen", "after": "von Green Peace flach", "song": "Grotesksong", "album": "dreizehn"},
 
+	{"before": "Geht es mir", "gap": "schlecht", "after": "dann bist du besser drauf", "song": "Du bist nicht mein Freund", "album": "schweinSingle"},
+	{"before": "So hattest du's extrem bequem, du", "gap": "Krebsgeschwür", "after": "du Arschekzem", "song": "Du bist nicht mein Freund", "album": "schweinSingle"},
+	{"before": "Mein Busen hat dich lang genug", "gap": "genährt", "after": "", "song": "Du bist nicht mein Freund", "album": "schweinSingle"},
+	{"before": "Deine Freundschaft ist grad mal", "gap": "Rotze", "after": "wert", "song": "Du bist nicht mein Freund", "album": "schweinSingle"},
+	{"before": "Wir sind regelrechte", "gap": "Alkoholvernichtungsmaschinen", "after": "Wir saufen bis zum Umfalln, alle machen mit", "song": "Saufen", "album": "schweinSingle"},
+	{"before": "Komm wir singen übers", "gap": "Saufen", "after": "über Bier und Alkohol", "song": "Saufen", "album": "schweinSingle"},
+	{"before": "Denn im", "gap": "nüchternen", "after": "Zustand, da kann man nicht gut singen", "song": "Saufen", "album": "schweinSingle"},
+	{"before": "Komm, wir", "gap": "grölen", "after": "noch ein bisschen, denn ich bin schon wieder voll", "song": "Saufen", "album": "schweinSingle"},
+	{"before": "Bela, ja Farin, ach Bela, ja", "gap": "Farin", "after": "ja, Rod, ja Farin und Bela", "song": "Ein Lächeln (Für jeden Tag deines Lebens)", "album": "schweinSingle"},
+	{"before": "Bela, Rod, Farin, Bela, Bela ach", "gap": "Bela", "after": "Rod, nee nee Bela, Doch", "song": "Ein Lächeln (Für jeden Tag deines Lebens)", "album": "schweinSingle"},
+	{"before": "Ja Rod, ach ihr, und Farin,", "gap": "Rod", "after": "Rod, Rod, und ich, Bela, ja Rod", "song": "Ein Lächeln (Für jeden Tag deines Lebens)", "album": "schweinSingle"},
+
+	{"before": "Und kaum eine Woche später bin ich an der", "gap": "gelben", "after": "Ampel einfach durchgefahrn", "song": "Wunderbare Welt des Farin U.", "album": "schweinSingle"},
+	{"before": "Das ist die Welt des", "gap": "Farin Urlaub", "after": "Hier ist immer etwas los", "song": "Wunderbare Welt des Farin U.", "album": "schweinSingle"},
+	{"before": "Sieben Zentimeter Schnee mitten im", "gap": "Februar", "after": "Ich schaute morgens aus dem Fenster raus", "song": "Wunderbare Welt des Farin U.", "album": "schweinSingle"},
+	{"before": "Hier boxt der", "gap": "Papst", "after": " in Nietenhosen, hier ist immer etwas los", "song": "Wunderbare Welt des Farin U.", "album": "schweinSingle"},
+	{"before": "Du weißt, ich spiel", "gap": "Bass", "after": "in der Besten Band der Welt", "song": "Rod Army", "album": "schweinSingle"},
+	{"before": "Ich tu den beiden", "gap": "Vasallen", "after": "nur einen Gefallen", "song": "Rod Army", "album": "schweinSingle"},
+	{"before": "Selbst Jimi Hendrix betete zum", "gap": "Chilemann", "after": "aus BRD", "song": "Rod Army", "album": "schweinSingle"},
+	{"before": "Die Welt braucht 'nen Meister", "gap": "Rodrigo", "after": "so heißt er", "song": "Rod Army", "album": "schweinSingle"},
+
+	{"before": "Wir propagieren weder", "gap": "Inzest", "after": "hier noch Sodomie", "song": "Ein Lied über Zensur", "album": "lovesongSingle"},
+	{"before": "Kein Wort von", "gap": "Analverkehr", "after": "Nix da! Das wär ja noch schöner!", "song": "Ein Lied über Zensur", "album": "lovesongSingle"},
+	{"before": "Wir bitten niemanden", "gap": "Politiker", "after": "zu exekutieren oder falsche Tausender zu drucken", "song": "Ein Lied über Zensur", "album": "lovesongSingle"},
+	{"before": "Ende der Ballade, der", "gap": "Zug", "after": "endet hier - Finito, Schluss", "song": "Schlimm", "album": "lovesongSingle"},
+	{"before": "Ich geh dann mal, beim", "gap": "Sterben", "after": "bin ich gern allein", "song": "Schlimm", "album": "lovesongSingle"},
+	{"before": "Ich liege hinter einem Auto", "gap": "Auspuff", "after": "im Mund, der Motor läuft", "song": "Schlimm", "album": "lovesongSingle"},
+	{"before": "Ich lieg auf einem Ameisenhaufen und bin mit", "gap": "Honig", "after": "eingeschmiert", "song": "Schlimm", "album": "lovesongSingle"},
+	{"before": "Danke, für alle guten", "gap": "Freunde", "after": "danke, oh Herr, für jedermann", "song": "Danke für jeden guten Morgen", "album": "lovesongSingle"},
+	{"before": "Danke, für manche", "gap": "Traurigkeiten", "after": "danke, für jedes gute Wort", "song": "Danke für jeden guten Morgen", "album": "lovesongSingle"},
+
+	{"before": "Ist jetzt etwa Blödglotzzeit? Wenn du", "gap": "Sterbehilfe", "after": "brauchst, sag Bescheid!", "song": "Backpfeifengesicht", "album": "rebellSingle"},
+	{"before": "Mir wird schlecht, ich glaub, ich muss gleich", "gap": "brechen", "after": "gehn", "song": "Backpfeifengesicht", "album": "rebellSingle"},
+	{"before": "Liebe geht halt durch", "gap": "den Magen", "after": "Ich bin sehr verliebt in dich", "song": "Alles für dich", "album": "rebellSingle"},
+	{"before": "Ich schenke dir mein Herz oder lieber meine", "gap": "Leber", "after": "", "song": "Alles für dich", "album": "rebellSingle"},
+
+
 
 
 
@@ -608,6 +711,147 @@
 	{"before": "Verhasst in der", "gap": "Klasse", "after": "und Ärger mit den Eltern sowieso", "song": "Herrliche Jahre", "album": "spendierhosen"},
 	{"before": "Jetzt hast du Stress bei der Arbeit und deine", "gap": "Freundin", "after": "kotzt dich auch schon lange an", "song": "Herrliche Jahre", "album": "spendierhosen"},
 	{"before": "Und du kennst", "gap": "glückliche", "after": "Menschen nur aus den Filmen, die du siehst", "song": "Herrliche Jahre", "album": "spendierhosen"},
+	
+	{"before": "Ey, Tussi, gib mal ein", "gap": "Bier", "after": "aber zackig", "song": "Poser, du bist ein...", "album": "wieesgehtSingle"},
+	{"before": "Und hast du ne freie", "gap": "Nase", "after": "sag ich: Blase, Baby, blase, mach dich nackig", "song": "Poser, du bist ein...", "album": "wieesgehtSingle"},
+	{"before": "Leute, kommt, wir machen", "gap": "Wichs", "after": "Ich zeig euch 'ne Menge Tricks", "song": "Poser, du bist ein...", "album": "wieesgehtSingle"},
+	{"before": "Doch wenn die", "gap": "Gitarre", "after": "spielt, ist alles zu spät", "song": "Die Instrumente des Orchesters", "album": "wieesgehtSingle"},
+	{"before": "Wenn man Bass und", "gap": "Schlagzeug", "after": "hat, klingt die Musik schon ziemlich satt", "song": "Die Instrumente des Orchesters", "album": "wieesgehtSingle"},
+	{"before": "Und statt Kaffee mag der Käpt'n lieber", "gap": "Tee", "after": "", "song": "Kpt. Blaubär", "album": "wieesgehtSingle"},
+	{"before": "Wer will sich schon mit 'nem", "gap": "blauen", "after": "Bär anlegen?", "song": "Kpt. Blaubär", "album": "wieesgehtSingle"},
+	{"before": "Aber leider, aber leider, aber leider gibts in", "gap": "Österreich", "after": "ein Arschloch", "song": "Halsabschneider", "album": "wieesgehtSingle"},
+
+	{"before": "Ihr seid bestimmt damit beschäftigt, euer", "gap": "Hirn", "after": "völlig zu zerstörn", "song": "Rettet die Wale", "album": "frauenSingle"},
+	{"before": "Passt schön auf, fahrt vorsichtig und rettet die", "gap": "Wale", "after": "", "song": "Rettet die Wale", "album": "frauenSingle"},
+	{"before": "Wale sind die größten", "gap": "Sympathieträger", "after": "", "song": "Rettet die Wale", "album": "frauenSingle"},
+	{"before": "Haben die lange Haare, leben auf dem", "gap": "Bauernhof", "after": "?", "song": "Rettet die Wale", "album": "frauenSingle"},
+	{"before": "Lothar Matthäus, du alte", "gap": "Drecksau", "after": "Lothar Matthäus, du Fotze", "song": "Matthäus 1:5:0", "album": "frauenSingle"},
+	{"before": "Auf jeder Party stehst du rum, die", "gap": "Haltung", "after": " schlecht, der Blick ist dumm", "song": "Methan", "album": "frauenSingle"},
+	{"before": "Also mach mich nicht zum Komplizen deiner", "gap": "Hässlichkeit", "after": "", "song": "Methan", "album": "frauenSingle"},
+	{"before": "Du gehörst", "gap": "zurückgefickt", "after": "und abgetrieben", "song": "Methan", "album": "frauenSingle"},
+
+	{"before": "Am Morgen mit 'nem zweiten", "gap": "Kopf", "after": "aufgewacht", "song": "Die Welt ist schlecht", "album": "onoSingle"},
+	{"before": "Ach du Scheiße, was ist das? 'ne", "gap": "Tätowierung", "after": "Wo kommt die denn her?", "song": "Die Welt ist schlecht", "album": "onoSingle"},
+	{"before": "Da steht \"Eigentum von", "gap": "Johnny", "after": "\" Eingerahmt von einem Herz", "song": "Die Welt ist schlecht", "album": "onoSingle"},
+
+
+
+
+
+	{"before": "Wir stehen", "gap": "grinsend", "after": "in der Ecke, wir haben Sonnenbrillen auf", "song": "Hände innen", "album": "geraeusch"},
+	{"before": "Was wir natürlich sehr begrüßen: Selbst unsere", "gap": "Füße", "after": "riechen gut", "song": "Hände innen", "album": "geraeusch"},
+	{"before": "Wir haben die Hände in den", "gap": "Taschen", "after": "wir haben die Taschen voller Geld", "song": "Hände innen", "album": "geraeusch"},
+	{"before": "Ich schätze mal, in zwei, drei Jahren weihen wir", "gap": "Möbelhäuser", "after": "ein", "song": "Hände innen", "album": "geraeusch"},
+	{"before": "Wir sind zwar ziemlich lasche", "gap": "Flaschen", "after": "doch wir haben alles durchgebracht", "song": "Hände innen", "album": "geraeusch"},
+	{"before": "Und du denkst sicher nicht: Die brauchen", "gap": "Sahnies", "after": "Gesicht", "song": "Hände innen", "album": "geraeusch"},
+	{"before": "Als ich den", "gap": "Punk", "after": "erfand, da war das alles unerschlossnes Land", "song": "Als ich den Punk erfand...", "album": "geraeusch"},
+	{"before": "Denn Bier in freier Natur, das ist", "gap": "Punkrock", "after": "pur", "song": "Als ich den Punk erfand...", "album": "geraeusch"},
+	{"before": "Am besten, ich schaffe eine", "gap": "Abwehrwaffe", "after": "Gewaltig und imposant", "song": "Als ich den Punk erfand...", "album": "geraeusch"},
+	{"before": "Und gegen alle Feinde hab ich den", "gap": "Jazz", "after": "erfunden", "song": "Als ich den Punk erfand...", "album": "geraeusch"},
+	{"before": "Du stehst auf", "gap": "Schokolade", "after": "ohne Haselnuss", "song": "System", "album": "geraeusch"},
+	{"before": "Nur das System setzt noch immer auf", "gap": "Unterdrückung", "after": "Und Gewissenlosigkeit", "song": "System", "album": "geraeusch"},
+	{"before": "Ich ruf dich an, du bist mein", "gap": "Gott", "after": "der Rock'n'Roll-Musik", "song": "T-Error", "album": "geraeusch"},
+	{"before": "Ich ruf dich an, wähle die", "gap": "Zahlen", "after": "", "song": "T-Error", "album": "geraeusch"},
+	{"before": "Versucht dich", "gap": "anzurufen", "after": "doch du hast nicht reagiert", "song": "T-Error", "album": "geraeusch"},
+	{"before": "Fühlst du dich", "gap": "betrogen", "after": "Willst du dein Geld zurück?", "song": "Nicht allein", "album": "geraeusch"},
+	{"before": "Wir sind", "gap": "Legionen", "after": "und wir werden bei dir sein", "song": "Nicht allein", "album": "geraeusch"},
+	{"before": "Wo sind all die schönen Dinge, die die", "gap": "Werbung", "after": "jedem Einzelnen von uns versprochen hat?", "song": "Nicht allein", "album": "geraeusch"},
+	{"before": "Du hast so viele", "gap": "Träume", "after": "doch du denkst, es wär zu spät", "song": "Nicht allein", "album": "geraeusch"},
+	{"before": "Lass mich doch in Ruh und", "gap": "texte", "after": "mich nicht zu", "song": "Dinge von denen", "album": "geraeusch"},
+	{"before": "Künstlicher", "gap": "Darmausgang", "after": " na, schönen Dank - mein Hunger war passé", "song": "Dinge von denen", "album": "geraeusch"},
+	{"before": "Mein Haus, mein Boot, mein", "gap": "Pferd", "after": "Wie viel ist die Villa wert?", "song": "Dinge von denen", "album": "geraeusch"},
+	{"before": "Macht sie es mit dem Mund? Oder mit Claudias", "gap": "Schäferhund", "after": "?", "song": "Dinge von denen", "album": "geraeusch"},
+	{"before": "Ich wünschte mir ein", "gap": "Beil", "after": "- Hack! Hack! Hack! Hack!", "song": "Dinge von denen", "album": "geraeusch"},
+	{"before": "Ich werd mich", "gap": "engagiern", "after": "Mit einer Plakataktion", "song": "Der Grund", "album": "geraeusch"},
+	{"before": "", "gap": "Abrüstung", "after": " jetzt - ich mach den ersten Schritt", "song": "Der Grund", "album": "geraeusch"},
+	{"before": "Ich komm nicht raus, ein", "gap": "Geisterhaus", "after": "", "song": "Geisterhaus", "album": "geraeusch"},
+	{"before": "Kopuliert, stagniert und sauft euch voll,", "gap": "konsumiert", "after": "!", "song": "Geisterhaus", "album": "geraeusch"},
+	{"before": "Sollte ich mich beim Versuch, mich vor euch zu", "gap": "wehren", "after": "selber zerstören", "song": "Geisterhaus", "album": "geraeusch"},
+	{"before": "im Rohrverlegen bin ich", "gap": "King", "after": "und überhaupt und sowieso", "song": "Ein Mann", "album": "geraeusch"},
+	{"before": "Ich bin ein Mann, meine", "gap": "Socken", "after": "wasch ich irgendwann", "song": "Ein Mann", "album": "geraeusch"},
+	{"before": "Charismatisch,", "gap": "kultiviert", "after": "und in der Gegend tätowiert", "song": "Ein Mann", "album": "geraeusch"},
+	{"before": "So subtil wie ein", "gap": "Panzer", "after": "so einfühlsam wie die Autobahn", "song": "Ein Mann", "album": "geraeusch"},
+	{"before": "Ich war sicher, nichts kann unsere", "gap": "Beziehung", "after": "zerstörn", "song": "Anders als beim letzten Mal", "album": "geraeusch"},
+	{"before": "Irgendetwas ist", "gap": "fatal", "after": "irgendwie bin ich gehemmt", "song": "Anders als beim letzten Mal", "album": "geraeusch"},
+	{"before": "Ich will nicht, dass es so", "gap": "beschissen", "after": "zu Ende geht", "song": "Anders als beim letzten Mal", "album": "geraeusch"},
+	{"before": "Vielleicht ist es ganz normal, vielleicht bin ich zu", "gap": "naiv", "after": "", "song": "Anders als beim letzten Mal", "album": "geraeusch"},
+	{"before": "Ab auf die", "gap": "Karriereleiter", "after": "- Geld muss sich vermehrn", "song": "Ruhig angehn", "album": "geraeusch"},
+	{"before": "Hier hatte ich leider keinen", "gap": "Reim", "after": "- typisch Bela B.", "song": "Ruhig angehn", "album": "geraeusch"},
+	{"before": "Der Stress ist schuld an all den", "gap": "Kriegen", "after": "- Wird man je verstehn?", "song": "Ruhig angehn", "album": "geraeusch"},
+	{"before": "Statt ackern geh dich", "gap": "amüsiern", "after": "!", "song": "Ruhig angehn", "album": "geraeusch"},
+	{"before": "Wie gerne würd ich jetzt in", "gap": "Schweden", "after": "sein, weil jeder [...] lacht und singt", "song": "Jag Älskar Sverige!", "album": "geraeusch"},
+	{"before": "In Schweden gehn die", "gap": "Uhren", "after": "anders und ich glaub, das liegt daran, [...]", "song": "Jag Älskar Sverige!", "album": "geraeusch"},
+	{"before": "So alle zwei, drei Jahre droht in Schweden eine", "gap": "Hungersnot", "after": "", "song": "Jag Älskar Sverige!", "album": "geraeusch"},
+	{"before": "Wo ich damals den", "gap": "Punk", "after": " erfand - du bist so anders, so entspannt", "song": "Jag Älskar Sverige!", "album": "geraeusch"},
+	{"before": "Haushaltsgegenstände oder", "gap": "Gitarrensaiten", "after": "Eingeführt in Körperöffnungen", "song": "Richtig schön evil", "album": "geraeusch"},
+	{"before": "Hast du dir mal vorgestellt, wie", "gap": "Sex", "after": "mit der Biene Maja wär?", "song": "Richtig schön evil", "album": "geraeusch"},
+	{"before": "Du könntest auch deinen", "gap": "Hintern", "after": "An deinem Stuhl annähn", "song": "Richtig schön evil", "album": "geraeusch"},
+	{"before": "Noch sind wir unbeschwert, die", "gap": "Strophen", "after": "ham wir nie gehört", "song": "Richtig schön evil", "album": "geraeusch"},
+	{"before": "Richtig schön evil, abartig geht es zu, bei Kollege", "gap": "Farin U", "after": "", "song": "Richtig schön evil", "album": "geraeusch"},
+	{"before": "Klosterfrau Melissengeist -", "gap": "Vigara", "after": "oder wie das heißt", "song": "Schneller leben", "album": "geraeusch"},
+	{"before": "Stirb jung - am besten vor der", "gap": "Pubertät", "after": "", "song": "Schneller leben", "album": "geraeusch"},
+	{"before": "Lern von diesen Vorbildern, als", "gap": "Leiche", "after": "hat dich jeder gern", "song": "Schneller leben", "album": "geraeusch"},
+	{"before": "Ob Sänger oder Saitenquäler:", "gap": "Tote", "after": "machen keine Fehler", "song": "Schneller leben", "album": "geraeusch"},
+	{"before": "Wie kannst du bei den", "gap": "Beatsteaks", "after": "ruhig sitzen bleiben", "song": "Unrockbar", "album": "geraeusch"},
+	{"before": "Seit du bei mir wohnst, schallt jeden Tag", "gap": "Shakira", "after": "durch das Haus", "song": "Unrockbar", "album": "geraeusch"},
+	{"before": "Dann hast du auch bald kapiert, dass der", "gap": "Rock", "after": "die Welt regiert", "song": "Unrockbar", "album": "geraeusch"},
+	{"before": "Hab unter dem besternten Himmel", "gap": "Mexikos", "after": "dir meine Lieblingsplatten aufgelegt", "song": "Unrockbar", "album": "geraeusch"},
+	{"before": "Du sagst, du findest zwar den", "gap": "Beat", "after": "nicht, aber Ricky Martin niedlich", "song": "Unrockbar", "album": "geraeusch"},
+	{"before": "Ich bin verliebt, denn du bist mein", "gap": "Sonnenschein", "after": "", "song": "Lovepower", "album": "geraeusch"},
+	{"before": "Ich bin verliebt, in", "gap": "mich selbst", "after": "verliebt", "song": "Lovepower", "album": "geraeusch"},
+	{"before": "Ich bin verliebt, keiner liebt mich so wie", "gap": "ich", "after": "", "song": "Lovepower", "album": "geraeusch"},
+	{"before": "Du warst Kleinstadtküken, ich war", "gap": "Großstadthahn", "after": "", "song": "Der Tag", "album": "geraeusch"},
+	{"before": "Und du hast dich Gott sei Dank", "gap": "geduscht", "after": "für mich", "song": "Der Tag", "album": "geraeusch"},
+	{"before": "Ich nannte dich", "gap": "Zicke", "after": "und Nervensäge", "song": "Der Tag", "album": "geraeusch"},
+	{"before": "Der Tag, an dem ich dich", "gap": "vermisse", "after": "hat genau null Stunden", "song": "Der Tag", "album": "geraeusch"},
+	{"before": "Nein, mein Arzt hat entdeckt, dass ich", "gap": "schwanger", "after": "bin", "song": "Der Tag", "album": "geraeusch"},
+	{"before": "Will das Dunkel des", "gap": "Mondes", "after": "in deinen Augen sehn", "song": "Die Nacht", "album": "geraeusch"},
+	{"before": "Die Nacht muss eine", "gap": "Frau", "after": " sein, denn sie hat uns geboren", "song": "Die Nacht", "album": "geraeusch"},
+	{"before": "Die Nacht macht uns zu", "gap": "Helden", "after": "- ihre Stille bedeckt unsere Haut", "song": "Die Nacht", "album": "geraeusch"},
+	{"before": "Es ist vorbei und der Himmel ist", "gap": "schwarz", "after": "weil die Sonne hier nie wieder scheint", "song": "Nichts in der Welt", "album": "geraeusch"},
+	{"before": "Du bist so", "gap": "grausam", "after": "darum liebe ich dich", "song": "Nichts in der Welt", "album": "geraeusch"},
+	{"before": "Es ist vorbei, doch", "gap": "idiotischerweise", "after": "will ich immer noch bei dir sein", "song": "Nichts in der Welt", "album": "geraeusch"},
+	{"before": "Verwalten sorgsam unser", "gap": "Geld", "after": "Das sind die klügsten Männer der Welt", "song": "Die klügsten Männer der Welt", "album": "geraeusch"},
+	{"before": "Sind gut gekleidet und", "gap": "wortgewandt", "after": "Jeder Einzelne ein Held", "song": "Die klügsten Männer der Welt", "album": "geraeusch"},
+	{"before": "Und die Erde erzittert vom", "gap": "Bombardement", "after": "Wenn uns nichts mehr bleibt, als um Erlösung zu beten", "song": "Die klügsten Männer der Welt", "album": "geraeusch"},
+	{"before": "Wenn du mich liebst, [...], wird dein Ding", "gap": "gepiekst", "after": "", "song": "Piercing", "album": "geraeusch"},
+	{"before": "Du trägst 'n", "gap": "Gott", "after": "zwischen deinen Schenkeln", "song": "Piercing", "album": "geraeusch"},
+	{"before": "Dein Verstand ist schärfer als ein", "gap": "Schweizer Messer", "after": "du bist Klugscheißerman", "song": "Besserwisserboy", "album": "geraeusch"},
+	{"before": "Mit deinen Geistesblitzen kann man", "gap": "Kathedralen", "after": "erhellen", "song": "Besserwisserboy", "album": "geraeusch"},
+	{"before": "Und wenns 'n", "gap": "Film", "after": "darüber gibt, hast du ihn gesehn", "song": "Besserwisserboy", "album": "geraeusch"},
+	{"before": "Wenn du dich mal irrst, fress ich 'nen", "gap": "Besen", "after": "", "song": "Besserwisserboy", "album": "geraeusch"},
+	{"before": "Sie haben mit unseren lieben", "gap": "Toten", "after": "nichts gemein", "song": "Anti-Zombie", "album": "geraeusch"},
+	{"before": "Ich werd sie mit 'ner Ladung", "gap": "Blei", "after": "verwöhnen", "song": "Anti-Zombie", "album": "geraeusch"},
+	{"before": "Ooh - sie kommen aus der", "gap": "Hölle", "after": "Ooh - denn da gibt es viel zu viele", "song": "Anti-Zombie", "album": "geraeusch"},
+	{"before": "Ob Neunmillimeter oder", "gap": "Maschinengewehr", "after": "Schieß doch einfach 'n paar Magazine leer!", "song": "Anti-Zombie", "album": "geraeusch"},
+	{"before": "Wenn ich ein", "gap": "Zombie", "after": "wär, dann bräuchte ich keinen Kombi mehr", "song": "Pro-Zombie", "album": "geraeusch"},
+	{"before": "Ich wäre ein aufrecht gehender, gut aussehender", "gap": "Untoter", "after": "", "song": "Pro-Zombie", "album": "geraeusch"},
+	{"before": "Kinder erschrecken mit einem", "gap": "Speer", "after": "das könnte jeder Amateur", "song": "Pro-Zombie", "album": "geraeusch"},
+	{"before": "Eine Welt, in der es kein", "gap": "Fußball", "after": "gibt und keine Kriege mehr", "song": "Wammw", "album": "geraeusch"},
+	{"before": "Wenn alle Männer", "gap": "Mädchen", "after": "wären, dann wär die Welt perfekt", "song": "Wammw", "album": "geraeusch"},
+	{"before": "Da gäbs keinen", "gap": "Stammtisch", "after": "keinen KKK", "song": "Wammw", "album": "geraeusch"},
+	{"before": "Ab wann zählt man zur", "gap": "Dritten Welt", "after": "- wir wollns nicht wissen", "song": "Nichtwissen", "album": "geraeusch"},
+	{"before": "Denn weil Wissen nur", "gap": "belastet", "after": "wolln wir nicht Mitwisser sein", "song": "Nichtwissen", "album": "geraeusch"},
+	{"before": "Gibt es mehr Minen als", "gap": "CDs", "after": "- wir wollns nicht wissen", "song": "Nichtwissen", "album": "geraeusch"},
+	{"before": "Sind", "gap": "Die Ärzte", "after": "schon Kommerz - ich wills nicht wissen", "song": "Nichtwissen", "album": "geraeusch"},
+	{"before": "Sind ihre", "gap": "Brüste", "after": "wirklich echt - das wolln wir wissen", "song": "Nichtwissen", "album": "geraeusch"},
+
+	{"before": "Verspekuliert an der Börse - dein", "gap": "BMW", "after": "ist kaputt", "song": "Kontovollmacht...", "album": "unrockbarSingle"},
+	{"before": "Mein Auto, meine", "gap": "Frau", "after": "- brauchst du noch mehr, such es dir aus", "song": "Kontovollmacht...", "album": "unrockbarSingle"},
+	{"before": "Du würdest", "gap": "spenden", "after": "wenn du könntest - doch dir fehlt das Geld", "song": "Kontovollmacht...", "album": "unrockbarSingle"},
+	{"before": "das ist doch der Spirit des", "gap": "Punk", "after": "Nimm meine Kontovollmacht", "song": "Kontovollmacht...", "album": "unrockbarSingle"},
+	{"before": "Die neue Rechtschreibung ist da, und sie hat den", "gap": "Euro", "after": "mitgebracht", "song": "Aus dem Tagebuch eines Amokläufers", "album": "unrockbarSingle"},
+	{"before": "Das meistgelesene Buch in Deutschland ist von", "gap": "Dieter Bohlen", "after": "", "song": "Aus dem Tagebuch eines Amokläufers", "album": "unrockbarSingle"},
+	{"before": "Und weil", "gap": "Weihnachten", "after": "so schön ist, fängts jetzt schon im Sommer an", "song": "Aus dem Tagebuch eines Amokläufers", "album": "unrockbarSingle"},
+
+	{"before": "Du stehst auf der", "gap": "Brücke", "after": "und diesmal meinst du es ernst", "song": "Powerlove", "album": "dingeSingle"},
+	{"before": "Um sicherzugehen, hast du noch 20", "gap": "Aspirin", "after": "genommen", "song": "Powerlove", "album": "dingeSingle"},
+	{"before": "Im Kunstpelz und mit Afro könnte er ein", "gap": "Zuhälter", "after": "sein", "song": "Powerlove", "album": "dingeSingle"},
+	{"before": "Du liegst allein im Bett und", "gap": "fingerst", "after": "einsam an deinem Genitalbereich", "song": "Powerlove", "album": "dingeSingle"},
+	{"before": "Als sich aus dem Nichts ein", "gap": "schwarzer", "after": "Mann materialisiert und er sagt: [...]", "song": "Powerlove", "album": "dingeSingle"},
+	{"before": "Die eine will nur meinen", "gap": "Körper", "after": "Die andere will nur mein Geld", "song": "Worum es geht", "album": "Worum es geht"},
+	{"before": "Die einen stehn auf", "gap": "Heavy Metal", "after": "Die andern mögen Techno mehr", "song": "Worum es geht", "album": "Worum es geht"},
+	{"before": "Man kann alle glücklich machen, ich sag nur:", "gap": "Inflation", "after": "", "song": "Worum es geht", "album": "Worum es geht"},
 
 
 
@@ -678,6 +922,24 @@
 	{"before": "Glaubst du, wir haben Frohsinn mit großen", "gap": "Löffeln", "after": "gegessen?", "song": "Wir sind die Lustigsten", "album": "jazz"},
 	{"before": "Und scheint unser", "gap": "Niveau", "after": "manchmal dumm oder einfach nur abgrundtief", "song": "Wir sind die Lustigsten", "album": "jazz"},
 	{"before": "Auch", "gap": "Treppenwitze", "after": "sind unsere Spezialität", "song": "Wir sind die Lustigsten", "album": "jazz"},
+
+	{"before": "Den Song, für den", "gap": "Campino", "after": "Seine Band auflösen würde", "song": "Das schönste Lied der Welt", "album": "jungeSingle"},
+	{"before": "Und foltert man mich auch am", "gap": "Glied", "after": "Ich behalte dieses Lied für mich", "song": "Das schönste Lied der Welt", "album": "jungeSingle"},
+	{"before": "Darum behalt ich dieses", "gap": "Lied", "after": "auch ganz für mich", "song": "Das schönste Lied der Welt", "album": "jungeSingle"},
+	{"before": "Zeit wurde zäh - ich erstickte an der", "gap": "Tristesse", "after": "Ich war schon längst fertig mit alldem hier", "song": "Das schönste Lied der Welt", "album": "jungeSingle"},
+	{"before": "Da kam plötzlich diese", "gap": "Braut", "after": "Sie nervte mich, weil sie sich furchtbar produzierte", "song": "Tut mir leid", "album": "jungeSingle"},
+	{"before": "Also ging ich zu der", "gap": "Alten", "after": "und hab mich vor ihr aufgebaut", "song": "Tut mir leid", "album": "jungeSingle"},
+	{"before": "Tut mir leid, ich bin", "gap": "betrunken", "after": "Es fällt mir schwer, jetzt unehrlich zu sein", "song": "Tut mir leid", "album": "jungeSingle"},
+	{"before": "Na klar, ich weiß, ich bin der König aller", "gap": "Nieten", "after": "", "song": "Tut mir leid", "album": "jungeSingle"},
+
+	{"before": "Eine Frau wird", "gap": "vergewaltigt", "after": "in der Stadt morgens um zehn", "song": "Nichts gesehen", "album": "scheiternSingle"},
+	{"before": "Und das sind zwar unsere", "gap": "Nachbarn", "after": "aber seltsam, wir haben nie etwas bemerkt", "song": "Nichts gesehen", "album": "scheiternSingle"},
+	{"before": "Wir haben nichts geseh'n, wir sind die", "gap": "Mehrheit", "after": "und wir mischen uns nicht ein", "song": "Nichts gesehen", "album": "scheiternSingle"},
+	{"before": "Und dann kommen ein paar Leute,", "gap": "schlagen", "after": "ihn ein bisschen tot", "song": "Nichts gesehen", "album": "scheiternSingle"},
+
+	{"before": "Sojawurst", "gap": "im Kühlregal, der Schaden ist kollateral", "after": "", "song": "Komm zu Papa", "album": "lasseSingle"},
+	{"before": "Friede, Freude,", "gap": "Sackgesicht", "after": "Meine Stimme kriegst du nicht", "song": "Komm zu Papa", "album": "lasseSingle"},
+	{"before": "Wütend schnaubt der", "gap": "Opapa", "after": "Oma hat kein Pechbrot da", "song": "Komm zu Papa", "album": "lasseSingle"},
 
 
 
@@ -830,7 +1092,7 @@
 	{"before": "Ich glaub' die ganze Menscheit sollte mal zum", "gap": "Psychiater", "after": "", "song": "MENSCHEN", "album": "dunkel"},
 	{"before": "", "gap": "Menschen", "after": "sind für Menschen nicht gemacht", "song": "MENSCHEN", "album": "dunkel"},
 	{"before": "Hartnäckig und voller", "gap": "Gleichmut", "after": "scheiterst du am Leben, jeden Tag", "song": "ERHABEN", "album": "dunkel"},
-	{"before": "Du hältst nichts von", "gap": "Vollkommenheit", "after": "", "song": "ERHABEN", "album": "dunkel"},
+	{"before": "Du hältst nichts von", "gap": "Vollkommenheit", "after": "Und wirkst trotzdem [...]", "song": "ERHABEN", "album": "dunkel"},
 	{"before": "Zum", "gap": "Untergang", "after": "prädestiniert", "song": "ERHABEN", "album": "dunkel"},
 	{"before": "Wirf sie nicht weg, es ist unsere", "gap": "Vergangenheit", "after": "", "song": "DANACH", "album": "dunkel"},
 	{"before": "Doch ich will nicht mit", "gap": "Hass", "after": "auf unser Leben schau'n", "song": "DANACH", "album": "dunkel"},

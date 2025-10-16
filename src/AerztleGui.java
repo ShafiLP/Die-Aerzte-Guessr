@@ -40,6 +40,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
 
     private AutoCompleteTextField songSearchBar;
     private JComboBox<DropdownItem> songDropdown;
+    private JButton bSubmit;
 
     public AerztleGui(AerztleGame pGame, Settings pSettings) {
         game = pGame;
@@ -107,7 +108,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         }
 
         // Submit button
-        JButton bSubmit = new JButton("Raten");
+        bSubmit = new JButton("Raten");
         bSubmit.addActionListener(_ -> {
             submitButtonPressed();
         });
@@ -208,9 +209,71 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
             lTable[pIndex][1].setText("Single/B-Seite");
             return;
         }
-        ImageIcon albumIcon = new ImageIcon("images\\" + pText + ".png");
-        Image albumImg = albumIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-        lTable[pIndex][1].setIcon(new ImageIcon(albumImg));
+        if(settings.isShowIconsEnabled()) {
+            ImageIcon albumIcon = new ImageIcon("images\\" + pText + ".png");
+            Image albumImg = albumIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+            lTable[pIndex][1].setIcon(new ImageIcon(albumImg));
+        } else {
+            String album;
+            switch(pText) {
+                case "debil":
+                    album = "Debil/Devil";
+                    break;
+                case "schatten":
+                    album = "Im Schatten Der Ärzte";
+                    break;
+                case "aerzte":
+                    album = "Die Ärzte";
+                    break;
+                case "abAchtzehn":
+                    album = "Ab 18";
+                    break;
+                case "hoehepunkte":
+                    album = "13 Höhepunkte";
+                    break;
+                case "wahrheit":
+                    album = "Das Ist Nicht Die Ganze Wahrheit";
+                    break;
+                case "frueher":
+                    album = "Die Ärzte Früher";
+                    break;
+                case "bestie":
+                    album = "Die Bestie In Menschengestalt";
+                    break;
+                case "planet":
+                    album = "Planet Punk";
+                    break;
+                case "frisur":
+                    album = "Le Frisur";
+                    break;
+                case "dreizehn":
+                    album = "13";
+                    break;
+                case "spendierhosen":
+                    album = "Runter Mit Den Spendierhosen, Unsichtbarer!";
+                    break;
+                case "geraeusch":
+                    album = "Geräusch";
+                    break;
+                case "jazz":
+                    album = "Jazz Ist Anders";
+                    break;
+                case "auch":
+                    album = "auch";
+                    break;
+                case "hell":
+                    album = "HELL";
+                    break;
+                case "dunkel":
+                    album = "DUNKEL";
+                    break;
+                default:
+                    album = "ERROR";
+                    break;
+            }
+            lTable[pIndex][1].setText(album);
+        }
+        
     }
 
     public void paintReleaseYear(int pIndex, Color pColor, String pText) {
@@ -254,6 +317,20 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
                 lTable[x][y].setBackground(Color.WHITE);
             }
         }
+    }
+
+    /**
+     * Deactivates or activates all ways to do an input on the GUI
+     * @param pInteractable If true all elements are interactable (enabled), if false all elements are not interactabe (disabled)
+     */
+    public void setInteractable(boolean pInteractable) {
+        if(songDropdown != null)
+        songDropdown.setEnabled(pInteractable);
+
+        if(songSearchBar != null)
+        songSearchBar.setEnabled(pInteractable);
+        
+        bSubmit.setEnabled(pInteractable);
     }
 
     /**

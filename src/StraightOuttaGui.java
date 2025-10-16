@@ -20,7 +20,6 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
     private JPanel infoBar;
     private JComboBox<DropdownItem> songDropdown;
     private AutoCompleteTextField songSearchBar;
-    private JTextField manualInput;
     private JLabel lyricLabel = new JLabel();
     private JLabel timerLabel;
     private JLabel currentSongLabel = new JLabel();
@@ -28,6 +27,7 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
     private JLabel[] healthBar;
     private JLabel lSolution;
     private JButton bHint;
+    private JButton bSubmit;
     private Color backgroundColor;
     private Color infobarColor;
 
@@ -138,11 +138,6 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
                 songSearchBar.addKeyListener(new SubmitKeyListener(this));
                 guessBar.add(songSearchBar, gbc);
                 break;
-            case "Manuelle Eingabe":
-                manualInput = new JTextField();
-                manualInput.addKeyListener(new SubmitKeyListener(this));
-                guessBar.add(manualInput, gbc);
-                break;
         }
 
         // Hint button
@@ -162,7 +157,7 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
         }});
 
         // Submit button
-        JButton bSubmit = new JButton("Raten");
+        bSubmit = new JButton("Raten");
         bSubmit.addActionListener(_ -> {
             submitButtonPressed();
         });
@@ -316,6 +311,21 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
     }
 
     /**
+     * Deactivates or activates all ways to do an input on the GUI
+     * @param pInteractable If true all elements are interactable (enabled), if false all elements are not interactabe (disabled)
+     */
+    public void setInteractable(boolean pInteractable) {
+        if(songDropdown != null)
+        songDropdown.setEnabled(pInteractable);
+
+        if(songSearchBar != null)
+        songSearchBar.setEnabled(pInteractable);
+        
+        bHint.setEnabled(pInteractable);
+        bSubmit.setEnabled(pInteractable);
+    }
+
+    /**
      * Handles the submit button press event and the enter key press event
      */
     public void submitButtonPressed() {
@@ -341,18 +351,6 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
                 }
                 songSearchBar.setText("");
                 songSearchBar.requestFocusInWindow();
-                break;
-            case "Manuelle Eingabe":
-                String miSelected = manualInput.getText().toLowerCase().trim();
-                if(miSelected.equals(game.getCurrentSong().toLowerCase().trim())) {
-                    infoBarRight();
-                    game.songGuessed();
-                } else {
-                    infoBarWrong();
-                    game.wrongGuess();
-                }
-                manualInput.setText("");
-                manualInput.requestFocusInWindow();
                 break;
         }
     }

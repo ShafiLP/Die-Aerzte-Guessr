@@ -1,15 +1,15 @@
+import java.awt.Color;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
-import javax.swing.JOptionPane;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
 
-public class LueckenfuellerGame implements TimerEvents {
+public class LueckenfuellerGame implements GameMode, TimerEvents {
     private Settings settings;
     private LueckenfuellerGui gui;
     private LinkedList<SongTextWithGap> lyricsWithGaps;
@@ -105,25 +105,7 @@ public class LueckenfuellerGame implements TimerEvents {
                 settings.setCtlHighscore(score);
                 saveSettings(settings);
             }
-            Object[] options = {"Neues Spiel", "Beenden"};
-            int n = JOptionPane.showOptionDialog(
-                gui,
-                "Du hast keine Versuche mehr übrig!\nDeine Punktzahl beträgt: " + score,
-                "Lückenfüller",
-                JOptionPane.INFORMATION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION,
-                null, // Icon
-                options,
-                options[0]
-            );
-            switch(n) {
-                case 0:
-                    gui.dispose();         // Close the current GUI
-                    new LueckenfuellerGame(settings); // Restart the game
-                case 1:
-                    gui.dispose();         // Close the GUI & exit the game
-                    System.exit(0);
-            }
+            openEndingScreen("Du hast keine Leben mehr übrig!", "Deine Punktzahl beträgt: " + score);
         }
     }
 
@@ -154,33 +136,28 @@ public class LueckenfuellerGame implements TimerEvents {
                 settings.setCtlHighscore(score);
                 saveSettings(settings);
             }
-            Object[] options = {"Neues Spiel", "Beenden"};
-            int n = JOptionPane.showOptionDialog(
-                gui,
-                "Du hast ALLE verfügbaren Lücken erraten!\nDeine Punktzahl beträgt: " + score,
-                "Lückenfüller",
-                JOptionPane.INFORMATION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION,
-                null, // Icon
-                options,
-                options[0]
-            );
-            switch(n) {
-                case 0:
-                    gui.dispose();         // Close the current GUI
-                    new LueckenfuellerGame(settings); // Restart the game
-                    return null;
-                case 1:
-                    gui.dispose();         // Close the GUI & exit the game
-                    System.exit(0);
-                    return null;
-            }
+            openEndingScreen("Du hast ALLE Lücken dieser Version gefüllt!", "Deine Punktzahl beträgt. " + score);
         }
 
         int randomLyricIndex = (int) (Math.random() * pListWithData.size());
         SongTextWithGap randomSongTextWithGap =  pListWithData.get(randomLyricIndex);
         pListWithData.remove(randomLyricIndex); // Removes the object from the List to avoid reputition
         return randomSongTextWithGap;
+    }
+
+    public void openEndingScreen(String pRow1, String pRow2) {
+        gui.setInteractable(false);
+        new EndingScreen(this, "Lückenfüller", settings.isColourfulGuiEnabled() ? new Color(220, 220, 255) : Color.WHITE,
+        new Color(100, 100, 150) , pRow1, pRow2, settings);
+    }
+
+    public void restartGame() {
+        gui.dispose();
+        new LueckenfuellerGame(settings);
+    }
+
+    public void closeGame() {
+        gui.dispose();
     }
 
     /**
@@ -231,4 +208,3 @@ public class LueckenfuellerGame implements TimerEvents {
         }
     }
 }
-//!BUG: TODO INFO POPUP AFTER GAME END CAN JUST GET CLICKED AWAY

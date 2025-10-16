@@ -267,8 +267,3 @@ public class AerztleMenu extends JFrame {
         }
     }
 }
-/*
- * TODO:
- * - Stats
- * - Settings reset button
- */

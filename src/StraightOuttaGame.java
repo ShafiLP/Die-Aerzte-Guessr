@@ -1,9 +1,9 @@
+import java.awt.Color;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
-import javax.swing.JOptionPane;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -14,7 +14,7 @@ import com.google.gson.Gson;
  * Class for the game "Guess The Origin"
  * Implements TimerEvents to handle timer
  */
-public class StraightOuttaGame implements TimerEvents {
+public class StraightOuttaGame implements GameMode, TimerEvents  {
     private Settings settings;
     private StraightOuttaGui gui;
     private int score = 0;
@@ -94,27 +94,7 @@ public class StraightOuttaGame implements TimerEvents {
                 settings.setGtoHighscore(score);
                 saveSettings(settings);
             }
-            String[] options = {"Neues Spiel", "Beenden"};
-            int n = JOptionPane.showOptionDialog(
-                gui,
-                "Du hast keine Versuche mehr übrig!\nDu hast " + score + " Punkte erreicht.",
-                "ÄrzteGuessr",
-                JOptionPane.INFORMATION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION,
-                null, // Icon
-                options,
-                options[0]
-            );
-            switch(n) {
-                case 0:
-                    gui.dispose(); // Close the current GUI
-                    new StraightOuttaGame(settings); // Restart the game
-                    return;
-                case 1:
-                    gui.dispose(); // Close the GUI & exit the game
-                    System.exit(0);
-                    return;
-            }
+            openEndingScreen("Du hast keine Versuche mehr übrig!", "Du hast " + score + " Punkte erreicht.");
         }
     }
 
@@ -135,31 +115,8 @@ public class StraightOuttaGame implements TimerEvents {
     private SongText getRandomSongText() {
         // Checks if all songs were guessed
         if(songTexts.isEmpty()) {
-            if(settings.getGtoHighscore() < score) {
-                settings.setGtoHighscore(score);
-                saveSettings(settings);
-            }
-            Object[] options = {"Neues Spiel", "Beenden"};
-            int n = JOptionPane.showOptionDialog(
-                gui,
-                "Du hast ALLE verfügbaren Songausschnitte erraten!\nDeine Punktzahl beträgt: " + score,
-                "Errate den Ursprung",
-                JOptionPane.INFORMATION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION,
-                null, // Icon
-                options,
-                options[0]
-            );
-            switch(n) {
-                case 0:
-                    gui.dispose(); // Close the current GUI
-                    new StraightOuttaGame(settings); // Restart the game
-                    return null;
-                case 1:
-                    gui.dispose(); // Close the GUI & exit the game
-                    System.exit(0);
-                    return null;
-            }
+            openEndingScreen("Du hast ALLE Textauschnitte dieser Version erraten!", "Deine Punktzahl beträgt: " + score);
+            return new SongText(getCurrentSong(), getCurrentSong()); // Shouldn't be called, but must have a return value
         }
 
         int randomLyricIndex = (int) (Math.random() * songTexts.size());
@@ -180,6 +137,21 @@ public class StraightOuttaGame implements TimerEvents {
         } else {
             return "Keine Hinweise mehr übrig.";
         }
+    }
+
+    public void openEndingScreen(String pRow1, String pRow2) {
+        gui.setInteractable(false);
+        new EndingScreen(this, "Straight Outta", settings.isColourfulGuiEnabled() ? new Color(255, 220, 220) : Color.WHITE,
+        new Color(150, 100, 100) , pRow1, pRow2, settings);
+    }
+
+    public void restartGame() {
+        gui.dispose();
+        new StraightOuttaGame(settings);
+    }
+
+    public void closeGame() {
+        gui.dispose();
     }
 
     /**
@@ -231,9 +203,3 @@ public class StraightOuttaGame implements TimerEvents {
         }
     }
 }
-
-/**
- * TODO:
- * - Fix lyric display (currently can be too long for the window)
- * - ? Without creating a LinkedList with 1000 objects? (for performance)
- */

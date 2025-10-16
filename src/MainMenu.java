@@ -1,24 +1,34 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import org.json.JSONObject;
+
 import com.google.gson.Gson;
 
 import java.awt.*;
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * Class for the game main menu
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.4.0";
+    private final String VERSION = "0.4.1";
+    private Settings settings;
     /**
      * Constructor of main menu
      * Contains paths to all games
      */
     public MainMenu() {
+        // Load settings from file
+        settings = readSettings("data\\settings.json");
+
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(400, /*480*/440);
@@ -74,20 +84,6 @@ public class MainMenu extends JFrame {
         bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
         bAerztle.setBackground(new Color(220, 255, 220));
 
-        /* TODO
-        icon = new ImageIcon("images\\MNEM.png");
-        img = icon.getImage().getScaledInstance(200, 35, Image.SCALE_SMOOTH);
-        JButton bMnem = new JButton(new ImageIcon(img));
-        bMnem.addActionListener(_ -> {
-            JOptionPane.showMessageDialog(null, "Dieser Spielmodus ist noch in Arbeit.");
-            this.dispose();
-            new MnemMenu();
-            
-        });
-        bMnem.setBorder(new LineBorder(new Color(125, 125, 100), 2, true));
-        bMnem.setBackground(new Color(255, 255, 220));
-        */
-
         JButton bSettings = new JButton("Einstellungen");
         bSettings.setFont(new Font("Folio Extra", Font.BOLD, 20));
         bSettings.addActionListener(_ -> {
@@ -100,13 +96,11 @@ public class MainMenu extends JFrame {
         bGTO.setMaximumSize(buttonSize);
         bCTL.setMaximumSize(buttonSize);
         bAerztle.setMaximumSize(buttonSize);
-        // TODO bMnem.setMaximumSize(buttonSize);
         bSettings.setMaximumSize(buttonSize);
 
         bGTO.setAlignmentX(Component.CENTER_ALIGNMENT);
         bCTL.setAlignmentX(Component.CENTER_ALIGNMENT);
         bAerztle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        // TODO bMnem.setAlignmentX(Component.CENTER_ALIGNMENT);
         bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Author + Version
@@ -125,10 +119,6 @@ public class MainMenu extends JFrame {
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         buttonPanel.add(bAerztle);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        /* TODO
-        buttonPanel.add(bMnem);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        */
         buttonPanel.add(bSettings);
 
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
@@ -140,16 +130,13 @@ public class MainMenu extends JFrame {
      * Open universal settings for the game
      */
     private void openSettings() {
-        // Load settings from file
-        Settings settings = readSettings("data\\settings.json");
-
         // JFrame settings
         JFrame settingsFrame = new JFrame();
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         settingsFrame.setSize(500, 200);
         settingsFrame.setResizable(false);
         settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(4, 2));
+        settingsFrame.setLayout(new GridLayout(5, 2));
 
         // Icon settings
         JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isShowIconsEnabled());
@@ -159,15 +146,13 @@ public class MainMenu extends JFrame {
         JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isBelaEnabled());
         JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isSahnieEnabled());
 
-        // Colourful GUI settings
-        JCheckBox cbColourfulGui = new JCheckBox("Farbiges Design", settings.isColourfulGuiEnabled());
-
         // Font type settings
         JPanel fontTypePanel = new JPanel(new GridLayout(2, 1));
         JComboBox<String> ddFont = new JComboBox<>();
-        ddFont.addItem("Folio Extra");
         ddFont.addItem("Arial");
+        ddFont.addItem("Berlin Sans FB");
         ddFont.addItem("Comic Sans MS");
+        ddFont.addItem("Folio Extra");
         ddFont.setSelectedItem(settings.getFontType());
         JLabel lFont = new JLabel("Schriftart:");
         fontTypePanel.add(lFont);
@@ -179,6 +164,20 @@ public class MainMenu extends JFrame {
         tfFontSize.setText(settings.getFontSize() + "");
         JLabel lFontSize = new JLabel("Schriftgröße:");
         fontSizePanel.add(lFontSize); fontSizePanel.add(tfFontSize);
+
+        // Colourful GUI settings
+        JCheckBox cbColourfulGui = new JCheckBox("Farbiges Design", settings.isColourfulGuiEnabled());
+
+        // Automatic search for updates
+        JCheckBox cbSearchForUpdates = new JCheckBox("Suche nach Updates", settings.isSearchForUpdatesEnabled());
+
+        // Reset all settings button
+        JButton bReset = new JButton("Einstellungen zurücksetzen");
+        bReset.addActionListener(_ -> {
+            settings = new Settings();
+            saveSettings(settings);
+            settingsFrame.dispose();
+        });
 
         // Save button
         JButton bSave = new JButton("Speichern");
@@ -200,6 +199,7 @@ public class MainMenu extends JFrame {
             settings.setBelaLibrary(cbBela.isSelected());
             settings.setSahnieLibrary(cbSahnie.isSelected());
             settings.setColourfulGui(cbColourfulGui.isSelected());
+            settings.setSearchForUpdates(cbSearchForUpdates.isSelected());
 
             saveSettings(settings);
             settingsFrame.dispose();
@@ -213,10 +213,91 @@ public class MainMenu extends JFrame {
         settingsFrame.add(cbShowIcons);
         settingsFrame.add(cbSahnie);
         settingsFrame.add(cbColourfulGui);
+        settingsFrame.add(cbSearchForUpdates);
+        settingsFrame.add(bReset);
         settingsFrame.add(bSave);
 
         // Set frame visible
         settingsFrame.setVisible(true);
+    }
+
+    /**
+     * Check if a newer version is available on GitHub.
+     * Called when Starting the application.
+     */
+    public void checkForUpdate() {
+        if(settings.isSearchForUpdatesEnabled()) {
+            final String REPOSITORY_API = "https://api.github.com/repos/ShafiLP/Die-Aerzte-Guessr/releases/latest";
+            try {
+                URL url = new URL(REPOSITORY_API);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setRequestProperty("User-Agent", "Java-Version-Checker");
+                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    response.append(line);
+                }
+                reader.close();
+
+                JSONObject json = new JSONObject(response.toString());
+                
+                String latestVersion = json.getString("tag_name").replace("v", "");
+                if(isNewerVersionAvailable(latestVersion, VERSION)) {
+                    System.out.println("Neue Version verfügbar: " + latestVersion);
+                    System.out.println("Lade sie runter unter: https://github.com/ShafiLP/Die-Aerzte-Guessr/releases/latest");
+                    openNewerVersionNotification();
+                } else {
+                    System.out.println("Neuste Version installiert.");
+                }
+            } catch (Exception e) {
+                System.out.println("Fehler beim Überprüfen der Version: " + e.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Compares current version with newest version
+     * @param pLatest Latest version from GitHub repository
+     * @param pCurrent Current version
+     * @return true if newer version is available, return false if current version is the same or higher as latest
+     */
+    private boolean isNewerVersionAvailable(String pLatest, String pCurrent) {
+        String[] latestParts = pLatest.split("\\.");
+        String[] currentParts = pCurrent.split("\\.");
+        for(int i = 0; i < Math.max(latestParts.length, currentParts.length); i++) {
+            int l = i < latestParts.length ? Integer.parseInt(latestParts[i]) : 0;
+            int c = i < currentParts.length ? Integer.parseInt(currentParts[i]) : 0;
+            if (l > c) return true;
+            if (l < c) return false;
+        }
+        return false;
+    }
+
+    private void openNewerVersionNotification() {
+            Object[] options = {"Neue Version runterladen", "Erinnere mich später"};
+            int n = JOptionPane.showOptionDialog(
+                null,
+                "Eine neue Version von Ärzte-Guessr ist verfügbar!\nMöchtest du sie runterladen?",
+                "Neue Version verfügbar",
+                JOptionPane.INFORMATION_MESSAGE,
+                JOptionPane.OK_CANCEL_OPTION,
+                null, // Icon
+                options,
+                options[0]
+            );
+            switch(n) {
+                case 0:
+                    try {
+                        Desktop.getDesktop().browse(new URL("https://github.com/ShafiLP/Die-Aerzte-Guessr/releases/latest").toURI());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case 1:
+                    break;
+            }
+
     }
 
     /**
@@ -249,8 +330,3 @@ public class MainMenu extends JFrame {
         }
     }
 }
-
-/*
- * TODO
- * - Setting for colourful GUI
- */

@@ -3,12 +3,10 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
-import javax.swing.JOptionPane;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class AerztleGame {
+public class AerztleGame implements GameMode {
     private Settings settings;
 
     private AerztleGui gui;
@@ -18,7 +16,7 @@ public class AerztleGame {
     private final int TRIES;
     private int currentGuess = 1;
 
-    public AerztleGame(Settings pSettings) {
+    public AerztleGame (Settings pSettings) {
         settings = pSettings;
         gui = new AerztleGui(this, settings);
 
@@ -147,6 +145,23 @@ public class AerztleGame {
         }
     }
 
+    public void openEndingScreen(String pRow1, String pRow2) {
+        gui.setInteractable(false);
+        new EndingScreen(this, "Ärztle", settings.isColourfulGuiEnabled() ? new Color(220, 255, 220) : Color.WHITE,
+        new Color(100, 150, 100) , pRow1, pRow2, settings);
+    }
+
+    public void restartGame() {
+        gui.resetGui();
+        currentGuess = 1;
+        int randomIndex = (int) (Math.random() * aerztleObjects.size());
+        currentSong =  aerztleObjects.get(randomIndex);
+    }
+
+    public void closeGame() {
+        gui.dispose();
+    }
+
     /**
      * Searches for a matching song to the user's input in a JSON file
      * @param pFilepath File path to the JSON file that contains the data as a String
@@ -208,56 +223,17 @@ public class AerztleGame {
             return;
         }
         
+        // If guess is correct
         if(currentSong.getSongName().equals(guess.getSongName())) {
-            Object[] options = {"Neues Spiel", "Beenden"};
-            int n = JOptionPane.showOptionDialog(
-                gui,
-                "Du hast den Song erraten!\nNochmal spielen?",
-                "Ärztle",
-                JOptionPane.INFORMATION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION,
-                null,
-                options,
-                options[0]
-            );
-            switch(n) {
-                case 0:
-                    restart();
-                    break;    
-                case 1:
-                    gui.dispose();                 // Close the GUI & exit the game
-                    System.exit(0);
-                    break;
-            }
+            openEndingScreen("Du hast das gesuchte Lied erraten!", "Du hast das Lied mit " + (currentGuess - 1) + " Versuch(en) erraten.");
+            return;
         }
-        if(currentGuess > TRIES) {
-            Object[] options = {"Neues Spiel", "Beenden"};
-            int n = JOptionPane.showOptionDialog(
-                gui,
-                "Du hast keine Versuche mehr, der Song war: " + currentSong.getSongName() + "\nNochmal spielen?",
-                "Ärztle",
-                JOptionPane.INFORMATION_MESSAGE,
-                JOptionPane.OK_CANCEL_OPTION,
-                null,
-                options,
-                options[0]
-            );
-            switch(n) {
-                case 0:
-                    gui.dispose();         // Close the current GUI
-                    new AerztleGame(settings);     // Restart the game
-                case 1:
-                    gui.dispose();         // Close the GUI & exit the game
-                    System.exit(0);
-            }
-        }
-    }
 
-    private void restart() {
-        gui.resetGui();
-        currentGuess = 1;
-        int randomIndex = (int) (Math.random() * aerztleObjects.size());
-        currentSong =  aerztleObjects.get(randomIndex);
+        // If user runs out of tries
+        if(currentGuess > TRIES) {
+            openEndingScreen("Du hast keine Versuche mehr!", "Das gesuchte Lied war: \"" + currentSong.getSongName() + "\"");
+            return;
+        }
     }
 
     /**

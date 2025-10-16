@@ -7,12 +7,13 @@ public class Settings {
     private boolean belaLibrary = false;
     private boolean sahnieLibrary = false;
     private boolean colourfulGui = true;
+    private boolean searchForUpdates = true;
 
     // For Straight Outta...
     private String gtoTypeOfInput = "Suchleiste";
     private boolean gtoUnlimitedTime = false;
     private boolean gtoUnlimitedLives = false;
-    private int gtoTimeLimit = 30;
+    private int gtoTimeLimit = 60;
     private int gtoLiveCount = 3;
     private int gtoHintCount = 3;
     private int gtoHighscore = 0;
@@ -23,7 +24,7 @@ public class Settings {
     private boolean ctlUnlimitedTime = false;
     private boolean ctlUnlimitedLives = false;
     private int ctlLiveCount = 3;
-    private int ctlTimeLimit = 30;
+    private int ctlTimeLimit = 60;
     private int ctlHintCount = 3;
     private int ctlHighscore = 0;
 
@@ -33,37 +34,6 @@ public class Settings {
 
     public Settings() {
         // Keep default settings
-    }
-
-    /**
-     * Constructor for GTO
-     * @param pShowIcons
-     * @param pUnlimitedTime
-     * @param pUnlimitedLives
-     * @param pFarin
-     * @param pBela
-     * @param pSahnie
-     * @param pTimeLimit
-     * @param pLiveCount
-     */
-    public Settings(String pTypeOfInput, boolean pShowIcons, boolean pUnlimitedTime, boolean pUnlimitedLives, boolean pFarin,
-    boolean pBela, boolean pSahnie, int pTimeLimit, int pLiveCount) {
-        gtoTypeOfInput = pTypeOfInput;
-        showIcons = pShowIcons;
-        gtoUnlimitedTime = pUnlimitedTime;
-        gtoUnlimitedLives = pUnlimitedLives;
-        gtoTimeLimit = pTimeLimit;
-        gtoLiveCount = pLiveCount;
-    }
-
-    public Settings(boolean pHardmode, boolean pShowIcons, boolean pUnlimitedTime, boolean pUnlimitedLives, boolean pFarin,
-    boolean pBela, boolean pSahnie, int pTimeLimit, int pLiveCount) {
-        ctlHardMode = pHardmode;
-        ctlShowIcons = pShowIcons;
-        ctlUnlimitedTime = pUnlimitedTime;
-        ctlUnlimitedLives = pUnlimitedLives;
-        ctlTimeLimit = pTimeLimit;
-        ctlLiveCount = pLiveCount;
     }
 
     //* GENERAL SETTINGS
@@ -122,6 +92,14 @@ public class Settings {
 
     public boolean isColourfulGuiEnabled() {
         return colourfulGui;
+    }
+
+    public void setSearchForUpdates(boolean pSearchForUpdates) {
+        searchForUpdates = pSearchForUpdates;
+    }
+
+    public boolean isSearchForUpdatesEnabled() {
+        return searchForUpdates;
     }
 
     //* GTO SETTINGS

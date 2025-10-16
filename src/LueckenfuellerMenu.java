@@ -149,34 +149,28 @@ public class LueckenfuellerMenu extends JFrame {
         settingsFrame.setSize(500, 200);
         settingsFrame.setResizable(false);
         settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(4, 2)); // Icons, hardmode, zeit, unendlich zeit, leben, unendlich leben, farin, bela, sahnie, support sahnie, speichern, highscore reset
+        settingsFrame.setLayout(new GridLayout(4, 2));
 
         // Timer settings
         JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
         JTextField tfTimeLimit = new JTextField(settings.getCtlTimeLimit() + "");
+        tfTimeLimit.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
         JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
         panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
         JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isCtlUnlimitedTimeEnabled());
         cbUnlimitedTime.addActionListener(_ -> {
-            if(cbUnlimitedTime.isSelected()) {
-                tfTimeLimit.setEnabled(false);
-            } else {
-                tfTimeLimit.setEnabled(true);
-            }
+            tfTimeLimit.setEnabled(!cbUnlimitedTime.isSelected());
         });
 
         // Health bar settings
         JLabel lLives = new JLabel("Anzahl Leben:");
         JTextField tfLives = new JTextField(settings.getCtlLiveCount() + "");
+        tfLives.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
         JPanel panLives = new JPanel(new GridLayout(2, 1));
         panLives.add(lLives); panLives.add(tfLives);
         JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isCtlUnlimitedLivesEnabled());
         cbUnlimitedLives.addActionListener(_ -> {
-            if(cbUnlimitedLives.isSelected()) {
-                tfLives.setEnabled(false);
-            } else {
-                tfLives.setEnabled(true);
-            }
+            tfLives.setEnabled(!cbUnlimitedLives.isSelected());
         });
 
         // Number or hints settings
