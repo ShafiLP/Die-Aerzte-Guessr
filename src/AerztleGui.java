@@ -143,6 +143,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         for(int x = 0; x < lTable.length; x++) {
             for(int y = 0; y < lTable[0].length; y++) {
                 lTable[x][y] = new JLabel("", SwingConstants.CENTER);
+                lTable[x][y].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
             }
         }
         lTable[0][0].setText("Name");

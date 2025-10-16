@@ -19,7 +19,7 @@ import java.net.URL;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.4.1";
+    private final String VERSION = "0.4.2";
     private Settings settings;
     /**
      * Constructor of main menu

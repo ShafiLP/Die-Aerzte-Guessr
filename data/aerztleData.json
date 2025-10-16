@@ -77,7 +77,7 @@
     {"song": "Ich will dich", "album": "wahrheit", "release": "1988", "streams": "300.000", "durationMin": "2", "durationSec": "18", "livePlays": "0", "singer": "Bela", "single": "false"},
     {"song": "Elke", "album": "wahrheit", "release": "1988", "streams": "3.200.000", "durationMin": "3", "durationSec": "22", "livePlays": "270", "singer": "Farin", "single": "true"},
     {"song": "Blumen", "album": "wahrheit", "release": "1988", "streams": "2.300.000", "durationMin": "3", "durationSec": "44", "livePlays": "310", "singer": "Bela", "single": "true"},
-    {"song": "Ausserirdische", "album": "wahrheit", "release": "1988", "streams": "600.000", "durationMin": "2", "durationSec": "45", "livePlays": "180", "singer": "Bela", "single": "false"},
+    {"song": "Ausserirdische", "album": "wahrheit", "release": "1988", "streams": "600.000", "durationMin": "2", "durationSec": "45", "livePlays": "180", "singer": "Farin", "single": "false"},
     {"song": "Siegerin", "album": "wahrheit", "release": "1988", "streams": "300.000", "durationMin": "3", "durationSec": "10", "livePlays": "34", "singer": "Bela", "single": "false"},
     {"song": "Bitte, Bitte", "album": "wahrheit", "release": "1988", "streams": "1.500.000", "durationMin": "3", "durationSec": "17", "livePlays": "6", "singer": "Farin", "single": "true"},
     {"song": "Popstar", "album": "wahrheit", "release": "1988", "streams": "400.000", "durationMin": "3", "durationSec": "12", "livePlays": "170", "singer": "Bela", "single": "false"},

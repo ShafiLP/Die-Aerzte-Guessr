@@ -156,6 +156,7 @@ public class AerztleGame implements GameMode {
         currentGuess = 1;
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
         currentSong =  aerztleObjects.get(randomIndex);
+        gui.setInteractable(true);
     }
 
     public void closeGame() {
