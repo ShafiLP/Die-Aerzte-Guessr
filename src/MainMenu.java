@@ -1,6 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import com.google.gson.Gson;
@@ -19,7 +20,7 @@ import java.net.URL;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.4.3";
+    private final String VERSION = "0.4.4";
     private Settings settings;
     private JButton bSettings;
     /**
@@ -230,11 +231,20 @@ public class MainMenu extends JFrame {
      */
     public void checkForUpdate() {
         if(settings.isSearchForUpdatesEnabled()) {
-            final String REPOSITORY_API = "https://api.github.com/repos/ShafiLP/Die-Aerzte-Guessr/releases/latest";
+            final String REPOSITORY_API = "https://api.github.com/repos/ShafiLP/Die-Aerzte-Guessr/releases";
             try {
                 URL url = new URL(REPOSITORY_API);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestProperty("User-Agent", "Java-Version-Checker");
+                conn.setConnectTimeout(5000);
+                conn.setReadTimeout(5000);
+
+                int status = conn.getResponseCode();
+                if (status != 200) {
+                    System.out.println("HTTP-Fehler: " + status);
+                    return;
+                }
+
                 BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 StringBuilder response = new StringBuilder();
                 String line;
@@ -243,15 +253,19 @@ public class MainMenu extends JFrame {
                 }
                 reader.close();
 
-                JSONObject json = new JSONObject(response.toString());
+                JSONArray releases = new JSONArray(response.toString());
+                if(releases.length() == 0)
+                return;
+
+                JSONObject json = releases.getJSONObject(0);
                 
                 String latestVersion = json.getString("tag_name").replace("v", "");
                 if(isNewerVersionAvailable(latestVersion, VERSION)) {
                     System.out.println("Neue Version verfügbar: " + latestVersion);
-                    System.out.println("Lade sie runter unter: https://github.com/ShafiLP/Die-Aerzte-Guessr/releases/latest");
+                    System.out.println("Lade sie runter unter: https://github.com/ShafiLP/Die-Aerzte-Guessr");
                     openNewerVersionNotification();
                 } else {
-                    System.out.println("Neuste Version installiert.");
+                    System.out.println("Neuste Version installiert: v" + VERSION);
                 }
             } catch (Exception e) {
                 System.out.println("Fehler beim Überprüfen der Version: " + e.getMessage());
@@ -292,7 +306,7 @@ public class MainMenu extends JFrame {
             switch(n) {
                 case 0:
                     try {
-                        Desktop.getDesktop().browse(new URL("https://github.com/ShafiLP/Die-Aerzte-Guessr/releases/latest").toURI());
+                        Desktop.getDesktop().browse(new URL("https://github.com/ShafiLP/Die-Aerzte-Guessr").toURI());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
