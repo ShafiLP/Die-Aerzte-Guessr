@@ -122,7 +122,7 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
 
         // Disclaimer label for wrong information
         JLabel lDisclaimer = new JLabel("*Manche Informationen könnten Fehler aufweisen!", SwingConstants.CENTER);
-        lDisclaimer.setFont(new Font(settings.getFontType(), Font.PLAIN, 13));
+        lDisclaimer.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
         guessingPanel.add(lDisclaimer, new GridBagConstraints() {{
             gridx = 0;
             gridy = 1;
@@ -277,24 +277,60 @@ public class AerztleGui extends JFrame implements EnterKeyListener {
         
     }
 
-    public void paintReleaseYear(int pIndex, Color pColor, String pText) {
+    public void paintReleaseYear(int pIndex, Color pColor, String pText, Boolean pMoreOrLess) {
         lTable[pIndex][2].setBackground(pColor);
         lTable[pIndex][2].setText(pText);
+        if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
+            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            ImageIcon arrowIcon = new ImageIcon(imagePath);
+            Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            lTable[pIndex][2].setIcon(new ImageIcon(arrowImg));
+        } else if(pMoreOrLess != null){
+            String moreOrLessText = (pMoreOrLess == true) ? " (zu wenig)" : " (zu viel)";
+            lTable[pIndex][2].setText(lTable[pIndex][2].getText() + moreOrLessText);
+        }
     }
 
-    public void paintStreams(int pIndex, Color pColor, String pText) {
+    public void paintStreams(int pIndex, Color pColor, String pText, Boolean pMoreOrLess) {
         lTable[pIndex][3].setBackground(pColor);
         lTable[pIndex][3].setText(pText);
+        if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
+            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            ImageIcon arrowIcon = new ImageIcon(imagePath);
+            Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            lTable[pIndex][3].setIcon(new ImageIcon(arrowImg));
+        } else if(pMoreOrLess != null){
+            String moreOrLessText = (pMoreOrLess == true) ? " (zu wenig)" : " (zu viel)";
+            lTable[pIndex][3].setText(lTable[pIndex][3].getText() + moreOrLessText);
+        }
     }
 
-    public void paintDuration(int pIndex, Color pColor, String pText) {
+    public void paintDuration(int pIndex, Color pColor, String pText, Boolean pMoreOrLess) {
         lTable[pIndex][4].setBackground(pColor);
         lTable[pIndex][4].setText(pText);
+        if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
+            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            ImageIcon arrowIcon = new ImageIcon(imagePath);
+            Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            lTable[pIndex][4].setIcon(new ImageIcon(arrowImg));
+        } else if(pMoreOrLess != null){
+            String moreOrLessText = (pMoreOrLess == true) ? " (zu wenig)" : " (zu viel)";
+            lTable[pIndex][4].setText(lTable[pIndex][4].getText() + moreOrLessText);
+        }
     }
 
-    public void paintLivePlays(int pIndex, Color pColor, String pText) {
+    public void paintLivePlays(int pIndex, Color pColor, String pText, Boolean pMoreOrLess) {
         lTable[pIndex][5].setBackground(pColor);
         lTable[pIndex][5].setText(pText);
+        if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
+            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            ImageIcon arrowIcon = new ImageIcon(imagePath);
+            Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+            lTable[pIndex][5].setIcon(new ImageIcon(arrowImg));
+        } else if(pMoreOrLess != null){
+            String moreOrLessText = (pMoreOrLess == true) ? " (zu wenig)" : " (zu viel)";
+            lTable[pIndex][5].setText(lTable[pIndex][5].getText() + moreOrLessText);
+        }
     }
 
     public void paintSinger(int pIndex, Color pColor, String pText) {

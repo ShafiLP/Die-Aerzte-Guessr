@@ -10,6 +10,9 @@
                 text-align: left;
                 font-size: 20px;
             }
+            p {
+                font-size: 14px;
+            }
         </style>
     </head>
     <body>
@@ -38,26 +41,50 @@
             Durch 8 verschiedene Kategorien bekommt man Hinweise, welches Lied aktuell gesucht wird. <br>
             Ist die Zelle <span style="color: green;"><b>grün</b></span>, sind die Werte von dem geratenen Lied und dem gesuchten Lied <b>identisch</b>. <br>
             Ist die Zelle <span style="color: red;"><b>rot</b></span>, sind die Werte von dem geratenen Lied und dem gesuchten Lied <b>verschieden</b>. <br>
-            Ist die Zelle <span style="color: orange;"><b>gelb</b></span>, bedeutet das, der geratene Wert ist <b>nah</b> an dem gesuchten Wert. <br>
+            Ist die Zelle <span style="color: orange;"><b>gelb</b></span>, sind die Were <b>nah aneinander</b>. <br>
             <br>
             Insgesamt gibt es 8 Kategorien: <br>
-            <b>Name:</b> Wenn diese Kategorie grün ist, hat man das richtige Lied erraten. Ansonsten, auch wenn alles andere grün ist, ist das geratene Lied es falsch. <br>
-            <b>Album:</b> Diese Kategorie wird grün, wenn das geratene Lied und das gesuchte Lied auf dem gleichen Album sind ODER beide eine Single oder eine B-Seite sind. <br>
-            <b>Erscheinungsjahr:</b> Das Jahr, in dem das Lied zum ersten Mal veröffentlicht wurde.
-            Pfeile zeigen an, ob das gesuchte Lied vor oder nach dem Erscheinungsjahr des geratenen Liedes veröffentlicht wurde. Gelb bedeutet, dass die Erscheinungsjahre nur ein Jahr auseinanderliegen.
-            Diese Kategorie muss nicht immer mit den Ergebnissen der Album-Kategorie übereinstimmen, da z. B. Singles schon ein Jahr vor dem eigentlichen Album rausgekommen sein könnten. <br>
-            <b>Spotify Streams:</b> Die Streaming-Anzahl (Wiedergaben), wie sie auf Spotify geteilt wird. Hierbei handelt es sich immer um 100.000er-Schritte, also alles von 300.000 bis 399.999 besitzt den gleichen Wert (≥300.000).
-            Kleinere Werte als 100.000 und nicht auf Spotify verfügbare Lieder besitzen den Wert < 100.000. Pfeile zeigen an, ob der gesuchte Wert größer oder kleiner ist, als der des geratenen Liedes.
-            Gelb bedeutet, dass der gesuchte Wert im angrenzenden Hunderttausenderbereich liegt (Gelb bei ≥500.000 und Pfeil nach oben bedeutet, der gesuchte Wert liegt bei ≥600.000). <br>
-            <b>Dauer:</b> Schlicht und einfach die Dauer des Liedes in Minuten:Sekunden. Pfeile zeigen ob, ob die Dauer des gesuchten Liedes länger oder kürzer ist, als der des eingegebenen Liedes.
-            Wenn die gesuchte und die geratene Dauer weniger als 5 Sekunden auseinanderliegen, wird die Zelle gelb angezeigt. <br>
+            <b>Name:</b> Der Titel des Liedes. <br>
+            <span style="color: green;">Diese Kategorie ist nur grün, wenn das korrekte Lied erraten wird.</span> <br>
+            <span style="color: red;">Ansonsten, auch wenn alles andere grün ist, ist das geratene Lied es falsch.</span> <br><br>
+
+            <b>Album:</b> Das Album, auf dem das Lied veröffentlicht wurde. Dabei kann es sich um Studio-Alben und Kompilationen handeln. <br>
+            <span style="color: green;">Diese Kategorie ist grün, wenn das geratene Lied und das gesuchte Lied auf dem gleichen Album sind ODER beide eine Single oder eine B-Seite sind, ohne auf einem Album zu sein.</span> <br>
+            <span style="color: red;">Bei unterschiedlichen Alben ist diese Kategorie rot.</span> <br><br>
+
+            <b>Erscheinungsjahr:</b> Das Jahr, in dem das Lied zum ersten Mal veröffentlicht wurde. Pfeile zeigen an, ob das gesuchte Lied vor oder nach dem Erscheinungsjahr des geratenen Liedes veröffentlicht wurde. <br>
+            Diese Kategorie muss nicht immer mit den Ergebnissen der Album-Kategorie übereinstimmen, da Singles schon ein Jahr vor dem eigentlichen Album rausgekommen sein könnten. <br>
+            <span style="color: green;">Grün bedeutet, dass das eingegebene und das gesuchte Lied auf dem gleichen Album sind.</span> <br>
+            <span style="color: orange;">Gelb bedeutet, dass die Erscheinungsjahre nur ein Jahr auseinanderliegen.</span> <br>
+            <span style="color: red;">Ansonsten rot.</span> <br><br>
+
+            <b>Spotify Streams:</b> Die Streaming-Anzahl (Wiedergaben), wie sie auf Spotify geteilt wird. Hierbei handelt es sich immer um 100.000er-Schritte, also alles von 300.000 bis 399.999 besitzt den gleichen Wert (≥300.000). 
+            Kleinere Werte als 100.000 und nicht auf Spotify verfügbare Lieder besitzen den Wert "< 100.000". Pfeile zeigen an, ob der gesuchte Wert größer oder kleiner ist, als der des geratenen Liedes. <br>
+            <span style="color: green;">Grün bedeutet, das eingegebene und das gesuchte Lied im gleichen Hunderttausenderbereichliegen.</span> <br>
+            <span style="color: orange;">Gelb bedeutet, dass der gesuchte Wert im angrenzenden Hunderttausenderbereich liegt (Gelb bei ≥500.000 und Pfeil nach oben bedeutet, der gesuchte Wert liegt bei ≥600.000).</span> <br>
+            <span style="color: red;">Ansonsten rot.</span> <br><br>
+
+            <b>Dauer:</b> Die Dauer des Liedes in Minuten:Sekunden. Pfeile zeigen ob, ob die Dauer des gesuchten Liedes länger oder kürzer ist, als der des eingegebenen Liedes. <br>
+            <span style="color: green;">Grün bedeutet, das eingegebene und das gesuchte Lied sind gleichlang.</span> <br>
+            <span style="color: orange;">Gelb bedeutet, die eingegebene und die gesuchte Dauer liegen höchstens 5 Sekunden auseinander.</span> <br>
+            <span style="color: red;">Ansonsten rot.</span> <br><br>
+
             <b>Live-Auftritte:</b> Die Anzahl, wie oft ein Lied Live auf der Bühne gespielt wurde (Offizielle Tourdaten! Privatkonzerte für Sahnies Oma zählen nicht).
-            Pfeile zeigen an, ob der gesuchte Wert höher oder niedriger ist, als der eingegebene. Ein gelber Hintergrund bedeutet, dass der eingegebene und der gesuchte Wert um weniger als 5 auseinanderliegen. <br>
-            <b>Sänger:</b> Wer singt das Lied? Sind alle Sänger korrekt, wird der Hintergrund grün. Ein roter Hintergrund bedeutet, dass der Sänger oder einer der Sänger nicht dabei ist.
-            Der gelbe Hintergrund bedeutet, dass ALLE Sänger von dem geratenen Lied bei dem gesuchten Lied mitsingen (Bela und gelb = Sänger könnte Bela, Farin oder Bela, Rod sein // Farin, Rod und gelb = Sänger könnte Bela, Farin, Rod sein // 
-            Bela, Farin und der gesuchte Sänger ist Farin = roter Hintergrund, weil Bela falsch ist). <br>
-            <b>Single:</b> Ja/Nein-Wert, ob es zu dem Lied eine Single-Auskopplung gibt. Sind das eingegebene Lied und das gesuchte Lied beide eine Single oder beide sind keine Single, 
-            gibt es einen grünen Hintergrund. Sind die Werte unterschiedlich, gibt es einen roten Hintergrund.
+            Pfeile zeigen an, ob der gesuchte Wert höher oder niedriger ist, als der eingegebene. <br>
+            <span style="color: green;">Grün bedeutet, dass das eingegebene und das gesuchte Lied gleich oft live gespielt wurden.</span> <br>
+            <span style="color: orange;">Gelb bedeutet, dass der eingegebene und der gesuchte Wert weniger als 5 Aufritte auseinanderliegen.</span> <br>
+            <span style="color: red;">Ansonsten rot.</span> <br><br>
+
+            <b>Sänger:</b> Wer singt das Lied? <br>
+            <span style="color: green;">Grün bedeutet, dass ALLE Sänger korrekt sind.</span> <br>
+            <span style="color: orange;">Gelb bedeutet, dass ALLE Sänger von dem geratenen Lied bei dem gesuchten Lied mitsingen (es fehlen also noch welche).</span> <br>
+            <span style="color: red;">Rot bedeutet, dass der Sänger oder einer der Sänger nicht dabei ist.</span> <br>
+            (<span style="color: orange;">Bela + gelb = Sänger könnte Bela, Farin oder Bela, Rod sein</span> // <span style="color: orange;">Farin, Rod und gelb = Sänger könnte Bela, Farin, Rod sein</span> // 
+            <span style="color: red;">Bela, Farin + rot = Der gesuchte Sänger könnte immer noch Bela oder Farin sein. Rot, weil einer der beiden falsch ist</span>). <br><br>
+
+            <b>Single:</b> Ja/Nein-Wert, ob es zu dem Lied eine Single-Auskopplung mit gleichnamigen Titel gibt gibt. <br>
+            <span style="color: green;">Grün bedeutet, das eingegebene und das gesuchte Lied sind beide eine Single oder beide sind keine Single.</span> <br>
+            <span style="color: red;">Rot bedeutet, dass der eingegebene Wert sich von dem gesuchten Lied unterscheidet (Eingabe ist eine Single und Gesuchtes Lied nicht oder andersrum).</span>
         </p>
     </body>
 </html>

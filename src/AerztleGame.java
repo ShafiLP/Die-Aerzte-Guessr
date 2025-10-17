@@ -69,19 +69,19 @@ public class AerztleGame implements GameMode {
 
     private void compReleaseYear(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getReleaseYear() == pSolution.getReleaseYear()) {
-            gui.paintReleaseYear(currentGuess, Color.GREEN, pGuess.getReleaseYear() + "");
+            gui.paintReleaseYear(currentGuess, Color.GREEN, pGuess.getReleaseYear() + "", null);
         } else {
             if(pGuess.getReleaseYear() - pSolution.getReleaseYear() > 0) {
                 if(pGuess.getReleaseYear() - 1 == pSolution.getReleaseYear()) {
-                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + " ⬇️");
+                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + "", false);
                 } else {
-                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬇️");
+                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + "", false);
                 }
             } else {
                 if(pGuess.getReleaseYear() + 1 == pSolution.getReleaseYear()) {
-                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + " ⬆️");
+                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + "", true);
                 } else {
-                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + " ⬆️");
+                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + "", true);
                 }
             }
         }
@@ -89,38 +89,38 @@ public class AerztleGame implements GameMode {
 
     private void compStreams(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getStreamsAsInteger() == pSolution.getStreamsAsInteger()) {
-            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsInteger() == 0 ? "≥ 100.000" : "≥" + pGuess.getStreamsAsText());
+            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText(), null);
         } else {
             if(pGuess.getStreamsAsInteger() - pSolution.getStreamsAsInteger() > 0) {
                 gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() - 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬇️" : "≥" + pGuess.getStreamsAsText() + " ⬇️");
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬇️" : "≥" + pGuess.getStreamsAsText() + "", false);
             } else {
                 gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() + 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬆️" : "≥" + pGuess.getStreamsAsText() + " ⬆️");
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬆️" : "≥" + pGuess.getStreamsAsText() + "", true);
             }
         }
     }
 
     private void compDuration(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getFullDurationInSecs() == pSolution.getFullDurationInSecs()) {
-            gui.paintDuration(currentGuess, Color.GREEN, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()));
+            gui.paintDuration(currentGuess, Color.GREEN, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()), null);
         } else {
             if(pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() > 0) {
-                gui.paintDuration(currentGuess, pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬇️");
+                gui.paintDuration(currentGuess, pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", false);
             } else {
-                gui.paintDuration(currentGuess, pSolution.getFullDurationInSecs() - pGuess.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + " ⬆️");
+                gui.paintDuration(currentGuess, pSolution.getFullDurationInSecs() - pGuess.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", true);
             }
         }
     }
 
     private void compLivePlays(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getLivePlays() == pSolution.getLivePlays()) {
-            gui.paintLivePlays(currentGuess, Color.GREEN, pGuess.getLivePlays() + "");
+            gui.paintLivePlays(currentGuess, Color.GREEN, pGuess.getLivePlays() + "", null);
         } else {
             if(pGuess.getLivePlays() - pSolution.getLivePlays() > 0) {
-                gui.paintLivePlays(currentGuess, pGuess.getLivePlays() - pSolution.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + " ⬇️");
+                gui.paintLivePlays(currentGuess, pGuess.getLivePlays() - pSolution.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + "", false);
             } else {
-                gui.paintLivePlays(currentGuess, pSolution.getLivePlays() - pGuess.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + " ⬆️");
+                gui.paintLivePlays(currentGuess, pSolution.getLivePlays() - pGuess.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + "", true);
             }
         }
     }

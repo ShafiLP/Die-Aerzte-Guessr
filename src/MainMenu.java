@@ -19,8 +19,9 @@ import java.net.URL;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.4.2";
+    private final String VERSION = "0.4.3";
     private Settings settings;
+    private JButton bSettings;
     /**
      * Constructor of main menu
      * Contains paths to all games
@@ -31,7 +32,7 @@ public class MainMenu extends JFrame {
 
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, /*480*/440);
+        this.setSize(400, 440);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
@@ -84,8 +85,8 @@ public class MainMenu extends JFrame {
         bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
         bAerztle.setBackground(new Color(220, 255, 220));
 
-        JButton bSettings = new JButton("Einstellungen");
-        bSettings.setFont(new Font("Folio Extra", Font.BOLD, 20));
+        bSettings = new JButton("Einstellungen");
+        bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
         bSettings.addActionListener(_ -> {
             openSettings();
         });
@@ -200,6 +201,8 @@ public class MainMenu extends JFrame {
             settings.setSahnieLibrary(cbSahnie.isSelected());
             settings.setColourfulGui(cbColourfulGui.isSelected());
             settings.setSearchForUpdates(cbSearchForUpdates.isSelected());
+            
+            bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
 
             saveSettings(settings);
             settingsFrame.dispose();
