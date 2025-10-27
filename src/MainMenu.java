@@ -4,6 +4,13 @@ import javax.swing.border.LineBorder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.formdev.flatlaf.FlatDarculaLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatIntelliJLaf;
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import com.google.gson.Gson;
 
 import java.awt.*;
@@ -14,13 +21,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Collections;
 
 /**
  * Class for the game main menu
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.4.4";
+    private final String VERSION = "0.4.5";
     private Settings settings;
     private JButton bSettings;
     /**
@@ -37,6 +45,8 @@ public class MainMenu extends JFrame {
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+
+        setup();
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -134,11 +144,12 @@ public class MainMenu extends JFrame {
     private void openSettings() {
         // JFrame settings
         JFrame settingsFrame = new JFrame();
+        settingsFrame.setTitle("Einstellungen");
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 200);
+        settingsFrame.setSize(500, 250);
         settingsFrame.setResizable(false);
         settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(5, 2));
+        settingsFrame.setLayout(new GridLayout(6, 2));
 
         // Icon settings
         JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isShowIconsEnabled());
@@ -173,6 +184,86 @@ public class MainMenu extends JFrame {
         // Automatic search for updates
         JCheckBox cbSearchForUpdates = new JCheckBox("Suche nach Updates", settings.isSearchForUpdatesEnabled());
 
+        // Theme settings
+        JPanel panThemes = new JPanel(new GridLayout(2, 1));
+        JComboBox<String> cbThemes = new JComboBox<>();
+        cbThemes.addItem("FlatLaf Light");
+        cbThemes.addItem("FlatLaf Dark");
+        cbThemes.addItem("FlatLaf IntelliJ");
+        cbThemes.addItem("FlatLaf Darcula");
+        cbThemes.addItem("FlatLaf macOS Light");
+        cbThemes.addItem("FlatLaf macOS Dark");
+        cbThemes.setSelectedIndex(settings.getTheme());
+        panThemes.add(new JLabel("Theme:"));
+        panThemes.add(cbThemes);
+
+        // Accent colour settings
+        JPanel panAccentColors = new JPanel(new GridBagLayout());
+
+        panAccentColors.add(new JLabel("Akzentfarbe:"), new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 0;
+            weightx = 1.0;
+            fill = GridBagConstraints.NONE;
+            anchor = GridBagConstraints.WEST;
+        }});
+        
+        JButton bBlue = new JButton();
+        bBlue.setBackground(Color.BLUE);
+        bBlue.setPreferredSize(new Dimension(20, 20));
+        bBlue.addActionListener(_ -> {
+            settings.setAccentColour("#8f8ffeff");
+        });
+        panAccentColors.add(bBlue, new GridBagConstraints() {{
+            gridx = 1;
+            gridy = 0;
+            weightx = 1.0;
+            fill = GridBagConstraints.HORIZONTAL;
+            anchor = GridBagConstraints.CENTER;
+        }});
+
+        JButton bRed = new JButton();
+        bRed.setBackground(Color.RED);
+        bRed.setPreferredSize(new Dimension(20, 20));
+        bRed.addActionListener(_ -> {
+            settings.setAccentColour("#fb6e6eff");
+        });
+        panAccentColors.add(bRed, new GridBagConstraints() {{
+            gridx = 2;
+            gridy = 0;
+            weightx = 1.0;
+            fill = GridBagConstraints.HORIZONTAL;
+            anchor = GridBagConstraints.CENTER;
+        }});
+
+        JButton bYellow = new JButton();
+        bYellow.setBackground(Color.YELLOW);
+        bYellow.setPreferredSize(new Dimension(20, 20));
+        bYellow.addActionListener(_ -> {
+            settings.setAccentColour("#fdfd67ff");
+        });
+        panAccentColors.add(bYellow, new GridBagConstraints() {{
+            gridx = 3;
+            gridy = 0;
+            weightx = 1.0;
+            fill = GridBagConstraints.HORIZONTAL;
+            anchor = GridBagConstraints.CENTER;
+        }});
+
+        JButton bGreen = new JButton();
+        bGreen.setBackground(Color.GREEN);
+        bGreen.setPreferredSize(new Dimension(20, 20));
+        bGreen.addActionListener(_ -> {
+            settings.setAccentColour("#6ff96fff");
+        });
+        panAccentColors.add(bGreen, new GridBagConstraints() {{
+            gridx = 4;
+            gridy = 0;
+            weightx = 1.0;
+            fill = GridBagConstraints.HORIZONTAL;
+            anchor = GridBagConstraints.CENTER;
+        }});
+
         // Reset all settings button
         JButton bReset = new JButton("Einstellungen zurücksetzen");
         bReset.addActionListener(_ -> {
@@ -202,14 +293,18 @@ public class MainMenu extends JFrame {
             settings.setSahnieLibrary(cbSahnie.isSelected());
             settings.setColourfulGui(cbColourfulGui.isSelected());
             settings.setSearchForUpdates(cbSearchForUpdates.isSelected());
+            settings.setTheme(cbThemes.getSelectedIndex());
             
             bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
+            setup();
 
             saveSettings(settings);
             settingsFrame.dispose();
         });
 
         // Add all to frame
+        settingsFrame.add(panThemes);
+        settingsFrame.add(panAccentColors);
         settingsFrame.add(fontTypePanel);
         settingsFrame.add(cbFarin);
         settingsFrame.add(fontSizePanel);
@@ -223,6 +318,46 @@ public class MainMenu extends JFrame {
 
         // Set frame visible
         settingsFrame.setVisible(true);
+    }
+
+    /**
+     * Initializes FlatLaf GUI
+     */
+    protected void setup() {
+        // Set accent colours
+        FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", settings.getAccentColour()));
+
+        // Set Theme
+        switch(settings.getTheme()) {
+            case 0:
+                FlatLightLaf.setup();
+                com.formdev.flatlaf.FlatLaf.updateUI();
+                break;
+            case 1:
+                FlatDarkLaf.setup();
+                com.formdev.flatlaf.FlatLaf.updateUI();
+                break;
+            case 2:
+                FlatIntelliJLaf.setup();
+                com.formdev.flatlaf.FlatLaf.updateUI();
+                break;
+            case 3:
+                FlatDarculaLaf.setup();
+                com.formdev.flatlaf.FlatLaf.updateUI();
+                break;
+            case 4:
+                FlatMacLightLaf.setup();
+                com.formdev.flatlaf.FlatLaf.updateUI();
+                break;
+            case 5:
+                FlatMacDarkLaf.setup();
+                com.formdev.flatlaf.FlatLaf.updateUI();
+                break;
+            default:
+                FlatLightLaf.setup();
+                com.formdev.flatlaf.FlatLaf.updateUI();
+                break;
+        }
     }
 
     /**

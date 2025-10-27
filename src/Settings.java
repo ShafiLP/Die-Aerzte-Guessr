@@ -1,13 +1,17 @@
 public class Settings {
     // General settings
-    private String fontType = "Folio Extra";
-    private int fontSize = 12;
-    private boolean showIcons = true;
     private boolean farinLibrary = false;
     private boolean belaLibrary = false;
     private boolean sahnieLibrary = false;
-    private boolean colourfulGui = true;
     private boolean searchForUpdates = true;
+
+    // Display settings
+    private String fontType = "Folio Extra";
+    private int fontSize = 12;
+    private int theme = 0;
+    private String accentColour = "#8f8ffeff";
+    private boolean showIcons = true;
+    private boolean colourfulGui = true;
 
     // For Straight Outta...
     private String gtoTypeOfInput = "Suchleiste";
@@ -38,30 +42,6 @@ public class Settings {
 
     //* GENERAL SETTINGS
 
-    public void setFontType(String pFontType) {
-        fontType = pFontType;
-    }
-    
-    public String getFontType() {
-        return fontType;
-    }
-
-    public void setFontSize(int pFontSize) {
-        fontSize = pFontSize;
-    }
-
-    public int getFontSize() {
-        return fontSize;
-    }
-
-    public void setShowIcons(boolean pShowIcons) {
-        showIcons = pShowIcons;
-    }
-
-    public boolean isShowIconsEnabled() {
-        return showIcons;
-    }
-
     public void setFarinLibrary(boolean pFarin) {
         farinLibrary = pFarin;
     }
@@ -86,6 +66,40 @@ public class Settings {
         return sahnieLibrary;
     }
 
+    public void setSearchForUpdates(boolean pSearchForUpdates) {
+        searchForUpdates = pSearchForUpdates;
+    }
+
+    public boolean isSearchForUpdatesEnabled() {
+        return searchForUpdates;
+    }
+
+    //* DISPLAY SETTINGS
+
+    public void setFontType(String pFontType) {
+        fontType = pFontType;
+    }
+    
+    public String getFontType() {
+        return fontType;
+    }
+
+    public void setFontSize(int pFontSize) {
+        fontSize = pFontSize;
+    }
+
+    public int getFontSize() {
+        return fontSize;
+    }
+
+    public void setShowIcons(boolean pShowIcons) {
+        showIcons = pShowIcons;
+    }
+
+    public boolean isShowIconsEnabled() {
+        return showIcons;
+    }
+
     public void setColourfulGui(boolean pColourfulGui) {
         colourfulGui = pColourfulGui;
     }
@@ -94,13 +108,23 @@ public class Settings {
         return colourfulGui;
     }
 
-    public void setSearchForUpdates(boolean pSearchForUpdates) {
-        searchForUpdates = pSearchForUpdates;
+    public void setTheme(int pThemeIndex) {
+        theme = pThemeIndex;
     }
 
-    public boolean isSearchForUpdatesEnabled() {
-        return searchForUpdates;
+    public int getTheme() {
+        return theme;
     }
+
+    public void setAccentColour(String pColour) {
+        accentColour = pColour;
+    }
+
+    public String getAccentColour() {
+        return accentColour;
+    }
+
+
 
     //* GTO SETTINGS
 

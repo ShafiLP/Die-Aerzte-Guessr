@@ -154,7 +154,6 @@ public class AerztleMenu extends JFrame {
         JComboBox<String> ddTypeOfInput = new JComboBox<>();
         ddTypeOfInput.addItem("Suchleiste");
         ddTypeOfInput.addItem("Dropdown Menü");
-        ddTypeOfInput.addItem("Manuelle Eingabe");
         ddTypeOfInput.setSelectedItem(settings.getAeTypeOfInput());
         JLabel lTypeOfInput = new JLabel("Eingabemethode:");
         typeOfInputPanel.add(lTypeOfInput);

@@ -16,8 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import java.awt.Image;
 
-public class LueckenfuellerGui extends JFrame implements EnterKeyListener {
-    private Settings settings;
+public class LueckenfuellerGui extends Gui {
     private LueckenfuellerGame game;
     private SongTextWithGap currentSong;
 

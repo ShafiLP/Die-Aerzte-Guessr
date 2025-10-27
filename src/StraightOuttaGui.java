@@ -1,21 +1,15 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.LinkedList;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.awt.*;
+
+import java.util.LinkedList;
 
 /**
  * Class for the GUI of the game "Guess The Origin"
  */
-class StraightOuttaGui extends JFrame implements EnterKeyListener{
+class StraightOuttaGui extends Gui {
     private StraightOuttaGame game;
-    private Settings settings;
     private JPanel centerPanel;
     private JPanel infoBar;
     private JComboBox<DropdownItem> songDropdown;
@@ -131,10 +125,12 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
         switch(settings.getGtoTypeOfInput()) {
             case "Dropdown Menü":
                 songDropdown = initializeJComboBox();
+                songDropdown.addKeyListener(new SubmitKeyListener(this));
                 guessBar.add(songDropdown, gbc);
                 break;
             case "Suchleiste":
-                songSearchBar = initializAutoCompleteTextField();
+                LinkedList<DropdownItem> suggestions = dropdownListFromJson();
+                songSearchBar = new AutoCompleteTextField(suggestions);
                 songSearchBar.addKeyListener(new SubmitKeyListener(this));
                 guessBar.add(songSearchBar, gbc);
                 break;
@@ -353,163 +349,5 @@ class StraightOuttaGui extends JFrame implements EnterKeyListener{
                 songSearchBar.requestFocusInWindow();
                 break;
         }
-    }
-
-    /**
-     * Creates a JComboBox object with all all items from song files as DropdownItem objects
-     * @return JComboBox with all songs from .json files
-     */
-    private JComboBox<DropdownItem> initializeJComboBox() {
-        JComboBox<DropdownItem> comboBox = new JComboBox<>(dropdownArrayFromJson("data\\songs.json"));
-
-        // Add Farin songs if pFarin = true
-        if(settings.isFarinEnabled()) {
-            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsFarin.json"));
-            for(int i = 0; i < farinDropdown.getItemCount(); i++) {
-                comboBox.addItem(farinDropdown.getItemAt(i));
-            }
-            farinDropdown = null;
-        }
-
-        // Add Bela songs if pBela = true
-        if(settings.isBelaEnabled()) {
-                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsBela.json"));
-            for(int i = 0; i < belaDropdown.getItemCount(); i++) {
-                comboBox.addItem(belaDropdown.getItemAt(i));
-            }
-            belaDropdown = null;
-        }
-
-        // Add Sahnie songs if pSahnie = true
-        if(settings.isSahnieEnabled()) {
-                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsSahnie.json"));
-            for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
-                comboBox.addItem(sahnieDropdown.getItemAt(i));
-            }
-            sahnieDropdown = null;
-        }
-
-        // Override the renderer to display items next to the dropdown items
-        if(settings.isShowIconsEnabled()) // Only override if icons should be displayed
-        comboBox.setRenderer(new DefaultListCellRenderer() {
-            @Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                if (value instanceof DropdownItem) {
-                    DropdownItem item = (DropdownItem) value;
-                    label.setText(item.getDropdownText());
-                    label.setIcon(item.getDropdownIcon());
-                }
-                return label;
-            }
-        });
-
-        // Override KeyEvents for the dropdown menu that the space bar works
-        comboBox.addKeyListener(new KeyAdapter() {
-            private static String keyBuffer = "";
-            private static long lastKeyTime = 0;
-
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char ch = e.getKeyChar();
-
-                // Space will be a valid char
-                if (ch == ' ') {
-                    ch = ' ';
-                }
-
-                long now = System.currentTimeMillis();
-                if (now - lastKeyTime > 1000) {
-                    keyBuffer = "";
-                }
-                lastKeyTime = now;
-
-                if (Character.isLetterOrDigit(ch) || Character.isSpaceChar(ch)) {
-                    keyBuffer += ch;
-
-                    // Suche Eintrag, der mit dem Buffer beginnt
-                    for (int i = 0; i < comboBox.getItemCount(); i++) {
-                        String item = comboBox.getItemAt(i).getDropdownText().toLowerCase();
-                        if (item.startsWith(keyBuffer.toLowerCase())) {
-                            comboBox.setSelectedIndex(i);
-                            break;
-                        }
-                    }
-                }
-            }
-        }); 
-        comboBox.getInputMap(JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)
-        .put(KeyStroke.getKeyStroke("SPACE"), "none"); // Prevents closing the dropdown menu by pressing space bar
-
-        comboBox.addKeyListener(new SubmitKeyListener(this));
-        return comboBox;
-    }
-
-    /**
-     * Intitializes an AutoCompleteTextField object with all song names based on the settings parameters
-     * @return initialized AutoCompleteTextField with all song objects
-     */
-    private AutoCompleteTextField initializAutoCompleteTextField() {
-        LinkedList<DropdownItem> suggestions = dropdownListFromJson("data\\songs.json");
-        if(settings.isFarinEnabled()) {
-            LinkedList<DropdownItem> farinSuggestions = dropdownListFromJson("data\\songsFarin.json");
-            suggestions.addAll(farinSuggestions);
-        }
-        if(settings.isBelaEnabled()) {
-            LinkedList<DropdownItem> belaSuggestions = dropdownListFromJson("data\\songsBela.json");
-            suggestions.addAll(belaSuggestions);
-        }
-        if(settings.isSahnieEnabled()) {
-            LinkedList<DropdownItem> sahnieSuggestions = dropdownListFromJson("data\\songsSahnie.json");
-            suggestions.addAll(sahnieSuggestions);
-        }
-
-        return new AutoCompleteTextField(suggestions, settings.isShowIconsEnabled());
-    }
-
-    /**
-     * Creates an array of DropdownItems containing song name and icon from the given .json file
-     * @param filename path where the song names with icons are located (must contain "song" and "icon" key)
-     * @return an array of DropdownItems containing song names and icons
-     */
-    private DropdownItem[] dropdownArrayFromJson(String filename) {
-        LinkedList<DropdownItem> songs = new LinkedList<>();
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(filename)));
-            JSONArray arr = new JSONArray(content);
-            for(int i = 0; i < arr.length(); i++) {
-                JSONObject obj = arr.getJSONObject(i);
-                String songName = obj.getString("song");
-                String iconPath = obj.getString("icon");
-                Icon icon = new ImageIcon("images\\" + iconPath + ".png");
-                songs.add(new DropdownItem(songName, icon));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return songs.toArray(new DropdownItem[0]);
-    }
-
-    /**
-     * Creates a LinkedList of DropdownItems with all songs in the given JSON file
-     * @param filename path to the JSON file with the song data
-     * @return LinkedList with song elements, containing song name and album cover as icon
-     */
-    private LinkedList<DropdownItem> dropdownListFromJson(String filename) {
-        LinkedList<DropdownItem> songs = new LinkedList<>();
-        try {
-            String content = new String(Files.readAllBytes(Paths.get(filename)));
-            JSONArray arr = new JSONArray(content);
-            for(int i = 0; i < arr.length(); i++) {
-                JSONObject obj = arr.getJSONObject(i);
-                String songName = obj.getString("song");
-                String iconPath = obj.getString("icon");
-                Icon icon = new ImageIcon("images\\" + iconPath + ".png");
-                songs.add(new DropdownItem(songName, icon));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return songs;
     }
 }
