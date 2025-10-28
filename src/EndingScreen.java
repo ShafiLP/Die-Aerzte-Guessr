@@ -102,6 +102,11 @@ public class EndingScreen extends JFrame {
         bBack.setAlignmentX(Component.CENTER_ALIGNMENT);
         bBack.setMaximumSize(buttonSize);
 
+        if(settings.isDarkMode()) {
+            bPlayAgain.setBackground(new Color(50, 50, 50));
+            bBack.setBackground(new Color(50, 50, 50));
+        }
+
         // Add buttons to panel
         mainPanel.add(Box.createRigidArea(new Dimension(0, 20)));
         mainPanel.add(bPlayAgain);

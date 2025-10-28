@@ -4,13 +4,9 @@ import javax.swing.border.LineBorder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.formdev.flatlaf.FlatDarculaLaf;
 import com.formdev.flatlaf.FlatDarkLaf;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import com.google.gson.Gson;
 
 import java.awt.*;
@@ -28,7 +24,7 @@ import java.util.Collections;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.4.5";
+    private final String VERSION = "0.5.0";
     private Settings settings;
     private JButton bSettings;
     /**
@@ -98,6 +94,7 @@ public class MainMenu extends JFrame {
 
         bSettings = new JButton("Einstellungen");
         bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
+        bSettings.setForeground(Color.BLACK);
         bSettings.addActionListener(_ -> {
             openSettings();
         });
@@ -184,18 +181,8 @@ public class MainMenu extends JFrame {
         // Automatic search for updates
         JCheckBox cbSearchForUpdates = new JCheckBox("Suche nach Updates", settings.isSearchForUpdatesEnabled());
 
-        // Theme settings
-        JPanel panThemes = new JPanel(new GridLayout(2, 1));
-        JComboBox<String> cbThemes = new JComboBox<>();
-        cbThemes.addItem("FlatLaf Light");
-        cbThemes.addItem("FlatLaf Dark");
-        cbThemes.addItem("FlatLaf IntelliJ");
-        cbThemes.addItem("FlatLaf Darcula");
-        cbThemes.addItem("FlatLaf macOS Light");
-        cbThemes.addItem("FlatLaf macOS Dark");
-        cbThemes.setSelectedIndex(settings.getTheme());
-        panThemes.add(new JLabel("Theme:"));
-        panThemes.add(cbThemes);
+        // Darkmode settings
+        JCheckBox cbDarkMode = new JCheckBox("Dunkler Modus", settings.isDarkMode());
 
         // Accent colour settings
         JPanel panAccentColors = new JPanel(new GridBagLayout());
@@ -293,7 +280,7 @@ public class MainMenu extends JFrame {
             settings.setSahnieLibrary(cbSahnie.isSelected());
             settings.setColourfulGui(cbColourfulGui.isSelected());
             settings.setSearchForUpdates(cbSearchForUpdates.isSelected());
-            settings.setTheme(cbThemes.getSelectedIndex());
+            settings.setDarkMode(cbDarkMode.isSelected());
             
             bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
             setup();
@@ -303,7 +290,7 @@ public class MainMenu extends JFrame {
         });
 
         // Add all to frame
-        settingsFrame.add(panThemes);
+        settingsFrame.add(cbDarkMode);
         settingsFrame.add(panAccentColors);
         settingsFrame.add(fontTypePanel);
         settingsFrame.add(cbFarin);
@@ -328,35 +315,12 @@ public class MainMenu extends JFrame {
         FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", settings.getAccentColour()));
 
         // Set Theme
-        switch(settings.getTheme()) {
-            case 0:
-                FlatLightLaf.setup();
-                com.formdev.flatlaf.FlatLaf.updateUI();
-                break;
-            case 1:
-                FlatDarkLaf.setup();
-                com.formdev.flatlaf.FlatLaf.updateUI();
-                break;
-            case 2:
-                FlatIntelliJLaf.setup();
-                com.formdev.flatlaf.FlatLaf.updateUI();
-                break;
-            case 3:
-                FlatDarculaLaf.setup();
-                com.formdev.flatlaf.FlatLaf.updateUI();
-                break;
-            case 4:
-                FlatMacLightLaf.setup();
-                com.formdev.flatlaf.FlatLaf.updateUI();
-                break;
-            case 5:
-                FlatMacDarkLaf.setup();
-                com.formdev.flatlaf.FlatLaf.updateUI();
-                break;
-            default:
-                FlatLightLaf.setup();
-                com.formdev.flatlaf.FlatLaf.updateUI();
-                break;
+        if(settings.isDarkMode()){
+            FlatDarkLaf.setup();
+            com.formdev.flatlaf.FlatDarkLaf.updateUI();
+        } else {
+            FlatLightLaf.setup();
+            com.formdev.flatlaf.FlatLaf.updateUI();
         }
     }
 

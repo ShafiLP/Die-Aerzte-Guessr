@@ -8,7 +8,7 @@ public class Settings {
     // Display settings
     private String fontType = "Folio Extra";
     private int fontSize = 12;
-    private int theme = 0;
+    private boolean darkMode = false;
     private String accentColour = "#8f8ffeff";
     private boolean showIcons = true;
     private boolean colourfulGui = true;
@@ -108,12 +108,12 @@ public class Settings {
         return colourfulGui;
     }
 
-    public void setTheme(int pThemeIndex) {
-        theme = pThemeIndex;
+    public void setDarkMode(boolean pdarkMode) {
+        darkMode = pdarkMode;
     }
 
-    public int getTheme() {
-        return theme;
+    public boolean isDarkMode() {
+        return darkMode;
     }
 
     public void setAccentColour(String pColour) {

@@ -39,6 +39,10 @@ class StraightOuttaGui extends Gui {
         if(settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(255, 220, 220);
             infobarColor = new Color(230, 100, 100);
+            if(settings.isDarkMode()) {
+                backgroundColor = new Color(90, 40, 40);
+                infobarColor = new Color(50, 20, 20);
+            }
         } else {
             backgroundColor = Color.WHITE;
             infobarColor = Color.LIGHT_GRAY;
@@ -281,7 +285,11 @@ class StraightOuttaGui extends Gui {
      * This is called when the user makes an incorrect guess
      */
     public void infoBarWrong() {
-        infoBar.setBackground(Color.RED);
+        if(settings.isDarkMode()) {
+            infoBar.setBackground(new Color(150, 40, 40));
+        } else {
+            infoBar.setBackground(Color.RED);
+        }
         currentSongLabel.setText("Aktuelles Lied: " + game.getCurrentSong());
     }
 
@@ -291,7 +299,11 @@ class StraightOuttaGui extends Gui {
      */
     public void infoBarRight() {
         currentSongLabel.setText("");
-        infoBar.setBackground(Color.GREEN);
+        if(settings.isDarkMode()) {
+            infoBar.setBackground(new Color(40, 150, 40));
+        } else {
+            infoBar.setBackground(Color.GREEN);
+        }
         infoBar.paintImmediately(infoBar.getVisibleRect()); // Update GUI immediately
         try {
             Thread.sleep(1000); // Pause for 1 second to show the green info bar

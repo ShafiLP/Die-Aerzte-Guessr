@@ -8,16 +8,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
-import com.google.gson.Gson;
-
-public class AerztleMenu extends JFrame {
-    private Settings settings;
-    private JFrame fHtp;
+public class AerztleMenu extends Menu {
     private JFrame settingsFrame;
 
     /**
@@ -28,8 +20,11 @@ public class AerztleMenu extends JFrame {
         settings = readSettings("data\\settings.json");
         Color backgroundColor = Color.WHITE;
 
-        if(settings.isColourfulGuiEnabled())
-        backgroundColor = new Color(220, 255, 220);
+        if(settings.isColourfulGuiEnabled()) {
+            backgroundColor = new Color(220, 255, 220);
+            if(settings.isDarkMode())
+            backgroundColor = new Color(40, 90, 40);
+        }
 
         this.setTitle("Ärztle");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,8 +54,8 @@ public class AerztleMenu extends JFrame {
         buttonPanel.setOpaque(false);
 
         // Buttons
-        JButton bPlay = new JButton("Spielen");
-        bPlay.addActionListener(_ -> {
+        buttons[0] = new JButton("Spielen");
+        buttons[0].addActionListener(_ -> {
             if(fHtp != null && fHtp.isVisible()) {
                 fHtp.dispose();
             }
@@ -70,16 +65,16 @@ public class AerztleMenu extends JFrame {
             this.dispose();
             new AerztleGame(settings);
         });
-        JButton bSettings = new JButton("Einstellungen");
-        bSettings.addActionListener(_ -> {
+        buttons[1] = new JButton("Einstellungen");
+        buttons[1].addActionListener(_ -> {
             openSettings();
         });
-        JButton bHowToPlay = new JButton("Wie man spielt");
-        bHowToPlay.addActionListener(_ -> {
-            openHowToPlay();
+        buttons[2] = new JButton("Wie man spielt");
+        buttons[2].addActionListener(_ -> {
+            openHowToPlay("html\\howToPlayAerztle.html");
         });
-        JButton bBack = new JButton("Hauptmenü");
-        bBack.addActionListener(_ -> {
+        buttons[3] = new JButton("Hauptmenü");
+        buttons[3].addActionListener(_ -> {
             if(fHtp != null && fHtp.isVisible()) {
                 fHtp.dispose();
             }
@@ -90,41 +85,61 @@ public class AerztleMenu extends JFrame {
             new MainMenu();
         });
 
-        bPlay.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
-        bPlay.setBackground(Color.WHITE);
-        bPlay.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        buttons[0].setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
+        buttons[0].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        if(settings.isDarkMode()) {
+            buttons[0].setBackground(Color.BLACK);
+        } else {
+            buttons[0].setBackground(Color.WHITE);
+        }
 
-        bSettings.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
-        bSettings.setBackground(Color.WHITE);
-        bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        buttons[1].setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
+        buttons[1].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        if(settings.isDarkMode()) {
+            buttons[1].setBackground(Color.BLACK);
+        } else {
+            buttons[1].setBackground(Color.WHITE);
+        }
 
-        bHowToPlay.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
-        bHowToPlay.setBackground(Color.WHITE);
-        bHowToPlay.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        buttons[2].setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
+        buttons[2].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        if(settings.isDarkMode()) {
+            buttons[2].setBackground(Color.BLACK);
+        } else {
+            buttons[2].setBackground(Color.WHITE);
+        }
 
-        bBack.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
-        bBack.setBackground(Color.WHITE);
-        bBack.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        buttons[3].setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
+        buttons[3].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+        if(settings.isDarkMode()) {
+            buttons[3].setBackground(Color.BLACK);
+        } else {
+            buttons[3].setBackground(Color.WHITE);
+        }
 
         Dimension buttonSize = new Dimension(200, 40);
-        bPlay.setMaximumSize(buttonSize);
-        bSettings.setMaximumSize(buttonSize);
-        bHowToPlay.setMaximumSize(buttonSize);
-        bBack.setMaximumSize(buttonSize);
+        buttons[0].setMaximumSize(buttonSize);
+        buttons[1].setMaximumSize(buttonSize);
+        buttons[2].setMaximumSize(buttonSize);
+        buttons[3].setMaximumSize(buttonSize);
 
-        bPlay.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bHowToPlay.setAlignmentX(CENTER_ALIGNMENT);
-        bBack.setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttons[0].setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttons[1].setAlignmentX(Component.CENTER_ALIGNMENT);
+        buttons[2].setAlignmentX(CENTER_ALIGNMENT);
+        buttons[3].setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        // Make buttons dark if darkmode is enabled
+        if(settings.isDarkMode())
+        darkmodeButtons();
 
         // Add with vertical padding
-        buttonPanel.add(bPlay);
+        buttonPanel.add(buttons[0]);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(bSettings);
+        buttonPanel.add(buttons[1]);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(bHowToPlay);
+        buttonPanel.add(buttons[2]);
         buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(bBack);
+        buttonPanel.add(buttons[3]);
 
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
         this.add(mainPanel);
@@ -137,6 +152,7 @@ public class AerztleMenu extends JFrame {
      */
     private void openSettings() {
         settingsFrame = new JFrame();
+        settingsFrame.setTitle("Einstellungen");
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         settingsFrame.setSize(500, 150);
         settingsFrame.setResizable(false);
@@ -198,71 +214,5 @@ public class AerztleMenu extends JFrame {
 
         // Set frame visible
         settingsFrame.setVisible(true);
-    }
-
-    /**
-     * Opens a HTML file that explains how to play this game
-     */
-    private void openHowToPlay() {
-        fHtp = new JFrame();
-        fHtp.setTitle("Wie man spielt");
-        fHtp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fHtp.setSize(500, 500);
-        fHtp.setResizable(false);
-        fHtp.setLocationRelativeTo(null); // Center the window
-        fHtp.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
-        fHtp.setLayout(new BorderLayout());
-
-        JEditorPane content = new JEditorPane();
-        content.setEditable(false);
-        content.setContentType("text/html");
-        File htmlFile = new File("html\\howToPlayAerztle.html");
-        try {
-            content.setPage(htmlFile.toURI().toURL());
-        } catch(IOException e) {
-            e.printStackTrace();
-        }
-
-        JScrollPane scorllableContent = new JScrollPane(content);
-
-        JButton bBack = new JButton("Verstanden!");
-        bBack.addActionListener(_ -> {
-            fHtp.dispose();
-        });
-
-        fHtp.add(scorllableContent, BorderLayout.CENTER);
-        fHtp.add(bBack, BorderLayout.SOUTH);
-        fHtp.setVisible(true);
-    }
-
-
-    /**
-     * Reads settings from JSON file
-     * @param filepath path to settings JSON file
-     * @return Settings object with data from JSON file
-     */
-    private Settings readSettings(String filepath) {
-        Settings settingsFromJson = new Settings();
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader(filepath)) {
-            settingsFromJson = gson.fromJson(reader, Settings.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return settingsFromJson;
-    }
-
-    /**
-     * Overrides settings in settings.json file
-     * @param pSettings settings object with parameters to override settings
-     */
-    private void saveSettings(Settings pSettings) {
-        Gson gson = new Gson();
-        try (FileWriter writer = new FileWriter("data\\settings.json")) {
-            gson.toJson(pSettings, writer);
-            System.out.println("Saved settings to \"data/settings.json\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

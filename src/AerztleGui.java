@@ -38,6 +38,10 @@ public class AerztleGui extends Gui {
         if(settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(220, 255, 220);
             infobarColor = new Color(100, 230, 100);
+            if(settings.isDarkMode()) {
+                backgroundColor = new Color(40, 90, 40);
+                infobarColor = new Color(20, 50, 20);
+            }
         } else {
             backgroundColor = Color.WHITE;
             infobarColor = Color.LIGHT_GRAY;
@@ -338,7 +342,7 @@ public class AerztleGui extends Gui {
             for(int y  = 0; y < lTable[0].length; y++) {
                 lTable[x][y].setText("");
                 lTable[x][y].setIcon(null);
-                lTable[x][y].setBackground(Color.WHITE);
+                lTable[x][y].setBackground(backgroundColor);
             }
         }
     }

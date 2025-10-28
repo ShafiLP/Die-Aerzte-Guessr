@@ -53,35 +53,35 @@ public class AerztleGame implements GameMode {
 
     private void compSongName(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getSongName().equals(pSolution.getSongName())){
-            gui.paintSongName(currentGuess, Color.GREEN, pGuess.getSongName());
+            gui.paintSongName(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getSongName());
         } else {
-            gui.paintSongName(currentGuess, Color.RED, pGuess.getSongName());
+            gui.paintSongName(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.getSongName());
         }
     }
 
     private void compAlbum(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getAlbum().equals(pSolution.getAlbum())){
-            gui.paintAlbum(currentGuess, Color.GREEN, pGuess.getAlbum());
+            gui.paintAlbum(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getAlbum());
         } else {
-            gui.paintAlbum(currentGuess, Color.RED, pGuess.getAlbum());
+            gui.paintAlbum(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.getAlbum());
         }
     }
 
     private void compReleaseYear(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getReleaseYear() == pSolution.getReleaseYear()) {
-            gui.paintReleaseYear(currentGuess, Color.GREEN, pGuess.getReleaseYear() + "", null);
+            gui.paintReleaseYear(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getReleaseYear() + "", null);
         } else {
             if(pGuess.getReleaseYear() - pSolution.getReleaseYear() > 0) {
                 if(pGuess.getReleaseYear() - 1 == pSolution.getReleaseYear()) {
-                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + "", false);
+                    gui.paintReleaseYear(currentGuess, settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW, pGuess.getReleaseYear() + "", false);
                 } else {
-                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + "", false);
+                    gui.paintReleaseYear(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.getReleaseYear() + "", false);
                 }
             } else {
                 if(pGuess.getReleaseYear() + 1 == pSolution.getReleaseYear()) {
-                    gui.paintReleaseYear(currentGuess, Color.YELLOW, pGuess.getReleaseYear() + "", true);
+                    gui.paintReleaseYear(currentGuess, settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW, pGuess.getReleaseYear() + "", true);
                 } else {
-                    gui.paintReleaseYear(currentGuess, Color.RED, pGuess.getReleaseYear() + "", true);
+                    gui.paintReleaseYear(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.getReleaseYear() + "", true);
                 }
             }
         }
@@ -89,65 +89,65 @@ public class AerztleGame implements GameMode {
 
     private void compStreams(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getStreamsAsInteger() == pSolution.getStreamsAsInteger()) {
-            gui.paintStreams(currentGuess, Color.GREEN, pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText(), null);
+            gui.paintStreams(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText(), null);
         } else {
             if(pGuess.getStreamsAsInteger() - pSolution.getStreamsAsInteger() > 0) {
-                gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() - 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬇️" : "≥" + pGuess.getStreamsAsText() + "", false);
+                gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() - 100000 == pSolution.getStreamsAsInteger() ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW: settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED,
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText() + "", false);
             } else {
-                gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() + 100000 == pSolution.getStreamsAsInteger() ? Color.YELLOW : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" + " ⬆️" : "≥" + pGuess.getStreamsAsText() + "", true);
+                gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() + 100000 == pSolution.getStreamsAsInteger() ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED,
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText() + "", true);
             }
         }
     }
 
     private void compDuration(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getFullDurationInSecs() == pSolution.getFullDurationInSecs()) {
-            gui.paintDuration(currentGuess, Color.GREEN, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()), null);
+            gui.paintDuration(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()), null);
         } else {
             if(pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() > 0) {
-                gui.paintDuration(currentGuess, pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", false);
+                gui.paintDuration(currentGuess, pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", false);
             } else {
-                gui.paintDuration(currentGuess, pSolution.getFullDurationInSecs() - pGuess.getFullDurationInSecs() < 5 ? Color.YELLOW : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", true);
+                gui.paintDuration(currentGuess, pSolution.getFullDurationInSecs() - pGuess.getFullDurationInSecs() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", true);
             }
         }
     }
 
     private void compLivePlays(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getLivePlays() == pSolution.getLivePlays()) {
-            gui.paintLivePlays(currentGuess, Color.GREEN, pGuess.getLivePlays() + "", null);
+            gui.paintLivePlays(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getLivePlays() + "", null);
         } else {
             if(pGuess.getLivePlays() - pSolution.getLivePlays() > 0) {
-                gui.paintLivePlays(currentGuess, pGuess.getLivePlays() - pSolution.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + "", false);
+                gui.paintLivePlays(currentGuess, pGuess.getLivePlays() - pSolution.getLivePlays() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.getLivePlays() + "", false);
             } else {
-                gui.paintLivePlays(currentGuess, pSolution.getLivePlays() - pGuess.getLivePlays() < 5 ? Color.YELLOW : Color.RED, pGuess.getLivePlays() + "", true);
+                gui.paintLivePlays(currentGuess, pSolution.getLivePlays() - pGuess.getLivePlays() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.getLivePlays() + "", true);
             }
         }
     }
 
     private void compSinger(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getSinger().equals(pSolution.getSinger())) {
-            gui.paintSinger(currentGuess, Color.GREEN, pGuess.getSinger() + "");
+            gui.paintSinger(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getSinger() + "");
         } else {
             if(pSolution.getSinger().contains(pGuess.getSinger())) {
-                gui.paintSinger(currentGuess, Color.YELLOW, pGuess.getSinger());
+                gui.paintSinger(currentGuess, settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW, pGuess.getSinger());
             } else {
-                gui.paintSinger(currentGuess, Color.RED, pGuess.getSinger());
+                gui.paintSinger(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.getSinger());
             }
         }
     }
 
     private void compIsSingle(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.isSingle() == pSolution.isSingle()) {
-            gui.paintSingle(currentGuess, Color.GREEN, pGuess.isSingle() == true ? "Single" : "Keine Single");
+            gui.paintSingle(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.isSingle() == true ? "Single" : "Keine Single");
         } else {
-            gui.paintSingle(currentGuess, Color.RED, pGuess.isSingle() == true ? "Single" : "Keine Single");
+            gui.paintSingle(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.isSingle() == true ? "Single" : "Keine Single");
         }
     }
 
     public void openEndingScreen(String pRow1, String pRow2) {
         gui.setInteractable(false);
-        new EndingScreen(this, "Ärztle", settings.isColourfulGuiEnabled() ? new Color(220, 255, 220) : Color.WHITE,
+        new EndingScreen(this, "Ärztle", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(40, 90, 40) : new Color(220, 255, 220) : Color.WHITE,
         new Color(100, 150, 100) , pRow1, pRow2, settings);
     }
 

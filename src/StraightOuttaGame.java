@@ -141,7 +141,7 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
 
     public void openEndingScreen(String pRow1, String pRow2) {
         gui.setInteractable(false);
-        new EndingScreen(this, "Straight Outta", settings.isColourfulGuiEnabled() ? new Color(255, 220, 220) : Color.WHITE,
+        new EndingScreen(this, "Straight Outta", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(90, 40, 40) : new Color(255, 220, 220) : Color.WHITE,
         new Color(150, 100, 100) , pRow1, pRow2, settings);
     }
 

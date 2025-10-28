@@ -56,6 +56,10 @@ public class LueckenfuellerGui extends Gui {
         if(settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(220, 220, 255);
             infobarColor = new Color(100, 100, 230);
+            if(settings.isDarkMode()) {
+                backgroundColor = new Color(40, 40, 90);
+                infobarColor = new Color(20, 20, 50);
+            }
         } else {
             backgroundColor = Color.WHITE;
             infobarColor = Color.LIGHT_GRAY;
@@ -332,7 +336,11 @@ public class LueckenfuellerGui extends Gui {
      * This is called when the user makes an incorrect guess
      */
     public void setInfoBarRed() {
-        infoBar.setBackground(Color.RED);
+        if(settings.isDarkMode()) {
+            infoBar.setBackground(new Color(150, 40, 40));
+        } else {
+            infoBar.setBackground(Color.RED);
+        }
         lSongName.setVisible(true);
         lSolution.setText("Lösung: " + currentSong.getGap());
         lSolution.setVisible(true);
@@ -348,7 +356,11 @@ public class LueckenfuellerGui extends Gui {
      */
     public void setInfoBarGreen() {
         lSolution.setVisible(false);
-        infoBar.setBackground(Color.GREEN);
+        if(settings.isDarkMode()) {
+            infoBar.setBackground(new Color(40, 150, 40));
+        } else {
+            infoBar.setBackground(Color.GREEN);
+        }
         infoBar.paintImmediately(infoBar.getVisibleRect()); // Update GUI immediately
         try {
             Thread.sleep(1000); // Pause for 1 second to show the green info bar
