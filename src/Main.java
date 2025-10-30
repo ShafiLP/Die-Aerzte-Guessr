@@ -2,7 +2,7 @@
  * Main class
  * 
  * @author ShafiLP
- * @version 0.5.0
+ * @version 0.5.1
  */
 public class Main {
     public static void main(String[] args) {
