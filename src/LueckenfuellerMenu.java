@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import com.formdev.flatlaf.FlatLaf;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -8,6 +10,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.util.Collections;
 
 public class LueckenfuellerMenu extends Menu {
     private JFrame settingsFrame;
@@ -25,6 +28,10 @@ public class LueckenfuellerMenu extends Menu {
             if(settings.isDarkMode())
             backgroundColor = new Color(40, 40, 90);
         }
+
+        // Set accent colours
+        FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", "#5959ffff"));
+        setup();
 
         this.setTitle("Lückenfüller");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

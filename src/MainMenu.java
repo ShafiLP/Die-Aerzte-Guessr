@@ -24,7 +24,7 @@ import java.util.Collections;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.5.1";
+    private final String VERSION = "0.5.2";
     private Settings settings;
     private JButton bSettings;
     /**
@@ -35,14 +35,16 @@ public class MainMenu extends JFrame {
         // Load settings from file
         settings = readSettings("data\\settings.json");
 
+        // Set accent colours
+        FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", "#8f8ffeff"));
+        setup();
+
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(400, 440);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
-
-        setup();
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -184,73 +186,6 @@ public class MainMenu extends JFrame {
         // Darkmode settings
         JCheckBox cbDarkMode = new JCheckBox("Dunkler Modus", settings.isDarkMode());
 
-        // Accent colour settings
-        JPanel panAccentColors = new JPanel(new GridBagLayout());
-
-        panAccentColors.add(new JLabel("Akzentfarbe:"), new GridBagConstraints() {{
-            gridx = 0;
-            gridy = 0;
-            weightx = 1.0;
-            fill = GridBagConstraints.NONE;
-            anchor = GridBagConstraints.WEST;
-        }});
-        
-        JButton bBlue = new JButton();
-        bBlue.setBackground(Color.BLUE);
-        bBlue.setPreferredSize(new Dimension(20, 20));
-        bBlue.addActionListener(_ -> {
-            settings.setAccentColour("#8f8ffeff");
-        });
-        panAccentColors.add(bBlue, new GridBagConstraints() {{
-            gridx = 1;
-            gridy = 0;
-            weightx = 1.0;
-            fill = GridBagConstraints.HORIZONTAL;
-            anchor = GridBagConstraints.CENTER;
-        }});
-
-        JButton bRed = new JButton();
-        bRed.setBackground(Color.RED);
-        bRed.setPreferredSize(new Dimension(20, 20));
-        bRed.addActionListener(_ -> {
-            settings.setAccentColour("#fb6e6eff");
-        });
-        panAccentColors.add(bRed, new GridBagConstraints() {{
-            gridx = 2;
-            gridy = 0;
-            weightx = 1.0;
-            fill = GridBagConstraints.HORIZONTAL;
-            anchor = GridBagConstraints.CENTER;
-        }});
-
-        JButton bYellow = new JButton();
-        bYellow.setBackground(Color.YELLOW);
-        bYellow.setPreferredSize(new Dimension(20, 20));
-        bYellow.addActionListener(_ -> {
-            settings.setAccentColour("#fdfd67ff");
-        });
-        panAccentColors.add(bYellow, new GridBagConstraints() {{
-            gridx = 3;
-            gridy = 0;
-            weightx = 1.0;
-            fill = GridBagConstraints.HORIZONTAL;
-            anchor = GridBagConstraints.CENTER;
-        }});
-
-        JButton bGreen = new JButton();
-        bGreen.setBackground(Color.GREEN);
-        bGreen.setPreferredSize(new Dimension(20, 20));
-        bGreen.addActionListener(_ -> {
-            settings.setAccentColour("#6ff96fff");
-        });
-        panAccentColors.add(bGreen, new GridBagConstraints() {{
-            gridx = 4;
-            gridy = 0;
-            weightx = 1.0;
-            fill = GridBagConstraints.HORIZONTAL;
-            anchor = GridBagConstraints.CENTER;
-        }});
-
         // Reset all settings button
         JButton bReset = new JButton("Einstellungen zurücksetzen");
         bReset.addActionListener(_ -> {
@@ -291,7 +226,7 @@ public class MainMenu extends JFrame {
 
         // Add all to frame
         settingsFrame.add(cbDarkMode);
-        settingsFrame.add(panAccentColors);
+        settingsFrame.add(new JLabel());
         settingsFrame.add(fontTypePanel);
         settingsFrame.add(cbFarin);
         settingsFrame.add(fontSizePanel);
