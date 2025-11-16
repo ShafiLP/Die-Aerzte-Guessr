@@ -260,5 +260,134 @@
     {"before": "Ich habe einen Kurs besucht und jetzt kann ich", "gap": "Frauen", "after": "endlich verstehen", "song": "Der Frauenflüsterer", "album": "heissSingle"},
     {"before": "Weil Frauen die", "gap": "Kommunikation", "after": "erfanden, und wir Männer nur [...]", "song": "Der Frauenflüsterer", "album": "heissSingle"},
     {"before": "Wenn er dich fragt: Kennst du", "gap": "Bremerhaven", "after": "Das heißt: er will ins Bett mit dir", "song": "Der Frauenflüsterer", "album": "heissSingle"},
-    {"before": "\"Du bist echt zu verachten\", kannst du dich als", "gap": "gefickt", "after": "betrachten", "song": "Der Frauenflüsterer", "album": "heissSingle"}
+    {"before": "\"Du bist echt zu verachten\", kannst du dich als", "gap": "gefickt", "after": "betrachten", "song": "Der Frauenflüsterer", "album": "heissSingle"},
+
+
+
+
+
+    {"before": "Wenn die", "gap": "Sonne", "after": "lacht, singe ich mein Lied", "song": "Mein Lied", "album": "faszination"},
+    {"before": "Der Himmel ist mir überall das beste", "gap": "Publikum", "after": "und mein Herzschlag ist der Beat", "song": "Mein Lied", "album": "faszination"},
+    {"before": "Beim Singen denk ich nicht an all die", "gap": "Sorgen", "after": "die ich hab", "song": "Mein Lied", "album": "faszination"},
+    {"before": "Das geht Lalala - Mehr hab ich nicht in meinem", "gap": "Repertoire", "after": "", "song": "Mein Lied", "album": "faszination"},
+    
+    {"before": "Dynamit - wir verschönern unser", "gap": "Innenstadtgebiet", "after": "", "song": "Dynamit", "album": "faszination"},
+    {"before": "C3H5N3O9 - das wird jetzt", "gap": "teuer", "after": "", "song": "Dynamit", "album": "faszination"},
+    {"before": "Ohne Ästhetik keine", "gap": "Wertschätzung", "after": "das ist doch ganz normal", "song": "Dynamit", "album": "faszination"},
+    {"before": "So neu und schon", "gap": "öde", "after": "wer hasst die Menschheit da so sehr?", "song": "Dynamit", "album": "faszination"},
+
+    {"before": "Du liegst auf deinem", "gap": "Sofa", "after": "und wälzt dich schlaflos umher", "song": "Was die Welt jetzt braucht", "album": "faszination"},
+    {"before": "Als Kind hab ich dir", "gap": "zugewunken", "after": "du warst total [...]", "song": "Was die Welt jetzt braucht", "album": "faszination"},
+    {"before": "Schluss jetzt mit der", "gap": "Ängstlichkeit", "after": "So viele Schurken, so wenig Zeit…", "song": "Was die Welt jetzt braucht", "album": "faszination"},
+    {"before": "Du greifst nach deinem", "gap": "Popcorn", "after": "jedoch die Tüte ist leer", "song": "Was die Welt jetzt braucht", "album": "faszination"},
+    {"before": "Die alberne", "gap": "Fledermaus", "after": "tut so, als wär sie König", "song": "Was die Welt jetzt braucht", "album": "faszination"},
+    {"before": "Du flogst vorbei, dein", "gap": "Cape", "after": "hat echt gestunken", "song": "Was die Welt jetzt braucht", "album": "faszination"},
+
+    {"before": "Ich bin schon wieder dabei, mein", "gap": "Herz", "after": "zu verlieren", "song": "Herz? Verloren", "album": "faszination"},
+    {"before": "Wenn ich eins kann, dann die", "gap": "Realität", "after": "ignorieren", "song": "Herz? Verloren", "album": "faszination"},
+    {"before": "Puls rast,", "gap": "Hände", "after": "zittern und ich steh unter Strom", "song": "Herz? Verloren", "album": "faszination"},
+    {"before": "Muss ich", "gap": "Scheuklappen", "after": "tragen? Bin ich so tief gesunken?", "song": "Herz? Verloren", "album": "faszination"},
+    {"before": "Kein taktieren: anvisieren, konfrontieren,", "gap": "triumphieren", "after": "", "song": "Herz? Verloren", "album": "faszination"},
+    {"before": "Doch innerhalb von Sekunden mutiere ich zur", "gap": "Amöbe", "after": "mein Hirn ist verschwunden", "song": "Herz? Verloren", "album": "faszination"},
+
+    {"before": "Jeden Tag liest du dein", "gap": "Horoskop", "after": "das machst du schon seit Jahren", "song": "AWG", "album": "faszination"},
+    {"before": "Ständig fragst du die", "gap": "Orakel", "after": "nach dem Salz in deinem Leben", "song": "AWG", "album": "faszination"},
+    {"before": "Spar dir deine", "gap": "Rituale", "after": "du hast keine Wahl: Du lebst nur einmal", "song": "AWG", "album": "faszination"},
+    {"before": "Vielleicht wird es schlimmer, klopfe auf", "gap": "Holz", "after": "Verlier nicht den Mut", "song": "AWG", "album": "faszination"},
+    {"before": "Du liest im Kaffeesatz, in deiner", "gap": "Hand", "after": "und legst dir selbst die Karten", "song": "AWG", "album": "faszination"},
+
+    {"before": "Tolstoy, Tolstoy kann", "gap": "warten", "after": "Kafka hat alle Zeit [...]", "song": "Heute tanzen", "album": "faszination"},
+    {"before": "Morgen kann ich locker wieder", "gap": "weiterlesen", "after": "aber heute muss ich erstmal tanzen", "song": "Heute tanzen", "album": "faszination"},
+    {"before": "Wenn man im Mondschein mit einem", "gap": "Einhorn", "after": "spazieren gehtund Elfen trifft, [...]", "song": "Heute tanzen", "album": "faszination"},
+    {"before": "Schiller hat viel über", "gap": "Musik", "after": "geschrieben, auch daran kann man seine Relevanz sehen", "song": "Heute tanzen", "album": "faszination"},
+    {"before": "Und weil wir rhythmische Bewegung so wie", "gap": "Bücher", "after": "lieben geh'n wir heute abend wieder tanzen", "song": "Heute tanzen", "album": "faszination"},
+
+    {"before": "Schon morgens früh in der", "gap": "Bahn", "after": " stehn, und dich mit Kuhaugen [...]", "song": "iDisco", "album": "faszination"},
+    {"before": "Du bist umzingelt von Idioten, lebendigen", "gap": "Toten", "after": "", "song": "iDisco", "album": "faszination"},
+    {"before": "Und du wünschst dieser Welt, dass endlich", "gap": "Hirn", "after": "vom Himmel fällt", "song": "iDisco", "album": "faszination"},
+    {"before": "Es wär schön, wenn sie verstehn: zum", "gap": "Homo Sapiens", "after": "gehört nicht nur aufrecht geh'n", "song": "iDisco", "album": "faszination"},
+    {"before": "Sie haben gerade genug Bregen, um das", "gap": "Büro", "after": "auszufegen", "song": "iDisco", "album": "faszination"},
+    {"before": "Du bist umzingelt von Idioten, Denken ist verboten,", "gap": "Wissen", "after": "illegal", "song": "iDisco", "album": "faszination"},
+    {"before": "Du bist umgeben von", "gap": "Schwachmaten", "after": "sie wissen nichts, sie [...]", "song": "iDisco", "album": "faszination"},
+
+    {"before": "Weil es ständig nur Kritik gibt, doch mit", "gap": "Lob", "after": "wird gegeizt", "song": "Find dich gut", "album": "faszination"},
+    {"before": "Sei nicht so schüchtern, und werde dein eigener", "gap": "Fan", "after": "", "song": "Find dich gut", "album": "faszination"},
+    {"before": "Find dich gut, find dich", "gap": "einzigartig", "after": "das bist du, absolut", "song": "Find dich gut", "album": "faszination"},
+    {"before": "Doch wenn die anderen dein", "gap": "Genie", "after": "nicht erkennen, sei nicht so schüchtern, [...]", "song": "Find dich gut", "album": "faszination"},
+    {"before": "Find dich gut,", "gap": "streichel", "after": "dich mal wieder, wenns kein anderer tut", "song": "Find dich gut", "album": "faszination"},
+
+    {"before": "Du läufst wochenlang durch heißen", "gap": "Wüstensand", "after": "Du verbietest Zweifel [...]", "song": "Keine Angst", "album": "faszination"},
+    {"before": "Manchmal denkst du dir dann dunkle", "gap": "Welten", "after": "aus", "song": "Keine Angst", "album": "faszination"},
+    {"before": "Es interessiert dich nicht, ob jemand dich", "gap": "versteht", "after": "weil es morgen wieder [...]", "song": "Keine Angst", "album": "faszination"},
+    {"before": "Bist den Anderen immer", "gap": "drei", "after": "Schritte voraus", "song": "Keine Angst", "album": "faszination"},
+
+    {"before": "Ich war mal dein", "gap": "Fan", "after": "ich mochte dich mal sehr", "song": "Fan", "album": "faszination"},
+    {"before": "Ich hab deine", "gap": "CDs", "after": "gekauft und hab sogar mein Kind [...]", "song": "Fan", "album": "faszination"},
+    {"before": "Jetzt ist deine Musik", "gap": "banal", "after": "und du bist mir total egal", "song": "Fan", "album": "faszination"},
+    {"before": "Denn früher warst du", "gap": "cool", "after": "heut' schon lang nicht mehr", "song": "Fan", "album": "faszination"},
+
+    {"before": "Du willst immer mit dem Kopf durch die", "gap": "Wand", "after": "Versuch es mal wie ich: [...]", "song": "Newton hatte Recht", "album": "faszination"},
+    {"before": "So", "gap": "elastisch", "after": "Atom für Atom", "song": "Newton hatte Recht", "album": "faszination"},
+    {"before": "Was du aus den Beulen und den", "gap": "blauen Flecken", "after": "lernen kannst: [...]", "song": "Newton hatte Recht", "album": "faszination"},
+    {"before": "Denn auf seinem", "gap": "Sterbebett", "after": "diktierte Newton dieses Axiom: [...]", "song": "Newton hatte Recht", "album": "faszination"},
+
+    {"before": "Geht es dir gut? wirst du grad wild", "gap": "geküsst", "after": "?", "song": "Das Traurigste", "album": "faszination"},
+    {"before": "Es ist", "gap": "zweihundertelf", "after": "Tage her, und du fehlst mir noch immer so sehr", "song": "Das Traurigste", "album": "faszination"},
+    {"before": "Dass ich dir das alles nie sagen kann, das ist das", "gap": "Traurigste", "after": "daran", "song": "Das Traurigste", "album": "faszination"},
+    {"before": "Und das", "gap": "Traurige", "after": "daran ist: nicht nur, dass du nicht bei mir bist", "song": "Das Traurigste", "album": "faszination"},
+
+    {"before": "Alle fragen sich: wie kann ich noch", "gap": "schöner", "after": "werden?", "song": "3000", "album": "faszination"},
+    {"before": "Ich hab 'nen neuen", "gap": "Anzug", "after": "neues Auto - und die alten Probleme", "song": "3000", "album": "faszination"},
+    {"before": "Was ich jetzt brauche, sind bequeme", "gap": "Überlebensstrategien", "after": "für das dritte Jahrtausend", "song": "3000", "album": "faszination"},
+
+    {"before": "Mach das Verdeck auf, Baby, und spür die", "gap": "Sonnenstrahlen", "after": "", "song": "Sommer", "album": "faszination"},
+    {"before": "Überall läuft unser Lieblingslied, und die", "gap": "Bougainvilleas", "after": "blühen", "song": "Sommer", "album": "faszination"},
+    {"before": "der [...], der", "gap": "Sommer", "after": "er gehört uns, Baby", "song": "Sommer", "album": "faszination"},
+    {"before": "Ich leg mal nen Track auf, Baby, einen schön", "gap": "sentimentalen", "after": "", "song": "Sommer", "album": "faszination"},
+
+    {"before": "Und deine Träume nur noch", "gap": "Wolkenschatten", "after": "sind und Spielerei", "song": "Immer dabei", "album": "faszination"},
+    {"before": "Ich weiß, das klingt jetzt", "gap": "schizophren", "after": "Du musst den Kopf [...]", "song": "Immer dabei", "album": "faszination"},
+    {"before": "Ich bin immer dabei, wenn eine", "gap": "Frau", "after": "sich in dir irrt", "song": "Immer dabei", "album": "faszination"},
+    {"before": "Ich wär gerne dabei bei deinem letzten", "gap": "Atemzug", "after": "", "song": "Immer dabei", "album": "faszination"},
+    {"before": "Alles riskierst, alles", "gap": "verlierst", "after": "dein Leben restlos ruinierst", "song": "Immer dabei", "album": "faszination"},
+
+
+
+    {"before": "Ich fahr nicht mit der", "gap": "Straßenbahn", "after": "ich lauf den ganzen Weg zu dir", "song": "Die perfekte Diktatur", "album": "herzSingle"},
+    {"before": "Sie tragen stets dieselbe", "gap": "Uhr", "after": "und wissen alle, wo ich wohne", "song": "Die perfekte Diktatur", "album": "herzSingle"},
+    {"before": "Wir treffen uns in einem", "gap": "Park", "after": "um diese Zeit ist niemand hier", "song": "Die perfekte Diktatur", "album": "herzSingle"},
+    {"before": "Die Zeitungen sind voll mit", "gap": "Durchhalteparolen", "after": "aber Zeitung liest sowieso keiner mehr", "song": "Die perfekte Diktatur", "album": "herzSingle"},
+    {"before": "Du hast uns", "gap": "Dynamit", "after": "besorgt, jetzt brauchen wir noch ein paar Waffen", "song": "Die perfekte Diktatur", "album": "herzSingle"},
+    {"before": "Dein Name stand nicht an der", "gap": "Klingel", "after": "in der Tür stand irgendwer", "song": "Die perfekte Diktatur", "album": "herzSingle"},
+
+    {"before": "Toll, toll, toll, super, super,", "gap": "phänomenal", "after": "(und das ist erst der Anfang!)", "song": "Wahnsinn", "album": "herzSingle"},
+    {"before": "So was war vorher noch nie da, noch nicht mal in", "gap": "Amerika", "after": "", "song": "Wahnsinn", "album": "herzSingle"},
+    {"before": "Es sei der Wahnsinn; ich fahr per", "gap": "Bahn", "after": "hin, weil ich spontan bin", "song": "Wahnsinn", "album": "herzSingle"},
+    {"before": "Kommt mal her und schaut, ich hab", "gap": "Ganzkörpergänsehaut", "after": "", "song": "Wahnsinn", "album": "herzSingle"},
+
+
+
+    {"before": "Meine Feinde waren Verräter und", "gap": "Frisöre", "after": "", "song": "Rest der Welt", "album": "awgSingle"},
+    {"before": "Ich fühl mich furchtloser als jeder", "gap": "Westernheld", "after": "Nur du und ich gegen [...]", "song": "Rest der Welt", "album": "awgSingle"},
+    {"before": "Ich sag nichts, du sagst nichts, doch etwas", "gap": "Herrliches", "after": "beginnt", "song": "Rest der Welt", "album": "awgSingle"},
+
+    {"before": "Als wir uns trafen, schien die Sonne und der", "gap": "Horizont", "after": "war weit", "song": "Babylon", "album": "awgSingle"},
+    {"before": "Du sprachst nur ein paar Brocken", "gap": "Englisch", "after": "und du wirktest abgelenkt", "song": "Babylon", "album": "awgSingle"},
+    {"before": "Interkulturelle", "gap": "Sensibilität", "after": "woher soll ich wissen, wie das geht?", "song": "Babylon", "album": "awgSingle"},
+    {"before": "Was soll ich tun? Was soll ich tun? Ich will zurück nach", "gap": "Babylon", "after": "", "song": "Babylon", "album": "awgSingle"},
+
+
+
+    {"before": "Wo fängt der nächste Weltkrieg an: in", "gap": "Nordkorea", "after": "im Iran?", "song": "Welche Krise?", "album": "discoSingle"},
+    {"before": "Welche Krise? Alles eitel", "gap": "Sonnenschein", "after": "", "song": "Welche Krise?", "album": "discoSingle"},
+    {"before": "Die Russen drehen uns den", "gap": "Gashahn", "after": "zu", "song": "Welche Krise?", "album": "discoSingle"},
+    {"before": "Ich hab so", "gap": "zarte", "after": "Hände - grab lieber du", "song": "Welche Krise?", "album": "discoSingle"},
+    {"before": "Die Angst geht um wie nie zuvor, seit", "gap": "Deutschland", "after": "den Verstand verlor", "song": "Welche Krise?", "album": "discoSingle"},
+
+    {"before": "Warum muss ich denn erst", "gap": "sterben", "after": "um das Paradies zu sehen?", "song": "Himmel auf Erden", "album": "discoSingle"},
+    {"before": "Doch wenn es wirklich einen", "gap": "Gott", "after": "gibt - ist er nicht auch daran schuld?", "song": "Himmel auf Erden", "album": "discoSingle"},
+    {"before": "Manche wohnen in", "gap": "Palästen", "after": "die anderen essen trocken Brot", "song": "Himmel auf Erden", "album": "discoSingle"},
+    {"before": "Ich hätte bitte gerne möglichst bald den", "gap": "Himmel", "after": "auf Erden", "song": "Himmel auf Erden", "album": "discoSingle"},
+    {"before": "Dieses Leben ist zwar bitter, doch im", "gap": "Jenseits", "after": "winkt der Lohn", "song": "Himmel auf Erden", "album": "discoSingle"},
+    {"before": "Ich soll beten und", "gap": "niederknien", "after": "doch dazu fehlt mir die Disziplin", "song": "Himmel auf Erden", "album": "discoSingle"}
 ]
