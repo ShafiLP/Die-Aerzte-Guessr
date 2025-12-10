@@ -24,7 +24,7 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
 
     // TODO: Replace JSON with GSON
     /**
-     * Creates a JComboBox object with all all items from song files as DropdownItem objects
+     * Creates a JComboBox object with all items from song files as DropdownItem objects
      * @return JComboBox with all songs from .json files
      */
     protected JComboBox<DropdownItem> initializeJComboBox() {
@@ -115,7 +115,7 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
 
     /**
      * Creates an array of DropdownItems containing song name and icon from the given .json file
-     * @param filename path where the song names with icons are located (must contain "song" and "icon" key)
+     * @param pFilename path where the song names with icons are located (must contain "song" and "icon" key)
      * @return an array of DropdownItems containing song names and icons
      */
     protected DropdownItem[] dropdownArrayFromJson(String pFilename) {
@@ -138,7 +138,6 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
 
     /**
      * Returns a LinkedList with DropDownItems, containing all elements from the given filepath
-     * @param pFilepath
      * @return Intitialized LinkedList with DropDownItems, containing all elements from pFilepath
      */
     protected LinkedList<DropdownItem> dropdownListFromJson() {

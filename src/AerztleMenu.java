@@ -20,7 +20,7 @@ public class AerztleMenu extends Menu {
      */
     public AerztleMenu() {
         // Read settings
-        settings = readSettings("data\\settings.json");
+        settings = Settings.read();
         Color backgroundColor = Color.WHITE;
 
         if(settings.isColourfulGuiEnabled()) {
@@ -78,7 +78,7 @@ public class AerztleMenu extends Menu {
         });
         buttons[2] = new JButton("Wie man spielt");
         buttons[2].addActionListener(_ -> {
-            openHowToPlay("html\\howToPlayAerztle.html");
+            new HowToPlayFrame(this, "html\\howToPlayAerztle.html");
         });
         buttons[3] = new JButton("Hauptmenü");
         buttons[3].addActionListener(_ -> {
@@ -158,19 +158,29 @@ public class AerztleMenu extends Menu {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        settingsFrame = new JFrame();
+        settingsFrame = new JFrame() {
+            @Override
+            public void dispose() {
+                super.dispose();
+                AerztleMenu.this.setEnabled(true);
+                AerztleMenu.this.requestFocus();
+            }
+        };
         settingsFrame.setTitle("Einstellungen");
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 150);
-        settingsFrame.setResizable(false);
+        settingsFrame.setSize(500, 200);
         settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(2, 2)); 
+        settingsFrame.setLayout(new GridLayout(2, 2));
+        this.setEnabled(false);
 
         // Tries settings
-        JLabel lTries = new JLabel("Versuche:");
-        JTextField tfTries = new JTextField(settings.getAeTries() + "");
         JPanel panTries = new JPanel(new GridLayout(2, 1));
-        panTries.add(lTries);  panTries.add(tfTries);
+        panTries.add(new JLabel("Versuche:"));
+        JSlider slTries = new JSlider(5, 12, settings.getAeTries());
+        slTries.setPaintLabels(true);
+        slTries.setLabelTable(slTries.createStandardLabels(1));
+        slTries.setSnapToTicks(true);
+        panTries.add(slTries);
 
         // Type of input settings
         JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
@@ -185,31 +195,10 @@ public class AerztleMenu extends Menu {
         // Save button
         JButton bSave = new JButton("Speichern");
         bSave.addActionListener(_ -> {
-            // Check if tries input is valid
-            try {
-                settings.setAeTries(Integer.parseInt(tfTries.getText()));
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Versuche ist ungültig.\nMuss eine Ganzzahl sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-            if(settings.getAeTries() > 15 || settings.getAeTries() < 5) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Versuche ist ungültig.\nDas Limit liegt zwischen 5 und 15!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-
+            settings.setAeTries(slTries.getValue());
             settings.setAeTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
 
-            saveSettings(settings);
+            Settings.write(settings);
             settingsFrame.dispose();
         });
 

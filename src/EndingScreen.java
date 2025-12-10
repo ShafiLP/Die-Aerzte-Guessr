@@ -18,14 +18,20 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 public class EndingScreen extends JFrame {
-    public EndingScreen(GameMode pGame, String pGameName, Color pBackgroundColor, Color pEdgeColor, String pFirstRow, String pSecondRow, Settings settings) {
+    private final JFrame PARENT;
+
+    public EndingScreen(GameMode control, JFrame PARENT, String pGameName, Color pBackgroundColor, Color pEdgeColor, String pFirstRow, String pSecondRow, Settings settings) {
+        this.PARENT = PARENT;
+
+        // Frame settings
         this.setTitle(pGameName);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(380, 300);
         this.setResizable(true); // TODO true while width is not automatically adjusted
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
         this.setLayout(new BorderLayout());
+        PARENT.setEnabled(false);
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -77,13 +83,13 @@ public class EndingScreen extends JFrame {
         // Buttons
         JButton bPlayAgain = new JButton("Nochmal spielen");
         bPlayAgain.addActionListener(_ -> {
-            pGame.restartGame();
+            control.restartGame();
             this.dispose();
         });
 
         JButton bBack = new JButton("Zum Hauptmenü");
         bBack.addActionListener(_ -> {
-            pGame.closeGame();
+            control.closeGame();
             new MainMenu();
             this.dispose();
         });
@@ -115,6 +121,13 @@ public class EndingScreen extends JFrame {
 
         this.add(mainPanel, BorderLayout.CENTER);
         this.setVisible(true);
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        PARENT.setEnabled(true);
+        PARENT.requestFocus();
     }
 }
 

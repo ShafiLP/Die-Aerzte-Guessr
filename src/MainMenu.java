@@ -24,7 +24,7 @@ import java.util.Collections;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.5.4";
+    private final String VERSION = "0.5.5";
     private Settings settings;
     private JButton bSettings;
     /**
@@ -33,7 +33,7 @@ public class MainMenu extends JFrame {
      */
     public MainMenu() {
         // Load settings from file
-        settings = readSettings("data\\settings.json");
+        settings = Settings.read();
 
         // Set accent colours
         FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", "#8f8ffeff"));
@@ -98,7 +98,7 @@ public class MainMenu extends JFrame {
         bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
         bSettings.setForeground(Color.BLACK);
         bSettings.addActionListener(_ -> {
-            openSettings();
+            new SettingsGeneral(this, settings);
         });
         bSettings.setBorder(new LineBorder(new Color(170, 170, 170), 2, true));
         bSettings.setBackground(new Color(200, 200, 200));
@@ -135,111 +135,6 @@ public class MainMenu extends JFrame {
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
         this.add(mainPanel);
         this.setVisible(true);
-    }
-    
-    /**
-     * Open universal settings for the game
-     */
-    private void openSettings() {
-        // JFrame settings
-        JFrame settingsFrame = new JFrame();
-        settingsFrame.setTitle("Einstellungen");
-        settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 250);
-        settingsFrame.setResizable(false);
-        settingsFrame.setLocationRelativeTo(null);
-        settingsFrame.setLayout(new GridLayout(6, 2));
-
-        // Icon settings
-        JCheckBox cbShowIcons = new JCheckBox("Icons anzeigen", settings.isShowIconsEnabled());
-
-        // Bonus library settings
-        JCheckBox cbFarin = new JCheckBox("Füge Farins Diskografie hinzu", settings.isFarinEnabled());
-        JCheckBox cbBela = new JCheckBox("Füge Belas Diskografie hinzu", settings.isBelaEnabled());
-        JCheckBox cbSahnie = new JCheckBox("Füge Sahnies Diskografie hinzu", settings.isSahnieEnabled());
-
-        // Font type settings
-        JPanel fontTypePanel = new JPanel(new GridLayout(2, 1));
-        JComboBox<String> ddFont = new JComboBox<>();
-        ddFont.addItem("Arial");
-        ddFont.addItem("Berlin Sans FB");
-        ddFont.addItem("Comic Sans MS");
-        ddFont.addItem("Folio Extra");
-        ddFont.setSelectedItem(settings.getFontType());
-        JLabel lFont = new JLabel("Schriftart:");
-        fontTypePanel.add(lFont);
-        fontTypePanel.add(ddFont);
-
-        // Font size settings
-        JPanel fontSizePanel = new JPanel(new GridLayout(2, 1));
-        JTextField tfFontSize = new JTextField();
-        tfFontSize.setText(settings.getFontSize() + "");
-        JLabel lFontSize = new JLabel("Schriftgröße:");
-        fontSizePanel.add(lFontSize); fontSizePanel.add(tfFontSize);
-
-        // Colourful GUI settings
-        JCheckBox cbColourfulGui = new JCheckBox("Farbiges Design", settings.isColourfulGuiEnabled());
-
-        // Automatic search for updates
-        JCheckBox cbSearchForUpdates = new JCheckBox("Suche nach Updates", settings.isSearchForUpdatesEnabled());
-
-        // Darkmode settings
-        JCheckBox cbDarkMode = new JCheckBox("Dunkler Modus", settings.isDarkMode());
-
-        // Reset all settings button
-        JButton bReset = new JButton("Einstellungen zurücksetzen");
-        bReset.addActionListener(_ -> {
-            settings = new Settings();
-            saveSettings(settings);
-            settingsFrame.dispose();
-        });
-
-        // Save button
-        JButton bSave = new JButton("Speichern");
-        bSave.addActionListener(_ -> {
-            try {
-                settings.setFontSize(Integer.parseInt(tfFontSize.getText().trim()));
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Schriftgröße ist ungültig.\nMuss eine Ganzzahl sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-            settings.setFontType(ddFont.getSelectedItem().toString());
-            settings.setShowIcons(cbShowIcons.isSelected());
-            settings.setFarinLibrary(cbFarin.isSelected());
-            settings.setBelaLibrary(cbBela.isSelected());
-            settings.setSahnieLibrary(cbSahnie.isSelected());
-            settings.setColourfulGui(cbColourfulGui.isSelected());
-            settings.setSearchForUpdates(cbSearchForUpdates.isSelected());
-            settings.setDarkMode(cbDarkMode.isSelected());
-            
-            bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
-            setup();
-
-            saveSettings(settings);
-            settingsFrame.dispose();
-        });
-
-        // Add all to frame
-        settingsFrame.add(cbDarkMode);
-        settingsFrame.add(new JLabel());
-        settingsFrame.add(fontTypePanel);
-        settingsFrame.add(cbFarin);
-        settingsFrame.add(fontSizePanel);
-        settingsFrame.add(cbBela);
-        settingsFrame.add(cbShowIcons);
-        settingsFrame.add(cbSahnie);
-        settingsFrame.add(cbColourfulGui);
-        settingsFrame.add(cbSearchForUpdates);
-        settingsFrame.add(bReset);
-        settingsFrame.add(bSave);
-
-        // Set frame visible
-        settingsFrame.setVisible(true);
     }
 
     /**
@@ -349,35 +244,5 @@ public class MainMenu extends JFrame {
                     break;
             }
 
-    }
-
-    /**
-     * Reads settings from JSON file
-     * @param filepath path to settings JSON file
-     * @return Settings object with data from JSON file
-     */
-    private Settings readSettings(String filepath) {
-        Settings settingsFromJson = new Settings();
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader(filepath)) {
-            settingsFromJson = gson.fromJson(reader, Settings.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return settingsFromJson;
-    }
-
-    /**
-     * Overrides settings in settings.json file
-     * @param pSettings settings object with parameters to override settings
-     */
-    private void saveSettings(Settings pSettings) {
-        Gson gson = new Gson();
-        try (FileWriter writer = new FileWriter("data\\settings.json")) {
-            gson.toJson(pSettings, writer);
-            System.out.println("Saved settings to \"data/settings.json\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 }

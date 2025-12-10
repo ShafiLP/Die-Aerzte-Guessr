@@ -174,5 +174,81 @@
 
     {"before": "Halli, hallo, you", "gap": "party rats", "after": "who dance up all the night?", "song": "Do the Helmstedt", "album": "schwarzWeissSingle"},
     {"before": "Come on do the Helmstedt on the", "gap": "Fahrradweg", "after": "to hell", "song": "Do the Helmstedt", "album": "schwarzWeissSingle"},
-    {"before": "Enjoy the cramps in deinem", "gap": "Nacken", "after": "it is such so Quatsch", "song": "Do the Helmstedt", "album": "schwarzWeissSingle"}
+    {"before": "Enjoy the cramps in deinem", "gap": "Nacken", "after": "it is such so Quatsch", "song": "Do the Helmstedt", "album": "schwarzWeissSingle"},
+
+
+
+
+
+    {"before": "[...] ein paar freunden weniger, denen du letztendlich sowieso", "gap": "gleichgültig", "after": "warst", "song": "Abserviert", "album": "bye"},
+    {"before": "Du hast sie", "gap": "abserviert", "after": "bist völlig ungerührt", "song": "Abserviert", "album": "bye"},
+    {"before": "Jetzt fühlst du dich", "gap": "kuriert", "after": "und endlich frei, frei, frei", "song": "Abserviert", "album": "bye"},
+    {"before": "Doch ihre miese, gottverdammte", "gap": "Niedertracht", "after": "konntest du nicht länger überseh'n", "song": "Abserviert", "album": "bye"},
+    {"before": "Du hast in deinem Haus endlich", "gap": "ausgefegt", "after": "du warst ehrlich und hast [...]", "song": "Abserviert", "album": "bye"},
+    {"before": "Wie oft warst du", "gap": "enttäuscht", "after": "und hieltest dann trotzdem deinen Mund", "song": "Abserviert", "album": "bye"},
+    {"before": "Nur", "gap": "Selbstkritik", "after": "ist hier nicht angebracht. Dir ist klar, dass [...]", "song": "Abserviert", "album": "bye"},
+
+    {"before": "Ich will dich nicht", "gap": "fremdbestimmen", "after": "Komm, schon Baby, halb so schlimm", "song": "Wenn das mal Liebe wird", "album": "bye"},
+    {"before": "Wenn das mal", "gap": "Liebe", "after": "wird, weißt du wohin das führt?", "song": "Wenn das mal Liebe wird", "album": "bye"},
+    {"before": "Angst gibt keinen guten Rat,", "gap": "Angst", "after": "brauchen wir gar nicht grad", "song": "Wenn das mal Liebe wird", "album": "bye"},
+    {"before": "Komm, schon baby, halb so schlimm, nur nichts", "gap": "verkomplizieren", "after": "", "song": "Wenn das mal Liebe wird", "album": "bye"},
+
+    {"before": "Der kleine Streichholzmann war von dem", "gap": "Zündholzmädchen", "after": "sofort fasziniert", "song": "Streichholzmann", "album": "bye"},
+    {"before": "Der kleine", "gap": "Streichholzmann", "after": "war von dem Zündholzmädchen sofort fasziniert", "song": "Streichholzmann", "album": "bye"},
+    {"before": "Da fing sie an zu", "gap": "glühen", "after": "und sie sind aneinander verbrannt", "song": "Streichholzmann", "album": "bye"},
+    {"before": "Wenn die", "gap": "Glut", "after": "erlischt, bleibt am ende nischt", "song": "Streichholzmann", "album": "bye"},
+    {"before": "Die tochter hütete den", "gap": "Hof", "after": "da kam ein Junge auf dem Motorrad", "song": "Streichholzmann", "album": "bye"},
+
+    {"before": "Ich war so jung, die", "gap": "Sünde", "after": "kannte ich noch nicht", "song": "Der Sünder", "album": "bye"},
+    {"before": "Doch das Fleisch war willig und dem", "gap": "Geist", "after": "ist schlecht", "song": "Der Sünder", "album": "bye"},
+    {"before": "Dem letzten", "gap": "Höhepunkt", "after": "folgt wieder ein alter neuer, Drogen—Frauen—Feuer", "song": "Der Sünder", "album": "bye"},
+    {"before": "Der", "gap": "Pastor", "after": "hat gesagt: \"Halt dich fern!\", ich folgte ihnen dennoch, [...]", "song": "Der Sünder", "album": "bye"},
+
+    {"before": "Wenn ich ehrlich bin, dann hab ich eine", "gap": "Scheißangst", "after": "davor", "song": "Immer so sein", "album": "bye"},
+    {"before": "Uns hat der schwerste", "gap": "Sturm", "after": "nichts anhaben können", "song": "Immer so sein", "album": "bye"},
+    {"before": "Für mich kann nichts", "gap": "romantischer", "after": "sein als eine Zukunft ohne dich auszuschliessen", "song": "Immer so sein", "album": "bye"},
+
+    {"before": "Ich sitz auf einem", "gap": "Spermafleck", "after": "auf der Rücksitzbank meines Wagens", "song": "Sentimental", "album": "bye"},
+    {"before": "Du bist weg und ein kleiner Fleck macht mich", "gap": "sentimental", "after": "", "song": "Sentimental", "album": "bye"},
+    {"before": "Ich seh ihn an den Liebesfleck - er erzählt von", "gap": "Lust", "after": "von Liebe und meiner qual", "song": "Sentimental", "album": "bye"},
+    {"before": "Du bist weg und das bisschen", "gap": "Dreck", "after": "macht mich sentimental", "song": "Sentimental", "album": "bye"},
+
+    {"before": "Ich hab die Federn einer", "gap": "Krähe", "after": "gerupft und schwarzes Pulver mit nem Bootsmaat geschnupft", "song": "Teufelsküche", "album": "bye"},
+    {"before": "Ich hab mit", "gap": "Voodoo", "after": "den Typhus besiegt und in Marzahn [...]", "song": "Teufelsküche", "album": "bye"},
+    {"before": "Hab in der Spree ne", "gap": "tote Katze", "after": "versenkt, nem Transvestiten [...]", "song": "Teufelsküche", "album": "bye"},
+    {"before": "Nem Transvestiten meinen", "gap": "Herpes", "after": "geschenkt und wohin hat's mich gebracht?", "song": "Teufelsküche", "album": "bye"},
+    {"before": "Ich hab ne Jungfrau ohne", "gap": "Namen", "after": "befleckt", "song": "Teufelsküche", "album": "bye"},
+    {"before": "Hab nem Mongolen ein", "gap": "Herz", "after": "tätowiert und nen Stier [...]", "song": "Teufelsküche", "album": "bye"},
+
+    {"before": "Und als der", "gap": "Weißwein", "after": "alle war, tranken wir ihr Bier", "song": "Nicht Nice", "album": "bye"},
+    {"before": "I met this guy, he was standing there - at the", "gap": "ATM machine", "after": "", "song": "Nicht Nice", "album": "bye"},
+    {"before": "And I knew I'd met the one, denn du hast mir", "gap": "das Portemonnaie", "after": "geklaut", "song": "Nicht Nice", "album": "bye"},
+    {"before": "Don’t want no", "gap": "Johnny Paycheck", "after": "I just need a Mr. Cash", "song": "Nicht Nice", "album": "bye"},
+
+    {"before": "Du liebst die", "gap": "Freiheit", "after": "und ich nehm' sie dir, trotzdem liebts du mich", "song": "Belphegor", "album": "bye"},
+    {"before": "Du bist gut und ich", "gap": "quäle", "after": "dich dafür, trotzdem liebts du mich – immer noch", "song": "Belphegor", "album": "bye"},
+
+    {"before": "Du sagst zwar du hast", "gap": "Kopfweh", "after": "nun, das werden wir ja sehen", "song": "Verwöhn'", "album": "bye"},
+    {"before": "Du darfst jetzt nicht", "gap": "schlafen", "after": "der Moment ist viel zu schön", "song": "Verwöhn'", "album": "bye"},
+    {"before": "[...] entspann dich, denn jetzt werd ich dich", "gap": "verwöhnen", "after": "", "song": "Verwöhn'", "album": "bye"},
+
+    {"before": "So alleine - um mich nur", "gap": "Schweine", "after": "die Sand in meine Augen streu'n", "song": "Bombe tickt", "album": "bye"},
+    {"before": "In dieser Welt voll Mist und", "gap": "Gestank", "after": "spür' ich immer mehr den furchtbaren Drang", "song": "Bombe tickt", "album": "bye"},
+    {"before": "Warum will mich denn niemand", "gap": "hören", "after": "Tick Tack macht die Bombe in mir", "song": "Bombe tickt", "album": "bye"},
+    {"before": "Hoffnung gibt’s nicht– ich seh kein", "gap": "Licht", "after": "doch bald kommt meine zeit", "song": "Bombe tickt", "album": "bye"},
+
+    {"before": "Du sagst die Antwort kommt vom", "gap": "Hufenmann", "after": "für uns ist es zu spät", "song": "My Soul/Dein Herz", "album": "bye"},
+    {"before": "All he want ́s is just my", "gap": "soul", "after": "but he cannot have it all...", "song": "My Soul/Dein Herz", "album": "bye"},
+    {"before": "He gave us life he gives us", "gap": "love", "after": "and he's the one who had to pay the price", "song": "My Soul/Dein Herz", "album": "bye"},
+    {"before": "Zu Kindern wie zu", "gap": "Sündern", "after": "zwar nicht schlecht doch ich, ich will nur dich", "song": "My Soul/Dein Herz", "album": "bye"},
+    {"before": "Ich spür'", "gap": "Gott", "after": "wenn ich dich seh', meine Seele gehört dir", "song": "My Soul/Dein Herz", "album": "bye"},
+
+    {"before": "Ich hör' von ferne die Sirenen, in", "gap": "zehn", "after": "Minuten sind sie hier", "song": "Peng!", "album": "bye"},
+    {"before": "Ein Geräusch zerriss die Luft und nahm dich mir,", "gap": "Peng", "after": "", "song": "Peng!", "album": "bye"},
+    {"before": "Dann zähl ich meine", "gap": "Munition", "after": "im Kopf höre ich noch unser Lied", "song": "Peng!", "album": "bye"},
+
+
+
+    {"before": "Etwas gehüllt, alles geschieht doch immer zu", "gap": "seiner", "after": "Zeit", "song": "Zu meiner Zeit", "album": "bye"},
+    {"before": "Die Welt krankt an", "gap": "Neid", "after": "und Gier, was aus dir wird, liegt an dir", "song": "Zu meiner Zeit", "album": "bye"}
 ]

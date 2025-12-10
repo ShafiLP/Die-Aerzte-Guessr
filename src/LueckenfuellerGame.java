@@ -10,8 +10,8 @@ import org.json.JSONObject;
 import com.google.gson.Gson;
 
 public class LueckenfuellerGame implements GameMode, TimerEvents {
-    private Settings settings;
-    private LueckenfuellerGui gui;
+    private final Settings settings;
+    private final LueckenfuellerGui gui;
     private LinkedList<SongTextWithGap> lyricsWithGaps;
     private SongTextWithGap randomTextWithGap;
     private boolean blockWrongGuesses = false;
@@ -147,7 +147,7 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
 
     public void openEndingScreen(String pRow1, String pRow2) {
         gui.setInteractable(false);
-        new EndingScreen(this, "Lückenfüller", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(40, 40, 90) : new Color(220, 220, 255) : Color.WHITE,
+        new EndingScreen(this, gui, "Lückenfüller", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(40, 40, 90) : new Color(220, 220, 255) : Color.WHITE,
         new Color(100, 100, 150) , pRow1, pRow2, settings);
     }
 

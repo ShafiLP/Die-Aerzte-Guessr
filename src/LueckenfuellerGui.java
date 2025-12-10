@@ -40,10 +40,7 @@ public class LueckenfuellerGui extends Gui {
      * Constructor for the "Complete The Lyrics" game GUI
      * @param pGame refference to the game control
      * @param pSettings Settings object with all settings parameters
-     * @param pBeforeGap String containing the song text before the gap
-     * @param pAfterGap String containing the song text after the gap
-     * @param pSongName name of the current song
-     * @param pAlbumName name of the album of the current song
+     * @param pCurrentSong SongTextWithGap object containing "before", "gap" and "after" Strings
      */
     public LueckenfuellerGui(LueckenfuellerGame pGame, Settings pSettings, SongTextWithGap pCurrentSong) {
         game = pGame;

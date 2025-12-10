@@ -24,7 +24,7 @@ public class AerztleObject {
      * @param pStreams Spotify streams of the song
      * @param pDurationMinutes Minutes duration of the song
      * @param pDurationSeconds Seconds duration of the song (excluding full minutes)
-     * @param pWordCount Count of words the song contains (including backing vocals, intro and outro)
+     * @param pPlayedLive Amount of times the band played the song live
      * @param pSinger Singer of the song (Bela, Farin, Rod or Sahnie)
      * @param pSingle Boolean if the song was released as a single
      */
@@ -38,10 +38,6 @@ public class AerztleObject {
         playedLive = pPlayedLive;
         singer = pSinger;
         isASingle = pSingle;
-    }
-
-    public AerztleObject() {
-        //
     }
 
     /**

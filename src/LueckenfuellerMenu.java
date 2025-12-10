@@ -20,7 +20,7 @@ public class LueckenfuellerMenu extends Menu {
      */
     public LueckenfuellerMenu() {
         // Read settings
-        settings = readSettings("data\\settings.json");
+        settings = Settings.read();
         Color backgroundColor = Color.WHITE;
 
         if(settings.isColourfulGuiEnabled()) {
@@ -78,7 +78,7 @@ public class LueckenfuellerMenu extends Menu {
         });
         buttons[2] = new JButton("Wie man spielt");
         buttons[2].addActionListener(_ -> {
-            openHowToPlay("html\\howToPlayLueckenfueller.html");
+            new HowToPlayFrame(this, "html\\howToPlayLueckenfueller.html");
         });
         buttons[3] = new JButton("Hauptmenü");
         buttons[3].addActionListener(_ -> {
@@ -150,18 +150,25 @@ public class LueckenfuellerMenu extends Menu {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        settingsFrame = new JFrame();
+        settingsFrame = new JFrame() {
+            @Override
+            public void dispose() {
+                super.dispose();
+                LueckenfuellerMenu.this.setEnabled(true);
+                LueckenfuellerMenu.this.requestFocus();
+            }
+        };
         settingsFrame.setTitle("Einstellungen");
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 200);
-        settingsFrame.setResizable(false);
+        settingsFrame.setSize(500, 320);
         settingsFrame.setLocationRelativeTo(null);
         settingsFrame.setLayout(new GridLayout(4, 2));
+        this.setEnabled(false);
 
         // Timer settings
         JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
         JTextField tfTimeLimit = new JTextField(settings.getCtlTimeLimit() + "");
-        tfTimeLimit.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
+        tfTimeLimit.setEnabled(!settings.isCtlUnlimitedTimeEnabled());
         JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
         panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
         JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isCtlUnlimitedTimeEnabled());
@@ -170,22 +177,27 @@ public class LueckenfuellerMenu extends Menu {
         });
 
         // Health bar settings
-        JLabel lLives = new JLabel("Anzahl Leben:");
-        JTextField tfLives = new JTextField(settings.getCtlLiveCount() + "");
-        tfLives.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
         JPanel panLives = new JPanel(new GridLayout(2, 1));
-        panLives.add(lLives); panLives.add(tfLives);
+        panLives.add(new JLabel("Anzahl Leben:"));
+        JSlider slLives = new JSlider(1, 10, settings.getCtlLiveCount());
+        slLives.setPaintLabels(true);
+        slLives.setLabelTable(slLives.createStandardLabels(1));
+        slLives.setSnapToTicks(true);
+        slLives.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
+        panLives.add(slLives);
         JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isCtlUnlimitedLivesEnabled());
         cbUnlimitedLives.addActionListener(_ -> {
-            tfLives.setEnabled(!cbUnlimitedLives.isSelected());
+            slLives.setEnabled(!cbUnlimitedLives.isSelected());
         });
 
         // Number or hints settings
-        JPanel hintPanel = new JPanel(new GridLayout(2, 1));
-        JLabel lHints = new JLabel("Anzahl der Hinweise");
-        JTextField tfHints = new JTextField(settings.getCtlHintCount() + "");
-        hintPanel.add(lHints);
-        hintPanel.add(tfHints);
+        JPanel panHints = new JPanel(new GridLayout(2, 1));
+        panHints.add(new JLabel("Anzahl der Hinweise"));
+        JSlider slHints = new JSlider(0, 10, settings.getCtlHintCount());
+        slHints.setPaintLabels(true);
+        slHints.setLabelTable(slHints.createStandardLabels(1));
+        slHints.setSnapToTicks(true);
+        panHints.add(slHints);
 
         // Hardmode settings
         JCheckBox cbHardmode = new JCheckBox("Schwieriger Modus", settings.isCtlHardmodeEnabled());
@@ -221,56 +233,13 @@ public class LueckenfuellerMenu extends Menu {
                 return;
             }
 
-            // Check if live count input is valid
-            try {
-                settings.setCtlLiveCount(Integer.parseInt(tfLives.getText()));
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Lebensanzahl ist ungültig.\nMuss eine Ganzzahl sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-            if(settings.getCtlLiveCount() > 10) {
-                settings.setCtlLiveCount(3); 
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Lebensanzahl ist ungültig.\nDie Leben dürfen maximal 10 sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-
-            // Check if hint input is valid
-            try {
-                int hints = Integer.parseInt(tfHints.getText());
-                if(hints > 1000) {
-                    JOptionPane.showMessageDialog(
-                        bSave,
-                        "Eingabe der Hinweisanzahl ungültig.\nDarf nicht höher als 1000 sein!",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE
-                    );
-                    return;
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Hinweisanzahl ungültig.\nMuss eine Ganzzahl sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-            }
-
-            settings.setCtlUnlimitedTime(cbUnlimitedTime.isSelected());
             settings.setCtlUnlimitedLives(cbUnlimitedLives.isSelected());
-            settings.setCtlHintCount(Integer.parseInt(tfHints.getText()));
+            settings.setCtlLiveCount(slLives.getValue());
+            settings.setCtlUnlimitedTime(cbUnlimitedTime.isSelected());
+            settings.setCtlHintCount(slHints.getValue());
             settings.setCtlHardmode(cbHardmode.isSelected());
 
-            saveSettings(settings);
+            Settings.write(settings);
             settingsFrame.dispose();
         });
 
@@ -279,7 +248,7 @@ public class LueckenfuellerMenu extends Menu {
         settingsFrame.add(panLives);
         settingsFrame.add(cbUnlimitedTime);
         settingsFrame.add(cbUnlimitedLives);
-        settingsFrame.add(hintPanel);
+        settingsFrame.add(panHints);
         settingsFrame.add(cbHardmode);
         settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);

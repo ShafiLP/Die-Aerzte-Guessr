@@ -21,7 +21,7 @@ public class StraightOuttaMenu extends Menu {
      */
     public StraightOuttaMenu() {
         // Read settings
-        settings = readSettings("data\\settings.json");
+        settings = Settings.read();
         Color backgroundColor = Color.WHITE;
 
         if(settings.isColourfulGuiEnabled()) {
@@ -80,7 +80,7 @@ public class StraightOuttaMenu extends Menu {
         });
         buttons[2] = new JButton("Wie man spielt");
         buttons[2].addActionListener(_ -> {
-            openHowToPlay("html\\howToPlayStraightOutta.html");
+            new HowToPlayFrame(this, "html\\howToPlayStraightOutta.html");
         });
         buttons[3] = new JButton("Hauptmenü");
         buttons[3].addActionListener(_ -> {
@@ -152,13 +152,20 @@ public class StraightOuttaMenu extends Menu {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        settingsFrame = new JFrame();
+        settingsFrame = new JFrame() {
+            @Override
+            public void dispose() {
+                super.dispose();
+                StraightOuttaMenu.this.setEnabled(true);
+                StraightOuttaMenu.this.requestFocus();
+            }
+        };
         settingsFrame.setTitle("Einstellungen");
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(400, 200);
-        settingsFrame.setResizable(false);
+        settingsFrame.setSize(400, 300);
         settingsFrame.setLocationRelativeTo(null);
         settingsFrame.setLayout(new GridLayout(4, 2));
+        this.setEnabled(false);
 
         // Timer settings
         JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
@@ -172,15 +179,27 @@ public class StraightOuttaMenu extends Menu {
         });
 
         // Health bar settings
-        JLabel lLives = new JLabel("Anzahl Leben:");
-        JTextField tfLives = new JTextField(settings.getGtoLiveCount() + "");
-        tfLives.setEnabled(!settings.isGtoUnlimitedLivesEnabled());
         JPanel panLives = new JPanel(new GridLayout(2, 1));
-        panLives.add(lLives); panLives.add(tfLives);
-        JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isGtoUnlimitedLivesEnabled());
+        panLives.add(new JLabel("Anzahl Leben:"));
+        JSlider slLives = new JSlider(1, 10, settings.getCtlLiveCount());
+        slLives.setPaintLabels(true);
+        slLives.setLabelTable(slLives.createStandardLabels(1));
+        slLives.setSnapToTicks(true);
+        slLives.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
+        panLives.add(slLives);
+        JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isCtlUnlimitedLivesEnabled());
         cbUnlimitedLives.addActionListener(_ -> {
-            tfLives.setEnabled(!cbUnlimitedLives.isSelected());
+            slLives.setEnabled(!cbUnlimitedLives.isSelected());
         });
+
+        // Number or hints settings
+        JPanel panHints = new JPanel(new GridLayout(2, 1));
+        panHints.add(new JLabel("Anzahl der Hinweise"));
+        JSlider slHints = new JSlider(0, 10, settings.getCtlHintCount());
+        slHints.setPaintLabels(true);
+        slHints.setLabelTable(slHints.createStandardLabels(1));
+        slHints.setSnapToTicks(true);
+        panHints.add(slHints);
 
         // Type of input settings
         JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
@@ -191,13 +210,6 @@ public class StraightOuttaMenu extends Menu {
         JLabel lTypeOfInput = new JLabel("Eingabemethode:");
         typeOfInputPanel.add(lTypeOfInput);
         typeOfInputPanel.add(ddTypeOfInput);
-
-        // Number or hints settings
-        JPanel hintPanel = new JPanel(new GridLayout(2, 1));
-        JLabel lHints = new JLabel("Anzahl der Hinweise");
-        JTextField tfHints = new JTextField(settings.getGtoHintCount() + "");
-        hintPanel.add(lHints);
-        hintPanel.add(tfHints);
 
         // Highscore reset button
         JButton bResetHighscore = new JButton("Highscore zurücksetzen");
@@ -210,7 +222,7 @@ public class StraightOuttaMenu extends Menu {
         bSave.addActionListener(_ -> {
             // Check if time limit input is valid
             try {
-                int timeLimit = Integer.parseInt(tfLives.getText());
+                int timeLimit = Integer.parseInt(tfTimeLimit.getText());
                 if(timeLimit > 1000) {
                     JOptionPane.showMessageDialog(
                         bSave,
@@ -230,61 +242,14 @@ public class StraightOuttaMenu extends Menu {
                 return;
             }
 
-            // Check if live count input is valid
-            try {
-                int liveCount = Integer.parseInt(tfLives.getText());
-                if(liveCount > 10) {
-                    JOptionPane.showMessageDialog(
-                        bSave,
-                        "Eingabe der Lebensanzahl ist ungültig.\nDie Leben dürfen maximal 10 sein!",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE
-                    );
-                    return;
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Lebensanzahl ist ungültig.\nMuss eine Ganzzahl sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-                return;
-            }
-            if(settings.getGtoLiveCount() > 10) {
-                settings.setGtoLiveCount(3); 
-                
-            }
-
-            // Check if hint input is valid
-            try {
-                int hints = Integer.parseInt(tfHints.getText());
-                if(hints > 1000) {
-                    JOptionPane.showMessageDialog(
-                        bSave,
-                        "Eingabe der Hinweisanzahl ungültig.\nDarf nicht höher als 1000 sein!",
-                        "Error",
-                        JOptionPane.ERROR_MESSAGE
-                    );
-                    return;
-                }
-            } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(
-                    bSave,
-                    "Eingabe der Hinweisanzahl ungültig.\nMuss eine Ganzzahl sein!",
-                    "Error",
-                    JOptionPane.ERROR_MESSAGE
-                );
-            }
-
             // Save settings
             settings.setGtoTimeLimit(Integer.parseInt(tfTimeLimit.getText()));
-            settings.setGtoLiveCount(Integer.parseInt(tfLives.getText()));
-            settings.setGtoHintCount(Integer.parseInt(tfHints.getText()));
+            settings.setGtoLiveCount(slLives.getValue());
+            settings.setGtoHintCount(slHints.getValue());
             settings.setGtoUnlimitedTime(cbUnlimitedTime.isSelected());
             settings.setGtoUnlimitedLives(cbUnlimitedLives.isSelected());
             settings.setGtoTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
-            saveSettings(settings);
+            Settings.write(settings);
 
             // Close frame
             settingsFrame.dispose();
@@ -296,7 +261,7 @@ public class StraightOuttaMenu extends Menu {
         settingsFrame.add(cbUnlimitedTime);
         settingsFrame.add(cbUnlimitedLives);
         settingsFrame.add(typeOfInputPanel);
-        settingsFrame.add(hintPanel);
+        settingsFrame.add(panHints);
         settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);
 

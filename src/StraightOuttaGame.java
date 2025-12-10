@@ -15,8 +15,8 @@ import com.google.gson.Gson;
  * Implements TimerEvents to handle timer
  */
 public class StraightOuttaGame implements GameMode, TimerEvents  {
-    private Settings settings;
-    private StraightOuttaGui gui;
+    private final Settings settings;
+    private final StraightOuttaGui gui;
     private int score = 0;
     private int lives;
     private int hints;
@@ -141,7 +141,7 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
 
     public void openEndingScreen(String pRow1, String pRow2) {
         gui.setInteractable(false);
-        new EndingScreen(this, "Straight Outta", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(90, 40, 40) : new Color(255, 220, 220) : Color.WHITE,
+        new EndingScreen(this, gui, "Straight Outta", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(90, 40, 40) : new Color(255, 220, 220) : Color.WHITE,
         new Color(150, 100, 100) , pRow1, pRow2, settings);
     }
 

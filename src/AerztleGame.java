@@ -7,9 +7,9 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class AerztleGame implements GameMode {
-    private Settings settings;
+    private final Settings settings;
 
-    private AerztleGui gui;
+    private final AerztleGui gui;
     private AerztleObject currentSong;
     private LinkedList<AerztleObject> aerztleObjects;
 
@@ -147,7 +147,7 @@ public class AerztleGame implements GameMode {
 
     public void openEndingScreen(String pRow1, String pRow2) {
         gui.setInteractable(false);
-        new EndingScreen(this, "Ärztle", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(40, 90, 40) : new Color(220, 255, 220) : Color.WHITE,
+        new EndingScreen(this, gui, "Ärztle", settings.isColourfulGuiEnabled() ? settings.isDarkMode() ? new Color(40, 90, 40) : new Color(220, 255, 220) : Color.WHITE,
         new Color(100, 150, 100) , pRow1, pRow2, settings);
     }
 

@@ -1,3 +1,9 @@
+import com.google.gson.Gson;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Settings {
     // General settings
     private boolean farinLibrary = false;
@@ -266,5 +272,34 @@ public class Settings {
 
     public int getAeTries() {
         return aeTries;
+    }
+
+    /**
+     * Reads settings from JSON file
+     * @return Settings object with data from JSON file
+     */
+    public static Settings read() {
+        Settings settingsFromJson = new Settings();
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader("data/settings.json")) {
+            settingsFromJson = gson.fromJson(reader, Settings.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return settingsFromJson;
+    }
+
+    /**
+     * Overrides settings in settings.json file
+     * @param pSettings settings object with parameters to override settings
+     */
+    public static void write(Settings pSettings) {
+        Gson gson = new Gson();
+        try (FileWriter writer = new FileWriter("data\\settings.json")) {
+            gson.toJson(pSettings, writer);
+            System.out.println("Saved settings to \"data/settings.json\"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
