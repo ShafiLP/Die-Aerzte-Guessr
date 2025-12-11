@@ -121,7 +121,6 @@ class StraightOuttaGui extends Gui {
         }});
         lPlayer = new JLabel(multiplayer ? "Am Zug: " + game.getPlayerName(1) : "", SwingConstants.CENTER);
         lPlayer.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
-        lPlayer.setForeground(Color.RED);
         lPlayer.setOpaque(false);
         panHeading.add(lPlayer, new  GridBagConstraints() {{
             gridx = 0;
@@ -385,7 +384,7 @@ class StraightOuttaGui extends Gui {
      * @param pScore new text on the score label
      */
     public void updateScore(int pScore) {
-        scoreLabel.setText(multiplayer ? "Frage Nr." + pScore : "Punktzahl : " + pScore);
+        scoreLabel.setText(multiplayer ? "Frage Nr. " + pScore : "Punktzahl : " + pScore);
     }
 
     /**
@@ -433,7 +432,6 @@ class StraightOuttaGui extends Gui {
     /**
      * Changes the label that displays the current active player
      * @param pName Name of active player
-     * @param pPlayer Number of active player
      */
     public void setActivePlayer(String pName) {
         lPlayer.setText("Am Zug: " + pName);

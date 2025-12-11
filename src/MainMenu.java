@@ -24,8 +24,8 @@ import java.util.Collections;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.5.7";
-    private Settings settings;
+    private final String VERSION = "0.6.0";
+    private final Settings settings;
     private JButton bSettings;
 
     /**
@@ -35,6 +35,9 @@ public class MainMenu extends JFrame {
     public MainMenu() {
         // Load settings from file
         settings = Settings.read();
+
+        // Check for updates
+        checkForUpdate();
 
         // Set accent colours
         FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", "#8f8ffeff"));

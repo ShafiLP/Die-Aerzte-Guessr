@@ -117,9 +117,9 @@ public class SettingsGeneral extends JFrame {
         this.add(panFontSize);
         this.add(cbSahnie);
         this.add(cbShowIcons);
-        this.add(new JLabel());
-        this.add(cbColourfulGui);
         this.add(cbSearchForUpdates);
+        this.add(cbColourfulGui);
+        this.add(new JLabel());
         this.add(bReset);
         this.add(bSave);
 

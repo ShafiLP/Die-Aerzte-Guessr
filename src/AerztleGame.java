@@ -27,11 +27,9 @@ public class AerztleGame implements GameMode {
         aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
 
         // Load bonus libraries if enabled
-        if(settings.isFarinEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataFarin.json", aerztleObjects);
-
-        if(settings.isBelaEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataBela.json", aerztleObjects);
-
-        if(settings.isSahnieEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataSahnie.json", aerztleObjects);
+        if (settings.isFarinEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataFarin.json", aerztleObjects);
+        if (settings.isBelaEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataBela.json", aerztleObjects);
+        if (settings.isSahnieEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataSahnie.json", aerztleObjects);
 
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
         currentSong =  aerztleObjects.get(randomIndex);
