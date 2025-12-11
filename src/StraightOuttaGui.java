@@ -27,7 +27,7 @@ class StraightOuttaGui extends Gui {
     private Color backgroundColor;
     private Color infobarColor;
 
-    // * For multiplayer
+    //* For Multiplayer
     private JLabel lPlayer; // Label displaying current player
 
     /**
@@ -40,7 +40,7 @@ class StraightOuttaGui extends Gui {
 
         // Read settings
         settings = pSettings;
-        timerLabel = new JLabel("Timer: " + settings.getGtoTimeLimit());
+        timerLabel = new JLabel("Timer: " + settings.getGtoTimeLimit() + "s");
         healthBar = new JLabel[settings.getGtoLiveCount()];
         healthBarP2 = new JLabel[settings.getGtoLiveCount()];
         if(settings.isColourfulGuiEnabled()) {
@@ -60,7 +60,7 @@ class StraightOuttaGui extends Gui {
         this.setTitle("Straight Outta...");
         this.setLayout(new BorderLayout());
         this.setSize(600, 300);
-        this.setLocationRelativeTo(null); // Center the window
+        this.setLocationRelativeTo(null); // Center window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
@@ -393,7 +393,7 @@ class StraightOuttaGui extends Gui {
      * This is called when the user makes an incorrect guess
      */
     public void infoBarWrong() {
-        if(settings.isDarkMode()) {
+        if (settings.isDarkMode()) {
             infoBar.setBackground(new Color(150, 40, 40));
         } else {
             infoBar.setBackground(Color.RED);
@@ -407,7 +407,7 @@ class StraightOuttaGui extends Gui {
      */
     public void infoBarRight() {
         currentSongLabel.setText("");
-        if(settings.isDarkMode()) {
+        if (settings.isDarkMode()) {
             infoBar.setBackground(new Color(40, 150, 40));
         } else {
             infoBar.setBackground(Color.GREEN);
@@ -435,13 +435,8 @@ class StraightOuttaGui extends Gui {
      * @param pName Name of active player
      * @param pPlayer Number of active player
      */
-    public void setActivePlayer(String pName, int pPlayer) {
+    public void setActivePlayer(String pName) {
         lPlayer.setText("Am Zug: " + pName);
-        if (pPlayer == 1) {
-            lPlayer.setForeground(Color.RED);
-        } else {
-            lPlayer.setForeground(Color.BLUE);
-        }
     }
 
     /**

@@ -51,13 +51,9 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
         // Create a LinkedList containing all available song lyrics
         songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
 
-        // Add Farin songs if pFarin = true
+        // Read only if enabled
         if (settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
-
-        // Add Bela songs if pBela = true
         if (settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
-
-        // Add Sahnie songs if pSahnie = true
         if (settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
  
         // Get a random song text part
@@ -87,17 +83,17 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
                 scoreP2++;
             }
             swapPlayer();
-            gui.setActivePlayer(currentPlayer == 1 ? p1 : p2, currentPlayer);
+            gui.setActivePlayer(currentPlayer == 1 ? p1 : p2);
         } else {
             score++;
         }
         blockWrongGuesses = false;
         currentSongText = getRandomSongText();
-        if(currentSongText == null) return;
+        if (currentSongText == null) return;
         gui.guessTheOriginUpdate(currentSongText.getText());
         timeLimit = settings.getGtoTimeLimit(); // Reset the timer
         gui.setTimerLabel(timeLimit + "s");
-        gui.updateScore(score);
+        gui.updateScore(score + scoreP2);
     }
 
     /**
@@ -105,7 +101,7 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
      * Displays a dialog with the score and options to start a new game or exit
      */
     public void wrongGuess() {
-        if(!settings.isGtoUnlimitedLivesEnabled()) {
+        if (!settings.isGtoUnlimitedLivesEnabled()) {
             if (multiplayer) {
                 if (currentPlayer == 1) {
                     lives--;
@@ -119,7 +115,7 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
             blockWrongGuesses = true;
         }
 
-        if(lives <= 0 || livesP2 <= 0) {
+        if (lives <= 0 || livesP2 <= 0) {
             if(settings.getGtoHighscore() < score & !multiplayer) {
                 settings.setGtoHighscore(score);
                 Settings.write(settings);
@@ -160,12 +156,32 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
      * @return first letter of the current song
      */
     public String requestHint() {
-        if(hints > 0) {
-            hints--;
-            gui.setHints(multiplayer ? "P1: " + hints + " / P2: " + hintsP2 : String.valueOf(hints));
-            return String.valueOf(currentSongText.getSongName().charAt(0));
+        if (multiplayer) {
+            if (currentPlayer == 1) {
+                if (hints > 0) {
+                    hints--;
+                    gui.setHints("P1: " + hints + " / P2: " + hintsP2);
+                    return String.valueOf(currentSongText.getSongName().charAt(0));
+                } else {
+                    return "Keine Hinweise mehr übrig.";
+                }
+            } else {
+                if (hintsP2 > 0) {
+                    hintsP2--;
+                    gui.setHints("P1: " + hints + " / P2: " + hintsP2);
+                    return String.valueOf(currentSongText.getSongName().charAt(0));
+                } else {
+                    return "Keine Hinweise mehr übrig.";
+                }
+            }
         } else {
-            return "Keine Hinweise mehr übrig.";
+            if (hints > 0) {
+                hints--;
+                gui.setHints(String.valueOf(hints));
+                return String.valueOf(currentSongText.getSongName().charAt(0));
+            } else {
+                return "Keine Hinweise mehr übrig.";
+            }
         }
     }
 
@@ -173,7 +189,7 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
      * Changes the active player
      */
     public void swapPlayer() {
-        if(currentPlayer == 1) {
+        if (currentPlayer == 1) {
             currentPlayer = 2;
         } else {
             currentPlayer = 1;

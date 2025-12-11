@@ -2,37 +2,46 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 
 import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 
 import java.awt.*;
 import java.util.Collections;
 
 public class StraightOuttaMenu extends Menu {
-    private JFrame settingsFrame;
+    private final Settings settings;
 
     /**
      * Crates a GUI for starting the game and configuring settings
      */
-    public StraightOuttaMenu() {
-        // Read settings
-        settings = Settings.read();
-        Color backgroundColor = Color.WHITE;
+    public StraightOuttaMenu(Settings settings) {
+        this.settings = settings;
+
+        // Apply background colour
+        Color backgroundColor = Color.WHITE; // If colorful GUIs are disabled
         if(settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(255, 220, 220);
             if (settings.isDarkMode()) backgroundColor = new Color(90, 40, 40);
         }
 
-        // Set accent colours
+        // Apply accent colours
         FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", "#ff5151ff"));
-        setup();
+        if(settings.isDarkMode()){
+            FlatDarkLaf.setup();
+            com.formdev.flatlaf.FlatDarkLaf.updateUI();
+        } else {
+            FlatLightLaf.setup();
+            com.formdev.flatlaf.FlatLaf.updateUI();
+        }
 
+        // Frame settings
         this.setTitle("Straight Outta...");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(310, 400);
         this.setResizable(false);
-        this.setLocationRelativeTo(null); // Center the window
+        this.setLocationRelativeTo(null); // Center window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
-
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -57,12 +66,6 @@ public class StraightOuttaMenu extends Menu {
         // Buttons
         buttons[0] = new JButton("Spielen");
         buttons[0].addActionListener(_ -> {
-            if(fHtp != null && fHtp.isVisible()) {
-                fHtp.dispose();
-            }
-            if(settingsFrame != null && settingsFrame.isVisible()) {
-                settingsFrame.dispose();
-            }
             this.dispose();
             new StraightOuttaGame(settings, false, null, null);
         });
@@ -178,21 +181,16 @@ public class StraightOuttaMenu extends Menu {
         });
         buttons[4] = new JButton("Hauptmenü");
         buttons[4].addActionListener(_ -> {
-            if(fHtp != null && fHtp.isVisible()) {
-                fHtp.dispose();
-            }
-            if(settingsFrame != null && settingsFrame.isVisible()) {
-                settingsFrame.dispose();
-            }
             this.dispose();
             new MainMenu();
         });
 
         // Highscore
         JPanel highscorePanel = new JPanel();
-        JLabel lHighscore = new JLabel("Highscore: " + settings.getGtoHighscore());
+        highscorePanel.add(new JLabel("Highscore: " + settings.getGtoHighscore()) {{
+            setFont(settings.getFont());
+        }});
         highscorePanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
-        highscorePanel.add(lHighscore);
         highscorePanel.setBackground(backgroundColor);
         this.add(highscorePanel, BorderLayout.SOUTH);
 
@@ -200,7 +198,7 @@ public class StraightOuttaMenu extends Menu {
         for (int i = 0; i < buttons.length; i++) {
             buttons[i].setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
             buttons[i].setBackground(Color.WHITE);
-            buttons[i].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            buttons[i].setFont(settings.getFont());
             buttons[i].setMaximumSize(new Dimension(200, 60));
             buttons[i].setAlignmentX(Component.CENTER_ALIGNMENT);
             buttonPanel.add(buttons[i]);
@@ -219,7 +217,8 @@ public class StraightOuttaMenu extends Menu {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        settingsFrame = new JFrame() {
+        // Frame settings
+        JFrame settingsFrame = new JFrame() {
             @Override
             public void dispose() {
                 super.dispose();
@@ -235,57 +234,71 @@ public class StraightOuttaMenu extends Menu {
         this.setEnabled(false);
 
         // Timer settings
-        JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
+        JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
+        panTimeLimit.add(new JLabel("Zeitlimit (in Sekunden):") {{
+            setFont(settings.getFont());
+        }});
         JTextField tfTimeLimit = new JTextField(settings.getGtoTimeLimit() + "");
         tfTimeLimit.setEnabled(!settings.isGtoUnlimitedTimeEnabled());
-        JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
-        panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
+        tfTimeLimit.setFont(settings.getFont());
+        panTimeLimit.add(tfTimeLimit);
         JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isGtoUnlimitedTimeEnabled());
+        cbUnlimitedTime.setFont(settings.getFont());
         cbUnlimitedTime.addActionListener(_ -> {
             tfTimeLimit.setEnabled(!cbUnlimitedTime.isSelected());
         });
 
         // Health bar settings
         JPanel panLives = new JPanel(new GridLayout(2, 1));
-        panLives.add(new JLabel("Anzahl Leben:"));
+        panLives.add(new JLabel("Anzahl der Leben:") {{
+            setFont(settings.getFont());
+        }});
         JSlider slLives = new JSlider(1, 10, settings.getCtlLiveCount());
         slLives.setPaintLabels(true);
         slLives.setLabelTable(slLives.createStandardLabels(1));
         slLives.setSnapToTicks(true);
+        slLives.setFont(settings.getFont());
         slLives.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
         panLives.add(slLives);
         JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isCtlUnlimitedLivesEnabled());
+        cbUnlimitedLives.setFont(settings.getFont());
         cbUnlimitedLives.addActionListener(_ -> {
             slLives.setEnabled(!cbUnlimitedLives.isSelected());
         });
 
         // Number or hints settings
         JPanel panHints = new JPanel(new GridLayout(2, 1));
-        panHints.add(new JLabel("Anzahl der Hinweise"));
+        panHints.add(new JLabel("Anzahl der Hinweise") {{
+            setFont(settings.getFont());
+        }});
         JSlider slHints = new JSlider(0, 10, settings.getCtlHintCount());
         slHints.setPaintLabels(true);
         slHints.setLabelTable(slHints.createStandardLabels(1));
         slHints.setSnapToTicks(true);
+        slHints.setFont(settings.getFont());
         panHints.add(slHints);
 
         // Type of input settings
-        JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
+        JPanel panInput = new JPanel(new GridLayout(2, 1));
+        panInput.add(new JLabel("Eingabemethode:") {{
+            setFont(settings.getFont());
+        }});
         JComboBox<String> ddTypeOfInput = new JComboBox<>();
         ddTypeOfInput.addItem("Suchleiste");
         ddTypeOfInput.addItem("Dropdown Menü");
         ddTypeOfInput.setSelectedItem(settings.getGtoTypeOfInput());
-        JLabel lTypeOfInput = new JLabel("Eingabemethode:");
-        typeOfInputPanel.add(lTypeOfInput);
-        typeOfInputPanel.add(ddTypeOfInput);
+        panInput.add(ddTypeOfInput);
 
         // Highscore reset button
         JButton bResetHighscore = new JButton("Highscore zurücksetzen");
+        bResetHighscore.setFont(settings.getFont());
         bResetHighscore.addActionListener(_ -> {
             settings.setGtoHighscore(0);
         });
 
         // Save button
         JButton bSave = new JButton("Speichern");
+        bSave.setFont(settings.getFont());
         bSave.addActionListener(_ -> {
             // Check if time limit input is valid
             try {
@@ -327,7 +340,7 @@ public class StraightOuttaMenu extends Menu {
         settingsFrame.add(panLives);
         settingsFrame.add(cbUnlimitedTime);
         settingsFrame.add(cbUnlimitedLives);
-        settingsFrame.add(typeOfInputPanel);
+        settingsFrame.add(panInput);
         settingsFrame.add(panHints);
         settingsFrame.add(bResetHighscore);
         settingsFrame.add(bSave);

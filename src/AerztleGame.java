@@ -27,14 +27,11 @@ public class AerztleGame implements GameMode {
         aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
 
         // Load bonus libraries if enabled
-        if(settings.isFarinEnabled())
-        aerztleObjects = readSongsFromJson("data\\aerztleDataFarin.json", aerztleObjects);
+        if(settings.isFarinEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataFarin.json", aerztleObjects);
 
-        if(settings.isBelaEnabled())
-        aerztleObjects = readSongsFromJson("data\\aerztleDataBela.json", aerztleObjects);
+        if(settings.isBelaEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataBela.json", aerztleObjects);
 
-        if(settings.isSahnieEnabled())
-        aerztleObjects = readSongsFromJson("data\\aerztleDataSahnie.json", aerztleObjects);
+        if(settings.isSahnieEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataSahnie.json", aerztleObjects);
 
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
         currentSong =  aerztleObjects.get(randomIndex);
@@ -93,10 +90,10 @@ public class AerztleGame implements GameMode {
         } else {
             if(pGuess.getStreamsAsInteger() - pSolution.getStreamsAsInteger() > 0) {
                 gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() - 100000 == pSolution.getStreamsAsInteger() ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW: settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText() + "", false);
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText(), false);
             } else {
                 gui.paintStreams(currentGuess, pGuess.getStreamsAsInteger() + 100000 == pSolution.getStreamsAsInteger() ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED,
-                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText() + "", true);
+                pGuess.getStreamsAsInteger() == 0 ? "< 100.000" : "≥" + pGuess.getStreamsAsText(), true);
             }
         }
     }
@@ -106,9 +103,9 @@ public class AerztleGame implements GameMode {
             gui.paintDuration(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()), null);
         } else {
             if(pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() > 0) {
-                gui.paintDuration(currentGuess, pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", false);
+                gui.paintDuration(currentGuess, pGuess.getFullDurationInSecs() - pSolution.getFullDurationInSecs() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()), false);
             } else {
-                gui.paintDuration(currentGuess, pSolution.getFullDurationInSecs() - pGuess.getFullDurationInSecs() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()) + "", true);
+                gui.paintDuration(currentGuess, pSolution.getFullDurationInSecs() - pGuess.getFullDurationInSecs() < 5 ? settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW : settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, String.format("%d:%02d", pGuess.getDurationMinutes(), pGuess.getDurationSeconds()), true);
             }
         }
     }
@@ -127,7 +124,7 @@ public class AerztleGame implements GameMode {
 
     private void compSinger(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.getSinger().equals(pSolution.getSinger())) {
-            gui.paintSinger(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getSinger() + "");
+            gui.paintSinger(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.getSinger());
         } else {
             if(pSolution.getSinger().contains(pGuess.getSinger())) {
                 gui.paintSinger(currentGuess, settings.isDarkMode() ? new Color(190, 170, 60) : Color.YELLOW, pGuess.getSinger());
@@ -139,9 +136,9 @@ public class AerztleGame implements GameMode {
 
     private void compIsSingle(AerztleObject pGuess, AerztleObject pSolution) {
         if(pGuess.isSingle() == pSolution.isSingle()) {
-            gui.paintSingle(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.isSingle() == true ? "Single" : "Keine Single");
+            gui.paintSingle(currentGuess, settings.isDarkMode() ? new Color(40, 150, 40) : Color.GREEN, pGuess.isSingle() ? "Single" : "Keine Single");
         } else {
-            gui.paintSingle(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.isSingle() == true ? "Single" : "Keine Single");
+            gui.paintSingle(currentGuess, settings.isDarkMode() ? new Color(159, 40, 40) : Color.RED, pGuess.isSingle() ? "Single" : "Keine Single");
         }
     }
 
@@ -173,10 +170,9 @@ public class AerztleGame implements GameMode {
         try {
             String content = new String(Files.readAllBytes(Paths.get(pFilepath)));
             JSONArray arr = new JSONArray(content);
-            for(int i = 0; i < arr.length(); i++) {
+            for (int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
-                if(pSelection.equals(obj.getString("song")))
-                return new AerztleObject(obj.getString("song"), obj.getString("album"), obj.getInt("release"),
+                if (pSelection.equals(obj.getString("song"))) return new AerztleObject(obj.getString("song"), obj.getString("album"), obj.getInt("release"),
                 obj.getString("streams"), obj.getInt("durationMin"), obj.getInt("durationSec"), obj.getInt("livePlays"),
                 obj.getString("singer"), obj.getBoolean("single"));
             }
@@ -197,17 +193,13 @@ public class AerztleGame implements GameMode {
         AerztleObject guess = getSelectedSong("data\\aerztleData.json", pGuess);
 
         // If no match was found search in Farin library
-        if(guess.getSongName() == null & settings.isFarinEnabled())
-        guess = getSelectedSong("data\\aerztleDataFarin.json", pGuess);
+        if (guess.getSongName() == null & settings.isFarinEnabled()) guess = getSelectedSong("data\\aerztleDataFarin.json", pGuess);
 
         // If no match was found search in Bela library
-        if(guess.getSongName() == null & settings.isBelaEnabled())
-        guess = getSelectedSong("data\\aerztleDataBela.json", pGuess);
+        if (guess.getSongName() == null & settings.isBelaEnabled()) guess = getSelectedSong("data\\aerztleDataBela.json", pGuess);
         
         // If no match was found search in Sahnie library
-        if(guess.getSongName() == null & settings.isSahnieEnabled())
-        guess = getSelectedSong("data\\aerztleDataSahnie.json", pGuess);
-
+        if (guess.getSongName() == null & settings.isSahnieEnabled()) guess = getSelectedSong("data\\aerztleDataSahnie.json", pGuess);
 
         // Check all categories
         if(guess.getSongName() != null) {

@@ -1,5 +1,6 @@
 import com.google.gson.Gson;
 
+import java.awt.*;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -96,6 +97,10 @@ public class Settings {
 
     public int getFontSize() {
         return fontSize;
+    }
+
+    public Font getFont() {
+        return new Font(fontType, Font.PLAIN, fontSize);
     }
 
     public void setShowIcons(boolean pShowIcons) {

@@ -249,6 +249,70 @@
 
 
 
-    {"before": "Etwas gehüllt, alles geschieht doch immer zu", "gap": "seiner", "after": "Zeit", "song": "Zu meiner Zeit", "album": "bye"},
-    {"before": "Die Welt krankt an", "gap": "Neid", "after": "und Gier, was aus dir wird, liegt an dir", "song": "Zu meiner Zeit", "album": "bye"}
+    {"before": "Etwas gehüllt, alles geschieht doch immer zu", "gap": "seiner", "after": "Zeit", "song": "Zu meiner Zeit", "album": "immersoseinSingle"},
+    {"before": "Die Welt krankt an", "gap": "Neid", "after": "und Gier, was aus dir wird, liegt an dir", "song": "Zu meiner Zeit", "album": "immersoseinSingle"},
+
+
+
+
+
+    {"before": "Die Küsse der Frauen schmecken nach", "gap": "Teer", "after": "Hier wäscht sich [...]", "song": "Der Dreck von Indian Creek", "album": "bastard"},
+    {"before": "Und der Humor ist schwarz und", "gap": "dreckig", "after": "und mega versaut", "song": "Der Dreck von Indian Creek", "album": "bastard"},
+    {"before": "Der Zahnarzt ist hier eben der", "gap": "Friseur", "after": "Hier macht man Seife aus Schlamm, [...]", "song": "Der Dreck von Indian Creek", "album": "bastard"},
+    {"before": "Es gibt nur ein Gewürz und das ist", "gap": "Schmutz", "after": "Die Seife im Bordell [...]", "song": "Der Dreck von Indian Creek", "album": "bastard"},
+    {"before": "Auf den Grabsteinen steh'n Namen derer, die es versucht:", "gap": "Meister Proper", "after": "Omo Dash, Rai Colgate, Far Ariel Plus, [...]", "song": "Der Dreck von Indian Creek", "album": "bastard"},
+
+    {"before": "Schienen für den Zugverkehr legten sie in die", "gap": "Prärie", "after": "Zwar tun sie sich mit der Sprache schwer, [...]", "song": "Warum denn kein Chop Suey", "album": "bastard"},
+    {"before": "Sie brachten Opium mit und ihr", "gap": "Kung Fu", "after": "Ihre langen Haare [...]", "song": "Warum denn kein Chop Suey", "album": "bastard"},
+    {"before": "Deshalb wurden sie auch gerne mal als", "gap": "Köche", "after": "eingestellt, für wenig Geld, [...]", "song": "Warum denn kein Chop Suey", "album": "bastard"},
+    {"before": "Auch keine Stäbchen, immer", "gap": "Blechbesteck", "after": "Und statt Chop Suey gibt's [...]", "song": "Warum denn kein Chop Suey", "album": "bastard"},
+    {"before": "Ching Chang Chong - all night long, es geht um", "gap": "Chinesen", "after": "hier in diesem Song", "song": "Warum denn kein Chop Suey", "album": "bastard"},
+
+    {"before": "Kein Wunder, wenn für jeden Zehnten es nur eine", "gap": "Dame", "after": "gibt", "song": "Das schwache Geschlecht", "album": "bastard"},
+    {"before": "Was soll das bitte heißen, das", "gap": "schwache", "after": "Geschlecht?", "song": "Das schwache Geschlecht", "album": "bastard"},
+    {"before": "[...] waren grade so brutal aufgrund ihres", "gap": "Chromosoms", "after": "Sie klauten und sie raubten [...]", "song": "Das schwache Geschlecht", "album": "bastard"},
+    {"before": "Sie lebten in einer Welt hart wie", "gap": "Trockenbrot", "after": "Voll mit Überlebensangst, [...]", "song": "Das schwache Geschlecht", "album": "bastard"},
+    {"before": "Die Frauen waren in Wirklichkeit die besseren", "gap": "Männer", "after": "", "song": "Das schwache Geschlecht", "album": "bastard"},
+
+    {"before": "Weg von der Erde, in der meine", "gap": "Eltern", "after": "längst ruhen", "song": "Zuhaus", "album": "bastard"},
+    {"before": "Mit jedem Sonnenaufgang wird", "gap": "das Licht", "after": "immer dunkler", "song": "Zuhaus", "album": "bastard"},
+    {"before": "Ja die Hoffnung wird täglich von", "gap": " der Wahrheit", "after": "erdrückt", "song": "Zuhaus", "album": "bastard"},
+
+    {"before": "Wenn man nichts mehr hört als den", "gap": "Wüstenwind", "after": "Die braven Bürger längst [...]", "song": "Showdown", "album": "bastard"},
+    {"before": "Durch die Straße rollt ein", "gap": "Tumbleweed", "after": "Und du pfeifst [...]", "song": "Showdown", "album": "bastard"},
+    {"before": "Und der Schweiß rinnt mir über", "gap": "den Hals", "after": "Kümmere dich bitte, [...]", "song": "Showdown", "album": "bastard"},
+    {"before": "Haben alle", "gap": " den Löffel", "after": "abgegeben, nur mein Pferd [...]", "song": "Showdown", "album": "bastard"},
+
+    {"before": "Ich bin ein Szeneast, ohja, ich liebe", "gap": "das Kino", "after": "", "song": "Ode an das Bahnhofskino", "album": "bastard"},
+    {"before": "[...] und einen", "gap": "Wehrwolf", "after": "Marathon auch bis zum Ende durchsteht", "song": "Ode an das Bahnhofskino", "album": "bastard"},
+    {"before": "Ein Zombie hing am Glockenseil, isst unsere", "gap": "Kühe", "after": "", "song": "Ode an das Bahnhofskino", "album": "bastard"},
+    {"before": "Zusammen ernähr'n wir uns von", "gap": "Nachos", "after": "und Bier", "song": "Ode an das Bahnhofskino", "album": "bastard"},
+    {"before": "Sango zieht aus einer", "gap": "Urne", "after": "das Maschinengewehr", "song": "Ode an das Bahnhofskino", "album": "bastard"},
+
+    {"before": "Jeder so wie's er gern mag,", "gap": "gestorben", "after": "wird an jedem Tag", "song": "Noch warm und schon Sand drauf", "album": "bastard"},
+    {"before": "Und seid ihr in der Überzahl, meiner", "gap": "Bleipuste", "after": "ist's egal", "song": "Noch warm und schon Sand drauf", "album": "bastard"},
+    {"before": "Noch warm und schon", "gap": "Sand", "after": "darauf, so endet dein Lebenslauf", "song": "Noch warm und schon Sand drauf", "album": "bastard"},
+    {"before": "In der Hölle ist ein Zimmer frei,", "gap": "die Schlüssel", "after": "dazu sind aus Blei", "song": "Noch warm und schon Sand drauf", "album": "bastard"},
+    {"before": "Die Sonne brennt so tödlich", "gap": "rot", "after": "in meinem Kiosk [...]", "song": "Noch warm und schon Sand drauf", "album": "bastard"},
+
+    {"before": "[...] sterb' ich allein an", "gap": "Missgeschick", "after": "und Blei", "song": "Missgeschick & Blei", "album": "bastard"},
+    {"before": "Kein Weg vorherbestimmt bis der", "gap": "Schicksalswürfel", "after": "fällt", "song": "Missgeschick & Blei", "album": "bastard"},
+
+    {"before": "Der Wecker", "gap": "geht, ich habe keine Lust, [...]", "after": "", "song": "Einer bleibt liegen", "album": "bastard"},
+    {"before": "Ach, wenn das Leben doch nur wie im", "gap": "Western", "after": "wär'", "song": "Einer bleibt liegen", "album": "bastard"},
+    {"before": "Die tollsten Frauen sind die, die auf", "gap": "Kuhmist", "after": "steh'n", "song": "Einer bleibt liegen", "album": "bastard"},
+    {"before": "Hey Freund, ich kenn' dich, für dich gibt es", "gap": "Lösegeld", "after": "", "song": "Einer bleibt liegen", "album": "bastard"},
+    {"before": "Ich wünsch' mir einen", "gap": "Galgen", "after": "und dazu noch einen Baum", "song": "Einer bleibt liegen", "album": "bastard"},
+
+    {"before": "Ein Mensch und ein", "gap": "Bär", "after": "und ein Gewehr sind verabredet im Wald", "song": "Bärenjagd", "album": "bastard"},
+    {"before": "Den Jäger plagen seine", "gap": "Allergien", "after": "Käm' der Bär doch nur bald [...]", "song": "Bärenjagd", "album": "bastard"},
+
+
+
+    {"before": "Everybody hates you when you're", "gap": "popular", "after": "And everybody wants to drag you down", "song": "Everybody Hates You When You're Popular", "album": "einerbleibtSingle"},
+    {"before": "You have to be a", "gap": "dick", "after": "a half insane to satisfy your cravings", "song": "Everybody Hates You When You're Popular", "album": "einerbleibtSingle"},
+    {"before": "Hey, I like this", "gap": "guitar player", "after": "wish I could be his friend", "song": "Everybody Hates You When You're Popular", "album": "einerbleibtSingle"},
+
+    {"before": "I'll find myself another", "gap": "little girl", "after": "To take the place of my true love", "song": "Johnny Remember Me", "album": "einerbleibtSingle"},
+    {"before": "And the wind is blowin' cold across the", "gap": "moor", "after": "I hear the voice of my darlin'", "song": "Johnny Remember Me", "album": "einerbleibtSingle"}
 ]

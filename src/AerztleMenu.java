@@ -1,7 +1,9 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -13,31 +15,36 @@ import java.awt.Image;
 import java.util.Collections;
 
 public class AerztleMenu extends Menu {
-    private JFrame settingsFrame;
+    private final Settings settings;
 
     /**
      * Crates a GUI for starting the game and configuring settings
      */
-    public AerztleMenu() {
-        // Read settings
-        settings = Settings.read();
-        Color backgroundColor = Color.WHITE;
+    public AerztleMenu(Settings settings) {
+        this.settings = settings;
 
-        if(settings.isColourfulGuiEnabled()) {
+        // Apply background colour
+        Color backgroundColor = Color.WHITE;
+        if (settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(220, 255, 220);
-            if(settings.isDarkMode())
-            backgroundColor = new Color(40, 90, 40);
+            if (settings.isDarkMode()) backgroundColor = new Color(40, 90, 40);
         }
 
-        // Set accent colours
+        // Apply accent colours
         FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", "#68ff68ff"));
-        setup();
+        if(settings.isDarkMode()){
+            FlatDarkLaf.setup();
+            com.formdev.flatlaf.FlatDarkLaf.updateUI();
+        } else {
+            FlatLightLaf.setup();
+            com.formdev.flatlaf.FlatLaf.updateUI();
+        }
 
         this.setTitle("Ärztle");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(310, 350);
         this.setResizable(false);
-        this.setLocationRelativeTo(null); // Center the window
+        this.setLocationRelativeTo(null); // Center window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Main panel with BorderLayout
@@ -63,12 +70,6 @@ public class AerztleMenu extends Menu {
         // Buttons
         buttons[0] = new JButton("Spielen");
         buttons[0].addActionListener(_ -> {
-            if(fHtp != null && fHtp.isVisible()) {
-                fHtp.dispose();
-            }
-            if(settingsFrame != null && settingsFrame.isVisible()) {
-                settingsFrame.dispose();
-            }
             this.dispose();
             new AerztleGame(settings);
         });
@@ -82,12 +83,6 @@ public class AerztleMenu extends Menu {
         });
         buttons[3] = new JButton("Hauptmenü");
         buttons[3].addActionListener(_ -> {
-            if(fHtp != null && fHtp.isVisible()) {
-                fHtp.dispose();
-            }
-            if(settingsFrame != null && settingsFrame.isVisible()) {
-                settingsFrame.dispose();
-            }
             this.dispose();
             new MainMenu();
         });
@@ -136,8 +131,7 @@ public class AerztleMenu extends Menu {
         buttons[3].setAlignmentX(Component.CENTER_ALIGNMENT);
 
         // Make buttons dark if darkmode is enabled
-        if(settings.isDarkMode())
-        darkmodeButtons();
+        if (settings.isDarkMode()) darkmodeButtons();
 
         // Add with vertical padding
         buttonPanel.add(buttons[0]);
@@ -158,7 +152,8 @@ public class AerztleMenu extends Menu {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        settingsFrame = new JFrame() {
+        // Frame settings
+        JFrame settingsFrame = new JFrame() {
             @Override
             public void dispose() {
                 super.dispose();
@@ -168,32 +163,37 @@ public class AerztleMenu extends Menu {
         };
         settingsFrame.setTitle("Einstellungen");
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        settingsFrame.setSize(500, 200);
+        settingsFrame.setSize(500, 180);
         settingsFrame.setLocationRelativeTo(null);
         settingsFrame.setLayout(new GridLayout(2, 2));
         this.setEnabled(false);
 
         // Tries settings
         JPanel panTries = new JPanel(new GridLayout(2, 1));
-        panTries.add(new JLabel("Versuche:"));
+        panTries.add(new JLabel("Versuche:") {{
+            setFont(settings.getFont());
+        }});
         JSlider slTries = new JSlider(5, 12, settings.getAeTries());
         slTries.setPaintLabels(true);
         slTries.setLabelTable(slTries.createStandardLabels(1));
         slTries.setSnapToTicks(true);
+        slTries.setFont(settings.getFont());
         panTries.add(slTries);
 
         // Type of input settings
-        JPanel typeOfInputPanel = new JPanel(new GridLayout(2, 1));
+        JPanel panInput = new JPanel(new GridLayout(2, 1));
+        panInput.add(new JLabel("Eingabemethode:") {{
+            setFont(settings.getFont());
+        }});
         JComboBox<String> ddTypeOfInput = new JComboBox<>();
         ddTypeOfInput.addItem("Suchleiste");
         ddTypeOfInput.addItem("Dropdown Menü");
         ddTypeOfInput.setSelectedItem(settings.getAeTypeOfInput());
-        JLabel lTypeOfInput = new JLabel("Eingabemethode:");
-        typeOfInputPanel.add(lTypeOfInput);
-        typeOfInputPanel.add(ddTypeOfInput);
+        panInput.add(ddTypeOfInput);
 
         // Save button
         JButton bSave = new JButton("Speichern");
+        bSave.setFont(settings.getFont());
         bSave.addActionListener(_ -> {
             settings.setAeTries(slTries.getValue());
             settings.setAeTypeOfInput(ddTypeOfInput.getSelectedItem().toString());
@@ -204,7 +204,7 @@ public class AerztleMenu extends Menu {
 
         // Add all to frame
         settingsFrame.add(panTries);
-        settingsFrame.add(typeOfInputPanel);
+        settingsFrame.add(panInput);
         settingsFrame.add(new JLabel());
         settingsFrame.add(bSave);
 

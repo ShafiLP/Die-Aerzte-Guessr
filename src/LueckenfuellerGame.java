@@ -17,35 +17,52 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
     private boolean blockWrongGuesses = false;
 
     private int timeLimit;
-    private int liveCount;
-    private int hintCount;
+    private int lives;
+    private int hints;
     private int score;
 
-    /**
-     * Constructor for "Complete The Lyrics" game
-     * @param pSettings Settings object with all setting parameters
-     */
-    public LueckenfuellerGame(Settings pSettings) {
-        // Read settings
-        settings = pSettings;
-        timeLimit = settings.getCtlTimeLimit();
-        liveCount = settings.getCtlLiveCount();
-        hintCount = settings.getCtlHintCount();
+    //* For Multiplayer
+    private boolean multiplayer;
+    private String p1;
+    private String p2;
+    private int currentPlayer = 1;
+    private int livesP2;
+    private int scoreP2 = 0;
+    private int hintsP2;
 
-        // Read CTL elements from file
+    /**
+     * Constructor for LueckenfuellerGame class
+     * @param settings Settings object
+     * @param multiplayer boolean if multiplayer is enabled
+     * @param p1 Player 1 name
+     * @param p2 Player 2 name
+     */
+    public LueckenfuellerGame(Settings settings, boolean multiplayer, String p1, String p2) {
+        // Apply settings
+        this.settings = settings;
+        this.multiplayer = multiplayer;
+        this.p1 = p1;
+        this.p2 = p2;
+        timeLimit = settings.getCtlTimeLimit();
+        lives = settings.getCtlLiveCount();
+        hints = settings.getCtlHintCount();
+        livesP2 = lives;
+        hintsP2 = hints;
+
+        // Read Lueckenfueller elements from file
         lyricsWithGaps = new LinkedList<>();
         lyricsWithGaps = readSongsFromJson("data\\lyricCompletion.json", lyricsWithGaps);
 
-        // Read only if enabled in settings
-        if(settings.isFarinEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionFarin.json", lyricsWithGaps);
-        if(settings.isBelaEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionBela.json", lyricsWithGaps);
-        if(settings.isSahnieEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionSahnie.json", lyricsWithGaps);
+        // Read only if enabled
+        if (settings.isFarinEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionFarin.json", lyricsWithGaps);
+        if (settings.isBelaEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionBela.json", lyricsWithGaps);
+        if (settings.isSahnieEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionSahnie.json", lyricsWithGaps);
 
         // Get random SongTextWithGap
         randomTextWithGap = getRandomSongTextWithGap(lyricsWithGaps);
         
         // Create GUI
-        gui = new LueckenfuellerGui(this, pSettings, randomTextWithGap);
+        gui = new LueckenfuellerGui(this, settings, multiplayer, randomTextWithGap);
 
         // Start timer
         if(!settings.isCtlUnlimitedTimeEnabled()) {
@@ -63,9 +80,7 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
      * @return boolean if the given Strings do match
      */
     private boolean doMatch(String p1, String p2) {
-        if(p1.trim().toLowerCase().equals(p2.trim().toLowerCase()))
-        return true;
-        return false;
+        return p1.trim().toLowerCase().equals(p2.trim().toLowerCase());
     }
 
     /**
@@ -74,10 +89,22 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
      * @param pUserInput input in JTextField
      */
     public void submitPressed(String pUserInput) {
-        if(doMatch(randomTextWithGap.getGap(), pUserInput)) {
+        // * If guess was correct
+        if (doMatch(randomTextWithGap.getGap(), pUserInput)) {
             // Update score
-            score++;
-            gui.setScoreLabel(score);
+            if (multiplayer) {
+                if (currentPlayer == 1) {
+                    score++;
+                } else {
+                    scoreP2++;
+                }
+                gui.setScoreLabel(score + scoreP2);
+                swapPlayer();
+                gui.setActivePlayer(currentPlayer == 1 ? p1 : p2);
+            } else {
+                score++;
+                gui.setScoreLabel(score);
+            }
 
             // Update GUI
             randomTextWithGap = getRandomSongTextWithGap(lyricsWithGaps);
@@ -91,19 +118,29 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
                 gui.setTimerLabel(timeLimit);
             }
             blockWrongGuesses = false;
+        // *  If guess was incorrect
         } else {
             // Remove one live and update GUI
-            if(!settings.isCtlUnlimitedLivesEnabled()) {
-                liveCount--;
+            if (!settings.isCtlUnlimitedLivesEnabled()) {
+                if (multiplayer) {
+                    if (currentPlayer == 1) {
+                        lives--;
+                    } else {
+                        livesP2--;
+                    }
+                } else {
+                    lives--;
+                }
                 gui.removeHealth();
             }
             gui.setInfoBarRed();
             blockWrongGuesses = true;
         }
-        if(liveCount == 0) {
-            if(score > settings.getCtlHighscore()) {
+
+        if (lives <= 0 || livesP2 <= 0) {
+            if (score > settings.getCtlHighscore() & !multiplayer) {
                 settings.setCtlHighscore(score);
-                saveSettings(settings);
+                Settings.write(settings);
             }
             openEndingScreen("Du hast keine Leben mehr übrig!", "Deine Punktzahl beträgt: " + score);
         }
@@ -114,13 +151,69 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
      * @return first letter of solution
      */
     public String requestHint() {
-        if(hintCount > 0) {
-            hintCount--;
-            gui.setHints(hintCount);
-            return String.valueOf(randomTextWithGap.getGap().charAt(0));
+        if (multiplayer) {
+            if (currentPlayer == 1) {
+                if (hints > 0) {
+                    hints--;
+                    gui.setHints("P1: " + hints + " / P2: " + hintsP2);
+                    return String.valueOf(randomTextWithGap.getGap().charAt(0));
+                } else {
+                    return "Keine Hinweise mehr übrig.";
+                }
+            } else {
+                if (hintsP2 > 0) {
+                    hintsP2--;
+                    gui.setHints("P1: " + hints + " / P2: " + hintsP2);
+                    return String.valueOf(randomTextWithGap.getGap().charAt(0));
+                } else {
+                    return "Keine Hinweise mehr übrig.";
+                }
+            }
         } else {
-            return "Keine Hinweise mehr übrig.";
+            if (hints > 0) {
+                hints--;
+                gui.setHints(String.valueOf(hints));
+                return String.valueOf(randomTextWithGap.getGap().charAt(0));
+            } else {
+                return "Keine Hinweise mehr übrig.";
+            }
         }
+    }
+
+    /**
+     * Changes the active player
+     */
+    public void swapPlayer() {
+        if (currentPlayer == 1) {
+            currentPlayer = 2;
+        } else  {
+            currentPlayer = 1;
+        }
+    }
+
+    /**
+     * Gets and returns a player name
+     * @param pPlayer Number of player (1 or 2)
+     * @return Player name
+     */
+    public String getPlayerName(int pPlayer) {
+        if (pPlayer == 1) {
+            return p1;
+        } else {
+            return p2;
+        }
+    }
+
+    public int getActivePlayer() {
+        return currentPlayer;
+    }
+
+    public int getHintCount() {
+        return hints;
+    }
+
+    public int getHintsCountP2() {
+        return hintsP2;
     }
 
     /**
@@ -132,9 +225,9 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
     private SongTextWithGap getRandomSongTextWithGap(LinkedList<SongTextWithGap> pListWithData) {
         // Checks if all songs were guessed
         if(pListWithData.isEmpty()) {
-            if(score > settings.getCtlHighscore()) {
+            if(score > settings.getCtlHighscore() & !multiplayer) {
                 settings.setCtlHighscore(score);
-                saveSettings(settings);
+                Settings.write(settings);
             }
             openEndingScreen("Du hast ALLE Lücken dieser Version gefüllt!", "Deine Punktzahl beträgt. " + score);
         }
@@ -153,7 +246,7 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
 
     public void restartGame() {
         gui.dispose();
-        new LueckenfuellerGame(settings);
+        new LueckenfuellerGame(settings, multiplayer, p1, p2);
     }
 
     public void closeGame() {
@@ -182,27 +275,12 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
     }
 
     /**
-     * Overrides the current settings in the settings.json file
-     * @param pSettings settings object to override the current settings
-     */
-    private void saveSettings(Settings pSettings) {
-        Gson gson = new Gson();
-        try (FileWriter writer = new FileWriter("data\\settings.json")) {
-            gson.toJson(pSettings, writer);
-            System.out.println("Saved settings to \"data/settings.json\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * Handles the timer event
      * This is called when a second passes
      */
     public void timerEvent() {
         timeLimit--;
-        if(timeLimit >= 0)
-        gui.setTimerLabel(timeLimit);
+        if(timeLimit >= 0) gui.setTimerLabel(timeLimit);
         if(timeLimit == 0 & !blockWrongGuesses) {
             submitPressed(""); // Submit as wrong guess when timer runs out
         }

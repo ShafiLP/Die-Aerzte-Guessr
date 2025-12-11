@@ -1,43 +1,45 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import com.formdev.flatlaf.FlatClientProperties;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Image;
+import java.awt.*;
 import java.util.Collections;
 
 public class LueckenfuellerMenu extends Menu {
-    private JFrame settingsFrame;
+    private final Settings settings;
 
     /**
      * Crates a GUI for starting the game and configuring settings
      */
-    public LueckenfuellerMenu() {
-        // Read settings
-        settings = Settings.read();
-        Color backgroundColor = Color.WHITE;
+    public LueckenfuellerMenu(Settings settings) {
+        this.settings = settings;
 
-        if(settings.isColourfulGuiEnabled()) {
+        // Apply background colour
+        Color backgroundColor = Color.WHITE;
+        if (settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(220, 220, 255);
-            if(settings.isDarkMode())
-            backgroundColor = new Color(40, 40, 90);
+            if (settings.isDarkMode()) backgroundColor = new Color(40, 40, 90);
         }
 
-        // Set accent colours
+        // Apply accent colours
         FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", "#5959ffff"));
-        setup();
+        if(settings.isDarkMode()){
+            FlatDarkLaf.setup();
+            com.formdev.flatlaf.FlatDarkLaf.updateUI();
+        } else {
+            FlatLightLaf.setup();
+            com.formdev.flatlaf.FlatLaf.updateUI();
+        }
 
         this.setTitle("Lückenfüller");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(310, 350);
+        this.setSize(310, 400);
         this.setResizable(false);
-        this.setLocationRelativeTo(null); // Center the window
+        this.setLocationRelativeTo(null); // Center window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Main panel with BorderLayout
@@ -63,65 +65,138 @@ public class LueckenfuellerMenu extends Menu {
         // Buttons
         buttons[0] = new JButton("Spielen");
         buttons[0].addActionListener(_ -> {
-            if(fHtp != null && fHtp.isVisible()) {
-                fHtp.dispose();
-            }
-            if(settingsFrame != null && settingsFrame.isVisible()) {
-                settingsFrame.dispose();
-            }
             this.dispose();
-            new LueckenfuellerGame(settings);
+            new LueckenfuellerGame(settings, false, null, null);
         });
-        buttons[1] = new JButton("Einstellungen");
+        buttons[1] = new JButton("Vs. (BETA)");
         buttons[1].addActionListener(_ -> {
+            // Create new JFrame
+            JFrame frNames = new JFrame() {
+                @Override
+                public void dispose() {
+                    super.dispose();
+                    LueckenfuellerMenu.this.setEnabled(true);
+                    LueckenfuellerMenu.this.requestFocus();
+                }
+            };
+            frNames.setTitle("Straight Outta...");
+            frNames.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frNames.setSize(300, 150);
+            frNames.setResizable(false);
+            frNames.setLocationRelativeTo(null);
+            frNames.setLayout(new BorderLayout());
+            LueckenfuellerMenu.this.setEnabled(false);
+
+            JPanel panCenter = new JPanel(new GridBagLayout());
+            panCenter.add(new JLabel("Namen eingeben!", SwingConstants.CENTER) {{
+                setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            }}, new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 0;
+                gridwidth = 2;
+                insets = new Insets(5, 5, 5, 5);
+                anchor = GridBagConstraints.SOUTH;
+                fill = GridBagConstraints.HORIZONTAL;
+            }});
+            panCenter.add(new JLabel("Spieler 1: ") {{
+                setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            }}, new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 1;
+                insets = new Insets(0, 5, 0, 0);
+                anchor = GridBagConstraints.WEST;
+                fill = GridBagConstraints.NONE;
+            }});
+            JTextField tfPlayer1 =  new JTextField();
+            panCenter.add(tfPlayer1, new GridBagConstraints() {{
+                gridx = 1;
+                gridy = 1;
+                insets = new Insets(0, 0, 0, 5);
+                anchor = GridBagConstraints.CENTER;
+                fill = GridBagConstraints.HORIZONTAL;
+            }});
+            panCenter.add(new JLabel("Spieler 2: ") {{
+                setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            }}, new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 2;
+                insets = new Insets(0, 5, 0, 0);
+                anchor = GridBagConstraints.WEST;
+                fill = GridBagConstraints.NONE;
+            }});
+            JTextField tfPlayer2 =  new JTextField();
+            panCenter.add(tfPlayer2, new GridBagConstraints() {{
+                gridx = 1;
+                gridy = 2;
+                insets = new Insets(0, 0, 0, 5);
+                anchor = GridBagConstraints.CENTER;
+                fill = GridBagConstraints.HORIZONTAL;
+            }});
+            frNames.add(panCenter, BorderLayout.CENTER);
+
+            // Confirm & Return buttons
+            JPanel panButtons = new JPanel();
+            panButtons.setLayout(new GridBagLayout());
+
+            JButton bReturn = new JButton("X");
+            bReturn.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_ROUND_RECT);
+            bReturn.addActionListener(e -> {
+                frNames.dispose();
+            });
+            panButtons.add(bReturn, new GridBagConstraints() {{
+                gridy = 0;
+                gridx = 0;
+                weightx = 0.1;
+                insets = new Insets(0, 0, 5, 5);
+                anchor = GridBagConstraints.EAST;
+                fill = GridBagConstraints.NONE;
+            }});
+            JButton bConfirm = new JButton("✓");
+            bConfirm.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_ROUND_RECT);
+            bConfirm.addActionListener(_ -> {
+                frNames.dispose();
+                LueckenfuellerMenu.this.dispose();
+                new LueckenfuellerGame(settings, true, tfPlayer1.getText(), tfPlayer2.getText());
+            });
+            panButtons.add(bConfirm, new GridBagConstraints() {{
+                gridy = 0;
+                gridx = 1;
+                weightx = 0.1;
+                insets = new Insets(0, 5, 5, 0);
+                anchor = GridBagConstraints.WEST;
+                fill = GridBagConstraints.NONE;
+            }});
+            frNames.add(panButtons, BorderLayout.SOUTH);
+
+            frNames.setVisible(true);
+        });
+        buttons[2] = new JButton("Einstellungen");
+        buttons[2].addActionListener(_ -> {
             openSettings();
         });
-        buttons[2] = new JButton("Wie man spielt");
-        buttons[2].addActionListener(_ -> {
+        buttons[3] = new JButton("Wie man spielt");
+        buttons[3].addActionListener(_ -> {
             new HowToPlayFrame(this, "html\\howToPlayLueckenfueller.html");
         });
-        buttons[3] = new JButton("Hauptmenü");
-        buttons[3].addActionListener(_ -> {
-            if(fHtp != null && fHtp.isVisible()) {
-                fHtp.dispose();
-            }
-            if(settingsFrame != null && settingsFrame.isVisible()) {
-                settingsFrame.dispose();
-            }
+        buttons[4] = new JButton("Hauptmenü");
+        buttons[4].addActionListener(_ -> {
             this.dispose();
             new MainMenu();
         });
 
-        buttons[0].setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
-        buttons[0].setBackground(Color.WHITE);
-        buttons[0].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        buttons[1].setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
-        buttons[1].setBackground(Color.WHITE);
-        buttons[1].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        buttons[2].setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
-        buttons[2].setBackground(Color.WHITE);
-        buttons[2].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        buttons[3].setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
-        buttons[3].setBackground(Color.WHITE);
-        buttons[3].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        Dimension buttonSize = new Dimension(200, 40);
-        buttons[0].setMaximumSize(buttonSize);
-        buttons[1].setMaximumSize(buttonSize);
-        buttons[2].setMaximumSize(buttonSize);
-        buttons[3].setMaximumSize(buttonSize);
-
-        buttons[0].setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttons[1].setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttons[2].setAlignmentX(CENTER_ALIGNMENT);
-        buttons[3].setAlignmentX(Component.CENTER_ALIGNMENT);
+        // Add with vertical padding
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i].setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
+            buttons[i].setBackground(Color.WHITE);
+            buttons[i].setFont(settings.getFont());
+            buttons[i].setMaximumSize(new Dimension(200, 60));
+            buttons[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+            buttonPanel.add(buttons[i]);
+            if (i != buttons.length - 1) buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        }
 
         // Make buttons dark if darkmode is enabled
-        if(settings.isDarkMode())
-        darkmodeButtons();
+        if (settings.isDarkMode()) darkmodeButtons();
 
         // Highscore
         JPanel highscorePanel = new JPanel();
@@ -130,15 +205,6 @@ public class LueckenfuellerMenu extends Menu {
         highscorePanel.add(lHighscore);
         highscorePanel.setBackground(backgroundColor);
         this.add(highscorePanel, BorderLayout.SOUTH);
-
-        // Add with vertical padding
-        buttonPanel.add(buttons[0]);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(buttons[1]);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(buttons[2]);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(buttons[3]);
 
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
         this.add(mainPanel);
@@ -150,7 +216,8 @@ public class LueckenfuellerMenu extends Menu {
      * Called when user clicks on settings button
      */
     private void openSettings() {
-        settingsFrame = new JFrame() {
+        // Frame settings
+        JFrame settingsFrame = new JFrame() {
             @Override
             public void dispose() {
                 super.dispose();
@@ -166,50 +233,64 @@ public class LueckenfuellerMenu extends Menu {
         this.setEnabled(false);
 
         // Timer settings
-        JLabel lTimeLimit = new JLabel("Zeitlimit (in Sekunden):");
-        JTextField tfTimeLimit = new JTextField(settings.getCtlTimeLimit() + "");
-        tfTimeLimit.setEnabled(!settings.isCtlUnlimitedTimeEnabled());
         JPanel panTimeLimit = new JPanel(new GridLayout(2, 1));
-        panTimeLimit.add(lTimeLimit);  panTimeLimit.add(tfTimeLimit);
+        panTimeLimit.add(new JLabel("Zeitlimit (in Sekunden):") {{
+            setFont(settings.getFont());
+        }});
+        JTextField tfTimeLimit = new JTextField(settings.getCtlTimeLimit() + "");
+        tfTimeLimit.setFont(settings.getFont());
+        tfTimeLimit.setEnabled(!settings.isCtlUnlimitedTimeEnabled());
+        panTimeLimit.add(tfTimeLimit);
         JCheckBox cbUnlimitedTime = new JCheckBox("Ohne Zeitlimit", settings.isCtlUnlimitedTimeEnabled());
+        cbUnlimitedTime.setFont(settings.getFont());
         cbUnlimitedTime.addActionListener(_ -> {
             tfTimeLimit.setEnabled(!cbUnlimitedTime.isSelected());
         });
 
         // Health bar settings
         JPanel panLives = new JPanel(new GridLayout(2, 1));
-        panLives.add(new JLabel("Anzahl Leben:"));
+        panLives.add(new JLabel("Anzahl der Leben:") {{
+            setFont(settings.getFont());
+        }});
         JSlider slLives = new JSlider(1, 10, settings.getCtlLiveCount());
         slLives.setPaintLabels(true);
         slLives.setLabelTable(slLives.createStandardLabels(1));
         slLives.setSnapToTicks(true);
         slLives.setEnabled(!settings.isCtlUnlimitedLivesEnabled());
+        slLives.setFont(settings.getFont());
         panLives.add(slLives);
         JCheckBox cbUnlimitedLives = new JCheckBox("Ohne Leben", settings.isCtlUnlimitedLivesEnabled());
+        cbUnlimitedLives.setFont(settings.getFont());
         cbUnlimitedLives.addActionListener(_ -> {
             slLives.setEnabled(!cbUnlimitedLives.isSelected());
         });
 
         // Number or hints settings
         JPanel panHints = new JPanel(new GridLayout(2, 1));
-        panHints.add(new JLabel("Anzahl der Hinweise"));
+        panHints.add(new JLabel("Anzahl der Hinweise") {{
+            setFont(settings.getFont());
+        }});
         JSlider slHints = new JSlider(0, 10, settings.getCtlHintCount());
         slHints.setPaintLabels(true);
         slHints.setLabelTable(slHints.createStandardLabels(1));
         slHints.setSnapToTicks(true);
+        slHints.setFont(settings.getFont());
         panHints.add(slHints);
 
         // Hardmode settings
         JCheckBox cbHardmode = new JCheckBox("Schwieriger Modus", settings.isCtlHardmodeEnabled());
+        cbHardmode.setFont(settings.getFont());
 
         // Highscore reset button
         JButton bResetHighscore = new JButton("Highscore zurücksetzen");
+        bResetHighscore.setFont(settings.getFont());
         bResetHighscore.addActionListener(_ -> {
             settings.setCtlHighscore(0);
         });
 
         // Save button
         JButton bSave = new JButton("Speichern");
+        bSave.setFont(settings.getFont());
         bSave.addActionListener(_ -> {
             // Check if time limit input is valid
             try {

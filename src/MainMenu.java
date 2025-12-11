@@ -24,9 +24,10 @@ import java.util.Collections;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.5.6";
+    private final String VERSION = "0.5.7";
     private Settings settings;
     private JButton bSettings;
+
     /**
      * Constructor of main menu
      * Contains paths to all games
@@ -52,7 +53,7 @@ public class MainMenu extends JFrame {
 
         // Heading
         JPanel headingPanel = new JPanel();
-        ImageIcon icon = new ImageIcon("images\\AerzteGuessr.png");
+        ImageIcon icon = new ImageIcon("images\\aerzteGuessr.png");
         Image img = icon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         JLabel lHeading = new JLabel(new ImageIcon(img));
         headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
@@ -69,7 +70,7 @@ public class MainMenu extends JFrame {
         JButton bGTO = new JButton(new ImageIcon(img));
         bGTO.addActionListener(_ -> {
             this.dispose(); // Close the current gui
-            new StraightOuttaMenu();  // Start the game
+            new StraightOuttaMenu(settings);  // Start the game
         });
         bGTO.setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
         bGTO.setBackground(new Color(255, 220, 220));
@@ -79,7 +80,7 @@ public class MainMenu extends JFrame {
         JButton bCTL = new JButton(new ImageIcon(img));
         bCTL.addActionListener(_ -> {
             this.dispose(); 
-            new LueckenfuellerMenu();
+            new LueckenfuellerMenu(settings);
         });
         bCTL.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
         bCTL.setBackground(new Color(220, 220, 255));
@@ -89,13 +90,13 @@ public class MainMenu extends JFrame {
         JButton bAerztle = new JButton(new ImageIcon(img));
         bAerztle.addActionListener(_ -> {
             this.dispose();
-            new AerztleMenu();
+            new AerztleMenu(settings);
         });
         bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
         bAerztle.setBackground(new Color(220, 255, 220));
 
         bSettings = new JButton("Einstellungen");
-        bSettings.setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize() * 2));
+        bSettings.setFont(new Font("Folio Extra", Font.BOLD, settings.getFontSize() * 2));
         bSettings.setForeground(Color.BLACK);
         bSettings.addActionListener(_ -> {
             new SettingsGeneral(this, settings);
@@ -203,7 +204,7 @@ public class MainMenu extends JFrame {
     }
 
     /**
-     * Compares current version with newest version
+     * Compares current version with latest version
      * @param pLatest Latest version from GitHub repository
      * @param pCurrent Current version
      * @return true if newer version is available, return false if current version is the same or higher as latest
