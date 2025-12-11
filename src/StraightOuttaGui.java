@@ -10,6 +10,7 @@ import java.util.LinkedList;
  */
 class StraightOuttaGui extends Gui {
     private StraightOuttaGame game;
+    private final boolean multiplayer;
     private JPanel centerPanel;
     private JPanel infoBar;
     private JComboBox<DropdownItem> songDropdown;
@@ -17,25 +18,31 @@ class StraightOuttaGui extends Gui {
     private JLabel lyricLabel = new JLabel();
     private JLabel timerLabel;
     private JLabel currentSongLabel = new JLabel();
-    private JLabel scoreLabel = new JLabel("Punktzahl: 0", SwingConstants.RIGHT);
+    private JLabel scoreLabel;
     private JLabel[] healthBar;
+    private JLabel[] healthBarP2;
     private JLabel lSolution;
     private JButton bHint;
     private JButton bSubmit;
     private Color backgroundColor;
     private Color infobarColor;
 
+    // * For multiplayer
+    private JLabel lPlayer; // Label displaying current player
+
     /**
      * Constructor for the GTGGui class
      * Creates a GUI for the game "Guess The Origin"
      */
-    public StraightOuttaGui(StraightOuttaGame pGame, String pLyric, Settings pSettings) {
+    public StraightOuttaGui(StraightOuttaGame pGame, String pLyric, Settings pSettings, boolean multiplayer) {
         game = pGame;
+        this.multiplayer = multiplayer;
 
         // Read settings
         settings = pSettings;
         timerLabel = new JLabel("Timer: " + settings.getGtoTimeLimit());
         healthBar = new JLabel[settings.getGtoLiveCount()];
+        healthBarP2 = new JLabel[settings.getGtoLiveCount()];
         if(settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(255, 220, 220);
             infobarColor = new Color(230, 100, 100);
@@ -47,6 +54,7 @@ class StraightOuttaGui extends Gui {
             backgroundColor = Color.WHITE;
             infobarColor = Color.LIGHT_GRAY;
         }
+        scoreLabel = new JLabel(multiplayer ? "Frage Nr. 0" : "Puntzahl: 0", SwingConstants.RIGHT);
 
         // JFrame settings
         this.setTitle("Straight Outta...");
@@ -59,17 +67,37 @@ class StraightOuttaGui extends Gui {
         currentSongLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, 12));
 
         // Health bar
-        if(settings.isShowIconsEnabled()) {
-            ImageIcon healthIcon = new ImageIcon("images\\health.png");
-            Image healtImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
-            for(int i = 0; i < healthBar.length; i++) {
-                healthBar[i] = new JLabel(new ImageIcon(healtImg));
-                healthBar[i].setBounds(i * 25 + 2, 25, 25, 25);
+        if (multiplayer) {
+            if(settings.isShowIconsEnabled()) {
+                ImageIcon healthIcon = new ImageIcon("images\\health.png");
+                Image healtImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+                for(int i = 0; i < healthBar.length; i++) {
+                    healthBar[i] = new JLabel(new ImageIcon(healtImg));
+                    healthBar[i].setBounds(i * 25 + 2, 25, 25, 25);
+                    healthBarP2[i] = new JLabel(new ImageIcon(healtImg));
+                    healthBarP2[i].setBounds(i * 25 + 2, 25, 25, 25);
+                }
+            } else {
+                for(int i = 0; i < healthBar.length; i++) {
+                    healthBar[i] = new JLabel("❤️");
+                    healthBar[i].setBounds(i * 15 + 2, 25, 25, 25);
+                    healthBarP2[i] = new JLabel("️❤️️");
+                    healthBarP2[i].setBounds(i * 15 + 2, 25, 25, 25);
+                }
             }
         } else {
-            for(int i = 0; i < healthBar.length; i++) {
-                healthBar[i] = new JLabel("❤️");
-                healthBar[i].setBounds(i * 15 + 2, 25, 25, 25);
+            if(settings.isShowIconsEnabled()) {
+                ImageIcon healthIcon = new ImageIcon("images\\health.png");
+                Image healtImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
+                for(int i = 0; i < healthBar.length; i++) {
+                    healthBar[i] = new JLabel(new ImageIcon(healtImg));
+                    healthBar[i].setBounds(i * 25 + 2, 25, 25, 25);
+                }
+            } else {
+                for(int i = 0; i < healthBar.length; i++) {
+                    healthBar[i] = new JLabel("❤️");
+                    healthBar[i].setBounds(i * 15 + 2, 25, 25, 25);
+                }
             }
         }
 
@@ -79,11 +107,29 @@ class StraightOuttaGui extends Gui {
         centerPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
 
         // Heading
+        JPanel panHeading = new  JPanel(new GridBagLayout());
+        panHeading.setOpaque(false);
         JLabel lHeading = new JLabel("", SwingConstants.CENTER);
         ImageIcon icon = new ImageIcon("images\\StraightOutta.png");
         Image img = icon.getImage().getScaledInstance(280, 40, Image.SCALE_SMOOTH);
         lHeading.setIcon(new ImageIcon(img));
-        centerPanel.add(lHeading, BorderLayout.NORTH);
+        panHeading.add(lHeading, new GridBagConstraints() {{
+            gridx = 0;
+            gridy = 0;
+            fill = GridBagConstraints.NONE;
+            anchor = GridBagConstraints.CENTER;
+        }});
+        lPlayer = new JLabel(multiplayer ? "Am Zug: " + game.getPlayerName(1) : "", SwingConstants.CENTER);
+        lPlayer.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
+        lPlayer.setForeground(Color.RED);
+        lPlayer.setOpaque(false);
+        panHeading.add(lPlayer, new  GridBagConstraints() {{
+            gridx = 0;
+            gridy = 1;
+            fill = GridBagConstraints.HORIZONTAL;
+            anchor = GridBagConstraints.CENTER;
+        }});
+        centerPanel.add(panHeading, BorderLayout.NORTH);
 
         // Lyrics label with lyrics and hint
         JPanel lyricsPanel = new JPanel();
@@ -94,7 +140,7 @@ class StraightOuttaGui extends Gui {
         lyricLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         lyricsPanel.setOpaque(false);
 
-        lSolution = new JLabel(/*"Hineweis: " + game.requestHint() + "..."*/);
+        lSolution = new JLabel();
         lSolution.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         lSolution.setForeground(Color.RED);
         lSolution.setVisible(false);
@@ -141,7 +187,7 @@ class StraightOuttaGui extends Gui {
         }
 
         // Hint button
-        bHint = new JButton("Hinweis (Noch " + settings.getGtoHintCount() + ")");
+        bHint = new JButton(multiplayer ? "Hinweis (P1: " + game.getHintCount() + " / P2: " + game.getHintsCountP2() + ")" : "Hinweis (Noch " + settings.getGtoHintCount() + ")");
         bHint.addActionListener(_ -> {
             if(!lSolution.isVisible()) {
                 lSolution.setText("Hinweis: " + game.requestHint() + "...");
@@ -149,15 +195,17 @@ class StraightOuttaGui extends Gui {
             }
         });
         bHint.setPreferredSize(new Dimension(150, 30));
+        bHint.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         guessBar.add(bHint, new GridBagConstraints() {{
             gridx = 1;
             gridy = 0;
-            weightx = 0;
+            weightx = 0.3;
             fill = GridBagConstraints.HORIZONTAL;
         }});
 
         // Submit button
         bSubmit = new JButton("Raten");
+        bSubmit.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         bSubmit.addActionListener(_ -> {
             submitButtonPressed();
         });
@@ -165,21 +213,61 @@ class StraightOuttaGui extends Gui {
         guessBar.add(bSubmit, new GridBagConstraints() {{
             gridx = 2;
             gridy = 0;
+            weightx = 0.1;
             fill = GridBagConstraints.HORIZONTAL;
         }});
 
-        // Health bar at the top left corner
-        JPanel healthPanel = new JPanel(new GridLayout(1, healthBar.length));
-        for(int i = 0; i < healthBar.length; i++) {
-            healthPanel.add(healthBar[i]);
+        // Health bar in the top left corner
+        JPanel panHealthP1 = new JPanel(new GridLayout(1, healthBar.length));
+        for (JLabel l : healthBar) {
+            panHealthP1.add(l);
         }
-        healthPanel.setOpaque(false);
+        panHealthP1.setOpaque(false);
+        JPanel panHealthP2 = new JPanel();
+        if (multiplayer) {
+            panHealthP2 = new JPanel(new GridLayout(1, healthBarP2.length));
+            for (JLabel l :  healthBarP2) {
+                panHealthP2.add(l);
+            }
+            panHealthP2.setOpaque(false);
+        }
+
+        JPanel panHealth;
+        if (multiplayer) {
+            panHealth = new JPanel(new GridBagLayout());
+            panHealth.setOpaque(false);
+            GridBagConstraints gbcHealth = new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 0;
+                fill = GridBagConstraints.NONE;
+                anchor = GridBagConstraints.LINE_START;
+            }};
+            panHealth.add(new JLabel(game.getPlayerName(1) + ": ") {{
+                setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
+            }}, gbcHealth);
+            gbcHealth.gridx++;
+            panHealth.add(panHealthP1, gbcHealth);
+            gbcHealth.gridy = 1;
+            gbcHealth.gridx = 0;
+            panHealth.add(new JLabel(game.getPlayerName(2) + ": ") {{
+                setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
+            }}, gbcHealth);
+            gbcHealth.gridx++;
+            panHealth.add(panHealthP2, gbcHealth);
+        } else {
+            panHealth = new JPanel(new GridLayout(1, healthBar.length));
+            panHealth.setOpaque(false);
+            for (JLabel l : healthBar) {
+                panHealth.add(l);
+            }
+        }
+
 
         // Upper left corner of infoBar
         JPanel upperLeft = new JPanel(new GridBagLayout());
         upperLeft.setOpaque(false);
 
-        upperLeft.add(healthPanel, new GridBagConstraints() {{
+        upperLeft.add(panHealth, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
             weightx = 1.0;
@@ -191,6 +279,7 @@ class StraightOuttaGui extends Gui {
         JPanel upperRight = new JPanel(new GridBagLayout());
         upperRight.setOpaque(false);
 
+        scoreLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         upperRight.add(scoreLabel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 0;
@@ -199,6 +288,7 @@ class StraightOuttaGui extends Gui {
             gbc.fill = GridBagConstraints.NONE;
         }});
 
+        timerLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, settings.getFontSize()));
         upperRight.add(timerLabel, new GridBagConstraints() {{
             gridx = 0;
             gridy = 1;
@@ -216,7 +306,7 @@ class StraightOuttaGui extends Gui {
             gridy = 0;
             weightx = 1.0;
             anchor = GridBagConstraints.LINE_START;
-            fill = GridBagConstraints.NONE;
+            fill = GridBagConstraints.HORIZONTAL;
         }});
 
         infoBar.add(currentSongLabel, new GridBagConstraints() {{
@@ -256,10 +346,28 @@ class StraightOuttaGui extends Gui {
      * Removes one health point from the health bar
      */
     public void removeHealth() {
-        for(int i = healthBar.length - 1; i >= 0; i--) {
-            if(healthBar[i].isVisible()) {
-                healthBar[i].setVisible(false);
-                return;
+        if (multiplayer) {
+            if (game.getActivePlayer() == 1) {
+                for (int i = healthBar.length - 1; i >= 0; i--) {
+                    if(healthBar[i].isVisible()) {
+                        healthBar[i].setVisible(false);
+                        return;
+                    }
+                }
+            } else {
+                for (int i = healthBarP2.length - 1; i >= 0; i--) {
+                    if(healthBarP2[i].isVisible()) {
+                        healthBarP2[i].setVisible(false);
+                        return;
+                    }
+                }
+            }
+        } else {
+            for (int i = healthBar.length - 1; i >= 0; i--) {
+                if (healthBar[i].isVisible()) {
+                    healthBar[i].setVisible(false);
+                    return;
+                }
             }
         }
     }
@@ -277,7 +385,7 @@ class StraightOuttaGui extends Gui {
      * @param pScore new text on the score label
      */
     public void updateScore(int pScore) {
-        scoreLabel.setText("Punktzahl : " + pScore);
+        scoreLabel.setText(multiplayer ? "Frage Nr." + pScore : "Punktzahl : " + pScore);
     }
 
     /**
@@ -314,20 +422,36 @@ class StraightOuttaGui extends Gui {
         lSolution.setVisible(false);
     }
 
-    public void setHints(int pHints) {
-        bHint.setText("Hinweis (Noch " + pHints + ")");
+    /**
+     * Changes text displayed on hints button
+     * @param pHints New text to display on hints button
+     */
+    public void setHints(String pHints) {
+        bHint.setText(multiplayer ? "Hinweis (" + pHints + ")" : "Hinweis (Noch: " + pHints + ")");
     }
 
     /**
-     * Deactivates or activates all ways to do an input on the GUI
+     * Changes the label that displays the current active player
+     * @param pName Name of active player
+     * @param pPlayer Number of active player
+     */
+    public void setActivePlayer(String pName, int pPlayer) {
+        lPlayer.setText("Am Zug: " + pName);
+        if (pPlayer == 1) {
+            lPlayer.setForeground(Color.RED);
+        } else {
+            lPlayer.setForeground(Color.BLUE);
+        }
+    }
+
+    /**
+     * Deactivates or activates ways to do an input on the GUI
      * @param pInteractable If true all elements are interactable (enabled), if false all elements are not interactabe (disabled)
      */
     public void setInteractable(boolean pInteractable) {
-        if(songDropdown != null)
-        songDropdown.setEnabled(pInteractable);
+        if (songDropdown != null) songDropdown.setEnabled(pInteractable);
 
-        if(songSearchBar != null)
-        songSearchBar.setEnabled(pInteractable);
+        if (songSearchBar != null) songSearchBar.setEnabled(pInteractable);
         
         bHint.setEnabled(pInteractable);
         bSubmit.setEnabled(pInteractable);

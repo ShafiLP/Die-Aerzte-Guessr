@@ -11,15 +11,22 @@ import org.json.JSONObject;
 import com.google.gson.Gson;
 
 /**
- * Class for the game "Guess The Origin"
+ * Class for the game "Straight Outta..."
  * Implements TimerEvents to handle timer
  */
 public class StraightOuttaGame implements GameMode, TimerEvents  {
     private final Settings settings;
     private final StraightOuttaGui gui;
+    private boolean multiplayer;
+    private String p1;
+    private String p2;
+    private int currentPlayer = 1;
     private int score = 0;
+    private int scoreP2 = 0;
     private int lives;
+    private int livesP2;
     private int hints;
+    private int hintsP2;
     private boolean blockWrongGuesses = false;
     private SongText currentSongText;
     private LinkedList<SongText> songTexts = new LinkedList<>();
@@ -27,32 +34,37 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
 
     /**
      * Constructor for the GTOGame class
-     * @param pSettings Settings for the game
+     * @param settings Settings for the game
      */
-    public StraightOuttaGame(Settings pSettings) {
+    public StraightOuttaGame(Settings settings, boolean multiplayer, String p1, String p2) {
         // Apply settings
-        settings = pSettings;
+        this.settings = settings;
+        this.multiplayer = multiplayer;
+        this.p1 = p1;
+        this.p2 = p2;
         lives = settings.getGtoLiveCount();
         timeLimit = settings.getGtoTimeLimit();
         hints = settings.getGtoHintCount();
+        livesP2 = lives;
+        hintsP2 = hints;
 
         // Create a LinkedList containing all available song lyrics
         songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
 
         // Add Farin songs if pFarin = true
-        if(settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
+        if (settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
 
         // Add Bela songs if pBela = true
-        if(settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
+        if (settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
 
         // Add Sahnie songs if pSahnie = true
-        if(settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
+        if (settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
  
         // Get a random song text part
         currentSongText = getRandomSongText();
 
         // Create GUI
-        gui = new StraightOuttaGui(this, currentSongText.getText(), settings);
+        gui = new StraightOuttaGui(this, currentSongText.getText(), settings, multiplayer);
 
         // Start timer
         if(!settings.isGtoUnlimitedTimeEnabled()) {
@@ -68,7 +80,17 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
      * This method is called when the user guesses the song correctly
      */
     public void songGuessed() {
-        score++;
+        if (multiplayer) {
+            if (currentPlayer == 1) {
+                score++;
+            } else {
+                scoreP2++;
+            }
+            swapPlayer();
+            gui.setActivePlayer(currentPlayer == 1 ? p1 : p2, currentPlayer);
+        } else {
+            score++;
+        }
         blockWrongGuesses = false;
         currentSongText = getRandomSongText();
         if(currentSongText == null) return;
@@ -84,15 +106,23 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
      */
     public void wrongGuess() {
         if(!settings.isGtoUnlimitedLivesEnabled()) {
-            lives--;
+            if (multiplayer) {
+                if (currentPlayer == 1) {
+                    lives--;
+                } else {
+                    livesP2--;
+                }
+            } else {
+                lives--;
+            }
             gui.removeHealth();
             blockWrongGuesses = true;
         }
 
-        if(lives <= 0) {
-            if(settings.getGtoHighscore() < score) {
+        if(lives <= 0 || livesP2 <= 0) {
+            if(settings.getGtoHighscore() < score & !multiplayer) {
                 settings.setGtoHighscore(score);
-                saveSettings(settings);
+                Settings.write(settings);
             }
             openEndingScreen("Du hast keine Versuche mehr übrig!", "Du hast " + score + " Punkte erreicht.");
         }
@@ -132,11 +162,47 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
     public String requestHint() {
         if(hints > 0) {
             hints--;
-            gui.setHints(hints);
+            gui.setHints(multiplayer ? "P1: " + hints + " / P2: " + hintsP2 : String.valueOf(hints));
             return String.valueOf(currentSongText.getSongName().charAt(0));
         } else {
             return "Keine Hinweise mehr übrig.";
         }
+    }
+
+    /**
+     * Changes the active player
+     */
+    public void swapPlayer() {
+        if(currentPlayer == 1) {
+            currentPlayer = 2;
+        } else {
+            currentPlayer = 1;
+        }
+    }
+
+    /**
+     * Gets and returns a player name
+     * @param pPlayer Number of player (1 or 2)
+     * @return Player name
+     */
+    public String getPlayerName(int pPlayer) {
+        if (pPlayer == 1) {
+            return p1;
+        } else {
+            return p2;
+        }
+    }
+
+    public int getActivePlayer() {
+        return currentPlayer;
+    }
+
+    public int getHintCount() {
+        return hints;
+    }
+
+    public int getHintsCountP2() {
+        return hintsP2;
     }
 
     public void openEndingScreen(String pRow1, String pRow2) {
@@ -147,7 +213,7 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
 
     public void restartGame() {
         gui.dispose();
-        new StraightOuttaGame(settings);
+        new StraightOuttaGame(settings, multiplayer, p1, p2);
     }
 
     public void closeGame() {
@@ -159,7 +225,7 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
      * Adds all elements to an existing given LinkedList
      * @param filepath path to the JSON file with song data
      * @param songList List to add the SongText objects to
-     * @return
+     * @return LinkedList with all songs from given file path
      */
     private LinkedList<SongText> readSongsFromJson(String filepath, LinkedList<SongText> songList) {
         try {
@@ -176,28 +242,13 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
     }
 
     /**
-     * Overrides the current settings in the settings.json file
-     * @param pSettings settings object to override the current settings
-     */
-    private void saveSettings(Settings pSettings) {
-        Gson gson = new Gson();
-        try (FileWriter writer = new FileWriter("data\\settings.json")) {
-            gson.toJson(pSettings, writer);
-            System.out.println("Saved settings to \"data/settings.json\"");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
      * Handles the timer event
      */
     public void timerEvent() {
         timeLimit--;
-        if(timeLimit >= 0)
-        gui.setTimerLabel(timeLimit + "s");
+        if (timeLimit >= 0) gui.setTimerLabel(timeLimit + "s");
 
-        if(timeLimit == 0 & blockWrongGuesses == false) {
+        if (timeLimit == 0 & !blockWrongGuesses) {
             gui.infoBarWrong();
             wrongGuess(); // Count as a wrong guess if the timer runs out
         }

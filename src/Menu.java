@@ -17,7 +17,7 @@ import com.google.gson.Gson;
 
 public abstract class Menu extends JFrame {
     protected Settings settings;
-    protected JButton[] buttons = new JButton[4];
+    protected JButton[] buttons = new JButton[5];
     protected JFrame fHtp;
 
     /**

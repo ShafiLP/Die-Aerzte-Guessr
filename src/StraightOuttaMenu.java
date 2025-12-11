@@ -1,19 +1,13 @@
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatLaf;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Image;
+import java.awt.*;
 import java.util.Collections;
 
 public class StraightOuttaMenu extends Menu {
-    private JFrame fHtp;
     private JFrame settingsFrame;
 
     /**
@@ -23,11 +17,9 @@ public class StraightOuttaMenu extends Menu {
         // Read settings
         settings = Settings.read();
         Color backgroundColor = Color.WHITE;
-
         if(settings.isColourfulGuiEnabled()) {
             backgroundColor = new Color(255, 220, 220);
-            if(settings.isDarkMode())
-            backgroundColor = new Color(90, 40, 40);
+            if (settings.isDarkMode()) backgroundColor = new Color(90, 40, 40);
         }
 
         // Set accent colours
@@ -36,7 +28,7 @@ public class StraightOuttaMenu extends Menu {
 
         this.setTitle("Straight Outta...");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(310, 350);
+        this.setSize(310, 400);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
@@ -72,18 +64,120 @@ public class StraightOuttaMenu extends Menu {
                 settingsFrame.dispose();
             }
             this.dispose();
-            new StraightOuttaGame(settings);
+            new StraightOuttaGame(settings, false, null, null);
         });
-        buttons[1] = new JButton("Einstellungen");
+        buttons[1] = new JButton("Vs. (BETA)");
         buttons[1].addActionListener(_ -> {
+            // Create new JFrame
+            JFrame frNames = new JFrame() {
+                @Override
+                public void dispose() {
+                    super.dispose();
+                    StraightOuttaMenu.this.setEnabled(true);
+                    StraightOuttaMenu.this.requestFocus();
+                }
+            };
+            frNames.setTitle("Straight Outta...");
+            frNames.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            frNames.setSize(300, 150);
+            frNames.setResizable(false);
+            frNames.setLocationRelativeTo(null);
+            frNames.setLayout(new BorderLayout());
+            StraightOuttaMenu.this.setEnabled(false);
+
+            JPanel panCenter = new JPanel(new GridBagLayout());
+            panCenter.add(new JLabel("Namen eingeben!", SwingConstants.CENTER) {{
+                setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            }}, new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 0;
+                gridwidth = 2;
+                insets = new Insets(5, 5, 5, 5);
+                anchor = GridBagConstraints.SOUTH;
+                fill = GridBagConstraints.HORIZONTAL;
+            }});
+            panCenter.add(new JLabel("Spieler 1: ") {{
+                setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            }}, new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 1;
+                insets = new Insets(0, 5, 0, 0);
+                anchor = GridBagConstraints.WEST;
+                fill = GridBagConstraints.NONE;
+            }});
+            JTextField tfPlayer1 =  new JTextField();
+            panCenter.add(tfPlayer1, new GridBagConstraints() {{
+                gridx = 1;
+                gridy = 1;
+                insets = new Insets(0, 0, 0, 5);
+                anchor = GridBagConstraints.CENTER;
+                fill = GridBagConstraints.HORIZONTAL;
+            }});
+            panCenter.add(new JLabel("Spieler 2: ") {{
+                setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            }}, new GridBagConstraints() {{
+                gridx = 0;
+                gridy = 2;
+                insets = new Insets(0, 5, 0, 0);
+                anchor = GridBagConstraints.WEST;
+                fill = GridBagConstraints.NONE;
+            }});
+            JTextField tfPlayer2 =  new JTextField();
+            panCenter.add(tfPlayer2, new GridBagConstraints() {{
+                gridx = 1;
+                gridy = 2;
+                insets = new Insets(0, 0, 0, 5);
+                anchor = GridBagConstraints.CENTER;
+                fill = GridBagConstraints.HORIZONTAL;
+            }});
+            frNames.add(panCenter, BorderLayout.CENTER);
+
+            // Confirm & Return buttons
+            JPanel panButtons = new JPanel();
+            panButtons.setLayout(new GridBagLayout());
+
+            JButton bReturn = new JButton("X");
+            bReturn.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_ROUND_RECT);
+            bReturn.addActionListener(e -> {
+                frNames.dispose();
+            });
+            panButtons.add(bReturn, new GridBagConstraints() {{
+                gridy = 0;
+                gridx = 0;
+                weightx = 0.1;
+                insets = new Insets(0, 0, 5, 5);
+                anchor = GridBagConstraints.EAST;
+                fill = GridBagConstraints.NONE;
+            }});
+            JButton bConfirm = new JButton("✓");
+            bConfirm.putClientProperty(FlatClientProperties.BUTTON_TYPE, FlatClientProperties.BUTTON_TYPE_ROUND_RECT);
+            bConfirm.addActionListener(_ -> {
+                frNames.dispose();
+                StraightOuttaMenu.this.dispose();
+                new StraightOuttaGame(settings, true, tfPlayer1.getText(), tfPlayer2.getText());
+            });
+            panButtons.add(bConfirm, new GridBagConstraints() {{
+                gridy = 0;
+                gridx = 1;
+                weightx = 0.1;
+                insets = new Insets(0, 5, 5, 0);
+                anchor = GridBagConstraints.WEST;
+                fill = GridBagConstraints.NONE;
+            }});
+            frNames.add(panButtons, BorderLayout.SOUTH);
+
+            frNames.setVisible(true);
+        });
+        buttons[2] = new JButton("Einstellungen");
+        buttons[2].addActionListener(_ -> {
             openSettings();
         });
-        buttons[2] = new JButton("Wie man spielt");
-        buttons[2].addActionListener(_ -> {
+        buttons[3] = new JButton("Wie man spielt");
+        buttons[3].addActionListener(_ -> {
             new HowToPlayFrame(this, "html\\howToPlayStraightOutta.html");
         });
-        buttons[3] = new JButton("Hauptmenü");
-        buttons[3].addActionListener(_ -> {
+        buttons[4] = new JButton("Hauptmenü");
+        buttons[4].addActionListener(_ -> {
             if(fHtp != null && fHtp.isVisible()) {
                 fHtp.dispose();
             }
@@ -94,37 +188,6 @@ public class StraightOuttaMenu extends Menu {
             new MainMenu();
         });
 
-        buttons[0].setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
-        buttons[0].setBackground(Color.WHITE);
-        buttons[0].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        buttons[1].setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
-        buttons[1].setBackground(Color.WHITE);
-        buttons[1].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        buttons[2].setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
-        buttons[2].setBackground(Color.WHITE);
-        buttons[2].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        buttons[3].setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
-        buttons[3].setBackground(Color.WHITE);
-        buttons[3].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
-
-        Dimension buttonSize = new Dimension(200, 40);
-        buttons[0].setMaximumSize(buttonSize);
-        buttons[1].setMaximumSize(buttonSize);
-        buttons[2].setMaximumSize(buttonSize);
-        buttons[3].setMaximumSize(buttonSize);
-
-        buttons[0].setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttons[1].setAlignmentX(Component.CENTER_ALIGNMENT);
-        buttons[2].setAlignmentX(CENTER_ALIGNMENT);
-        buttons[3].setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        // Make buttons dark if darkmode is enabled
-        if(settings.isDarkMode())
-        darkmodeButtons();
-
         // Highscore
         JPanel highscorePanel = new JPanel();
         JLabel lHighscore = new JLabel("Highscore: " + settings.getGtoHighscore());
@@ -134,13 +197,17 @@ public class StraightOuttaMenu extends Menu {
         this.add(highscorePanel, BorderLayout.SOUTH);
 
         // Add with vertical padding
-        buttonPanel.add(buttons[0]);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(buttons[1]);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(buttons[2]);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(buttons[3]);
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i].setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
+            buttons[i].setBackground(Color.WHITE);
+            buttons[i].setFont(new Font(settings.getFontType(), Font.BOLD, settings.getFontSize()));
+            buttons[i].setMaximumSize(new Dimension(200, 60));
+            buttons[i].setAlignmentX(Component.CENTER_ALIGNMENT);
+            buttonPanel.add(buttons[i]);
+            if (i != buttons.length - 1) buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
+        }
+        // Make buttons dark if darkmode is enabled
+        if (settings.isDarkMode()) darkmodeButtons();
 
         mainPanel.add(buttonPanel, BorderLayout.CENTER);
         this.add(mainPanel);

@@ -24,7 +24,7 @@ import java.util.Collections;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.5.5";
+    private final String VERSION = "0.5.6";
     private Settings settings;
     private JButton bSettings;
     /**
