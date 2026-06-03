@@ -13,6 +13,7 @@ repositories {
 }
 
 dependencies {
+    implementation 'org.xerial:sqlite-jdbc:3.46.0.0'
     implementation 'org.apache.commons:commons-text'
     implementation 'com.google.code.gson:gson:2.10.1'
     implementation 'org.json:json:20230618'

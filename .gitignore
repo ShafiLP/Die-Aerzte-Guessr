@@ -19,3 +19,4 @@ build
 
 # Ignore Kotlin plugin data
 .kotlin
+aerzte.db

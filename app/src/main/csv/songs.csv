@@ -1,0 +1,25 @@
+id;album_id;year;name;streams;duration;liveplays;singer;hasSingle
+
+1; 1; 1983; Teenager Liebe; 13; 178; 177; Farin Urlaub; 0
+2; 1; 1983; Annelise Schmidt; 5; 191; 59; Farin Urlaub; 0
+3; 1; 1983; Grace Kelly; 4; 139; 120; Farin Urlaub; 0
+4; 1; 1983; Teddybär; 2; 167; 61; Bela B; 0
+
+5; 2; 1984; Mein kleiner Liebling; 3; 146; 46; Bela B; 0
+6; 2; 1984; Sommer, Palmen, Sonnenschein; 8; 170; 67; Farin Urlaub; 0
+7; 2; 1984; Der lustige Astronaut; 7; 149; 150; Farin Urlaub; 0
+8; 2; 1984; Kopfhaut; 8; 168; 25; Farin Urlaub; 0
+
+9; 3; 1984; Ärzte-Theme (Instrumental); 3; 120; 77; Instrumental; 0
+10; 3; 1984; Scheißtyp; 4; 178; 75; Bela B; 0
+11; 3; 1984; Paul; 50; 146; 46; Farin Urlaub; 1
+12; 3; 1984; Kamelralley; 4; 240; 48; Sahnie; 0
+13; 3; 1984; Frank'n'stein; 3; 158; 151; Bela B; 0
+14; 3; 1984; El Cattivo; 13; 192; 168; Farin Urlaub; 0
+15; 3; 1984; Claudia hat 'nen Schäferhund; 35; 118; 37; Farin Urlaub; 0
+16; 3; 1984; Mädchen; 8; 175; 112; Farin Urlaub; 0
+17; 3; 1984; Mr. Sexpistols; 6; 194; 32; Bela B; 0
+18; 3; 1984; Micha; 5; 172; 18; Farin Urlaub; 0
+19; 3; 1984; Zu spät; 381; 163; 570; Farin Urlaub; 1
+20; 3; 1984; Roter Minirock; 8; 135; 136; Farin Urlaub & Sahnie; 0
+21; 3; 1984; Schlaflied; 23; 253; 16; Farin Urlaub; 0

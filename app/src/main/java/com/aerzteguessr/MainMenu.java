@@ -38,7 +38,7 @@ import com.formdev.flatlaf.FlatLightLaf;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.6.1.1";
+    private final String VERSION = "0.6.1.2";
     private final Settings settings;
     private JButton bSettings;
 
