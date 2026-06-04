@@ -2,10 +2,8 @@ package com.aerzteguessr;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Desktop;
-import java.awt.Dimension;
-import java.awt.Font;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.io.BufferedReader;
@@ -13,22 +11,26 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Collections;
+import java.util.List;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import javax.swing.border.LineBorder;
 
+import org.gradle.internal.impldep.com.fasterxml.jackson.core.JsonProcessingException;
+import org.gradle.internal.impldep.com.fasterxml.jackson.databind.JsonNode;
+import org.gradle.internal.impldep.com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.aerzteguessr.design.UI;
+import com.aerzteguessr.models.Song;
+import com.aerzteguessr.services.Database;
+import com.aerzteguessr.services.Log;
+import com.aerzteguessr.views.LoadingScreen;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
@@ -38,9 +40,8 @@ import com.formdev.flatlaf.FlatLightLaf;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.6.1.2";
+    private final String VERSION = "0.6.1.3";
     private final Settings settings;
-    private JButton bSettings;
 
     /**
      * Constructor of main menu
@@ -59,100 +60,166 @@ public class MainMenu extends JFrame {
 
         this.setTitle("ÄrzteGuessr");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(400, 440);
+        this.setSize(450, 550);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center the window
         this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
-        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 40, 10, 40)); // Padding
+        mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 25, 25, 25));
+        this.setContentPane(mainPanel);
 
-        // Heading
-        JPanel headingPanel = new JPanel();
-        ImageIcon icon = new ImageIcon("images\\aerzteGuessr.png");
-        Image img = icon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
-        JLabel lHeading = new JLabel(new ImageIcon(img));
-        headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));
-        headingPanel.add(lHeading);
-        this.add(headingPanel, BorderLayout.NORTH);
+        // ===================================
+        // TOP PANEL (Logo, Exit, Settings)
+        // ===================================
+        JPanel topBar = new JPanel(new BorderLayout());
+        topBar.setOpaque(false);
+        topBar.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
-        // Button panel different game modes
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
+        // Exit button
+        JPanel left = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        left.setOpaque(false);
+        left.add(UI.quitButton());
+        topBar.add(left, BorderLayout.WEST);
 
-        // Buttons
-        icon = new ImageIcon("images\\StraightOutta.png");
-        img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
-        JButton bGTO = new JButton(new ImageIcon(img));
-        bGTO.addActionListener(e -> {
-            this.dispose(); // Close the current gui
-            new StraightOuttaMenu(settings);  // Start the game
-        });
-        bGTO.setBorder(new LineBorder(new Color(150, 100, 100), 2, true));
-        bGTO.setBackground(new Color(255, 220, 220));
+        // Logo
+        ImageIcon logoIcon = new ImageIcon("images\\aerzteGuessr.png");
+        Image logoImg = logoIcon.getImage().getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        JLabel logo = new JLabel(new ImageIcon(logoImg));
+        JPanel center = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        center.setOpaque(false);
+        center.setBorder(BorderFactory.createEmptyBorder(0, 0, 25, 0)); // 👈 WICHTIG: Abstand nach unten
+        center.add(logo);
+        topBar.add(center, BorderLayout.CENTER);
 
-        icon = new ImageIcon("images\\Lueckenfueller.png");
-        img = icon.getImage().getScaledInstance(260, 35, Image.SCALE_SMOOTH);
-        JButton bCTL = new JButton(new ImageIcon(img));
-        bCTL.addActionListener(e -> {
-            this.dispose(); 
-            new LueckenfuellerMenu(settings);
-        });
-        bCTL.setBorder(new LineBorder(new Color(100, 100, 150), 2, true));
-        bCTL.setBackground(new Color(220, 220, 255));
+        // Settigns button
+        JPanel right = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        right.setOpaque(false);
+        right.add(UI.settingsButton());
+        topBar.add(right, BorderLayout.EAST);
 
-        icon = new ImageIcon("images\\aerztle.png");
-        img = icon.getImage().getScaledInstance(140, 35, Image.SCALE_SMOOTH);
-        JButton bAerztle = new JButton(new ImageIcon(img));
-        bAerztle.addActionListener(e -> {
-            this.dispose();
-            new AerztleMenu(settings);
-        });
-        bAerztle.setBorder(new LineBorder(new Color(100, 150, 100), 2, true));
-        bAerztle.setBackground(new Color(220, 255, 220));
+        mainPanel.add(topBar, BorderLayout.NORTH);
 
-        bSettings = new JButton("Einstellungen");
-        bSettings.setFont(new Font("Folio Extra", Font.BOLD, settings.getFontSize() * 2));
-        bSettings.setForeground(Color.BLACK);
-        bSettings.addActionListener(e -> {
-            new SettingsGeneral(this, settings);
-        });
-        bSettings.setBorder(new LineBorder(new Color(170, 170, 170), 2, true));
-        bSettings.setBackground(new Color(200, 200, 200));
+        // ===================================
+        // GAME SELECTION
+        // ===================================
+        Image bg = new ImageIcon("images/auch.png").getImage();
 
-        Dimension buttonSize = new Dimension(300, 40);
-        bGTO.setMaximumSize(buttonSize);
-        bCTL.setMaximumSize(buttonSize);
-        bAerztle.setMaximumSize(buttonSize);
-        bSettings.setMaximumSize(buttonSize);
+        JPanel gridPanel = new JPanel(new GridLayout(3, 2, 20, 20));
+        gridPanel.setBorder(BorderFactory.createEmptyBorder(5, 0, 0, 0));
+        gridPanel.setOpaque(false);
 
-        bGTO.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bCTL.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bAerztle.setAlignmentX(Component.CENTER_ALIGNMENT);
-        bSettings.setAlignmentX(Component.CENTER_ALIGNMENT);
+        // STRAIGHT OUTTA
+        gridPanel.add(UI.createGameModeCard(
+            new ImageIcon("app/src/main/resources/images/gamemodeTitles/straightoutta.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeBackgrounds/belaAlbtraum.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/debil-cutout.png").getImage(),
+            new Color(200, 70, 70),
+            () -> {
+                this.dispose();
+                new StraightOuttaMenu(settings);
+            })
+        );
 
-        // Author + Version
-        JPanel authorVersionPanel = new JPanel(new GridLayout(1, 2));
-        JLabel lVersion = new JLabel("Version " + VERSION, SwingConstants.LEFT);
-        JLabel lAuthor = new JLabel("@ShafiLP", SwingConstants.RIGHT);
-        authorVersionPanel.setBorder(BorderFactory.createEmptyBorder(3, 15, 3, 15));
-        authorVersionPanel.add(lVersion);
-        authorVersionPanel.add(lAuthor);
-        this.add(authorVersionPanel, BorderLayout.SOUTH);
+        // LUECKENFUELLER
+        gridPanel.add(UI.createGameModeCard(
+            new ImageIcon("app/src/main/resources/images/gamemodeTitles/lueckenfueller.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeBackgrounds/alteSaecke.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/schatten-cutout.png").getImage(),
+            new Color(70, 70, 200),
+            () -> {
+                this.dispose();
+                new LueckenfuellerMenu(settings);
+            }
+        ));
 
-        // Add with vertical padding
-        buttonPanel.add(bGTO);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(bCTL);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(bAerztle);
-        buttonPanel.add(Box.createRigidArea(new Dimension(0, 20)));
-        buttonPanel.add(bSettings);
+        // ÄRZTLE
+        gridPanel.add(UI.createGameModeCard(
+            new ImageIcon("app/src/main/resources/images/gamemodeTitles/aerztle.png").getImage(),
+            bg,
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/jazz-cutout.png").getImage(),
+            new Color(70, 200, 70),
+            () -> {
+                this.dispose();
+                new AerztleMenu(settings);
+            }
+        ));
 
-        mainPanel.add(buttonPanel, BorderLayout.CENTER);
-        this.add(mainPanel);
+        // Platzhalter
+        gridPanel.add(
+            UI.createGameModeCard(new ImageIcon("app/src/main/resources/images/gamemodeTitles/comingsoon.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/empty.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/empty.png").getImage(),
+            new Color(30, 30, 30),
+            () -> System.out.println("Coming Soon!")
+        ));
+
+        gridPanel.add(
+            UI.createGameModeCard(new ImageIcon("app/src/main/resources/images/gamemodeTitles/comingsoon.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/empty.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/empty.png").getImage(),
+            new Color(30, 30, 30),
+            () -> System.out.println("Coming Soon!")
+        ));
+
+        gridPanel.add(
+            UI.createGameModeCard(new ImageIcon("app/src/main/resources/images/gamemodeTitles/comingsoon.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/empty.png").getImage(),
+            new ImageIcon("app/src/main/resources/images/gamemodeImages/empty.png").getImage(),
+            new Color(30, 30, 30),
+            () -> System.out.println("Coming Soon!")
+        ));
+
+        mainPanel.add(gridPanel, BorderLayout.CENTER);
+
+        // ===================================
+        // INFO BAR (Author, Version)
+        // ===================================
+        JPanel lowerBar = new JPanel(new BorderLayout());
+
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            JsonNode root;
+            root = mapper.readTree("app/appInfo.json");
+
+            lowerBar.add(new JLabel(root.path("author").asText()), BorderLayout.LINE_START);
+            lowerBar.add(new JLabel(root.path("version").asText()), BorderLayout.CENTER);
+        } catch (JsonProcessingException e) {
+            Log.Error(e.getMessage());
+        }
+
+        mainPanel.add(lowerBar, BorderLayout.SOUTH);
+        
+
+        // Make frame visible
         this.setVisible(true);
+
+
+        // Initialize Database and display loading screen
+        LoadingScreen loadingOverlay = new LoadingScreen();
+        this.setGlassPane(loadingOverlay);
+        loadingOverlay.start();
+
+        Database.initializeDatabase();
+
+        // DEBUG: Print all songs
+        List<Song> songs = Database.getAllSongs();
+        for (Song s : songs) {
+            System.out.println(
+                s.id + " | " +
+                s.name + " | " +
+                s.albumId + " | " +
+                s.releaseYear + " | " +
+                s.streams + " | " +
+                s.duration + " | " +
+                s.liveplays + " | " +
+                s.singer + " | " +
+                s.hasSingle
+            );
+        }  
+
+        loadingOverlay.stop();
     }
 
     /**

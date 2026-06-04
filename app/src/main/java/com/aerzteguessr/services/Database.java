@@ -32,6 +32,23 @@ public class Database {
     public static void initializeDatabase() {
         try (Connection conn = Database.connect()) {
             Statement stmt = conn.createStatement();
+
+            // DEBUG: Drop tables if they already exist (for development purposes)
+            //! TODO: DELETE THIS LATER
+            stmt.execute("""
+                DELETE * FROM artists;
+                DELETE * FROM releases;
+                DELETE * FROM songs;
+                DELETE * FROM lyrics;
+                DELETE * FROM snippets;
+                DROP TABLE IF EXISTS artists;
+                DROP TABLE IF EXISTS releases;
+                DROP TABLE IF EXISTS songs;
+                DROP TABLE IF EXISTS lyrics;
+                DROP TABLE IF EXISTS snippets;
+            """);
+            Log.Success("Existing tables dropped successfully (for development purposes).");
+
             // ARTISTS
             stmt.execute("""
                 CREATE TABLE IF NOT EXISTS artists (
@@ -39,7 +56,7 @@ public class Database {
                     name TEXT NOT NULL
                 );
             """);
-            Log.LogSuccess("Database \"artists\" created sucessfully");
+            Log.Success("Database \"artists\" created successfully");
 
             // ALBUMS/RELEASES
             stmt.execute("""
@@ -49,10 +66,11 @@ public class Database {
                     artist_id INTEGER,
                     release_year INTEGER,
                     release_type TEXT,
+                    imgPath TEXT,
                     FOREIGN KEY (artist_id) REFERENCES artists(id)
                 );
             """);
-            Log.LogSuccess("Database \"releases\" created sucessfully");
+            Log.Success("Database \"releases\" created successfully");
                
             // SONGS
             stmt.execute("""
@@ -69,7 +87,7 @@ public class Database {
                     FOREIGN KEY (album_id) REFERENCES releases(id)
                 );
             """);
-            Log.LogSuccess("Database \"songs\" created sucessfully");
+            Log.Success("Database \"songs\" created successfully");
 
             // FULL LYRICS
             stmt.execute("""
@@ -80,7 +98,7 @@ public class Database {
                     FOREIGN KEY (song_id) REFERENCES songs(id)
                 );
             """);
-            Log.LogSuccess("Database \"lyrics\" created sucessfully");
+            Log.Success("Database \"lyrics\" created successfully");
 
             // LYRIC SNIPPETS
             stmt.execute("""
@@ -91,18 +109,94 @@ public class Database {
                     FOREIGN KEY (song_id) REFERENCES songs(id)
                 );
             """);
-            Log.LogSuccess("Database \"snippets\" created sucessfully");
+            Log.Success("Database \"snippets\" created successfully");
 
             // CSV IMPORTS
+            insertArtistsFromCSV();
+            insertReleasesFromCSV();
             insertSongsFromCSV();
         } catch (Exception e) {
-            Log.LogError("Error while initializing databases: " + e.getMessage());
+            Log.Error("Error while initializing databases: " + e.getMessage());
         }
     }
 
     // ==============================
     // CSV IMPORTS
     // ==============================
+
+    private static void insertArtistsFromCSV() {
+        try (Connection conn = Database.connect()) {
+            List<String> lines = Files.readAllLines(Paths.get("app/src/main/csv/artists.csv"));
+
+            String sql = """
+                INSERT INTO artists (id, name)
+                VALUES (?, ?)
+            """;
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            for (int i = 1; i < lines.size(); i++) {
+                String line = lines.get(i).trim();
+                if (line.isEmpty()) continue;
+                if (line.startsWith("id;")) continue;
+                
+                String[] data = line.split(";");
+
+                int id = Integer.parseInt(data[0].trim());
+                String name = data[1].trim();
+
+                ps.setInt(1, id);
+                ps.setString(2, name);
+
+                ps.addBatch();
+            }
+
+            ps.executeBatch();
+        }
+        catch (Exception e) {
+            Log.Error("Error while inserting artists from CSV: " + e.getMessage());
+        }
+    }
+
+    private static void insertReleasesFromCSV() {
+        try (Connection conn = Database.connect()) {
+            List<String> lines = Files.readAllLines(Paths.get("app/src/main/csv/releases.csv"));
+
+            String sql = """
+                INSERT INTO releases (id, name, artist_id, release_year, release_type)
+                VALUES (?, ?, ?, ?, ?)
+            """;
+
+            PreparedStatement ps = conn.prepareStatement(sql);
+
+            for (int i = 1; i < lines.size(); i++) {
+                String line = lines.get(i).trim();
+                if (line.isEmpty()) continue;
+                if (line.startsWith("id;")) continue;
+                
+                String[] data = line.split(";");
+
+                int id = Integer.parseInt(data[0].trim());
+                String name = data[1].trim();
+                int artistId = Integer.parseInt(data[2].trim());
+                int year = Integer.parseInt(data[3].trim());
+                String type = data[4].trim();
+
+                ps.setInt(1, id);
+                ps.setString(2, name);
+                ps.setInt(3, artistId);
+                ps.setInt(4, year);
+                ps.setString(5, type);
+
+                ps.addBatch();
+            }
+
+            ps.executeBatch();
+        }
+        catch (Exception e) {
+            Log.Error("Error while inserting releases from CSV: " + e.getMessage());
+        }
+    }
 
     private static void insertSongsFromCSV() {
         try (Connection conn = Database.connect()) {
@@ -148,7 +242,7 @@ public class Database {
             ps.executeBatch();
         }
         catch (Exception e) {
-            Log.LogError("Error while inserting songs from CSV: " + e.getMessage());
+            Log.Error("Error while inserting songs from CSV: " + e.getMessage());
         }
     }
 
@@ -156,6 +250,73 @@ public class Database {
     // GETTERS
     // ==============================
 
+    /**
+     * Fetches all artists from the database.
+     * @return List of all artists in the database.
+     */
+    public static List<Artist> getAllArtists() {
+        try (Connection conn = Database.connect()) {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM artists");
+
+            List<Artist> artists = new java.util.ArrayList<>();
+            while (rs.next()) {
+                artists.add(mapArtist(rs));
+            }
+            return artists;
+        } catch (SQLException e) {
+            Log.Error("Error while fetching artists: " + e.getMessage());
+            return java.util.Collections.emptyList();
+        }
+    }
+
+    /**
+     * Fetches all releases from the database.
+     * @return List of all releases in the database.
+     */
+    public static List<Release> getAllReleases() {
+        try (Connection conn = Database.connect()) {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM releases");
+
+            List<Release> releases = new java.util.ArrayList<>();
+            while (rs.next()) {
+                releases.add(mapRelease(rs));
+            }
+            return releases;
+        } catch (SQLException e) {
+            Log.Error("Error while fetching releases: " + e.getMessage());
+            return java.util.Collections.emptyList();
+        }
+    }
+
+    /**
+     * Fetches all releases of a specific artist from the database.
+     * @param artistId ID of the artist whose releases should be fetched.
+     * @return List of releases of the specified artist in the database.
+     */
+    public static List<Release> getReleaseByArtistId(int artistId) {
+        try (Connection conn = Database.connect()) {
+            String sql = "SELECT * FROM releases WHERE artist_id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, artistId);
+            ResultSet rs = ps.executeQuery();
+
+            List<Release> releases = new java.util.ArrayList<>();
+            while (rs.next()) {
+                releases.add(mapRelease(rs));
+            }
+            return releases;
+        } catch (SQLException e) {
+            Log.Error("Error while fetching releases by artist ID: " + e.getMessage());
+            return java.util.Collections.emptyList();
+        }
+    }
+
+    /**
+     * Fetches all songs from the database.
+     * @return List of all songs in the database.
+     */
     public static List<Song> getAllSongs() {
         try (Connection conn = Database.connect()) {
             Statement stmt = conn.createStatement();
@@ -167,11 +328,10 @@ public class Database {
             }
             return songs;
         } catch (SQLException e) {
-            Log.LogError("Error while fetching songs: " + e.getMessage());
+            Log.Error("Error while fetching songs: " + e.getMessage());
             return java.util.Collections.emptyList();
         }
     }
-
 
     // ==============================
     // MAPPING
