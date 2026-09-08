@@ -1,4 +1,4 @@
-package com.aerzteguessr.services;
+package com.aerzteguessr.service;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;

@@ -1,4 +1,4 @@
-package com.aerzteguessr.services;
+package com.aerzteguessr.service;
 
 public class Log {
     private static final String GREEN  = "\u001B[32m";
