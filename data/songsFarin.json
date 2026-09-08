@@ -113,5 +113,23 @@
     {"song": "Babylon", "icon": "awgSingle"},
 
     {"song": "Welche Krise?", "icon": "discoSingle"},
-    {"song": "Himmel auf Erden", "icon": "discoSingle"}
+    {"song": "Himmel auf Erden", "icon": "discoSingle"},
+
+
+
+
+
+    {"song": "Dein Leben", "icon": "laecheln"},
+    {"song": "Happy 2bD", "icon": "laecheln"},
+    {"song": "Sonnenschein im Februar", "icon": "laecheln"},
+    {"song": "So Sehr", "icon": "laecheln"},
+    {"song": "Sie", "icon": "laecheln"},
+    {"song": "999", "icon": "laecheln"},
+    {"song": "Alpha Centauri", "icon": "laecheln"},
+    {"song": "Irgendwas von Bach", "icon": "laecheln"},
+    {"song": "Kein Pardon", "icon": "laecheln"},
+    {"song": "Himmel", "icon": "laecheln"},
+    {"song": "Totalschaden", "icon": "laecheln"},
+    {"song": "Es könnte sein", "icon": "laecheln"},
+    {"song": "Per un pugno di olive", "icon": "laecheln"}
 ]

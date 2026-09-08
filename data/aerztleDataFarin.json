@@ -42,7 +42,7 @@
     {"song": "Wie ich den Marilyn-Manson-Ähnlichkeitswettbewerb verlor", "album": "sonne", "release": "2005", "streams": "600.000", "durationMin": "3", "durationSec": "11", "livePlays": "71", "singer": "Farin", "single": "false"},
     {"song": "Unsichtbar", "album": "sonne", "release": "2005", "streams": "500.000", "durationMin": "3", "durationSec": "14", "livePlays": "114", "singer": "Farin", "single": "false"},
     {"song": "Apocalypse wann anders", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "3", "durationSec": "58", "livePlays": "50", "singer": "Farin", "single": "false"},
-    {"song": "Schon wieder", "album": "sonne", "release": "2005", "streams": "200.000", "durationMin": "1", "durationSec": "18", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Schon wieder", "album": "sonne", "release": "2005", "streams": "200.000", "durationMin": "1", "durationSec": "18", "livePlays": "0", "singer": "/", "single": "false"},
     {"song": "Immer noch", "album": "sonne", "release": "2005", "streams": "400.000", "durationMin": "4", "durationSec": "38", "livePlays": "51", "singer": "Farin", "single": "false"},
     {"song": "Alle dasselbe", "album": "sonne", "release": "2005", "streams": "700.000", "durationMin": "3", "durationSec": "27", "livePlays": "141", "singer": "Farin", "single": "false"},
     {"song": "Kein Zurück", "album": "sonne", "release": "2005", "streams": "800.000", "durationMin": "4", "durationSec": "54", "livePlays": "0", "singer": "Farin", "single": "false"},
@@ -113,5 +113,23 @@
     {"song": "Babylon", "album": "Single/B-Seite", "release": "2014", "streams": "0", "durationMin": "3", "durationSec": "45", "livePlays": "0", "singer": "Farin", "single": "false"},
 
     {"song": "Welche Krise?", "album": "Single/B-Seite", "release": "2015", "streams": "200.000", "durationMin": "2", "durationSec": "52", "livePlays": "0", "singer": "Farin", "single": "false"},
-    {"song": "Himmel auf Erden", "album": "Single/B-Seite", "release": "2015", "streams": "100.000", "durationMin": "3", "durationSec": "31", "livePlays": "0", "singer": "Farin", "single": "false"}
+    {"song": "Himmel auf Erden", "album": "Single/B-Seite", "release": "2015", "streams": "100.000", "durationMin": "3", "durationSec": "31", "livePlays": "0", "singer": "Farin", "single": "false"},
+
+
+
+
+
+    {"song": "Dein Leben", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "3", "durationSec": "11", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Happy 2bD", "album": "laecheln", "release": "2026", "streams": "900.000", "durationMin": "3", "durationSec": "3", "livePlays": "0", "singer": "Farin", "single": "true"},
+    {"song": "Sonnenschein im Februar", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "4", "durationSec": "21", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "So Sehr", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "1", "durationSec": "43", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Sie", "album": "laecheln", "release": "2026", "streams": "300.000", "durationMin": "3", "durationSec": "36", "livePlays": "0", "singer": "Farin", "single": "true"},
+    {"song": "999", "album": "laecheln", "release": "2026", "streams": "300.000", "durationMin": "3", "durationSec": "17", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Alpha Centauri", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "4", "durationSec": "33", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Irgendwas von Bach", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "2", "durationSec": "20", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Kein Pardon", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "6", "durationSec": "22", "livePlays": "0", "singer": "Farin", "single": "true"},
+    {"song": "Himmel", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "2", "durationSec": "30", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Totalschaden", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "3", "durationSec": "36", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Es könnte sein", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "3", "durationSec": "54", "livePlays": "0", "singer": "Farin", "single": "false"},
+    {"song": "Per un pugno di olive", "album": "laecheln", "release": "2026", "streams": "0", "durationMin": "2", "durationSec": "29", "livePlays": "0", "singer": "/", "single": "false"}
 ]
