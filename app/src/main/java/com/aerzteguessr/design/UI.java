@@ -14,9 +14,11 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 
+import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
 import com.aerzteguessr.dialog.SettingsDialog;
@@ -92,7 +94,7 @@ public final class UI {
     public static JButton settingsButton() {
         JButton button = iconButton("\u2699");
         button.addActionListener(e -> {
-            SettingsDialog dialog = new SettingsDialog();
+            SettingsDialog dialog = new SettingsDialog((JFrame) SwingUtilities.getWindowAncestor(button));
             dialog.setVisible(true);
         });
         return button;

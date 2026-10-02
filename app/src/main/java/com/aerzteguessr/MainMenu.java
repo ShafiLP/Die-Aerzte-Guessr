@@ -28,8 +28,8 @@ import org.json.JSONObject;
 
 import com.aerzteguessr.design.UI;
 import com.aerzteguessr.models.Song;
-import com.aerzteguessr.services.Database;
-import com.aerzteguessr.services.Log;
+import com.aerzteguessr.service.Database;
+import com.aerzteguessr.service.Log;
 import com.aerzteguessr.views.LoadingScreen;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
@@ -40,7 +40,6 @@ import com.formdev.flatlaf.FlatLightLaf;
  * Contains paths to all games
  */
 public class MainMenu extends JFrame {
-    private final String VERSION = "0.6.1.3";
     private final Settings settings;
 
     /**
@@ -272,14 +271,19 @@ public class MainMenu extends JFrame {
                 return;
 
                 JSONObject json = releases.getJSONObject(0);
+
+                ObjectMapper mapper = new ObjectMapper();
+                JsonNode root;
+                root = mapper.readTree("app/appInfo.json");
+                String  version = root.path("version").asText();
                 
                 String latestVersion = json.getString("tag_name").replace("v", "");
-                if(isNewerVersionAvailable(latestVersion, VERSION)) {
+                if(isNewerVersionAvailable(latestVersion, version)) {
                     System.out.println("Neue Version verfügbar: " + latestVersion);
                     System.out.println("Lade sie runter unter: https://github.com/ShafiLP/Die-Aerzte-Guessr");
                     openNewerVersionNotification();
                 } else {
-                    System.out.println("Neuste Version installiert: v" + VERSION);
+                    System.out.println("Neuste Version installiert: v" + version);
                 }
             } catch (Exception e) {
                 System.out.println("Fehler beim Überprüfen der Version: " + e.getMessage());
