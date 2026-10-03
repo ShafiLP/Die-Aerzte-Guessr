@@ -95,7 +95,7 @@ public class LueckenfuellerGui extends Gui {
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null); // Center window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+        // this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // LyricPanel for GridLayout
         JPanel lyricPanel = new JPanel(new GridLayout(5, 1));
@@ -131,7 +131,7 @@ public class LueckenfuellerGui extends Gui {
         JPanel panHeading = new JPanel(new GridBagLayout());
         panHeading.setOpaque(false);
         JLabel lHeading = new JLabel("", SwingConstants.CENTER);
-        ImageIcon icon = new ImageIcon("images\\Lueckenfueller.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/gamemodeTitles/lueckenfueller.png"));
         Image img = icon.getImage().getScaledInstance(300, 40, Image.SCALE_SMOOTH);
         lHeading.setIcon(new ImageIcon(img));
         panHeading.add(lHeading, new GridBagConstraints() {{
@@ -189,7 +189,7 @@ public class LueckenfuellerGui extends Gui {
         // Health bar in top left corner
         // Add health icons to array
         if (settings.isShowIconsEnabled()) {
-            ImageIcon healthIcon = new ImageIcon("images\\health.png");
+            ImageIcon healthIcon = new ImageIcon(getClass().getResource("/images/health.png"));
             Image healthImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
             for (int i = 0; i < healthBar.length; i++) {
                 healthBar[i] = new JLabel(new ImageIcon(healthImg));
@@ -204,7 +204,7 @@ public class LueckenfuellerGui extends Gui {
         // Copy if multiplayer is enabled
         if (multiplayer) {
             if (settings.isShowIconsEnabled()) {
-                ImageIcon healthIcon = new ImageIcon("images\\health.png");
+                ImageIcon healthIcon = new ImageIcon(getClass().getResource("/images/health.png"));
                 Image healthImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 for (int i = 0; i < healthBarP2.length; i++) {
                     healthBarP2[i] = new JLabel(new ImageIcon(healthImg));

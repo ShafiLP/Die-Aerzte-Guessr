@@ -1,0 +1,442 @@
+[
+    {"song": "Ärzte Theme", "icon": "debil"},
+    {"song": "Scheißtyp", "icon": "debil"},
+    {"song": "Paul", "icon": "debil"},
+    {"song": "Kamelralley", "icon": "debil"},
+    {"song": "Frank'n'stein", "icon": "debil"},
+    {"song": "El Cattivo", "icon": "debil"},
+    {"song": "Claudia hat 'nen Schäferhund", "icon": "debil"},
+    {"song": "Mädchen", "icon": "debil"},
+    {"song": "Mr. Sexpistols", "icon": "debil"},
+    {"song": "Micha", "icon": "debil"},
+    {"song": "Zu spät", "icon": "debil"},
+    {"song": "Roter Minirock", "icon": "debil"},
+    {"song": "Schlaflied", "icon": "debil"},
+    {"song": "Teenager Liebe", "icon": "debil"},
+    {"song": "Füße vom Tisch", "icon": "debil"},
+
+    {"song": "Erna P.", "icon": "paulSingle"},
+
+
+
+    {"song": "Du willst mich küssen", "icon": "schatten"},
+    {"song": "Dein Vampyr", "icon": "schatten"},
+    {"song": "...und es regnet", "icon": "schatten"},
+    {"song": "Alles", "icon": "schatten"},
+    {"song": "Rennen nicht Laufen!", "icon": "schatten"},
+    {"song": "Wie ein Kind", "icon": "schatten"},
+    {"song": "Wegen Dir", "icon": "schatten"},
+    {"song": "Die Antwort bist Du", "icon": "schatten"},
+    {"song": "Buddy Holly's Brille", "icon": "schatten"},
+    {"song": "Käfer", "icon": "schatten"},
+    {"song": "Ich weiss nicht, ob es Liebe ist", "icon": "schatten"},
+    {"song": "\"Was hat der Junge doch für Nerven\"", "icon": "schatten"},
+
+    {"song": "Und ich weine", "icon": "wegendirSingle"},
+
+
+
+    {"song": "Wie am ersten Tag", "icon": "aerzte"},
+    {"song": "Mysteryland", "icon": "aerzte"},
+    {"song": "Sweet Sweet Gwendoline", "icon": "aerzte"},
+    {"song": "Ist das alles?", "icon": "aerzte"},
+    {"song": "Frühjahrsputz", "icon": "aerzte"},
+    {"song": "Geschwisterliebe", "icon": "aerzte"},
+    {"song": "Alleine in der Nacht", "icon": "aerzte"},
+    {"song": "Jenseits von Eden", "icon": "aerzte"},
+    {"song": "Wir werden schön", "icon": "aerzte"},
+    {"song": "Für immer", "icon": "aerzte"},
+    {"song": "Ich bin reich", "icon": "aerzte"},
+    {"song": "Zum letzten Mal", "icon": "aerzte"},
+
+    {"song": "Ewige Blumenkraft", "icon": "fuerimmerSingle"},
+
+
+
+
+
+    {"song": "Sie kratzt, sie stinkt, sie klebt", "icon": "abAchtzehn"},
+    {"song": "Helmut K.", "icon": "abAchtzehn"},
+    {"song": "Claudia II", "icon": "abAchtzehn"},
+
+
+
+
+
+    {"song": "Geh'n wie ein Ägypter", "icon": "hoehepunkte"},
+    {"song": "2000 Mädchen", "icon": "hoehepunkte"},
+    {"song": "Radio brennt", "icon": "hoehepunkte"},
+
+    {"song": "Nein, Nein, Nein", "icon": "maedchenSingle"},
+
+    {"song": "Gabi ist pleite", "icon": "radioSingle"},
+    
+
+
+
+
+    {"song": "Ohne dich", "icon": "wahrheit"},
+    {"song": "Baby ich tu's", "icon": "wahrheit"},
+    {"song": "Komm zurück", "icon": "wahrheit"},
+    {"song": "Wilde Welt", "icon": "wahrheit"},
+    {"song": "Westerland", "icon": "wahrheit"},
+    {"song": "Ich will dich", "icon": "wahrheit"},
+    {"song": "Elke", "icon": "wahrheit"},
+    {"song": "Blumen", "icon": "wahrheit"},
+    {"song": "Ausserirdische", "icon": "wahrheit"},
+    {"song": "Siegerin", "icon": "wahrheit"},
+    {"song": "Bitte, Bitte", "icon": "wahrheit"},
+    {"song": "Popstar", "icon": "wahrheit"},
+    {"song": "Gute Zeit", "icon": "wahrheit"},
+    {"song": "Schwanz ab", "icon": "wahrheit"},
+
+    {"song": "Das ist Rock'n'Roll", "icon": "blumenSingle"},
+
+    {"song": "Sie tun es", "icon": "zuspaetLive"},
+
+    {"song": "Gabi gibt 'ne Party", "icon": "bitteSingle"},
+
+
+
+
+
+    {"song": "Annelise Schmidt", "icon": "frueher"},
+    {"song": "Der lustige Astronaut", "icon": "frueher"},
+    {"song": "Die Einsamkeit des Würstchens", "icon": "frueher"},
+    {"song": "Ekelpack", "icon": "frueher"},
+    {"song": "Grace Kelly", "icon": "frueher"},
+    {"song": "Kopfhaut", "icon": "frueher"},
+    {"song": "Mein kleiner Liebling", "icon": "frueher"},
+    {"song": "Sommer, Palmen, Sonnenschein", "icon": "frueher"},
+    {"song": "Teddybär", "icon": "frueher"},
+    {"song": "Tittenmaus", "icon": "frueher"},
+    {"song": "Vollmilch", "icon": "frueher"},
+    {"song": "Wilde Mädchen", "icon": "frueher"},
+    {"song": "Zitroneneis", "icon": "frueher"},
+    {"song": "Zum Bäcker", "icon": "frueher"},
+
+
+
+
+
+    {"song": "Inntro", "icon": "bestie"},
+    {"song": "Schrei nach Liebe", "icon": "bestie"},
+    {"song": "Schopenhauer", "icon": "bestie"},
+    {"song": "Für uns", "icon": "bestie"},
+    {"song": "Hey Huh (in Scheiben)", "icon": "bestie"},
+    {"song": "FaFaFa", "icon": "bestie"},
+    {"song": "Deutschrockgirl", "icon": "bestie"},
+    {"song": "Mach die Augen zu", "icon": "bestie"},
+    {"song": "Gehirn-Stürm", "icon": "bestie"},
+    {"song": "Mit dem Schwert nach Polen, warum René?", "icon": "bestie"},
+    {"song": "Claudia (Teil 95)", "icon": "bestie"},
+    {"song": "Die Allerschürfste", "icon": "bestie"},
+    {"song": "Friedenspanzer", "icon": "bestie"},
+    {"song": "Quark", "icon": "bestie"},
+    {"song": "Dos Corazones", "icon": "bestie"},
+    {"song": "Kopfüber in die Hölle", "icon": "bestie"},
+    {"song": "Omaboy", "icon": "bestie"},
+    {"song": "Lieber Tee", "icon": "bestie"},
+    {"song": "Wenn es Abend wird", "icon": "bestie"},
+
+    {"song": "Felicita", "icon": "schreiSingle"},
+    {"song": "Ja (Demo)", "icon": "schreiSingle"},
+    
+    {"song": "25 Stunden am Tag", "icon": "augenSingle"},
+    {"song": "Punkrockgirl", "icon": "augenSingle"},
+    {"song": "Wahre Liebe", "icon": "augenSingle"},
+
+    {"song": "Die Wiking-Jugend hat mein Mädchen entführt", "icon": "panzerSingle"},
+    {"song": "Stick it Out/What's the Ugliest Part of Your Body", "icon": "panzerSingle"},
+    
+
+
+
+
+    {"song": "Super Drei", "icon": "planet"},
+    {"song": "Schunder-Song", "icon": "planet"},
+    {"song": "Hurra", "icon": "planet"},
+    {"song": "Geh mit mir", "icon": "planet"},
+    {"song": "Langweilig", "icon": "planet"},
+    {"song": "Mein Freund Michael", "icon": "planet"},
+    {"song": "Rod Loves You", "icon": "planet"},
+    {"song": "Der Misanthrop", "icon": "planet"},
+    {"song": "Vermissen, Baby", "icon": "planet"},
+    {"song": "Nazareth", "icon": "planet"},
+    {"song": "Meine Ex(plodierte Freundin)", "icon": "planet"},
+    {"song": "Die Banane", "icon": "planet"},
+    {"song": "B.S.L.", "icon": "planet"},
+    {"song": "Die Traurige Ballade von Susi Spakowski", "icon": "planet"},
+    {"song": "Red mit mir", "icon": "planet"},
+    {"song": "Trick 17 M. S.", "icon": "planet"},
+    {"song": "Opfer", "icon": "planet"},
+
+    {"song": "Is ja irre", "icon": "schunderSingle"},
+    {"song": "Regierung", "icon": "schunderSingle"},
+    {"song": "Unholy", "icon": "schunderSingle"},
+
+    {"song": "Sex Me, Baby", "icon": "hurraSingle"},
+    {"song": "Warrumska", "icon": "hurraSingle"},
+    {"song": "Eine Frage der Ehre", "icon": "hurraSingle"},
+    
+    
+    
+    
+
+    {"song": "Erklärung", "icon": "frisur"},
+    {"song": "Mein Baby war beim Frisör", "icon": "frisur"},
+    {"song": "Vokuhila Superstar", "icon": "frisur"},
+    {"song": "3-Tage-Bart", "icon": "frisur"},
+    {"song": "No Future (Ohne neue Haarfrisur)", "icon": "frisur"},
+    {"song": "Look, Don't Touch", "icon": "frisur"},
+    {"song": "Straight Outta Bückeburg", "icon": "frisur"},
+    {"song": "Medusa-Man (Serienmörder Ralf)", "icon": "frisur"},
+    {"song": "Haar", "icon": "frisur"},
+    {"song": "Dauerwelle vs. Minipli", "icon": "frisur"},
+    {"song": "Der Afro von Paul Breitner", "icon": "frisur"},
+    {"song": "Motherfucker 666", "icon": "frisur"},
+    {"song": "Monika", "icon": "frisur"},
+    {"song": "Hair Today, Gone Tomorrow", "icon": "frisur"},
+    {"song": "Am Ende meines Körpers", "icon": "frisur"},
+    {"song": "Kaperfahrt", "icon": "frisur"},
+    {"song": "Zusammenfassung", "icon": "frisur"},
+
+    {"song": "Chanson d'Albert", "icon": "bartSingle"},
+    {"song": "In den See! Mit einem Gewicht an den Füßen!", "icon": "bartSingle"},
+
+
+
+
+
+    {"song": "Lady", "icon": "dreizehn"},
+    {"song": "Punk ist...", "icon": "dreizehn"},
+    {"song": "Ein Lied für dich", "icon": "dreizehn"},
+    {"song": "Goldenes Handwerk", "icon": "dreizehn"},
+    {"song": "Meine Freunde", "icon": "dreizehn"},
+    {"song": "Party stinkt", "icon": "dreizehn"},
+    {"song": "1/2 Lovesong", "icon": "dreizehn"},
+    {"song": "Ignorama", "icon": "dreizehn"},
+    {"song": "Nie wieder Krieg, nie mehr Las Vegas!", "icon": "dreizehn"},
+    {"song": "Rebell", "icon": "dreizehn"},
+    {"song": "Der Graf", "icon": "dreizehn"},
+    {"song": "Grau", "icon": "dreizehn"},
+    {"song": "Angeber", "icon": "dreizehn"},
+    {"song": "Männer sind Schweine", "icon": "dreizehn"},
+    {"song": "Liebe und Schmerz", "icon": "dreizehn"},
+    {"song": "Nie gesagt", "icon": "dreizehn"},
+    {"song": "Der Infant", "icon": "dreizehn"},
+    {"song": "Grotesksong", "icon": "dreizehn"},
+
+    {"song": "Du bist nicht mein Freund", "icon": "schweinSingle"},
+    {"song": "Saufen", "icon": "schweinSingle"},
+    {"song": "Ein Lächeln (Für jeden Tag deines Lebens)", "icon": "schweinSingle"},
+
+    {"song": "Wunderbare Welt des Farin U.", "icon": "handwerkSingle"},
+    {"song": "Rod Army", "icon": "handwerkSingle"},
+
+    {"song": "Ein Lied über Zensur", "icon": "lovesongSingle"},
+    {"song": "Schlimm", "icon": "lovesongSingle"},
+    {"song": "Danke für jeden guten Morgen", "icon": "lovesongSingle"},
+
+    {"song": "Backpfeifengesicht", "icon": "rebellSingle"},
+    {"song": "Alles für dich", "icon": "rebellSingle"},
+
+
+
+
+
+    {"song": "Wie es geht", "icon": "spendierhosen"},
+    {"song": "Geld", "icon": "spendierhosen"},
+    {"song": "Gib mir Zeit", "icon": "spendierhosen"},
+    {"song": "Dir", "icon": "spendierhosen"},
+    {"song": "Mondo Bondage", "icon": "spendierhosen"},
+    {"song": "Onprangering", "icon": "spendierhosen"},
+    {"song": "Leichenhalle", "icon": "spendierhosen"},
+    {"song": "Der Optimist", "icon": "spendierhosen"},
+    {"song": "Alles so einfach", "icon": "spendierhosen"},
+    {"song": "N 48.3", "icon": "spendierhosen"},
+    {"song": "Manchmal haben Frauen...", "icon": "spendierhosen"},
+    {"song": "Las Vegas", "icon": "spendierhosen"},
+    {"song": "Yoko Ono", "icon": "spendierhosen"},
+    {"song": "Rock Rendezvous", "icon": "spendierhosen"},
+    {"song": "Baby", "icon": "spendierhosen"},
+    {"song": "Kann es sein?", "icon": "spendierhosen"},
+    {"song": "Ein Sommer nur für mich", "icon": "spendierhosen"},
+    {"song": "Rock'n'Roll Übermensch", "icon": "spendierhosen"},
+    {"song": "Herrliche Jahre", "icon": "spendierhosen"},
+
+    {"song": "Poser, du bist ein...", "icon": "wieesgehtSingle"},
+    {"song": "Die Instrumente des Orchesters", "icon": "wieesgehtSingle"},
+    {"song": "Kpt. Blaubär", "icon": "wieesgehtSingle"},
+    {"song": "Halsabschneider", "icon": "wieesgehtSingle"},
+
+    {"song": "Rettet die Wale", "icon": "frauenSingle"},
+    {"song": "Matthäus 1:5:0", "icon": "frauenSingle"},
+    {"song": "Methan", "icon": "frauenSingle"},
+
+    {"song": "Die Welt ist schlecht", "icon": "onoSingle"},
+
+
+
+
+
+
+    {"song": "Hände innen", "icon": "geraeusch"},
+    {"song": "Als ich den Punk erfand...", "icon": "geraeusch"},
+    {"song": "System", "icon": "geraeusch"},
+    {"song": "T-Error", "icon": "geraeusch"},
+    {"song": "Nicht allein", "icon": "geraeusch"},
+    {"song": "Dinge von denen", "icon": "geraeusch"},
+    {"song": "Der Grund", "icon": "geraeusch"},
+    {"song": "Geisterhaus", "icon": "geraeusch"},
+    {"song": "Ein Mann", "icon": "geraeusch"},
+    {"song": "Anders als beim letzten Mal", "icon": "geraeusch"},
+    {"song": "Ruhig angehn", "icon": "geraeusch"},
+    {"song": "Jag Älskar Sverige!", "icon": "geraeusch"},
+    {"song": "Richtig schön evil", "icon": "geraeusch"},
+    {"song": "Schneller leben", "icon": "geraeusch"},
+    {"song": "Unrockbar", "icon": "geraeusch"},
+    {"song": "Deine Schuld", "icon": "geraeusch"},
+    {"song": "Lovepower", "icon": "geraeusch"},
+    {"song": "Der Tag", "icon": "geraeusch"},
+    {"song": "Die Nacht", "icon": "geraeusch"},
+    {"song": "Nichts in der Welt", "icon": "geraeusch"},
+    {"song": "Die klügsten Männer der Welt", "icon": "geraeusch"},
+    {"song": "Piercing", "icon": "geraeusch"},
+    {"song": "Besserwisserboy", "icon": "geraeusch"},
+    {"song": "Anti-Zombie", "icon": "geraeusch"},
+    {"song": "Pro-Zombie", "icon": "geraeusch"},
+    {"song": "Wammw", "icon": "geraeusch"},
+    {"song": "Nichtwissen", "icon": "geraeusch"},
+
+    {"song": "Kontovollmacht...", "icon": "unrockbarSingle"},
+    {"song": "Aus dem Tagebuch eines Amokläufers", "icon": "unrockbarSingle"},
+
+    {"song": "Powerlove", "icon": "dingeSingle"},
+    {"song": "Worum es geht", "icon": "dingeSingle"},
+
+
+
+
+
+    {"song": "Himmelblau", "icon": "jazz"},
+    {"song": "Lied vom Scheitern", "icon": "jazz"},
+    {"song": "Breit", "icon": "jazz"},
+    {"song": "Lasse redn", "icon": "jazz"},
+    {"song": "Die ewige Maitresse", "icon": "jazz"},
+    {"song": "Junge", "icon": "jazz"},
+    {"song": "Nur einen Kuss", "icon": "jazz"},
+    {"song": "Perfekt", "icon": "jazz"},
+    {"song": "Heulerei", "icon": "jazz"},
+    {"song": "Licht am Ende des Sarges", "icon": "jazz"},
+    {"song": "Niedliches Liebeslied", "icon": "jazz"},
+    {"song": "Deine Freundin (wäre mir zu anstrengend)", "icon": "jazz"},
+    {"song": "Allein", "icon": "jazz"},
+    {"song": "Tu das nicht", "icon": "jazz"},
+    {"song": "Living Hell", "icon": "jazz"},
+    {"song": "Vorbei ist vorbei", "icon": "jazz"},
+    {"song": "Wir sind die Besten", "icon": "jazz"},
+    {"song": "Wir waren die Besten", "icon": "jazz"},
+    {"song": "Wir sind die Lustigsten", "icon": "jazz"},
+    {"song": "Nimm es wie ein Mann (a.k.a. Kurt Cobain)", "icon": "jazz"},
+
+    {"song": "Das schönste Lied der Welt", "icon": "jungeSingle"},
+    {"song": "Tut mir leid", "icon": "jungeSingle"},
+
+    {"song": "Nichts gesehen", "icon": "scheiternSingle"},
+
+    {"song": "Komm zu Papa", "icon": "lasseSingle"},
+
+
+
+
+
+    {"song": "Ist das noch Punkrock?", "icon": "auch"},
+    {"song": "Bettmagnet", "icon": "auch"},
+    {"song": "Sohn der Leere", "icon": "auch"},
+    {"song": "TCR", "icon": "auch"},
+    {"song": "Das darfst du", "icon": "auch"},
+    {"song": "Tamagotchi", "icon": "auch"},
+    {"song": "M&F", "icon": "auch"},
+    {"song": "Freundschaft ist Kunst", "icon": "auch"},
+    {"song": "Angekumpelt", "icon": "auch"},
+    {"song": "Waldspaziergang mit Folgen", "icon": "auch"},
+    {"song": "Fiasko", "icon": "auch"},
+    {"song": "Miststück", "icon": "auch"},
+    {"song": "Das finde ich gut", "icon": "auch"},
+    {"song": "Cpt. Metal", "icon": "auch"},
+    {"song": "Die Hard", "icon": "auch"},
+    {"song": "zeiDverschwÄndung", "icon": "auch"},
+
+    {"song": "Mutig", "icon": "zeidSingle"},
+    {"song": "Quadrophenia", "icon": "zeidSingle"},
+    {"song": "Will dich zurück", "icon": "zeidSingle"},
+
+    {"song": "Endstück des Eros", "icon": "mfSingle"},
+    {"song": "Generation Ä", "icon": "mfSingle"},
+
+
+
+
+
+    {"song": "Abschied", "icon": "dreimann"},
+    {"song": "Rückkehr", "icon": "dreimann"},
+
+    {"song": "Ein Lied für jetzt", "icon": "liedfuerjetzt"},
+
+
+
+
+
+    {"song": "E.V.J.M.F.", "icon": "hell"},
+    {"song": "PLAN B", "icon": "hell"},
+    {"song": "ACHTUNG: BIELEFELD", "icon": "hell"},
+    {"song": "WARUM SPRICHT NIEMAND ÜBER GITARRISTEN?", "icon": "hell"},
+    {"song": "MORGENS PAUKEN", "icon": "hell"},
+    {"song": "DAS LETZTE LIED DES SOMMERS", "icon": "hell"},
+    {"song": "CLOWN AUS DEM HOSPIZ", "icon": "hell"},
+    {"song": "ICH, AM STRAND", "icon": "hell"},
+    {"song": "TRUE ROMANCE", "icon": "hell"},
+    {"song": "EINMAL EIN BIER", "icon": "hell"},
+    {"song": "WER VERLIERT, HAT SCHON VERLOREN", "icon": "hell"},
+    {"song": "POLYESTER", "icon": "hell"},
+    {"song": "FEXXO CIGOL", "icon": "hell"},
+    {"song": "LIEBE GEGEN RECHTS", "icon": "hell"},
+    {"song": "ALLE AUF BRILLE", "icon": "hell"},
+    {"song": "THOR", "icon": "hell"},
+    {"song": "LEBEN VOR DEM TOD", "icon": "hell"},
+    {"song": "WOODBURGER", "icon": "hell"},
+
+    {"song": "KLAUS, PETER, WILLI UND PETRA", "icon": "bielefeldSingle"},
+
+
+
+
+
+    {"song": "KFM", "icon": "dunkel"},
+    {"song": "WISSEN", "icon": "dunkel"},
+    {"song": "DUNKEL", "icon": "dunkel"},
+    {"song": "ANTI", "icon": "dunkel"},
+    {"song": "DOOF", "icon": "dunkel"},
+    {"song": "SCHREI", "icon": "dunkel"},
+    {"song": "KRAFT", "icon": "dunkel"},
+    {"song": "SCHWEIGEN", "icon": "dunkel"},
+    {"song": "TRISTESSE", "icon": "dunkel"},
+    {"song": "KERNGESCHÄFT", "icon": "dunkel"},
+    {"song": "NOISE", "icon": "dunkel"},
+    {"song": "EINSCHLAG", "icon": "dunkel"},
+    {"song": "ANASTASIA", "icon": "dunkel"},
+    {"song": "BESSER", "icon": "dunkel"},
+    {"song": "NACHMITTAG", "icon": "dunkel"},
+    {"song": "MENSCHEN", "icon": "dunkel"},
+    {"song": "ERHABEN", "icon": "dunkel"},
+    {"song": "DANACH", "icon": "dunkel"},
+    {"song": "DEMOKRATIE", "icon": "dunkel"},
+
+    {"song": "AUSERZÄHLT", "icon": "noiseSingle"},
+    {"song": "DOBLY", "icon": "noiseSingle"},
+
+    {"song": "SCHRITTE", "icon": "kraftSingle"},
+    
+    {"song": "SCHULDSELBER", "icon": "dunkelSingle"}
+]

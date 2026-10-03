@@ -1,11 +1,15 @@
 package com.aerzteguessr;
 
+import java.awt.Component;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
 import javax.swing.DefaultListCellRenderer;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
@@ -13,10 +17,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.KeyStroke;
-
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.Component;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -30,11 +30,11 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
      * @return JComboBox with all songs from .json files
      */
     protected JComboBox<DropdownItem> initializeJComboBox() {
-        JComboBox<DropdownItem> comboBox = new JComboBox<>(dropdownArrayFromJson("data\\songs.json"));
+        JComboBox<DropdownItem> comboBox = new JComboBox<>(dropdownArrayFromJson(getClass().getResource("/json/songs.json")));
 
         // Add Farin songs if pFarin = true
         if(settings.isFarinEnabled()) {
-            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsFarin.json"));
+            JComboBox<DropdownItem> farinDropdown = new JComboBox<>(dropdownArrayFromJson(getClass().getResource("/json/songsFarin.json")));
             for(int i = 0; i < farinDropdown.getItemCount(); i++) {
                 comboBox.addItem(farinDropdown.getItemAt(i));
             }
@@ -43,7 +43,7 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
 
         // Add Bela songs if pBela = true
         if(settings.isBelaEnabled()) {
-                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsBela.json"));
+                JComboBox<DropdownItem> belaDropdown = new JComboBox<>(dropdownArrayFromJson(getClass().getResource("/json/songsBela.json")));
             for(int i = 0; i < belaDropdown.getItemCount(); i++) {
                 comboBox.addItem(belaDropdown.getItemAt(i));
             }
@@ -52,7 +52,7 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
 
         // Add Sahnie songs if pSahnie = true
         if(settings.isSahnieEnabled()) {
-                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson("data\\songsSahnie.json"));
+                JComboBox<DropdownItem> sahnieDropdown = new JComboBox<>(dropdownArrayFromJson(getClass().getResource("/json/songsSahnie.json")));
             for(int i = 0; i < sahnieDropdown.getItemCount(); i++) {
                 comboBox.addItem(sahnieDropdown.getItemAt(i));
             }
@@ -120,16 +120,16 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
      * @param pFilename path where the song names with icons are located (must contain "song" and "icon" key)
      * @return an array of DropdownItems containing song names and icons
      */
-    protected DropdownItem[] dropdownArrayFromJson(String pFilename) {
+    protected DropdownItem[] dropdownArrayFromJson(URL pFilename) {
         LinkedList<DropdownItem> songs = new LinkedList<>();
         try {
-            String content = new String(Files.readAllBytes(Paths.get(pFilename)));
+            String content = Files.readString(Paths.get(pFilename.toURI()), StandardCharsets.UTF_8);
             JSONArray arr = new JSONArray(content);
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
                 String songName = obj.getString("song");
                 String iconPath = obj.getString("icon");
-                Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                ImageIcon icon = new ImageIcon(getClass().getResource("/images/albumCover/" + iconPath + ".png"));
                 songs.add(new DropdownItem(songName, icon));
             }
         } catch (Exception e) {
@@ -145,13 +145,13 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
     protected LinkedList<DropdownItem> dropdownListFromJson() {
         LinkedList<DropdownItem> songs = new LinkedList<>();
         try {
-            String content = new String(Files.readAllBytes(Paths.get("data\\songs.json")));
+            String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/json/songs.json").toURI())));
             JSONArray arr = new JSONArray(content);
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
                 String songName = obj.getString("song");
                 String iconPath = obj.getString("icon");
-                Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                ImageIcon icon = new ImageIcon(getClass().getResource("/images/albumCover/" + iconPath + ".png"));
                 songs.add(new DropdownItem(songName, icon));
             }
         } catch (Exception e) {
@@ -159,13 +159,13 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
         }
         if(settings.isFarinEnabled()) {
             try {
-                String content = new String(Files.readAllBytes(Paths.get("data\\songsFarin.json")));
+                String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/json/songsFarin.json").toURI())));
                 JSONArray arr = new JSONArray(content);
                 for(int i = 0; i < arr.length(); i++) {
                     JSONObject obj = arr.getJSONObject(i);
                     String songName = obj.getString("song");
                     String iconPath = obj.getString("icon");
-                    Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                    ImageIcon icon = new ImageIcon(getClass().getResource("/images/albumCover/" + iconPath + ".png"));
                     songs.add(new DropdownItem(songName, icon));
                 }
             } catch (Exception e) {
@@ -174,13 +174,13 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
         }
         if(settings.isBelaEnabled()) {
             try {
-                String content = new String(Files.readAllBytes(Paths.get("data\\songsBela.json")));
+                String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/json/songsBela.json").toURI())));
                 JSONArray arr = new JSONArray(content);
                 for(int i = 0; i < arr.length(); i++) {
                     JSONObject obj = arr.getJSONObject(i);
                     String songName = obj.getString("song");
                     String iconPath = obj.getString("icon");
-                    Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                    ImageIcon icon = new ImageIcon(getClass().getResource("/images/albumCover/" + iconPath + ".png"));
                     songs.add(new DropdownItem(songName, icon));
                 }
             } catch (Exception e) {
@@ -189,13 +189,13 @@ public abstract class Gui extends JFrame implements EnterKeyListener {
         }
         if(settings.isSahnieEnabled()) {
             try {
-                String content = new String(Files.readAllBytes(Paths.get("data\\songsSahnie.json")));
+                String content = new String(Files.readAllBytes(Paths.get(getClass().getResource("/json/songsSahnie.json").toURI())));
                 JSONArray arr = new JSONArray(content);
                 for(int i = 0; i < arr.length(); i++) {
                     JSONObject obj = arr.getJSONObject(i);
                     String songName = obj.getString("song");
                     String iconPath = obj.getString("icon");
-                    Icon icon = new ImageIcon("images\\" + iconPath + ".png");
+                    ImageIcon icon = new ImageIcon(getClass().getResource("/images/albumCover/" + iconPath + ".png"));
                     songs.add(new DropdownItem(songName, icon));
                 }
             } catch (Exception e) {

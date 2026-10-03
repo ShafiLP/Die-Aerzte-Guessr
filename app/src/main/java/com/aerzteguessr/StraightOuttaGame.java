@@ -1,16 +1,14 @@
 package com.aerzteguessr;
 
 import java.awt.Color;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import com.google.gson.Gson;
 
 /**
  * Class for the game "Straight Outta..."
@@ -51,12 +49,12 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
         hintsP2 = hints;
 
         // Create a LinkedList containing all available song lyrics
-        songTexts = readSongsFromJson("data\\lyrics.json", songTexts);
+        songTexts = readSongsFromJson(getClass().getResource("/json/lyrics.json"), songTexts);
 
         // Read only if enabled
-        if (settings.isFarinEnabled()) songTexts = readSongsFromJson("data\\lyricsFarin.json", songTexts);
-        if (settings.isBelaEnabled()) songTexts = readSongsFromJson("data\\lyricsBela.json", songTexts);
-        if (settings.isSahnieEnabled()) songTexts = readSongsFromJson("data\\lyricsSahnie.json", songTexts);
+        if (settings.isFarinEnabled()) songTexts = readSongsFromJson(getClass().getResource("/json/lyricsFarin.json"), songTexts);
+        if (settings.isBelaEnabled()) songTexts = readSongsFromJson(getClass().getResource("/json/lyricsBela.json"), songTexts);
+        if (settings.isSahnieEnabled()) songTexts = readSongsFromJson(getClass().getResource("/json/lyricsSahnie.json"), songTexts);
  
         // Get a random song text part
         currentSongText = getRandomSongText();
@@ -245,9 +243,9 @@ public class StraightOuttaGame implements GameMode, TimerEvents  {
      * @param songList List to add the SongText objects to
      * @return LinkedList with all songs from given file path
      */
-    private LinkedList<SongText> readSongsFromJson(String filepath, LinkedList<SongText> songList) {
+    private LinkedList<SongText> readSongsFromJson(URL filepath, LinkedList<SongText> songList) {
         try {
-            String content = new String(Files.readAllBytes(Paths.get(filepath)));
+            String content = Files.readString(Paths.get(filepath.toURI()), StandardCharsets.UTF_8);
             JSONArray arr = new JSONArray(content);
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);

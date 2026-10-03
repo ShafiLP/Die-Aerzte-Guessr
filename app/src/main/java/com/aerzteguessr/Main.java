@@ -3,18 +3,18 @@ package com.aerzteguessr;
 import java.util.List;
 
 import com.aerzteguessr.models.Song;
-import com.aerzteguessr.services.Database;
+import com.aerzteguessr.service.Database;
 
 /**
  * Main class
  * 
  * @author ShafiLP
- * @version 0.6.1.2
+ * @version 0.6.1.4
  */
 public class Main {
     public static void main(String[] args) {
         // Initialize database on application startup
-        Database.initializeDatabase();
+        //Database.initializeDatabase();
 
         // DEBUG: Print all songs
         List<Song> songs = Database.getAllSongs();

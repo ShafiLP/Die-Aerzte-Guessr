@@ -1,0 +1,88 @@
+[
+    {"song": "Theme From Bingowings", "album": "bingo", "release": "2006", "streams": "0", "durationMin": "1", "durationSec": "2", "livePlays": "0", "singer": "Bela", "single": "false"},
+    {"song": "B-Vertüre", "album": "bingo", "release": "2006", "streams": "0", "durationMin": "1", "durationSec": "20", "livePlays": "35", "singer": "Bela", "single": "false"},
+    {"song": "Gitarre runter", "album": "bingo", "release": "2006", "streams": "1.700.000", "durationMin": "3", "durationSec": "43", "livePlays": "70", "singer": "Bela", "single": "true"},
+    {"song": "Tag mit Schutzumschlag", "album": "bingo", "release": "2006", "streams": "800.000", "durationMin": "3", "durationSec": "5", "livePlays": "74", "singer": "Bela", "single": "true"},
+    {"song": "Irgendetwas bleibt", "album": "bingo", "release": "2006", "streams": "400.000", "durationMin": "3", "durationSec": "25", "livePlays": "65", "singer": "Bela", "single": "false"},
+    {"song": "Traumfrau", "album": "bingo", "release": "2006", "streams": "200.000", "durationMin": "3", "durationSec": "4", "livePlays": "72", "singer": "Bela", "single": "false"},
+    {"song": "Letzter Tag", "album": "bingo", "release": "2006", "streams": "0", "durationMin": "4", "durationSec": "6", "livePlays": "53", "singer": "Bela", "single": "false"},
+    {"song": "Was ist nur los ...?", "album": "bingo", "release": "2006", "streams": "0", "durationMin": "2", "durationSec": "32", "livePlays": "65", "singer": "Bela", "single": "false"},
+    {"song": "1. 2. 3. ...", "album": "bingo", "release": "2006", "streams": "1.200.000", "durationMin": "3", "durationSec": "2", "livePlays": "99", "singer": "Bela, Charlotte Roche", "single": "true"},
+    {"song": "Sie hat was vermisst", "album": "bingo", "release": "2006", "streams": "300.000", "durationMin": "4", "durationSec": "4", "livePlays": "64", "singer": "Bela", "single": "true"},
+    {"song": "Der Vampir mit dem Colt", "album": "bingo", "release": "2006", "streams": "100.000", "durationMin": "4", "durationSec": "58", "livePlays": "106", "singer": "Bela", "single": "false"},
+    {"song": "Versuchs doch mal mit mir", "album": "bingo", "release": "2006", "streams": "600.000", "durationMin": "3", "durationSec": "5", "livePlays": "80", "singer": "Bela", "single": "false"},
+    {"song": "Lee Hazlewood und das erste Lied des Tages", "album": "bingo", "release": "2006", "streams": "200.000", "durationMin": "3", "durationSec": "12", "livePlays": "71", "singer": "Bela, Lee Hazlewood", "single": "false"},
+    {"song": "Hab keine Angst", "album": "bingo", "release": "2006", "streams": "0", "durationMin": "3", "durationSec": "59", "livePlays": "40", "singer": "Bela, Lula", "single": "false"},
+    {"song": "ZappingsonG", "album": "bingo", "release": "2006", "streams": "100.000", "durationMin": "2", "durationSec": "7", "livePlays": "63", "singer": "Bela", "single": "false"},
+    {"song": "Wiehr thind sssuper", "album": "bingo", "release": "2006", "streams": "100.000", "durationMin": "3", "durationSec": "10", "livePlays": "39", "singer": "Bela", "single": "false"},
+    {"song": "Baby läuft fort", "album": "bingo", "release": "2006", "streams": "0", "durationMin": "3", "durationSec": "46", "livePlays": "22", "singer": "Bela", "single": "false"},
+    {"song": "Traumfrau again", "album": "bingo", "release": "2006", "streams": "0", "durationMin": "1", "durationSec": "12", "livePlays": "0", "singer": "Bela", "single": "false"},
+
+    {"song": "Deutsche - kauft nicht bei Nazis", "album": "bingo", "release": "2009", "streams": "200.000", "durationMin": "3", "durationSec": "28", "livePlays": "33", "singer": "Bela", "single": "false"},
+    {"song": "Kein Ort für einen Mann", "album": "bingo", "release": "2019", "streams": "0", "durationMin": "2", "durationSec": "58", "livePlays": "0", "singer": "Bela, Mondo Sangue", "single": "false"},
+
+    {"song": "Loverboy", "album": "Single/B-Seite", "release": "2006", "streams": "0", "durationMin": "3", "durationSec": "53", "livePlays": "37", "singer": "Bela", "single": "false"},
+
+
+
+
+
+    {"song": "Rockula", "album": "codeb", "release": "2009", "streams": "100.000", "durationMin": "3", "durationSec": "4", "livePlays": "29", "singer": "Bela", "single": "false"},
+    {"song": "Geburtstagsleid", "album": "codeb", "release": "2009", "streams": "100.000", "durationMin": "3", "durationSec": "40", "livePlays": "31", "singer": "Bela", "single": "false"},
+    {"song": "In diesem Leben", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "28", "livePlays": "34", "singer": "Bela", "single": "true"},
+    {"song": "Altes Arschloch Liebe", "album": "codeb", "release": "2009", "streams": "500.000", "durationMin": "4", "durationSec": "27", "livePlays": "74", "singer": "Bela", "single": "true"},
+    {"song": "Schwarz/Weiss", "album": "codeb", "release": "2009", "streams": "100.000", "durationMin": "3", "durationSec": "12", "livePlays": "34", "singer": "Bela", "single": "true"},
+    {"song": "Onenightstand", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "33", "livePlays": "25", "singer": "Bela", "single": "false"},
+    {"song": "Ninjababypowpow", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "4", "durationSec": "5", "livePlays": "42", "singer": "Bela", "single": "false"},
+    {"song": "Hilf dir selbst", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "7", "livePlays": "0", "singer": "Bela, Charlotte Roche", "single": "false"},
+    {"song": "Bobotanz", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "4", "durationSec": "17", "livePlays": "22", "singer": "Bela", "single": "false"},
+    {"song": "Liebe und Benzin", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "53", "livePlays": "30", "singer": "Bela, Emmanuelle Seigner", "single": "false"},
+    {"song": "Als wir unsterblich waren", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "0", "livePlays": "29", "singer": "Bela", "single": "false"},
+    {"song": "Nein!", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "19", "livePlays": "28", "singer": "Bela", "single": "false"},
+    {"song": "Dein Schlaflied", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "4", "durationSec": "10", "livePlays": "0", "singer": "Bela", "single": "false"},
+    {"song": "Der Wahrheit", "album": "codeb", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "36", "livePlays": "0", "singer": "Bela", "single": "false"},
+
+    {"song": "Satan, Gott und das Glück", "album": "Single/B-Seite", "release": "2009", "streams": "0", "durationMin": "3", "durationSec": "27", "livePlays": "30", "singer": "Bela", "single": "false"},
+
+    {"song": "Do the Helmstedt", "album": "Single/B-Seite", "release": "2009", "streams": "0", "durationMin": "1", "durationSec": "22", "livePlays": "0", "singer": "Bela", "single": "false"},
+
+    {"song": "Paris", "album": "codeb", "release": "2019", "streams": "0", "durationMin": "3", "durationSec": "32", "livePlays": "0", "singer": "Bela", "single": "false"},
+
+
+
+
+
+    {"song": "Abserviert", "album": "bye", "release": "2014", "streams": "200.000", "durationMin": "3", "durationSec": "39", "livePlays": "38", "singer": "Bela", "single": "true"},
+    {"song": "Wenn das mal Liebe wird", "album": "bye", "release": "2006", "streams": "100.000", "durationMin": "2", "durationSec": "24", "livePlays": "67", "singer": "Bela", "single": "false"},
+    {"song": "Streichholzmann", "album": "bye", "release": "2014", "streams": "100.000", "durationMin": "3", "durationSec": "35", "livePlays": "39", "singer": "Bela", "single": "true"},
+    {"song": "Der Sünder", "album": "bye", "release": "2014", "streams": "100.000", "durationMin": "3", "durationSec": "13", "livePlays": "28", "singer": "Bela", "single": "false"},
+    {"song": "Immer so sein", "album": "bye", "release": "2014", "streams": "200.000", "durationMin": "3", "durationSec": "16", "livePlays": "42", "singer": "Bela", "single": "true"},
+    {"song": "Sentimental", "album": "bye", "release": "2014", "streams": "0", "durationMin": "4", "durationSec": "1", "livePlays": "38", "singer": "Bela", "single": "false"},
+    {"song": "Teufelsküche", "album": "bye", "release": "2014", "streams": "0", "durationMin": "3", "durationSec": "19", "livePlays": "24", "singer": "Bela", "single": "false"},
+    {"song": "Nicht Nice", "album": "bye", "release": "2014", "streams": "0", "durationMin": "4", "durationSec": "50", "livePlays": "32", "singer": "Bela", "single": "false"},
+    {"song": "Belphegor", "album": "bye", "release": "2014", "streams": "0", "durationMin": "2", "durationSec": "31", "livePlays": "30", "singer": "Bela", "single": "false"},
+    {"song": "Verwöhn'", "album": "bye", "release": "2014", "streams": "0", "durationMin": "4", "durationSec": "9", "livePlays": "24", "singer": "Bela", "single": "false"},
+    {"song": "Bombe tickt", "album": "bye", "release": "2007", "streams": "0", "durationMin": "3", "durationSec": "9", "livePlays": "42", "singer": "Bela", "single": "false"},
+    {"song": "My Soul/Dein Herz", "album": "bye", "release": "2014", "streams": "0", "durationMin": "3", "durationSec": "10", "livePlays": "13", "singer": "Bela", "single": "false"},
+    {"song": "Peng!", "album": "bye", "release": "2014", "streams": "", "durationMin": "0", "durationSec": "4", "livePlays": "25", "singer": "Bela", "single": "false"},
+
+    {"song": "Zu meiner Zeit", "album": "Single/B-Seite", "release": "2014", "streams": "0", "durationMin": "3", "durationSec": "19", "livePlays": "31", "singer": "Bela", "single": "false"},
+
+
+
+
+
+    {"song": "Der Dreck von Indian Creek", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "2", "durationSec": "14", "livePlays": "0", "singer": "Bela", "single": "false"},
+    {"song": "Warum denn kein Chop Suey", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "3", "durationSec": "27", "livePlays": "0", "singer": "Bela", "single": "false"},
+    {"song": "Das schwache Geschlecht", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "2", "durationSec": "22", "livePlays": "0", "singer": "Bela", "single": "false"},
+    {"song": "Zuhaus", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "4", "durationSec": "15", "livePlays": "4", "singer": "Bela", "single": "false"},
+    {"song": "Showdown", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "2", "durationSec": "52", "livePlays": "2", "singer": "Bela", "single": "false"},
+    {"song": "Ode an das Bahnhofskino", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "3", "durationSec": "51", "livePlays": "0", "singer": "Bela", "single": "false"},
+    {"song": "Noch warm und schon Sand drauf", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "4", "durationSec": "16", "livePlays": "2", "singer": "Bela", "single": "false"},
+    {"song": "Missgeschick & Blei", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "3", "durationSec": "11", "livePlays": "2", "singer": "Bela", "single": "false"},
+    {"song": "Einer bleibt liegen", "album": "bastard", "release": "2017", "streams": "500.000", "durationMin": "2", "durationSec": "45", "livePlays": "2", "singer": "Bela", "single": "true"},
+    {"song": "Bärenjagd", "album": "bastard", "release": "2017", "streams": "0", "durationMin": "3", "durationSec": "57", "livePlays": "0", "singer": "Bela", "single": "false"},
+
+    {"song": "Everybody Hates You When You're Popular", "album": "Single/B-Seite", "release": "2017", "streams": "0", "durationMin": "2", "durationSec": "52", "livePlays": "0", "singer": "Bela", "single": "false"},
+    {"song": "Johnny Remember Me", "album": "Single/B-Seite", "release": "2017", "streams": "0", "durationMin": "2", "durationSec": "48", "livePlays": "0", "singer": "Bela", "single": "false"}
+]

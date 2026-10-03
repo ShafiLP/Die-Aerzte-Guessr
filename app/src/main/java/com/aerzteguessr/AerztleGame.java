@@ -1,6 +1,8 @@
 package com.aerzteguessr;
 
 import java.awt.Color;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
@@ -26,12 +28,12 @@ public class AerztleGame implements GameMode {
         TRIES = pSettings.getAeTries();
 
         aerztleObjects = new LinkedList<>();
-        aerztleObjects = readSongsFromJson("data\\aerztleData.json", aerztleObjects);
+        aerztleObjects = readSongsFromJson(getClass().getResource("/json/aerztleData.json"), aerztleObjects);
 
         // Load bonus libraries if enabled
-        if (settings.isFarinEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataFarin.json", aerztleObjects);
-        if (settings.isBelaEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataBela.json", aerztleObjects);
-        if (settings.isSahnieEnabled()) aerztleObjects = readSongsFromJson("data\\aerztleDataSahnie.json", aerztleObjects);
+        if (settings.isFarinEnabled()) aerztleObjects = readSongsFromJson(getClass().getResource("/json/aerztleDataFarin.json"), aerztleObjects);
+        if (settings.isBelaEnabled()) aerztleObjects = readSongsFromJson(getClass().getResource("/json/aerztleDataBela.json"), aerztleObjects);
+        if (settings.isSahnieEnabled()) aerztleObjects = readSongsFromJson(getClass().getResource("/json/aerztleDataSahnie.json"), aerztleObjects);
 
         int randomIndex = (int) (Math.random() * aerztleObjects.size());
         currentSong =  aerztleObjects.get(randomIndex);
@@ -166,9 +168,9 @@ public class AerztleGame implements GameMode {
      * @param pSelection User's input, name of the song to search for as a String
      * @return If a match was found, return AerztleObject with data. Else return AerztleObject with placeholder data
      */
-    private AerztleObject getSelectedSong(String pFilepath, String pSelection) {
+    private AerztleObject getSelectedSong(URL pFilepath, String pSelection) {
         try {
-            String content = new String(Files.readAllBytes(Paths.get(pFilepath)));
+            String content = Files.readString(Paths.get(pFilepath.toURI()), StandardCharsets.UTF_8);
             JSONArray arr = new JSONArray(content);
             for (int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);
@@ -190,16 +192,16 @@ public class AerztleGame implements GameMode {
      * @param pGuess User's guess for the searched song
      */
     public void submitButtonPressed(String pGuess) {
-        AerztleObject guess = getSelectedSong("data\\aerztleData.json", pGuess);
+        AerztleObject guess = getSelectedSong(getClass().getResource("/json/aerztleData.json"), pGuess);
 
         // If no match was found search in Farin library
-        if (guess.getSongName() == null & settings.isFarinEnabled()) guess = getSelectedSong("data\\aerztleDataFarin.json", pGuess);
+        if (guess.getSongName() == null & settings.isFarinEnabled()) guess = getSelectedSong(getClass().getResource("/json/aerztleDataFarin.json"), pGuess);
 
         // If no match was found search in Bela library
-        if (guess.getSongName() == null & settings.isBelaEnabled()) guess = getSelectedSong("data\\aerztleDataBela.json", pGuess);
+        if (guess.getSongName() == null & settings.isBelaEnabled()) guess = getSelectedSong(getClass().getResource("/json/aerztleDataBela.json"), pGuess);
         
         // If no match was found search in Sahnie library
-        if (guess.getSongName() == null & settings.isSahnieEnabled()) guess = getSelectedSong("data\\aerztleDataSahnie.json", pGuess);
+        if (guess.getSongName() == null & settings.isSahnieEnabled()) guess = getSelectedSong(getClass().getResource("/json/aerztleDataSahnie.json"), pGuess);
 
         // Check all categories
         if(guess.getSongName() != null) {
@@ -235,9 +237,9 @@ public class AerztleGame implements GameMode {
      * @param pLinkedList LinkedList to add the objects to
      * @return Initialized LinkedList with AerztleObjects from the given file path
      */
-    private LinkedList<AerztleObject> readSongsFromJson(String pFilepath, LinkedList<AerztleObject> pLinkedList) {
+    private LinkedList<AerztleObject> readSongsFromJson(URL pFilepath, LinkedList<AerztleObject> pLinkedList) {
         try {
-            String content = new String(Files.readAllBytes(Paths.get(pFilepath)));
+            String content = Files.readString(Paths.get(pFilepath.toURI()), StandardCharsets.UTF_8);
             JSONArray arr = new JSONArray(content);
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);

@@ -56,7 +56,7 @@ public class AerztleMenu extends Menu {
         this.setSize(310, 350);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center window
-        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+        // this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -65,7 +65,7 @@ public class AerztleMenu extends Menu {
 
         // Heading
         JPanel headingPanel = new JPanel();
-        ImageIcon icon = new ImageIcon("images\\aerztle.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/gamemodeTitles/aerztle.png"));
         Image img = icon.getImage().getScaledInstance(150, 35, Image.SCALE_SMOOTH);
         JLabel lHeading = new JLabel(new ImageIcon(img));
         headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));

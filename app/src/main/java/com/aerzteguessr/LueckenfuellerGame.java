@@ -1,6 +1,8 @@
 package com.aerzteguessr;
 
 import java.awt.Color;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.LinkedList;
@@ -50,12 +52,12 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
 
         // Read Lueckenfueller elements from file
         lyricsWithGaps = new LinkedList<>();
-        lyricsWithGaps = readSongsFromJson("data\\lyricCompletion.json", lyricsWithGaps);
+        lyricsWithGaps = readSongsFromJson(getClass().getResource("/json/lyricCompletion.json"), lyricsWithGaps);
 
         // Read only if enabled
-        if (settings.isFarinEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionFarin.json", lyricsWithGaps);
-        if (settings.isBelaEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionBela.json", lyricsWithGaps);
-        if (settings.isSahnieEnabled()) lyricsWithGaps = readSongsFromJson("data\\lyricCompletionSahnie.json", lyricsWithGaps);
+        if (settings.isFarinEnabled()) lyricsWithGaps = readSongsFromJson(getClass().getResource("/json/lyricCompletionFarin.json"), lyricsWithGaps);
+        if (settings.isBelaEnabled()) lyricsWithGaps = readSongsFromJson(getClass().getResource("/json/lyricCompletionBela.json"), lyricsWithGaps);
+        if (settings.isSahnieEnabled()) lyricsWithGaps = readSongsFromJson(getClass().getResource("/json/lyricCompletionSahnie.json"), lyricsWithGaps);
 
         // Get random SongTextWithGap
         randomTextWithGap = getRandomSongTextWithGap(lyricsWithGaps);
@@ -258,9 +260,9 @@ public class LueckenfuellerGame implements GameMode, TimerEvents {
      * @param pTextsWithGaps LinkedList to add the elements to
      * @return Given LinkedList with elements from given JSON file
      */
-    private LinkedList<SongTextWithGap> readSongsFromJson(String pFilepath, LinkedList<SongTextWithGap> pTextsWithGaps) {
+    private LinkedList<SongTextWithGap> readSongsFromJson(URL pFilepath, LinkedList<SongTextWithGap> pTextsWithGaps) {
         try {
-            String content = new String(Files.readAllBytes(Paths.get(pFilepath)));
+            String content = Files.readString(Paths.get(pFilepath.toURI()), StandardCharsets.UTF_8);
             JSONArray arr = new JSONArray(content);
             for(int i = 0; i < arr.length(); i++) {
                 JSONObject obj = arr.getJSONObject(i);

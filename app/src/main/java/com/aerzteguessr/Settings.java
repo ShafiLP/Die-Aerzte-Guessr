@@ -1,11 +1,10 @@
 package com.aerzteguessr;
 
-import com.google.gson.Gson;
-
-import java.awt.*;
-import java.io.FileReader;
+import java.awt.Font;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import com.google.gson.Gson;
 
 public class Settings {
     // General settings
@@ -286,14 +285,15 @@ public class Settings {
      * @return Settings object with data from JSON file
      */
     public static Settings read() {
-        Settings settingsFromJson = new Settings();
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader("data/settings.json")) {
+        //Settings settingsFromJson = new Settings();
+        //Gson gson = new Gson();
+        return new Settings();
+        /*try (FileReader reader = new FileReader("data\\settings.json")) {
             settingsFromJson = gson.fromJson(reader, Settings.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return settingsFromJson;
+        return settingsFromJson;*/
     }
 
     /**

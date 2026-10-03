@@ -7,6 +7,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.net.URL;
 import java.util.LinkedList;
 
 import javax.swing.BorderFactory;
@@ -54,7 +55,7 @@ public class AerztleGui extends Gui {
         this.setLayout(new BorderLayout());
         this.setLocationRelativeTo(null); // Center the window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+        // this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Top panel
         JPanel topPanel = new JPanel(new GridLayout(2, 1));
@@ -62,7 +63,7 @@ public class AerztleGui extends Gui {
 
         // Heading
         JLabel lHeading = new JLabel("", SwingConstants.CENTER);
-        ImageIcon icon = new ImageIcon("images\\aerztle.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/gamemodeTitles/aerztle.png"));
         Image img = icon.getImage().getScaledInstance(150, 40, Image.SCALE_SMOOTH);
         lHeading.setIcon(new ImageIcon(img));
         topPanel.add(lHeading);
@@ -203,7 +204,7 @@ public class AerztleGui extends Gui {
             return;
         }
         if(settings.isShowIconsEnabled()) {
-            ImageIcon albumIcon = new ImageIcon("images\\" + pText + ".png");
+            ImageIcon albumIcon = new ImageIcon(getClass().getResource("/images/albumCover/") + pText + ".png");
             Image albumImg = albumIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
             lTable[pIndex][1].setIcon(new ImageIcon(albumImg));
         } else {
@@ -273,7 +274,7 @@ public class AerztleGui extends Gui {
         lTable[pIndex][2].setBackground(pColor);
         lTable[pIndex][2].setText(pText);
         if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
-            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            URL imagePath = (pMoreOrLess == true) ? getClass().getResource("/images/arrowUp.png") : getClass().getResource("/images/arrowDown.png");
             ImageIcon arrowIcon = new ImageIcon(imagePath);
             Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
             lTable[pIndex][2].setIcon(new ImageIcon(arrowImg));
@@ -287,7 +288,7 @@ public class AerztleGui extends Gui {
         lTable[pIndex][3].setBackground(pColor);
         lTable[pIndex][3].setText(pText);
         if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
-            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            URL imagePath = (pMoreOrLess == true) ? getClass().getResource("/images/arrowUp.png") : getClass().getResource("/images/arrowDown.png");
             ImageIcon arrowIcon = new ImageIcon(imagePath);
             Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
             lTable[pIndex][3].setIcon(new ImageIcon(arrowImg));
@@ -301,7 +302,7 @@ public class AerztleGui extends Gui {
         lTable[pIndex][4].setBackground(pColor);
         lTable[pIndex][4].setText(pText);
         if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
-            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            URL imagePath = (pMoreOrLess == true) ? getClass().getResource("/images/arrowUp.png") : getClass().getResource("/images/arrowDown.png");
             ImageIcon arrowIcon = new ImageIcon(imagePath);
             Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
             lTable[pIndex][4].setIcon(new ImageIcon(arrowImg));
@@ -315,7 +316,7 @@ public class AerztleGui extends Gui {
         lTable[pIndex][5].setBackground(pColor);
         lTable[pIndex][5].setText(pText);
         if(settings.isShowIconsEnabled() & pMoreOrLess != null) {
-            String imagePath = (pMoreOrLess == true) ? "images\\arrowUp.png" : "images\\arrowDown.png";
+            URL imagePath = (pMoreOrLess == true) ? getClass().getResource("/images/arrowUp.png") : getClass().getResource("/images/arrowDown.png");
             ImageIcon arrowIcon = new ImageIcon(imagePath);
             Image arrowImg = arrowIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
             lTable[pIndex][5].setIcon(new ImageIcon(arrowImg));

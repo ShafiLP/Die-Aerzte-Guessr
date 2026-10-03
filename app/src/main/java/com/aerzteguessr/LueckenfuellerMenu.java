@@ -63,7 +63,7 @@ public class LueckenfuellerMenu extends Menu {
         this.setSize(310, 400);
         this.setResizable(false);
         this.setLocationRelativeTo(null); // Center window
-        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+        // this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         // Main panel with BorderLayout
         JPanel mainPanel = new JPanel(new BorderLayout());
@@ -72,7 +72,7 @@ public class LueckenfuellerMenu extends Menu {
 
         // Heading
         JPanel headingPanel = new JPanel();
-        ImageIcon icon = new ImageIcon("images\\Lueckenfueller.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/gamemodeTitles/lueckenfueller.png"));
         Image img = icon.getImage().getScaledInstance(270, 35, Image.SCALE_SMOOTH);
         JLabel lHeading = new JLabel(new ImageIcon(img));
         headingPanel.setBorder(BorderFactory.createEmptyBorder(5, 15, 5, 15));

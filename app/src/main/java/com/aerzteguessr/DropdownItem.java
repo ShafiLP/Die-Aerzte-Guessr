@@ -9,11 +9,10 @@ public class DropdownItem {
     private String dropdownText;
     private Icon dropdownIcon;
 
-    DropdownItem(String pText, Icon pIcon) {
+    DropdownItem(String pText, ImageIcon pIcon) {
         dropdownText = pText;
         // Scale the icon to a smaller size for the dropdown
-        ImageIcon icon = new ImageIcon(pIcon.toString());
-        Image img = icon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+        Image img = pIcon.getImage().getScaledInstance(20, 20, Image.SCALE_SMOOTH);
         dropdownIcon = new ImageIcon(img);
     }
 

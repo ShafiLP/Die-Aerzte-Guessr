@@ -1,11 +1,25 @@
 package com.aerzteguessr;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.*;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Insets;
 import java.util.LinkedList;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 /**
  * Class for the GUI of the game "Guess The Origin"
@@ -64,14 +78,14 @@ class StraightOuttaGui extends Gui {
         this.setSize(600, 300);
         this.setLocationRelativeTo(null); // Center window
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
+        //this.setIconImage(new ImageIcon("images\\daLogo.png").getImage());
 
         currentSongLabel.setFont(new Font(settings.getFontType(), Font.PLAIN, 12));
 
         // Health bar
         if (multiplayer) {
             if(settings.isShowIconsEnabled()) {
-                ImageIcon healthIcon = new ImageIcon("images\\health.png");
+                ImageIcon healthIcon = new ImageIcon(getClass().getResource("/images/health.png"));
                 Image healtImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 for(int i = 0; i < healthBar.length; i++) {
                     healthBar[i] = new JLabel(new ImageIcon(healtImg));
@@ -89,7 +103,7 @@ class StraightOuttaGui extends Gui {
             }
         } else {
             if(settings.isShowIconsEnabled()) {
-                ImageIcon healthIcon = new ImageIcon("images\\health.png");
+                ImageIcon healthIcon = new ImageIcon(getClass().getResource("/images/health.png"));
                 Image healtImg = healthIcon.getImage().getScaledInstance(25, 25, Image.SCALE_SMOOTH);
                 for(int i = 0; i < healthBar.length; i++) {
                     healthBar[i] = new JLabel(new ImageIcon(healtImg));
@@ -112,7 +126,7 @@ class StraightOuttaGui extends Gui {
         JPanel panHeading = new  JPanel(new GridBagLayout());
         panHeading.setOpaque(false);
         JLabel lHeading = new JLabel("", SwingConstants.CENTER);
-        ImageIcon icon = new ImageIcon("images\\StraightOutta.png");
+        ImageIcon icon = new ImageIcon(getClass().getResource("/images/gamemodeTitles/straightoutta.png"));
         Image img = icon.getImage().getScaledInstance(280, 40, Image.SCALE_SMOOTH);
         lHeading.setIcon(new ImageIcon(img));
         panHeading.add(lHeading, new GridBagConstraints() {{
