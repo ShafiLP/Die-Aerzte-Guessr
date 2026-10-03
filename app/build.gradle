@@ -6,6 +6,7 @@
 
 plugins {
     id 'buildlogic.java-application-conventions'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
 repositories {
@@ -23,5 +24,10 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'org.example.app.App'
+    mainClass = 'com.aerzteguessr.Main'
+}
+
+javafx {
+    version = '21'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.media', 'javafx.swing']
 }

@@ -4,12 +4,13 @@ import java.util.List;
 
 import com.aerzteguessr.models.Song;
 import com.aerzteguessr.service.Database;
+import com.aerzteguessr.service.JavaFXStarter;
 
 /**
  * Main class
  * 
  * @author ShafiLP
- * @version 0.6.1.4
+ * @version 0.6.1.5
  */
 public class Main {
     public static void main(String[] args) {
@@ -33,6 +34,7 @@ public class Main {
         }  
         
         // Start GUI
+        JavaFXStarter.start();
         new MainMenu();
     }
 }

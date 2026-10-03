@@ -1,0 +1,15 @@
+.root {
+    -primary-brush: #000;
+
+    /* Lyric Snippets */
+    -snippets-background: #ffdddd;
+    -snippets-primary: #ff4040;
+}
+
+
+/* ========== LABELS ========== */
+
+.snippet {
+    -fx-text-fill: -primary-brush;
+    -fx-font-size: 22px;
+}

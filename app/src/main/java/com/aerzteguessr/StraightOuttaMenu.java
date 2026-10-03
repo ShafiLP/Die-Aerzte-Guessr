@@ -28,10 +28,15 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import com.aerzteguessr.game.lyricSnippets.LyricSnippetsUI;
+import com.aerzteguessr.service.Navigation;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+
+import javafx.application.Platform;
+import javafx.stage.Stage;
 
 public class StraightOuttaMenu extends Menu {
     private final Settings settings;
@@ -90,8 +95,21 @@ public class StraightOuttaMenu extends Menu {
         // Buttons
         buttons[0] = new JButton("Spielen");
         buttons[0].addActionListener(e -> {
+            /* 
             this.dispose();
             new StraightOuttaGame(settings, false, null, null);
+            */
+
+            Platform.runLater(() -> {
+                Stage stage = new Stage();
+
+                Navigation navigation = new Navigation(stage);
+                navigation.show(new LyricSnippetsUI(navigation));
+
+                stage.show();
+                stage.requestFocus();
+            });
+            
         });
         buttons[1] = new JButton("Vs. (BETA)");
         buttons[1].addActionListener(e -> {
