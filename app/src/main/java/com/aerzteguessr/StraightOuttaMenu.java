@@ -10,6 +10,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Collections;
 
 import javax.swing.BorderFactory;
@@ -28,6 +30,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import com.aerzteguessr.game.lyricSnippets.LyricSnippetsControl;
 import com.aerzteguessr.game.lyricSnippets.LyricSnippetsUI;
 import com.aerzteguessr.service.Navigation;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -94,22 +97,27 @@ public class StraightOuttaMenu extends Menu {
 
         // Buttons
         buttons[0] = new JButton("Spielen");
-        buttons[0].addActionListener(e -> {
-            /* 
-            this.dispose();
-            new StraightOuttaGame(settings, false, null, null);
-            */
+        buttons[0].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                /*
+                this.dispose();
+                new StraightOuttaGame(settings, false, null, null);
+                */
+                
+                Platform.runLater(() -> {
+                    Stage stage = new Stage();
+                    
+                    Navigation navigation = new Navigation(stage);
+                    LyricSnippetsUI gui = new LyricSnippetsUI();
+                    navigation.show(gui);
+                    
+                    stage.show();
+                    stage.requestFocus();
 
-            Platform.runLater(() -> {
-                Stage stage = new Stage();
-
-                Navigation navigation = new Navigation(stage);
-                navigation.show(new LyricSnippetsUI(navigation));
-
-                stage.show();
-                stage.requestFocus();
-            });
-            
+                    new LyricSnippetsControl(gui, navigation);
+                });
+            }
         });
         buttons[1] = new JButton("Vs. (BETA)");
         buttons[1].addActionListener(e -> {

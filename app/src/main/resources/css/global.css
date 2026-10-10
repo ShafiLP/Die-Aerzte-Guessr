@@ -1,9 +1,12 @@
 .root {
     -primary-brush: #000;
 
+    -background-brush: #fff;
+
     /* Lyric Snippets */
     -snippets-background: #ffdddd;
     -snippets-primary: #ff4040;
+    -snippets-secondary: #600000;
 }
 
 
@@ -11,5 +14,68 @@
 
 .snippet {
     -fx-text-fill: -primary-brush;
+    -fx-font-family: "Folio Extra";
     -fx-font-size: 22px;
+}
+
+.info {
+    -fx-text-fill: -primary-brush;
+    -fx-font-family: "Folio Extra";
+    -fx-font-size: 11px;
+}
+
+
+/* ========== BUTTONS ========== */
+
+.button {
+    -fx-background-color: -background-brush;
+    -fx-background-radius: 8px;
+
+    -fx-border-color: -primary-brush;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+
+    -fx-text-fill: -primary-brush;
+    -fx-font-size: 14px;
+    -fx-font-family: "Folio Extra";
+    
+    -fx-padding: 4px;
+    -fx-cursor: hand;
+}
+
+.snippets-button {
+    -fx-border-color: -snippets-secondary;
+}
+
+.snippets-button:hover {
+    -fx-border-color: -snippets-primary;
+}
+
+.snippets-button:pressed {
+    -fx-background-color: -snippets-primary;
+    -fx-border-color: -snippets-secondary;
+    -fx-text-fill: -background-brush;
+}
+
+
+/* ========== TEXT FIELDS ========== */
+
+.text-field {
+    -fx-background-color: -background-brush;
+    -fx-background-radius: 8px;
+
+    -fx-border-color: -primary-brush;
+    -fx-border-width: 2px;
+    -fx-border-radius: 8px;
+
+    -fx-text-fill: -primary-brush;
+    -fx-font-size: 14px;
+    -fx-font-family: "Folio Extra";
+
+    -fx-padding: 2px;
+    -fx-cursor: text;
+}
+
+.snippets-text-field {
+    -fx-border-color: -snippets-secondary;
 }
