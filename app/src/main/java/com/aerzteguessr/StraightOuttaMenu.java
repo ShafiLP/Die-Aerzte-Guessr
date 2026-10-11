@@ -111,6 +111,7 @@ public class StraightOuttaMenu extends Menu {
                     Navigation navigation = new Navigation(stage);
                     LyricSnippetsUI gui = new LyricSnippetsUI();
                     navigation.show(gui);
+                    navigation.setTitle("Straight Outta...");
                     
                     stage.show();
                     stage.requestFocus();

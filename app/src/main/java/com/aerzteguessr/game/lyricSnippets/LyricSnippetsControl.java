@@ -34,7 +34,7 @@ public class LyricSnippetsControl {
 
     private void insertSnippet() {
         if (snippets == null) return;
-        if (snippets.size() <= 0) endGame();
+        if (snippets.size() <= 0) gui.initializeAndShowEndingScreen(score);
     
         currentSnippet = snippets.removeLast();
 
@@ -68,11 +68,11 @@ public class LyricSnippetsControl {
         gui.removeHealthIcon();
 
         if (health <= 0) { 
-            endGame();
+            gui.initializeAndShowEndingScreen(score);
         }
     }
 
-    private void endGame() {
-        // TODO
+    public void endGame() {
+        nav.close();
     }
 }

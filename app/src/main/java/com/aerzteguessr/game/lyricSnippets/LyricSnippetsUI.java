@@ -2,10 +2,14 @@ package com.aerzteguessr.game.lyricSnippets;
 
 import com.aerzteguessr.service.GameTimer;
 import com.aerzteguessr.service.JsonParser;
+import com.aerzteguessr.service.ThemeManager;
 import com.aerzteguessr.ui.AutoCompleteTextField;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
+import javafx.css.PseudoClass;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -17,6 +21,11 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.TextAlignment;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.Window;
+import javafx.util.Duration;
 
 public class LyricSnippetsUI extends BorderPane {
 
@@ -90,10 +99,12 @@ public class LyricSnippetsUI extends BorderPane {
 
         // ===== CENTER =====
         StackPane centerBox = new StackPane();
+        centerBox.setPadding(new Insets(25, 25, 25, 25));
 
         snippet = new Label("Loading...");
         snippet.getStyleClass().add("snippet");
         snippet.setStyle("-fx-visibility: collapsed;");
+        snippet.setTextAlignment(TextAlignment.CENTER);
         snippet.setWrapText(true);
 
         centerBox.getChildren().addAll(snippet);
@@ -130,7 +141,18 @@ public class LyricSnippetsUI extends BorderPane {
 
         // ===== SHORTCUTS =====
         setOnKeyPressed(event -> {
-            if (event.getCode() == KeyCode.ENTER) submitButton.fire();
+            // Fire submit button and play visual feedback
+            if (event.getCode() == KeyCode.ENTER) {
+                submitButton.fire();
+                Platform.runLater(() -> {
+                    submitButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), true);
+                    PauseTransition pause = new PauseTransition(Duration.millis(150));
+                    pause.setOnFinished(pauseEvent -> {
+                        submitButton.pseudoClassStateChanged(PseudoClass.getPseudoClass("pressed"), false);
+                    });
+                    pause.play();
+                });
+            }
         });
     }
 
@@ -142,11 +164,11 @@ public class LyricSnippetsUI extends BorderPane {
     }
 
     public void setSnippet(String text) {
-        snippet.setText(text);
+        Platform.runLater(() -> { snippet.setText(text); });
     }
 
     public void removeHealthIcon() {
-        healthBox.getChildren().removeLast();
+        Platform.runLater(() -> { healthBox.getChildren().removeLast(); });
     }
 
     public void setScore(int score) {
@@ -170,6 +192,50 @@ public class LyricSnippetsUI extends BorderPane {
                 submitButtonPressed();
             }
         );
+    }
+
+    public void initializeAndShowEndingScreen(int score) {
+        gameTimer.stop();
+
+        Window owner = getScene().getWindow();
+        Stage endingStage = new Stage();
+        endingStage.setTitle("Game Over");
+        endingStage.initOwner(owner);
+        endingStage.initModality(Modality.APPLICATION_MODAL);
+
+        // Header
+        Label gameOverLabel = new Label("Game Over");
+        gameOverLabel.getStyleClass().add("header");
+        gameOverLabel.setTextAlignment(TextAlignment.CENTER);
+
+        // Score
+        Label summaryLabel = new Label("Score: " + score);
+        summaryLabel.setTextAlignment(TextAlignment.CENTER);
+
+        // Buttons
+        Button backButton = new Button("Zurück");
+        backButton.getStyleClass().add("snippets-button");
+        backButton.setOnAction(event -> {
+            endingStage.close();
+            control.endGame();
+        });
+
+        // Build UI
+        VBox endingBox = new VBox(10);
+        endingBox.getChildren().addAll(gameOverLabel, summaryLabel, backButton);
+
+        BorderPane endingRoot = new BorderPane();
+        endingRoot.setStyle("-fx-background-color: -snippets-background;");
+        endingRoot.setPadding(new Insets(20, 20, 20, 20));
+        endingRoot.setCenter(endingBox);
+
+        Scene endingScene = new Scene(endingRoot);
+        ThemeManager.getInstance().registerScene(endingScene);
+
+        endingStage.setScene(endingScene);
+        endingStage.setResizable(false);
+        endingStage.sizeToScene();
+        endingStage.showAndWait();
     }
 
     private Region getHorizontalSpacer() {

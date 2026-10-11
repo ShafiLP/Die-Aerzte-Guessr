@@ -12,10 +12,10 @@
 
 /* ========== LABELS ========== */
 
-.snippet {
+.label {
     -fx-text-fill: -primary-brush;
     -fx-font-family: "Folio Extra";
-    -fx-font-size: 22px;
+    -fx-font-size: 13px;
 }
 
 .info {
@@ -24,6 +24,18 @@
     -fx-font-size: 11px;
 }
 
+.header {
+    -fx-text-fill: -primary-brush;
+    -fx-font-family: "Folio Extra";
+    -fx-font-size: 17px;
+}
+
+
+.snippet {
+    -fx-text-fill: -primary-brush;
+    -fx-font-family: "Folio Extra";
+    -fx-font-size: 22px;
+}
 
 /* ========== BUTTONS ========== */
 

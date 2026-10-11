@@ -26,4 +26,8 @@ public class Navigation {
     public void setTitle(String title) {
         stage.setTitle(title);
     }
+
+    public void close() {
+        stage.close();
+    }
 }
